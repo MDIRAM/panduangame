@@ -20,17 +20,28 @@
 
         <aside class="auth-card">
             <h2>Sign in</h2>
-            <p class="auth-note">Halaman ini hanya desain. Belum terhubung ke database auth.</p>
-            <form class="auth-form" action="#" method="POST">
+            <p class="auth-note">Masuk dengan email dan password yang sudah terdaftar.</p>
+            <form class="auth-form" action="{{ route('login.store') }}" method="POST">
+                @csrf
                 <div>
                     <label for="email">Email address</label>
-                    <input id="email" name="email" type="email" placeholder="you@example.com" />
+                    <input id="email" name="email" type="email" value="{{ old('email') }}" placeholder="you@example.com" required autofocus />
+                    @error('email')
+                        <span class="auth-error">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="********" />
+                    <input id="password" name="password" type="password" placeholder="********" required />
+                    @error('password')
+                        <span class="auth-error">{{ $message }}</span>
+                    @enderror
                 </div>
-                <button type="button">Log in</button>
+                <label class="auth-check" for="remember">
+                    <input id="remember" name="remember" type="checkbox" value="1">
+                    <span>Remember me</span>
+                </label>
+                <button type="submit">Log in</button>
             </form>
             <div class="auth-foot">
                 Belum punya akun? <a href="/register">Daftar sekarang</a>

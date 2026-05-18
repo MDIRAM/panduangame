@@ -10,8 +10,8 @@
     <div class="dashboard-shell auth-shell">
         <section class="dashboard-panel">
             <span class="hero-chip">Dashboard</span>
-            <h1>Welcome back, explorer. Your next walkthrough starts here.</h1>
-            <p>Halaman dashboard menampilkan ringkasan review populer, progres game, dan panduan terbaru. Ini masih desain UI, belum terhubung ke login database.</p>
+            <h1>Welcome back, {{ auth()->user()->name }}. Your next walkthrough starts here.</h1>
+            <p>Halaman dashboard ini sudah terhubung ke akun login kamu. Dari sini kamu bisa lanjut browsing panduan dan nanti menyimpan progres walkthrough.</p>
             <div class="dashboard-stats">
                 <div class="dashboard-stat">
                     <strong>62</strong>
@@ -53,6 +53,10 @@
             <a href="/" class="dashboard-link">
                 Continue browsing guides
             </a>
+            <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                @csrf
+                <button type="submit">Log out</button>
+            </form>
         </aside>
     </div>
 </body>

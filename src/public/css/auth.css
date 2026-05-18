@@ -126,6 +126,29 @@ body.auth-page {
   color: rgba(226, 233, 255, 0.55);
 }
 
+.auth-error {
+  display: block;
+  margin-top: 0.45rem;
+  color: #ff9b8f;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.auth-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  color: #c4c9dd;
+  font-weight: 600;
+}
+
+.auth-check input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #ff8d5f;
+}
+
 .auth-form button {
   margin-top: 0.5rem;
   border: none;
@@ -224,6 +247,20 @@ body.auth-page {
 .dashboard-link svg {
   width: 1rem;
   height: 1rem;
+}
+
+.logout-form {
+  margin-top: 1.25rem;
+}
+
+.logout-form button {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #e9edf7;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.9rem 1.25rem;
 }
 
 @media (max-width: 960px) {

@@ -11,160 +11,123 @@
 </head>
 <body class="welcome-page" style="background: radial-gradient(circle at top left, #0a1222 0%, #101a36 35%, #070b15 100%); background-color: #070b15;">
     <div class="welcome-shell">
-        <div class="welcome-layout">
-            <main class="welcome-card">
-                <header class="welcome-header">
+        <div class="guide-layout">
+                <aside class="guide-sidebar">
+                <a href="/" class="guide-logo" aria-label="PanduanGame home">
+                    <img src="{{ asset('coverimg/logogamepanduan.png') }}" alt="PanduanGame logo">
+                </a>
+
+                <nav class="guide-nav" aria-label="Main navigation">
+                    <a href="/" class="active">Home</a>
+                    <a href="#guides">Guides</a>
+                    <a href="{{ route('videos.index') }}">Videos</a>
+                    <a href="/login">Login</a>
+                    <a href="/dashboard">Dashboard</a>
+                </nav>
+            </aside>
+
+            <main class="guide-main">
+                <header class="guide-hero">
                     <div>
                         <p class="brand-label">Walkthrough Game Hub</p>
-                        <h1>Finish your story/game with a focused walkthrough.</h1>
+                        <h1>Find the fastest route through your next game.</h1>
+                        <p class="welcome-intro">Cari rute story, strategi boss, dan panduan tamat untuk game favoritmu tanpa harus buka banyak tab.</p>
                     </div>
                     <div class="welcome-actions">
+                        <a href="#guides" class="button primary">Browse guides</a>
                         <a href="/login" class="button secondary">Log in</a>
-                        <a href="/register" class="button primary">Register</a>
                     </div>
                 </header>
 
-                <p class="welcome-intro">Panduan multi-game untuk story, boss, dan misi penting.</p>
-
-                <div class="hero-grid">
-                    <article class="hero-card">
-                        <span class="hero-tag">Feature</span>
-                        <strong>Fast route</strong>
-                        <p>Guide step-by-step untuk menyelesaikan cerita tanpa langkah yang sia-sia.</p>
-                    </article>
-                    <article class="hero-card hero-card-alt">
-                        <span class="hero-tag">Focus</span>
-                        <strong>Story first</strong>
-                        <p>Sistem panduan jatuh ke story dan misi utama, bukan sekedar target trophy.</p>
-                    </article>
-                </div>
-
-                <section class="intro-panel">
-                    <h2>Why this hub works</h2>
-                    <p>Halaman ini dirancang untuk pemain yang ingin tamat dengan cepat dan jelas. Kami berikan rute inti, boss strategy, dan ringkasan misi tanpa campur achievement 100%.</p>
+                <section class="spotlight-strip" aria-label="Featured guide" data-spotlight style="--spotlight-image: url('{{ asset('coverimg/EldenRing.png') }}');">
+                    <div>
+                        <span class="hero-tag" data-spotlight-label>Featured Route</span>
+                        <h2 data-spotlight-title>Elden Ring: Road to Endgame</h2>
+                        <p data-spotlight-copy>Rute utama menuju final boss, item penting, dan checkpoint yang wajib kamu ambil dulu.</p>
+                    </div>
+                    <a href="{{ route('games.show', ['slug' => 'elden-ring']) }}" data-spotlight-link>Open guide</a>
                 </section>
 
-                <div class="feature-grid">
-                    <article class="feature-card">
-                        <h3>Clear route</h3>
-                        <p>Tiap guide dipisah jadi bagian utama agar gampang diikuti.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Quick overview</h3>
-                        <p>Ringkas, langsung ke inti, dan mudah dipahami untuk semua level pemain.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Updated often</h3>
-                        <p>Konten dapat di-update kapan saja sesuai patch baru atau perubahan mekanik.</p>
-                    </article>
-                </div>
+                <section class="guide-section" id="guides">
+                    <div class="section-heading">
+                        <div>
+                            <p class="section-label">Guides library</p>
+                            <h2>Popular game walkthroughs</h2>
+                        </div>
+                        <span>3 available titles</span>
+                    </div>
 
-                <div class="mt-10">
-                    <div class="mb-5">
-                        <p class="text-xs uppercase tracking-[0.3em] text-[#8f8d88] dark:text-[#a3a29f]">Game tersedia</p>
-                        <h3 class="mt-3 text-2xl font-semibold text-[#1b1b18] dark:text-[#f7f5f0]">6 judul siap panduan</h3>
-                    </div>
-                    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                        <a href="{{ route('games.show', ['slug' => 'elden-ring']) }}" class="game-card-link">
-                            <article class="rounded-[28px] overflow-hidden border border-[#e6e4de] dark:border-[#2b2b2b] bg-[#f7f5f2] dark:bg-[#191919] shadow-sm game-cover-card elden-cover">
-                                <div class="h-40 bg-slate-300 dark:bg-slate-800 flex items-end p-4" style="background-image: url('{{ route('cover', ['slug' => 'elden-ring']) }}'); background-size: cover; background-position: center;">
-                                    <span class="text-lg font-semibold text-[#1b1b18] dark:text-[#f6f5f0]">Elden Ring</span>
-                                </div>
-                                <div class="px-5 py-4">
-                                    <p class="text-sm text-[#6d6b67] dark:text-[#b8b5ae]">Walkthrough story, boss, dan rute inti.</p>
-                                </div>
-                            </article>
+                    <div class="game-guide-grid">
+                        <a href="{{ route('games.show', ['slug' => 'elden-ring']) }}" class="guide-game-card">
+                            <img src="{{ asset('coverimg/EldenRing.png') }}" alt="Elden Ring guide cover">
+                            <strong>Elden Ring Guide</strong>
+                            <span>Main Quest Walkthrough</span>
                         </a>
-                        <a href="{{ route('games.show', ['slug' => 'dark-souls-1']) }}" class="game-card-link">
-                            <article class="rounded-[28px] overflow-hidden border border-[#e6e4de] dark:border-[#2b2b2b] bg-[#f7f5f2] dark:bg-[#191919] shadow-sm game-cover-card dark-souls-cover">
-                                <div class="h-40 bg-slate-300 dark:bg-slate-800 flex items-end p-4">
-                                    <span class="text-lg font-semibold text-[#1b1b18] dark:text-[#f6f5f0]">Dark Souls 1</span>
-                                </div>
-                                <div class="px-5 py-4">
-                                    <p class="text-sm text-[#6d6b67] dark:text-[#b8b5ae]">Panduan story hingga Lord Souls.</p>
-                                </div>
-                            </article>
+                        <a href="{{ route('games.show', ['slug' => 'dark-souls-2']) }}" class="guide-game-card">
+                            <img src="{{ asset('coverimg/Dark_Souls_2.jpg') }}" alt="Dark Souls 2 guide cover">
+                            <strong>Dark Souls 2 Guide</strong>
+                            <span>Drangleic Story Route</span>
                         </a>
-                        <a href="{{ route('games.show', ['slug' => 'dark-souls-2']) }}" class="game-card-link">
-                            <article class="rounded-[28px] overflow-hidden border border-[#e6e4de] dark:border-[#2b2b2b] bg-[#f7f5f2] dark:bg-[#191919] shadow-sm game-cover-card dark-souls-cover">
-                                <div class="h-40 bg-slate-300 dark:bg-slate-800 flex items-end p-4">
-                                    <span class="text-lg font-semibold text-[#1b1b18] dark:text-[#f6f5f0]">Dark Souls 2</span>
-                                </div>
-                                <div class="px-5 py-4">
-                                    <p class="text-sm text-[#6d6b67] dark:text-[#b8b5ae]">Rute clear story dengan boss utama.</p>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="{{ route('games.show', ['slug' => 'dark-souls-3']) }}" class="game-card-link">
-                            <article class="rounded-[28px] overflow-hidden border border-[#e6e4de] dark:border-[#2b2b2b] bg-[#f7f5f2] dark:bg-[#191919] shadow-sm game-cover-card dark-souls-cover">
-                                <div class="h-40 bg-slate-300 dark:bg-slate-800 flex items-end p-4">
-                                    <span class="text-lg font-semibold text-[#1b1b18] dark:text-[#f6f5f0]">Dark Souls 3</span>
-                                </div>
-                                <div class="px-5 py-4">
-                                    <p class="text-sm text-[#6d6b67] dark:text-[#b8b5ae]">Panduan ending ke Ashes dan The Ringed City.</p>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="{{ route('games.show', ['slug' => 'persona-3']) }}" class="game-card-link">
-                            <article class="rounded-[28px] overflow-hidden border border-[#e6e4de] dark:border-[#2b2b2b] bg-[#f7f5f2] dark:bg-[#191919] shadow-sm game-cover-card persona3-cover">
-                                <div class="game-cover-figure" style="background-image: url('{{ route('cover', ['slug' => 'persona-3']) }}'); background-size: cover; background-position: center;">
-                                    <div class="game-cover-badge">Persona 3</div>
-                                </div>
-                                <div class="px-5 py-4">
-                                    <p class="text-sm text-[#6d6b67] dark:text-[#b8b5ae]">Walkthrough cerita utama dan social link.</p>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="{{ route('games.show', ['slug' => 'persona-4']) }}" class="game-card-link">
-                            <article class="rounded-[28px] overflow-hidden border border-[#e6e4de] dark:border-[#2b2b2b] bg-[#f7f5f2] dark:bg-[#191919] shadow-sm game-cover-card persona4-cover">
-                                <div class="h-40 bg-slate-300 dark:bg-slate-800 flex items-end p-4" style="background-image: url('{{ route('cover', ['slug' => 'persona-4']) }}'); background-size: cover; background-position: center;">
-                                    <span class="text-lg font-semibold text-[#1b1b18] dark:text-[#f6f5f0]">Persona 4</span>
-                                </div>
-                                <div class="px-5 py-4">
-                                    <p class="text-sm text-[#6d6b67] dark:text-[#b8b5ae]">Panduan tamat kasus misteri dan True Ending.</p>
-                                </div>
-                            </article>
+                        <a href="{{ route('games.show', ['slug' => 'persona-3']) }}" class="guide-game-card">
+                            <img src="{{ route('cover', ['slug' => 'persona-3']) }}" alt="Persona 3 guide cover">
+                            <strong>Persona 3 Guide</strong>
+                            <span>Social Link Schedule</span>
                         </a>
                     </div>
-                </div>
+                </section>
+
             </main>
-
-            <aside class="welcome-aside">
-                <div class="aside-block">
-                    <p class="section-label">Popular reviews</p>
-                    <ul class="review-list">
-                        <li>
-                            <strong>Horizon: Finish Main Story Fast</strong>
-                            <span>Best route for story-driven players.</span>
-                        </li>
-                        <li>
-                            <strong>The Last of Us Part II — Boss Guide</strong>
-                            <span>Langkah jelas untuk pertempuran paling sulit.</span>
-                        </li>
-                        <li>
-                            <strong>Elden Ring — Main Quest</strong>
-                            <span>Rute optimal sampai ke ending tanpa side quest berat.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="aside-block stats-block">
-                    <div>
-                        <span>6</span>
-                        <p>Game walkthroughs</p>
-                    </div>
-                    <div>
-                        <span>6</span>
-                        <p>Available titles</p>
-                    </div>
-                </div>
-
-                <div class="aside-block note-block">
-                    <p class="note-title">Note</p>
-                    <p>Halaman ini sudah siap jadi tampilan utama. Nanti bisa dihubungkan ke login, register, dan dashboard sesuai kebutuhan.</p>
-                </div>
-            </aside>
         </div>
     </div>
+    <script>
+        const spotlight = document.querySelector('[data-spotlight]');
+
+        if (spotlight) {
+            const title = spotlight.querySelector('[data-spotlight-title]');
+            const copy = spotlight.querySelector('[data-spotlight-copy]');
+            const link = spotlight.querySelector('[data-spotlight-link]');
+            const label = spotlight.querySelector('[data-spotlight-label]');
+            const slides = [
+                {
+                    label: 'Featured Route',
+                    title: 'Elden Ring: Road to Endgame',
+                    copy: 'Rute utama menuju final boss, item penting, dan checkpoint yang wajib kamu ambil dulu.',
+                    href: "{{ route('games.show', ['slug' => 'elden-ring']) }}",
+                    image: "{{ asset('coverimg/EldenRing.png') }}",
+                },
+                {
+                    label: 'Social Link Route',
+                    title: 'Persona 3: Tartarus & Social Link',
+                    copy: 'Atur jadwal harian, prioritas Social Link, dan progres Tartarus supaya playthrough lebih rapi.',
+                    href: "{{ route('games.show', ['slug' => 'persona-3']) }}",
+                    image: "{{ asset('coverimg/Persona_3.webp') }}",
+                },
+                {
+                    label: 'Drangleic Route',
+                    title: 'Dark Souls 2: Story Progress',
+                    copy: 'Ikuti urutan area, boss utama, dan shortcut penting untuk menembus Drangleic sampai endgame.',
+                    href: "{{ route('games.show', ['slug' => 'dark-souls-2']) }}",
+                    image: "{{ asset('coverimg/Dark_Souls_2.jpg') }}",
+                },
+            ];
+            let activeSlide = 0;
+
+            window.setInterval(() => {
+                activeSlide = (activeSlide + 1) % slides.length;
+                const slide = slides[activeSlide];
+
+                spotlight.classList.add('is-changing');
+
+                window.setTimeout(() => {
+                    label.textContent = slide.label;
+                    title.textContent = slide.title;
+                    copy.textContent = slide.copy;
+                    link.href = slide.href;
+                    spotlight.style.setProperty('--spotlight-image', `url('${slide.image}')`);
+                    spotlight.classList.remove('is-changing');
+                }, 420);
+            }, 4200);
+        }
+    </script>
 </body>
 </html>

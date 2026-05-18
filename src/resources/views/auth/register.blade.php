@@ -20,25 +20,35 @@
 
         <aside class="auth-card">
             <h2>Create account</h2>
-            <p class="auth-note">Ini hanya halaman UI. Belum ada koneksi login / register DB.</p>
-            <form class="auth-form" action="#" method="POST">
+            <p class="auth-note">Buat akun baru untuk masuk ke dashboard walkthrough.</p>
+            <form class="auth-form" action="{{ route('register.store') }}" method="POST">
+                @csrf
                 <div>
                     <label for="name">Full name</label>
-                    <input id="name" name="name" type="text" placeholder="Nama lengkap" />
+                    <input id="name" name="name" type="text" value="{{ old('name') }}" placeholder="Nama lengkap" required autofocus />
+                    @error('name')
+                        <span class="auth-error">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label for="email">Email address</label>
-                    <input id="email" name="email" type="email" placeholder="you@example.com" />
+                    <input id="email" name="email" type="email" value="{{ old('email') }}" placeholder="you@example.com" required />
+                    @error('email')
+                        <span class="auth-error">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="********" />
+                    <input id="password" name="password" type="password" placeholder="Minimal 8 karakter" required />
+                    @error('password')
+                        <span class="auth-error">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div>
                     <label for="password_confirmation">Confirm password</label>
-                    <input id="password_confirmation" name="password_confirmation" type="password" placeholder="********" />
+                    <input id="password_confirmation" name="password_confirmation" type="password" placeholder="Ulangi password" required />
                 </div>
-                <button type="button">Create account</button>
+                <button type="submit">Create account</button>
             </form>
             <div class="auth-foot">
                 Sudah punya akun? <a href="/login">Masuk di sini</a>
