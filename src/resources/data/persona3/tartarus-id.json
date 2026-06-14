@@ -1,0 +1,147 @@
+[
+  {
+    "order": 1,
+    "title": "Menuju Tartarus",
+    "content": "Setelah bagian Prologue selesai, misi utama berikutnya langsung membawa tim ke Tartarus untuk pertama kalinya."
+  },
+  {
+    "order": 2,
+    "title": "Menuju Tartarus",
+    "content": "Bagian ini menjadi pengenalan awal untuk eksplorasi Tartarus, mulai dari cara bergerak di dalam tower sampai mekanik dasar yang perlu kamu pahami."
+  },
+  {
+    "order": 3,
+    "title": "Briefing dari Akihiko",
+    "content": "Setelah resmi bergabung dengan S.E.E.S., Makoto menghabiskan hari berikutnya sampai malam. Yukari kemudian membangunkannya karena Akihiko meminta semua anggota berkumpul di bawah."
+  },
+  {
+    "order": 4,
+    "title": "Junpei Bergabung dengan Tim",
+    "content": "Turun ke lantai bawah untuk menemui Junpei, yang sekarang juga tinggal di dorm setelah kekuatan Persona-nya diketahui. Dengan party kecil yang sudah terbentuk, Akihiko mengajak semuanya menuju Tartarus, tower misterius yang dipenuhi Shadow."
+  },
+  {
+    "order": 5,
+    "title": "Rencana Infiltrasi",
+    "content": "Hari berikutnya berjalan singkat di sekolah sebelum tim kembali berkumpul di office lantai empat. Ikutsuki menjelaskan bahwa Tartarus adalah sarang Shadow dan mungkin menjadi kunci untuk mengakhiri Dark Hour."
+  },
+  {
+    "order": 6,
+    "title": "Tartarus Muncul",
+    "content": "Tim menuju gedung sekolah dan menyaksikan Dark Hour mengubahnya menjadi tower raksasa. Akihiko dan Mitsuru tetap di area bawah, sementara Makoto, Junpei, dan Yukari diperintahkan naik untuk melakukan eksplorasi."
+  },
+  {
+    "order": 7,
+    "title": "Kembali ke Velvet Room",
+    "content": "Sebelum naik, periksa pintu biru misterius di entrance. Velvet Key akan bereaksi dan membawa Makoto masuk ke Velvet Room secara otomatis."
+  },
+  {
+    "order": 8,
+    "title": "Kekuatan Wild Card",
+    "content": "Igor menjelaskan bahwa Makoto memiliki kemampuan khusus untuk memakai lebih dari satu Persona. Setelah percakapan selesai, kamu kembali ke Tartarus dan siap memulai pendakian."
+  },
+  {
+    "order": 9,
+    "title": "Tartarus Basics: Save",
+    "content": "Kamu tidak bisa save sembarangan di tengah floor. Save hanya tersedia saat kembali ke area aman tempat party bisa diatur. Selalu perhatikan HP dan SP, lalu pulang kalau kondisi tim mulai tidak aman."
+  },
+  {
+    "order": 10,
+    "title": "Tartarus Basics: Floor dan Checkpoint",
+    "content": "Tartarus terbagi menjadi beberapa zone dengan banyak floor. Setelah naik beberapa floor, biasanya ada boss room yang juga berfungsi sebagai checkpoint. Giant Teleporter di sana bisa dipakai untuk kembali langsung dari lobby."
+  },
+  {
+    "order": 11,
+    "title": "Tartarus Basics: Layout Acak",
+    "content": "Layout Tartarus dibuat secara random dan berubah setiap kali kamu keluar lalu masuk lagi. Jangan terlalu mengandalkan hafalan jalan; selalu siapkan rute kembali kalau encounter terasa terlalu berat."
+  },
+  {
+    "order": 12,
+    "title": "Kunjungi Tartarus Secara Rutin",
+    "content": "Usahakan datang ke Tartarus saat punya evening kosong. Selain dibutuhkan untuk progress cerita, grinding secukupnya akan membuat party lebih siap menghadapi story mission pada awal setiap bulan."
+  },
+  {
+    "order": 13,
+    "title": "Mulai Tutorial",
+    "content": "Save game, lalu naik melalui tangga di tengah lobby Tartarus. Eksplorasi pertama ini masih berupa tutorial yang dipandu oleh cerita."
+  },
+  {
+    "order": 14,
+    "title": "Bersihkan Floor Pertama",
+    "content": "Masuk melalui doorway untuk mendengar penjelasan Mitsuru. Objective pertamamu adalah mengalahkan semua Shadow di floor ini. Shadow kecil yang berkeliaran mewakili enemy encounter."
+  },
+  {
+    "order": 15,
+    "title": "Battle Tutorial",
+    "content": "Cari Shadow pertama. Mitsuru akan mengambil alih instruksi dan mengulang dasar combat yang sebelumnya sempat dikenalkan di Prologue."
+  },
+  {
+    "order": 16,
+    "title": "Ikuti Perintah Mitsuru",
+    "content": "Ikuti command yang diberikan. Makoto menyerang lebih dulu, lalu Junpei menyelesaikan battle dengan Persona-nya. Setelah menang, lanjutkan jalan untuk memicu pertarungan kedua."
+  },
+  {
+    "order": 17,
+    "title": "Pelajari Weakness",
+    "content": "Setiap musuh bisa memiliki elemental weakness. Menyerang weakness akan membuat target Knock Down dan memberi karakter tersebut satu giliran tambahan."
+  },
+  {
+    "order": 18,
+    "title": "Siapkan All-Out Attack",
+    "content": "Kalau semua musuh sudah Knock Down, party dapat memakai All-Out Attack untuk memberi damage besar ke seluruh target. Karena itu, mencari weakness biasanya jauh lebih efektif daripada menyerang asal-asalan."
+  },
+  {
+    "order": 19,
+    "title": "Gunakan Agi dan Ambil Chest",
+    "content": "Gunakan serangan Fire untuk mengenai weakness dua musuh berikutnya. Setelah battle selesai, lanjutkan sampai menemukan chest. Chest di Tartarus bisa berisi uang, consumable, atau equipment."
+  },
+  {
+    "order": 20,
+    "title": "Mendekati Shadow",
+    "content": "Setelah mengambil chest, cari Shadow berikutnya. Cara kamu menyentuh atau menyerang Shadow di map akan menentukan kondisi awal battle, jadi posisi saat memulai encounter cukup penting."
+  },
+  {
+    "order": 21,
+    "title": "Ambush dari Belakang",
+    "content": "Dekati Shadow dari belakang lalu serang untuk mendapatkan advantage. Di battle ini, gunakan Agi milik Makoto sampai semua musuh Knock Down."
+  },
+  {
+    "order": 22,
+    "title": "All-Out Attack Pertama",
+    "content": "Saat prompt muncul, tekan X / A untuk menjalankan All-Out Attack. Seluruh party akan menyerang bersama dan memberi damage besar ke semua musuh."
+  },
+  {
+    "order": 23,
+    "title": "Shuffle Time",
+    "content": "Setelah battle, kamu mendapat Shuffle Time pertama. Reward-nya bisa berupa Persona baru, EXP tambahan, recovery, uang, atau Skill Card. Tutorial ini otomatis memberikan Persona Apsaras."
+  },
+  {
+    "order": 24,
+    "title": "Battle Tanpa Banyak Arahan",
+    "content": "Lanjutkan eksplorasi sampai menemukan musuh baru. Kali ini Mitsuru membiarkanmu menentukan strategi sendiri. Serang dari belakang agar battle dimulai dengan advantage."
+  },
+  {
+    "order": 25,
+    "title": "Ganti Persona",
+    "content": "Setelah flashback singkat bersama Igor, kamu belajar mengganti Persona. Buka Persona menu, tekan R1 / RB untuk memilih Apsaras, lalu gunakan Bufu agar musuh terkena Ice dan Knock Down. Akhiri dengan All-Out Attack."
+  },
+  {
+    "order": 26,
+    "title": "Cari Teleporter",
+    "content": "Setelah battle dan Shuffle Time berikutnya, Mitsuru meminta tim mengakhiri eksplorasi. Ikuti arah menuju teleporter, yang dapat membawa party kembali ke entrance Tartarus."
+  },
+  {
+    "order": 27,
+    "title": "Buka Locked Chest",
+    "content": "Dalam perjalanan ke teleporter, kamu akan menemukan locked chest. Chest jenis ini membutuhkan Twilight Fragment. Gunakan fragment yang sebelumnya ditemukan Makoto di kamar."
+  },
+  {
+    "order": 28,
+    "title": "Kembali ke Entrance",
+    "content": "Ambil Snuff Soul dari dalam chest, lalu lanjutkan sampai teleporter. Setelah kembali ke entrance, bicara dengan Mitsuru dan anggota lain untuk menaikkan S.E.E.S. Social Link serta Fool Arcana. Keluar dari Tartarus untuk mengakhiri hari."
+  },
+  {
+    "order": 29,
+    "title": "Pastikan Tidak Ada Loot Tertinggal",
+    "content": "Karena Tartarus procedurally generated, chest yang belum diambil akan hilang saat kamu keluar. Ketika datang lagi, layout, Shadow, dan chest akan dibuat ulang. Pastikan semua urusan selesai sebelum pulang."
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "order": 1,
+    "title": "Operasi Full Moon Bulan Agustus",
+    "content": "Pada 6 Agustus, Makoto memilih beristirahat di rumah untuk menyimpan tenaga sebelum operasi dimulai. Misi malam ini membawa S.E.E.S. menghadapi dua Shadow yang bergabung menjadi satu boss.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c5/Persona_3_Reload_20240130012703.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Target Operasi",
+    "content": "Bagian ini mencakup perjalanan menuju lokasi Shadow, persiapan party, dan strategi lengkap untuk mengalahkan Justice serta Chariot."
+  },
+  {
+    "order": 3,
+    "title": "Briefing S.E.E.S.",
+    "content": "Operasi dimulai dari meeting room S.E.E.S. Fuuka mendeteksi Shadow berada jauh di bawah tanah, sehingga tim menduga target bersembunyi di sebuah shelter militer bawah tanah.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/0/0d/Persona_3_Reload_20240130010716.jpg"
+  },
+  {
+    "order": 4,
+    "title": "Terjebak oleh STREGA",
+    "content": "Setelah tiba di shelter, tim bertemu kelompok bernama STREGA. Ikuti percakapannya sampai mereka menjebak seluruh anggota S.E.E.S. di dalam shelter.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/8/83/Persona_3_Reload_20240130012157.jpg"
+  },
+  {
+    "order": 5,
+    "title": "Pilih Party",
+    "content": "Gunakan Aigis dan Yukari, lalu pilih Mitsuru atau Akihiko sesuai siapa yang levelnya lebih tinggi. Mitsuru dan Akihiko sama-sama punya skill debuff yang berguna, tetapi susunan Aigis, Yukari, dan Mitsuru sangat cocok untuk strategi di bawah.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/bd/Persona_3_Reload_20240130012205.jpg"
+  },
+  {
+    "order": 6,
+    "title": "Jelajahi Tunnel",
+    "content": "Masuk melalui pintu di seberang shutter tempat tim masuk. Jalur tunnel ini linear dan tidak memiliki musuh, jadi ambil semua item yang ditemukan, termasuk Revival Bead, consumable, dan barang yang bisa dijual."
+  },
+  {
+    "order": 7,
+    "title": "Persiapan Sebelum Boss",
+    "content": "Di ujung tunnel kamu akan melihat arena besar. Sebelum masuk, pasang armor atau accessory yang membantu resist, evade, atau counter physical attack karena sebagian besar serangan boss bersifat physical."
+  },
+  {
+    "order": 8,
+    "title": "Justice dan Chariot - Phase One",
+    "content": "Boss pertama kali muncul sebagai tank besar. Dalam bentuk gabungan ini ia tidak meniadakan serangan, tetapi memiliki resistance terhadap seluruh physical dan magic attack.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/5a/Persona_3_Reload_20240130012717.jpg"
+  },
+  {
+    "order": 9,
+    "title": "Hilangkan Resistance Boss",
+    "content": "Jangan buru-buru menghabiskan SP dengan serangan besar. Mulai phase pertama dengan skill yang menghapus resistance elemen serta debuff agar damage party menjadi lebih efektif.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/57/Persona_3_Reload_20240130013026.jpg"
+  },
+  {
+    "order": 10,
+    "title": "Gunakan Null Wind dan Ice Resistance",
+    "content": "Pada giliran pertama, gunakan Null Wind Resistance milik Yukari dan Null Ice Resistance milik Mitsuru. Pada giliran berikutnya, pakai Rakunda untuk menurunkan defense boss dan Sukunda untuk menurunkan accuracy-nya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/3/34/Persona_3_Reload_20240130013105.jpg"
+  },
+  {
+    "order": 11,
+    "title": "Serang dengan Wind dan Ice",
+    "content": "Setelah resistance dan defense boss turun, serang menggunakan Wind dari Yukari serta Ice dari Mitsuru dan Makoto. Aigis tetap memakai physical attack; damage-nya lebih kecil, tetapi ia cukup tahan terhadap serangan tank.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/45/Persona_3_Reload_20240130020404.jpg"
+  },
+  {
+    "order": 12,
+    "title": "Guard Saat Satu Anggota Ditarget",
+    "content": "Jika muncul peringatan bahwa tank sedang membidik satu anggota party, gunakan Guard pada karakter tersebut. Serangan berikutnya sangat kuat dan bisa langsung menjatuhkan target yang tidak bertahan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/aa/Persona_3_Reload_20240130015826.jpg"
+  },
+  {
+    "order": 13,
+    "title": "Guard Saat Grenade Disiapkan",
+    "content": "Ketika muncul peringatan bahwa tank sedang menyiapkan grenade, perintahkan seluruh anggota party untuk Guard. Serangan selanjutnya mengenai satu tim sekaligus."
+  },
+  {
+    "order": 14,
+    "title": "Boss Terpisah - Phase Two",
+    "content": "Setelah sekitar seperempat HP tank berkurang, boss terpisah menjadi Justice dan Chariot. Justice adalah turret yang terbang dan memakai Light magic, sedangkan Chariot berdiri sebagai badan tank dengan physical attack yang kuat.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/5e/Persona_3_Justice_and_Chariot_weaknesses.jpg"
+  },
+  {
+    "order": 15,
+    "title": "Perhatikan Resistance Keduanya",
+    "content": "Saat terpisah, Justice hanya tahan terhadap magic sehingga lebih mudah dilukai dengan physical attack. Chariot tahan terhadap physical attack, tetapi menerima magic damage dengan normal.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/ec/Persona_3_Reload_20240130013401.jpg"
+  },
+  {
+    "order": 16,
+    "title": "Turunkan HP Secara Seimbang",
+    "content": "Justice dan Chariot dapat menghidupkan rekannya jika salah satunya tumbang lebih dulu. Kurangi kedua health bar secara seimbang, lalu kalahkan keduanya dalam jarak giliran yang dekat.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/8/83/Persona_3_Reload_20240130014613.jpg"
+  },
+  {
+    "order": 17,
+    "title": "Mitsuru dan Yukari Fokus ke Chariot",
+    "content": "Arahkan Ice magic Mitsuru dan Wind magic Yukari ke Chariot. Selipkan Rakunda dan Sukunda agar defense serta accuracy target tetap rendah.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/2d/Persona_3_Reload_20240130013737.jpg"
+  },
+  {
+    "order": 18,
+    "title": "Aigis Fokus ke Justice",
+    "content": "Gunakan physical attack Aigis untuk menekan Justice. Makoto bisa membantu target yang HP-nya masih tinggi sambil memakai Marakukaja, Rebellion, Tarukaja, atau debuff dari Persona miliknya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/6b/Persona_3_Reload_20240130014622.jpg"
+  },
+  {
+    "order": 19,
+    "title": "Jadikan Yukari Healer Saat Dibutuhkan",
+    "content": "Jika party menerima damage besar, hentikan serangan Yukari sementara dan gunakan Media atau Diarama. Jangan biarkan HP menipis karena boss bisa kembali menyerang sebelum party sempat pulih.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/7c/Persona_3_Reload_20240130015755.jpg"
+  },
+  {
+    "order": 20,
+    "title": "Tank Bergabung Kembali",
+    "content": "Setelah menerima cukup damage, Justice dan Chariot bergabung lagi. Ulangi strategi phase one: hapus Wind dan Ice resistance, pasang debuff, lalu Guard sesuai peringatan target yang muncul.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/69/Persona_3_Reload_20240130013354.jpg"
+  },
+  {
+    "order": 21,
+    "title": "Simpan Theurgy untuk Bentuk Gabungan",
+    "content": "Pertarungan panjang ini membuat Theurgy Gauge cepat terisi. Gunakan Theurgy ketika tank sedang bergabung untuk menghemat SP dan mempercepat boss kembali ke bentuk terpisah.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d8/Persona_3_Reload_20240130020942.jpg"
+  },
+  {
+    "order": 22,
+    "title": "Kalahkan Justice dan Chariot",
+    "content": "Saat keduanya terpisah lagi, ulangi pembagian target: Mitsuru dan Yukari menyerang Chariot, Aigis menyerang Justice, sedangkan Makoto menjaga buff dan membantu menyeimbangkan HP kedua boss. Pulihkan party lalu jatuhkan keduanya untuk menyelesaikan operasi Agustus.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/28/Persona_3_Reload_20240130022111.jpg"
+  }
+]

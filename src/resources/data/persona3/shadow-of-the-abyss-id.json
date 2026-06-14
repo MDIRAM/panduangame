@@ -1,0 +1,41 @@
+[
+  {
+    "order": 1,
+    "title": "Medical Check-up S.E.E.S.",
+    "content": "Pada 14 Agustus, seluruh anggota S.E.E.S. menjalani medical check-up. Pemeriksaan Makoto mendapat giliran terakhir dan berlangsung lebih lama, sehingga ia baru pulang ketika Dark Hour sudah dimulai.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/6e/Persona_3_Reload_20240130164911.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Shadow Masuk ke Port Island",
+    "content": "Setelah Summer School dan pemeriksaan selesai, Makoto berjalan pulang sendirian. Di tengah perjalanan, Fuuka memberi peringatan bahwa ada Shadow yang berhasil masuk ke area Port Island.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/27/Persona_3_Reload_20240130164729.jpg"
+  },
+  {
+    "order": 3,
+    "title": "Bertemu Takaya",
+    "content": "Makoto segera menuju lokasi yang ditunjukkan Fuuka. Di sana ia bertemu Takaya, pemimpin STREGA. Untuk sementara, keduanya sepakat bekerja sama menghadapi Shadow of the Abyss."
+  },
+  {
+    "order": 4,
+    "title": "Shadow of the Abyss Battle",
+    "content": "Pertarungan ini lebih mirip story event daripada boss fight penuh. Shadow of the Abyss memiliki resistance tinggi terhadap hampir semua serangan dan akan memusatkan serangannya kepada Makoto.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/1/1d/Persona_3_Reload_20240130164937.jpg"
+  },
+  {
+    "order": 5,
+    "title": "Utamakan Bertahan",
+    "content": "Siapkan Persona yang memiliki healing skill agar Makoto tidak tumbang. Kamu bebas memakai jenis serangan apa pun karena damage utama dalam battle ini nantinya diberikan oleh Takaya."
+  },
+  {
+    "order": 6,
+    "title": "Tunggu Tiga Turn",
+    "content": "Bertahan dan terus menyerang selama tiga turn. Setelah itu Takaya berhenti memakai revolver dan memanggil Persona miliknya untuk menghabisi Shadow of the Abyss secara langsung.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/db/Persona_3_Reload_20240130165433.jpg"
+  },
+  {
+    "order": 7,
+    "title": "Percakapan dengan Takaya",
+    "content": "Setelah Shadow dikalahkan, battle berakhir dan Makoto berbicara dengan Takaya. Ikuti percakapan serta cutscene berikutnya untuk menutup story event tanggal 14 Agustus."
+  }
+]

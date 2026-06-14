@@ -1,0 +1,113 @@
+[
+  {
+    "order": 1,
+    "title": "Operasi Full Moon Bulan Oktober",
+    "content": "Pada 4 Oktober, Makoto menghabiskan hari Minggu dengan beristirahat sebelum operasi dimulai. Malamnya, S.E.E.S. bergerak menuju Iwatodai Station Plaza untuk menghadapi dua Arcana Shadow sekaligus.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/ac/Persona_3_Reload_20240208004818.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Ancaman di Iwatodai Station",
+    "content": "Fuuka mendeteksi ancaman baru di sekitar Iwatodai Station Plaza. Shinjiro dan Ken menghilang sebelum tim berangkat, sehingga keduanya tidak bisa dipilih untuk operasi ini.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/1/1c/Persona_3_Reload_20240208004018.jpg"
+  },
+  {
+    "order": 3,
+    "title": "Pilih Party di Strip Mall",
+    "content": "Saat kontrol kembali di Strip Mall, siapkan party untuk menghadapi Strength dan Fortune. Hindari Junpei karena lemah terhadap Wind. Aigis juga kurang efektif pada phase Strength karena sebagian besar skill-nya berupa physical attack.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/a4/Persona_3_Reload_20240208004029.jpg"
+  },
+  {
+    "order": 4,
+    "title": "Party yang Direkomendasikan",
+    "content": "Bawa Akihiko untuk Electric damage, Yukari sebagai healer, dan Mitsuru untuk magic damage serta Rakunda. Untuk Makoto, pilih Persona yang tahan physical attack dan tidak memiliki weakness terhadap Wind."
+  },
+  {
+    "order": 5,
+    "title": "Fortune dan Strength Boss Fight",
+    "content": "Walaupun ada dua boss di arena, kamu hanya bisa menyerang satu target dalam satu waktu. Fortune menghilang ketika Strength aktif, tetapi masih dapat mengganggu battle dari luar arena. Pertarungan ini pada dasarnya terdiri dari dua boss fight berurutan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/7a/Persona_3_Reload_20240208004835.jpg"
+  },
+  {
+    "order": 6,
+    "title": "Phase One: Strength Arcana",
+    "content": "Strength tidak memiliki weakness, tahan terhadap Slash dan Pierce, serta memantulkan Strike. Ia banyak memakai multi-hit physical attack dan dapat meningkatkan Critical Rate miliknya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d0/Persona_3_Reload_20240208010135.jpg"
+  },
+  {
+    "order": 7,
+    "title": "Mulai dengan Buff dan Debuff",
+    "content": "Gunakan Sukunda milik Yukari untuk menurunkan accuracy, Matarunda milik Akihiko untuk menurunkan attack, dan Rakunda milik Mitsuru untuk menurunkan defense Strength. Makoto sebaiknya meningkatkan defense seluruh party jika skill-nya tersedia.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/92/Persona_3_Reload_20240208005240.jpg"
+  },
+  {
+    "order": 8,
+    "title": "Mekanik Roulette Wheel",
+    "content": "Di antara turn, Fortune akan memutar Roulette Wheel. Hasilnya memengaruhi seluruh unit di arena, baik party maupun boss, dan dapat memberikan buff, debuff, healing, atau damage langsung.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c7/Persona_3_Reload_20240208005243.jpg"
+  },
+  {
+    "order": 9,
+    "title": "Perhatikan Warna Roulette",
+    "content": "Slot merah memberikan efek negatif seperti debuff atau damage, sedangkan slot biru memberikan buff atau healing. Sesuaikan tindakan party setelah melihat hasil putaran dan jangan memaksakan rotasi jika kondisi battle berubah.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d0/Persona_3_Reload_20240208010833.jpg"
+  },
+  {
+    "order": 10,
+    "title": "Serang Strength dengan Magic",
+    "content": "Hindari physical attack karena Strength dapat menahan atau memantulkannya. Gunakan magic terkuat seperti Zionga, Garula, dan Bufula, lalu perbarui buff serta debuff ketika durasinya habis.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/2f/Persona_3_Reload_20240208011449.jpg"
+  },
+  {
+    "order": 11,
+    "title": "Waspadai Damage dari Roulette",
+    "content": "Strength akan terus menyerang secara physical sementara Fortune memakai Wind magic dan Roulette Wheel. Beberapa hasil roulette dapat mengurangi sekitar 300 HP sekaligus, cukup untuk menjatuhkan anggota party yang tidak dalam kondisi penuh.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/0/0c/Persona_3_Reload_20240208011924.jpg"
+  },
+  {
+    "order": 12,
+    "title": "Pulihkan Party Secepatnya",
+    "content": "Jika roulette memberikan damage besar, hidupkan kembali anggota yang tumbang lalu gunakan Mediarama milik Yukari. Gunakan healing item jika giliran Yukari masih lama dan usahakan HP party selalu mendekati penuh.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/3/30/Persona_3_Reload_20240208011407.jpg"
+  },
+  {
+    "order": 13,
+    "title": "Gunakan Theurgy pada Strength",
+    "content": "Theurgy memberikan damage besar dan membantu memperpendek phase pertama. Periksa Theurgy Gauge setiap anggota dan gunakan serangannya pada Strength ketika sudah siap.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/9b/Persona_3_Reload_20240208012746.jpg"
+  },
+  {
+    "order": 14,
+    "title": "Kalahkan Strength",
+    "content": "Pertahankan magic damage, debuff, dan healing sampai HP Strength habis. Setelah Strength tumbang, Fortune kembali terlihat dan phase kedua dimulai."
+  },
+  {
+    "order": 15,
+    "title": "Phase Two: Fortune Arcana",
+    "content": "Fortune jauh lebih rapuh daripada Strength. Namun, Fire, Ice, Wind, dan Light justru memulihkan HP-nya, jadi jangan memakai elemen-elemen tersebut pada phase ini.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/1/18/Persona_3_Reload_20240208013534.jpg"
+  },
+  {
+    "order": 16,
+    "title": "Eksploitasi Electric dan Strike",
+    "content": "Fortune lemah terhadap Electric dan Strike. Gunakan Akihiko atau Persona Makoto dengan elemen tersebut untuk menjatuhkannya, lalu lanjutkan dengan All-Out Attack.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/8/88/Persona_3_Reload_20240208013639.jpg"
+  },
+  {
+    "order": 17,
+    "title": "Yukari dan Mitsuru Memakai Melee",
+    "content": "Karena magic utama Yukari dan Mitsuru dapat menyembuhkan Fortune, gunakan standard melee attack dengan keduanya. Fortune membalas memakai Wind, tetapi party rekomendasi ini tidak memiliki weakness terhadap elemen tersebut.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/4e/Persona_3_Reload_20240208013735.jpg"
+  },
+  {
+    "order": 18,
+    "title": "Roulette Bergambar Grim Reaper",
+    "content": "Saat HP Fortune hampir habis, ia memutar roulette khusus dengan simbol Grim Reaper. Efeknya tidak langsung terasa dalam battle ini, tetapi menjadi bagian penting dari cutscene berikutnya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/a3/Persona_3_Reload_20240208014744.jpg"
+  },
+  {
+    "order": 19,
+    "title": "Selesaikan Operasi Oktober",
+    "content": "Habisi Fortune pada turn berikutnya untuk mengakhiri boss fight. Setelah kedua Arcana Shadow dikalahkan, tonton cutscene terakhir untuk menyelesaikan Full Moon Operation bulan Oktober."
+  }
+]

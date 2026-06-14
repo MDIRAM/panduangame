@@ -1,0 +1,194 @@
+[
+  {
+    "order": 1,
+    "title": "Operasi Full Moon July",
+    "content": "Full Moon Operation bulan July dimulai otomatis pada 7 Juli setelah sekolah. Tim menyelidiki kejadian aneh di Champs de Fleurs hotel dan harus menghadapi dua boss berbeda.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/3/34/Persona_3_Reload_20240127020224.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Dua Boss Menunggu",
+    "content": "Misi ini terdiri dari eksplorasi hotel, puzzle mirror, serta battle melawan Hierophant dan Lovers.",
+    "image_url": null
+  },
+  {
+    "order": 3,
+    "title": "Pilih Anggota Party",
+    "content": "Fuuka menemukan lokasi Shadow baru. Yukari otomatis ikut, sedangkan dua slot lain bisa kamu pilih. Bawa Junpei karena salah satu boss memakai Fire dan Junpei memiliki resistance terhadap elemen tersebut.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/8/8a/Persona_3_Reload_20240127005548.jpg"
+  },
+  {
+    "order": 4,
+    "title": "Bawa Akihiko",
+    "content": "Pilih Akihiko untuk slot terakhir. Mitsuru sebaiknya tidak dibawa karena weakness terhadap Fire akan membuatnya rentan. Setelah party siap, bicara dengan Fuuka di entrance untuk memulai operasi.",
+    "image_url": null
+  },
+  {
+    "order": 5,
+    "title": "Masuk ke Champs de Fleurs",
+    "content": "Tim tiba di Champs de Fleurs hotel. Setelah percakapan panjang di luar gedung, masuk ke hotel untuk mulai mencari Shadow.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/f/f4/Persona_3_Reload_20240127010102.jpg"
+  },
+  {
+    "order": 6,
+    "title": "Cari Pintu di Lantai Tiga",
+    "content": "Naik dari entrance menuju lantai tiga. Cari pintu besar dengan tirai merah di bagian atas dan sampingnya. Masuk melalui pintu tersebut untuk memulai boss fight pertama.",
+    "image_url": null
+  },
+  {
+    "order": 7,
+    "title": "Hierophant Boss Fight",
+    "content": "Hierophant tidak memiliki weakness. Satu-satunya cara membuatnya Knock Down adalah mendapatkan Critical Hit. Boss ini juga Null serangan Light dan Dark.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/ab/Persona_3_Reload_20240127010605.jpg"
+  },
+  {
+    "order": 8,
+    "title": "Waspadai Doomsday Doctrine",
+    "content": "Hierophant memakai serangan Light ke seluruh party dan Assault Dive yang memberi physical damage. Skill paling berbahaya adalah Doomsday Doctrine karena dapat memberi Fear ke semua anggota, membuat mereka kehilangan giliran dan lebih mudah terkena Critical.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/71/Persona_3_Reload_20240127010536.jpg"
+  },
+  {
+    "order": 9,
+    "title": "Gunakan Tarunda dan Sukunda",
+    "content": "Karena boss tidak punya weakness, gunakan debuff. Pada turn pertama, pakai Tarunda milik Akihiko untuk menurunkan damage boss dan Sukunda milik Yukari untuk menurunkan accuracy serta evasion-nya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/45/Persona_3_Reload_20240127010341.jpg"
+  },
+  {
+    "order": 10,
+    "title": "Fokus pada Physical Damage",
+    "content": "Hindari Light dan Dark, lalu gunakan serangan terkuat yang tersedia. Physical attack punya peluang Critical yang bisa membuka All-Out Attack. Kalau party menerima damage besar, gunakan Media milik Yukari.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/1/19/Persona_3_Reload_20240127010902.jpg"
+  },
+  {
+    "order": 11,
+    "title": "Hilangkan Fear Secepatnya",
+    "content": "Begitu Doomsday Doctrine digunakan, hentikan serangan dan fokus recovery. Pakai Patra Gem, Dis-Fear, atau Patra milik Yukari pada anggota yang terkena Fear. Jangan pelit consumable karena status ini bisa membuat battle berantakan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/6a/Persona_3_Reload_20240127010544.jpg"
+  },
+  {
+    "order": 12,
+    "title": "Kembali ke Pola Serangan",
+    "content": "Setelah party pulih, lanjutkan pola awal. Makoto, Akihiko, dan Junpei menyerang atau memasang debuff, sementara Yukari menjaga HP dan mempertahankan Sukunda.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/59/Persona_3_Reload_20240127011644.jpg"
+  },
+  {
+    "order": 13,
+    "title": "Manfaatkan Theurgy",
+    "content": "Pantau Theurgy Gauge seluruh party. Theurgy dapat memangkas HP Hierophant dengan cepat. Simpan Oracle milik Fuuka untuk saat party membutuhkan healing atau buff darurat.",
+    "image_url": null
+  },
+  {
+    "order": 14,
+    "title": "Periksa Kamar Setelah Battle",
+    "content": "Sesudah Hierophant kalah, party kembali berada di kamar hotel. Pulihkan HP seluruh anggota lalu coba keluar dari ruangan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/f/fd/Persona_3_Reload_20240127013705.jpg"
+  },
+  {
+    "order": 15,
+    "title": "Periksa Mirror Dekat Tempat Tidur",
+    "content": "Fuuka mendeteksi Shadow lain masih berada di kamar. Dekati tempat tidur dan periksa mirror di sisi kanannya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c8/Persona_3_Reload_20240127013735.jpg"
+  },
+  {
+    "order": 16,
+    "title": "Lawan Pengaruh Suara Misterius",
+    "content": "Makoto terbangun di ruangan gelap dan mendengar suara yang mencoba memengaruhinya. Pilih respons yang menolak semua saran suara tersebut agar cerita bisa lanjut.",
+    "image_url": null
+  },
+  {
+    "order": 17,
+    "title": "Pilih Jawaban yang Tepat",
+    "content": "Urutan pilihan dialog yang aman adalah: That's Not True, I Can't Give In, lalu I'll Pass.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/9a/Persona_3_Reload_20240127014051.jpg"
+  },
+  {
+    "order": 18,
+    "title": "Bergabung dengan Yukari",
+    "content": "Makoto berhasil lepas dari pengaruh Shadow. Setelah cutscene singkat, kontrol kembali dengan party sementara yang hanya berisi Makoto dan Yukari.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/a6/Persona_3_Reload_20240127014349.jpg"
+  },
+  {
+    "order": 19,
+    "title": "Temukan Junpei dan Akihiko",
+    "content": "Naik menuju lantai dua untuk mencari anggota lain. Junpei dan Akihiko akan bergabung kembali, membuat party lengkap lagi.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/2d/Persona_3_Reload_20240127014546.jpg"
+  },
+  {
+    "order": 20,
+    "title": "Pecahkan Seal Mirror",
+    "content": "Pintu menuju kamar Hierophant sekarang terkunci dan Shadow kedua berada di dalamnya. Untuk membuka seal, party harus menghancurkan mirror tertentu di hotel. Mulailah dengan memeriksa Room 204 dan Room 205.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/e6/Persona_3_Reload_20240127014554.jpg"
+  },
+  {
+    "order": 21,
+    "title": "Hancurkan Mirror di Room 205",
+    "content": "Lewati Room 204 dan langsung masuk ke Room 205. Periksa mirror di sebelah kanan tempat tidur dan hancurkan. Fuuka akan memberi tahu bahwa masih ada satu mirror lagi di lantai tiga.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/b9/Persona_3_Reload_20240127014901.jpg"
+  },
+  {
+    "order": 22,
+    "title": "Cari Mirror Tanpa Reflection",
+    "content": "Naik ke lantai tiga. Mirror target tidak menampilkan reflection anggota party. Kalau tidak melihat bayangan karakter saat mendekatinya, itu adalah mirror yang harus dihancurkan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/0/04/Persona_3_Reload_20240127014917.jpg"
+  },
+  {
+    "order": 23,
+    "title": "Hancurkan Mirror di Room 304",
+    "content": "Mirror kedua berada di Room 304. Hancurkan untuk membuka seal. Kamu boleh memeriksa kamar lain terlebih dahulu; golden sparkle menandakan item yang bisa diambil.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/6d/Persona_3_Reload_20240127015150.jpg"
+  },
+  {
+    "order": 24,
+    "title": "Bersiap untuk Boss Kedua",
+    "content": "Kembali ke kamar boss di lantai tiga. Pulihkan HP dan SP seluruh party sebelum masuk karena battle berikutnya cukup panjang.",
+    "image_url": null
+  },
+  {
+    "order": 25,
+    "title": "Lovers Boss Battle",
+    "content": "Di dalam kamar ada giant glass heart yang merupakan Lovers Arcana. Boss ini juga tidak memiliki weakness, jadi battle kembali berfokus pada endurance dan pengelolaan status.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/ae/Persona_3_Reload_20240127020549.jpg"
+  },
+  {
+    "order": 26,
+    "title": "Waspadai Charm",
+    "content": "Lovers memiliki beberapa serangan Charm, termasuk serangan ke seluruh party, gas yang meningkatkan peluang Charm, dan arrow yang memberi damage sekaligus status. Anggota yang terkena Charm bisa menyerang teman atau menyembuhkan boss.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/2f/Persona_3_Reload_20240127021035.jpg"
+  },
+  {
+    "order": 27,
+    "title": "Lovers Memakai Fire",
+    "content": "Boss juga memiliki skill Fire dengan damage tinggi. Inilah alasan Mitsuru tidak dibawa. Tetap awasi HP party walaupun serangan Fire tidak dipakai setiap turn.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/61/Persona_3_Reload_20240127015341.jpg"
+  },
+  {
+    "order": 28,
+    "title": "Pasang Debuff pada Lovers",
+    "content": "Gunakan Tarunda dan Sukunda untuk menurunkan attack serta accuracy boss. Hindari Fire karena akan diblokir, serta hindari Electric dan Pierce karena Lovers memiliki resistance terhadap serangan tersebut.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/49/Persona_3_Reload_20240127020221.jpg"
+  },
+  {
+    "order": 29,
+    "title": "Yukari Fokus Support",
+    "content": "Gunakan Yukari untuk healing dan menjaga Sukunda tetap aktif. Makoto, Akihiko, dan Junpei fokus memberi damage. Physical attack Akihiko dan Junpei juga punya peluang Critical untuk membuka All-Out Attack.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/2c/Persona_3_Reload_20240127020316.jpg"
+  },
+  {
+    "order": 30,
+    "title": "Bersihkan Charm",
+    "content": "Begitu ada anggota terkena Charm, gunakan Dis-Charm, Patra Gem, atau Patra milik Yukari. Saat Lovers mengeluarkan gas di pertengahan battle, peluang Charm meningkat sehingga status ini harus langsung dibersihkan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/3/34/Persona_3_Reload_20240127020224.jpg"
+  },
+  {
+    "order": 31,
+    "title": "Gunakan Theurgy untuk Mengakhiri Battle",
+    "content": "Pantau Theurgy Gauge dan gunakan serangannya untuk memberi damage besar. Simpan Oracle milik Fuuka ketika party benar-benar membutuhkan recovery. Pertahankan debuff dan healing sampai Lovers kalah.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/0/07/Persona_3_Reload_20240127022005.jpg"
+  },
+  {
+    "order": 32,
+    "title": "Operasi July Selesai",
+    "content": "Setelah Lovers dikalahkan, Full Moon Operation berakhir dan S.E.E.S. Social Link naik ke rank 4. Tim kembali ke dorm untuk bersiap menghadapi kejadian berikutnya.",
+    "image_url": null
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "order": 1,
+    "title": "Field Test Dimulai",
+    "content": "Pada malam 13 Juni, aktivitas evening akan berhenti otomatis karena Ikutsuki meminta tim menjalankan field test untuk kekuatan baru bernama Theurgy.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/2d/Persona_3_Reload_20240122182124.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Mengenal Theurgy",
+    "content": "Misi ini menjadi tutorial penggunaan Theurgy, mulai dari cara mengisi gauge sampai mengaktifkan serangannya di dalam battle.",
+    "image_url": null
+  },
+  {
+    "order": 3,
+    "title": "Menuju Unstable Floor",
+    "content": "Makoto, Yukari, Mitsuru, dan Akihiko berangkat ke Tartarus untuk mencoba equipment SEES baru sekaligus menguji Theurgy di unstable floor.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/97/Persona_3_Reload_20240122175645.jpg"
+  },
+  {
+    "order": 4,
+    "title": "Gunakan Teleporter",
+    "content": "Setelah meeting di dorm dan cutscene equipment baru, tim tiba di lobby Tartarus. Dekati teleporter saat sudah siap untuk langsung dipindahkan ke floor tujuan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c8/Persona_3_Reload_20240122180918.jpg"
+  },
+  {
+    "order": 5,
+    "title": "Equip Senjata SEES",
+    "content": "Pasang senjata SEES baru untuk seluruh anggota, lalu maju sampai Mitsuru menunjukkan Shadow pertama. Kalahkan musuh seperti biasa sambil mempelajari move set Mitsuru yang berfokus pada skill Ice. Fuuka juga sudah bisa memakai Full Analysis melalui Analyze screen.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/b6/Persona_3_Reload_20240122181652.jpg"
+  },
+  {
+    "order": 6,
+    "title": "Kalahkan Dua Shadow Lagi",
+    "content": "Setelah encounter pertama, cari dua Shadow lain di floor yang sama. Banyak musuh di sini lemah terhadap Ice, jadi gunakan Mabufu milik Mitsuru untuk menjatuhkan beberapa target sekaligus.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/8/87/Persona_3_Reload_20240122181822.jpg"
+  },
+  {
+    "order": 7,
+    "title": "Cari Staircase",
+    "content": "Sesudah tiga encounter selesai, cari staircase menuju level berikutnya. Saat mendekati tangga, cutscene dimulai dan Makoto akan terpisah dari anggota tim lain.",
+    "image_url": null
+  },
+  {
+    "order": 8,
+    "title": "Bantu Yukari",
+    "content": "Fuuka memberi tahu bahwa setiap anggota terpencar di lokasi berbeda pada floor yang sama. Makoto kemudian melihat Yukari diserang dan bergegas menolongnya, memulai battle dengan party berisi mereka berdua.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/ae/Persona_3_Reload_20240122181957.jpg"
+  },
+  {
+    "order": 9,
+    "title": "Gunakan Cyclone Arrow",
+    "content": "Awal battle berjalan secara scripted. Makoto terkena critical hit dan Yukari sempat kehilangan kepercayaan diri. Emosinya kemudian mengisi Theurgy. Saat kontrol kembali, tekan R2 / RT lalu pilih Cyclone Arrow dari Theurgy menu.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/2d/Persona_3_Reload_20240122182124.jpg"
+  },
+  {
+    "order": 10,
+    "title": "Theurgy Terbuka untuk Party",
+    "content": "Cyclone Arrow langsung menghabisi musuh dan mengakhiri field test. Mulai sekarang seluruh anggota party dapat memakai Theurgy. Level Theurgy masing-masing karakter terlihat di dekat icon mereka selama battle.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/f/fb/Persona_3_Theurgy_Metres.jpg"
+  },
+  {
+    "order": 11,
+    "title": "Perhatikan Theurgy Gauge",
+    "content": "Saat icon Theurgy menunjukkan Max, karakter tersebut bisa melepaskan Theurgy move. Serangan ini mengabaikan resistance dan memberi severe damage, jadi simpan untuk boss, musuh kuat, atau saat kamu ingin mengakhiri battle dengan cepat.",
+    "image_url": null
+  }
+]

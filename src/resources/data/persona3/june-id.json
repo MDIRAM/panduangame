@@ -1,0 +1,104 @@
+[
+  {
+    "order": 1,
+    "title": "Operasi Full Moon Dimulai",
+    "content": "Full Moon Operation bulan June dimulai otomatis pada 8 Juni. Free time hari itu akan dilewati dan Makoto langsung kembali ke dorm untuk menjalankan misi.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c8/Persona_3_Reload_20240122164730.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Mencari Fuuka",
+    "content": "Tujuan utama operasi ini adalah mencari Fuuka di Tartarus. Setelah menemukannya, tim juga harus menghadapi Emperor dan Empress yang menjadi ancaman utama malam itu.",
+    "image_url": null
+  },
+  {
+    "order": 3,
+    "title": "Fuuka Menghilang",
+    "content": "Setelah beberapa conversation scene, tim mengetahui bahwa Fuuka kemungkinan menghilang ke Tartarus setelah terjebak di gym sekolah.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/2b/Persona_3_Reload_20240122161858.jpg"
+  },
+  {
+    "order": 4,
+    "title": "Kembali ke Sekolah",
+    "content": "Tim memutuskan masuk ke gym lalu menunggu Dark Hour dimulai. Saat bisa bergerak lagi, Makoto dan Yukari harus mencari gym key di Faculty Office.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/1/15/Persona_3_Reload_20240122162405.jpg"
+  },
+  {
+    "order": 5,
+    "title": "Cari Faculty Office",
+    "content": "Turun dari kelas dan pergi ke Faculty Office di West Wing lantai pertama School Building. Setelah percakapan singkat bersama Yukari, lanjutkan sampai masuk ke office.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/3/37/Persona_3_Reload_20240122163544.jpg"
+  },
+  {
+    "order": 6,
+    "title": "Ambil Gym Key",
+    "content": "Makoto dan Yukari menemukan gym key di dalam office. Ambil kuncinya lalu kembali ke entrance sekolah untuk bertemu anggota tim lain. Yukari akan tinggal bersama Mitsuru, jadi ia tidak ikut dalam party selama misi ini.",
+    "image_url": null
+  },
+  {
+    "order": 7,
+    "title": "Sendirian di Arqa",
+    "content": "Setelah beberapa cutscene, Makoto terbangun sendirian di Arqa. Cari Junpei dan Akihiko sambil menyelidiki penyebab anomaly di area tersebut.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/7d/Persona_3_Reload_20240122163825.jpg"
+  },
+  {
+    "order": 8,
+    "title": "Naik ke Floor Berikutnya",
+    "content": "Jelajahi floor misterius ini dan cari staircase. Musuh di area awal masih cukup lemah untuk dikalahkan sendirian. Manfaatkan koleksi Persona Makoto untuk menutup weakness yang dibutuhkan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/b0/Persona_3_Reload_20240122164026.jpg"
+  },
+  {
+    "order": 9,
+    "title": "Hemat SP",
+    "content": "Di floor berikutnya, usahakan menghemat SP. Sebagian besar musuh bisa diselesaikan dengan beberapa serangan melee, jadi jangan memakai magic kalau tidak diperlukan. Temukan staircase berikutnya dan terus naik.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/3/33/Persona_3_Reload_20240122164621.jpg"
+  },
+  {
+    "order": 10,
+    "title": "Party Berkumpul Kembali",
+    "content": "Setelah melewati staircase kedua, Makoto bertemu Akihiko dan Junpei. Mereka kembali bergabung ke party. Di area ini tim juga menemukan Fuuka Yamagishi yang sudah hilang selama sekitar satu minggu.",
+    "image_url": null
+  },
+  {
+    "order": 11,
+    "title": "Emperor dan Empress",
+    "content": "Setelah rangkaian cutscene, battle melawan Emperor dan Empress dimulai. Fuuka sekarang berperan sebagai support dan dapat mendeteksi weakness musuh tanpa trial and error, tetapi kemampuannya baru siap pada turn kedua.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/79/Persona_3_Reload_20240122164842.jpg"
+  },
+  {
+    "order": 12,
+    "title": "Cari Satu Weakness yang Terbuka",
+    "content": "Kedua boss akan Null atau Resist hampir semua jenis serangan kecuali satu affinity. Affinity yang tidak mereka tahan menjadi weakness dan bisa digunakan untuk membuat mereka Knock Down.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c8/Persona_3_Reload_20240122165308.jpg"
+  },
+  {
+    "order": 13,
+    "title": "Waspadai Affinity Shift",
+    "content": "Emperor dan Empress dapat mengganti weakness dengan skill Affinity Shift. Gunakan Full Analysis milik Fuuka setiap kali affinity berubah, lalu koordinasikan party untuk mengejar All-Out Attack. Anggota yang tidak punya serangan cocok sebaiknya Guard atau melakukan healing.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/43/Persona_3_Reload_20240122170011.jpg"
+  },
+  {
+    "order": 14,
+    "title": "Guard pada Turn Pertama",
+    "content": "Pada turn pertama, gunakan Guard untuk semua anggota. Pada turn kedua, buka Analyze dengan L1 / LB lalu minta Fuuka memakai Full Analysis melalui touchpad atau Select. Cari tanda seru di bawah affinity icon untuk melihat weakness boss saat ini.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/77/Persona_3_Reload_20240122170008.jpg"
+  },
+  {
+    "order": 15,
+    "title": "Knock Down Kedua Boss",
+    "content": "Serang weakness boss pertama, lalu Analyze boss kedua dan Shift giliran ke anggota yang memiliki elemen sesuai. Setelah Emperor dan Empress sama-sama Knock Down, gunakan All-Out Attack. Kalau SP Fuuka menipis, pulihkan dengan item.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/6e/Persona_3_Reload_20240122170017.jpg"
+  },
+  {
+    "order": 16,
+    "title": "Rangkai Beberapa All-Out Attack",
+    "content": "Kalau memungkinkan, lakukan beberapa All-Out Attack dalam satu rangkaian turn. Setelah bangkit, boss biasanya memakai Affinity Shift lagi. Segera jalankan Full Analysis dan manfaatkan weakness baru sebelum mereka sempat memberi tekanan besar.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/dd/Persona_3_Reload_20240122171159.jpg"
+  },
+  {
+    "order": 17,
+    "title": "Selesaikan Operasi June",
+    "content": "Tidak ada kejutan besar lain di pertengahan battle. Terus periksa weakness, gunakan Shift dengan efisien, dan lakukan All-Out Attack sampai Emperor serta Empress kalah. Setelah battle selesai, Full Moon Operation bulan June berakhir.",
+    "image_url": null
+  }
+]

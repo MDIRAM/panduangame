@@ -1036,6 +1036,41 @@ body.welcome-page {
   color: #70caff;
 }
 
+.persona-status {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.7rem;
+  padding: 0.18rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.persona-status.ready {
+  border-color: rgba(42, 210, 128, 0.55);
+  background: rgba(42, 210, 128, 0.14);
+  color: #91f0bd;
+}
+
+.persona-status.draft {
+  border-color: rgba(10, 165, 255, 0.5);
+  background: rgba(10, 165, 255, 0.13);
+  color: #91d8ff;
+}
+
+.persona-month-section li p {
+  max-width: 680px;
+  margin: 0.55rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
 .persona-story-body {
   background: #1d2634;
 }
@@ -1157,6 +1192,12 @@ body.welcome-page {
   font-size: 1.25rem;
 }
 
+.persona-guide-note p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.68;
+}
+
 .persona-guide-note ul {
   display: grid;
   gap: 0.55rem;
@@ -1185,6 +1226,59 @@ body.welcome-page {
 
 .persona-guide-article section p:last-child {
   margin-bottom: 0;
+}
+
+.persona-guide-checklist,
+.persona-guide-table {
+  margin: 0 0 2rem;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid rgba(214, 224, 238, 0.18);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.persona-guide-checklist h2,
+.persona-guide-table h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+}
+
+.persona-guide-checklist ul {
+  display: grid;
+  gap: 0.72rem;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.persona-guide-checklist li {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.persona-guide-table > div {
+  overflow-x: auto;
+}
+
+.persona-guide-table table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  color: #ffffff;
+  font-size: 0.92rem;
+}
+
+.persona-guide-table th,
+.persona-guide-table td {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(214, 224, 238, 0.18);
+  text-align: left;
+  vertical-align: top;
+}
+
+.persona-guide-table th {
+  background: rgba(10, 165, 255, 0.12);
+  color: #d7f0ff;
+  font-weight: 800;
 }
 
 .persona-walkthrough-image {

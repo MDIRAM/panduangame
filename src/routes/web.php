@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\WalkthroughController;
+use App\Models\Chapter;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 use Livewire\Livewire;
 
 /* NOTE: Do Not Remove
@@ -27,6 +30,9 @@ Route::get('/', function () {
 Route::get('/videos', function () {
     return view('videos');
 })->name('videos.index');
+
+Route::get('/walkthrough', [WalkthroughController::class, 'showGame'])->name('walkthrough.game');
+Route::get('/walkthrough/{slug}', [WalkthroughController::class, 'showChapter'])->name('walkthrough.chapter');
 
 Route::get('/cover/{slug}', function ($slug) {
     $coverMap = [
@@ -61,32 +67,8 @@ Route::get('/cover/{slug}', function ($slug) {
     abort(404);
 })->name('cover');
 
-Route::get('/games/persona-3/story/{mission}', function ($mission) {
-    $missions = [
-        'prologue-april-7-april-18' => 'Prologue (April 7 - April 18) Walkthrough',
-        'first-visit-to-tartarus-april-19-april-20' => 'First Visit to Tartarus (April 19 - April 20) Walkthrough',
-        'full-moon-operation-may' => 'Full Moon Operation - May',
-        'full-moon-operation-june' => 'Full Moon Operation - June',
-        'theurgy-field-test-june-13' => 'Theurgy Field Test (June 13)',
-        'full-moon-operation-july' => 'Full Moon Operation - July',
-        'summer-vacation-july-20-july-23' => 'Summer Vacation (July 20 - July 23)',
-        'full-moon-operation-august' => 'Full Moon Operation - August',
-        'shadow-of-the-abyss-story-event-august-14' => 'Shadow of the Abyss Story Event (August 14)',
-        'full-moon-operation-september' => 'Full Moon Operation - September',
-        'full-moon-operation-october' => 'Full Moon Operation - October',
-        'full-moon-operation-november' => 'Full Moon Operation - November',
-        'school-trip-november-17-november-20' => 'School Trip (November 17 - November 20)',
-        'chidori-battle-november-22' => 'Chidori Battle (November 22)',
-        'final-mission-the-promised-day-january-31' => 'Final Mission: The Promised Day (January 31)',
-    ];
-
-    abort_if(! array_key_exists($mission, $missions), 404);
-
-    return view('games.persona-story', [
-        'mission' => $mission,
-        'missionTitle' => $missions[$mission],
-    ]);
-})->name('persona.story.show');
+Route::get('/games/persona-3/story/{mission}', [WalkthroughController::class, 'showMission'])
+    ->name('persona.story.show');
 
 Route::get('/games/{slug}', function ($slug) {
     $games = [
@@ -124,7 +106,17 @@ Route::get('/games/{slug}', function ($slug) {
 
     abort_if(! array_key_exists($slug, $games), 404);
 
-    return view('games.show', ['game' => $games[$slug], 'slug' => $slug]);
+    return view('games.show', [
+        'game' => $games[$slug],
+        'slug' => $slug,
+        'personaChapters' => $slug === 'persona-3' && Schema::hasTable('chapters')
+            ? Chapter::query()
+                ->whereHas('game', fn ($query) => $query->where('slug', 'persona-3-reload'))
+                ->withCount('steps')
+                ->orderBy('order')
+                ->get()
+            : collect(),
+    ]);
 })->name('games.show');
 
 Route::middleware('guest')->group(function () {

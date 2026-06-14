@@ -324,65 +324,32 @@
             @endif
 
             @if ($slug === 'persona-3')
-                @php
-                    $storyMissions = [
-                        'April' => [
-                            ['title' => 'Prologue (April 7 - April 18) Walkthrough', 'slug' => 'prologue-april-7-april-18'],
-                            ['title' => 'First Visit to Tartarus (April 19 - April 20) Walkthrough', 'slug' => 'first-visit-to-tartarus-april-19-april-20'],
-                        ],
-                        'May' => [
-                            ['title' => 'Full Moon Operation - May', 'slug' => 'full-moon-operation-may'],
-                        ],
-                        'June' => [
-                            ['title' => 'Full Moon Operation - June', 'slug' => 'full-moon-operation-june'],
-                            ['title' => 'Theurgy Field Test (June 13)', 'slug' => 'theurgy-field-test-june-13'],
-                        ],
-                        'July' => [
-                            ['title' => 'Full Moon Operation - July', 'slug' => 'full-moon-operation-july'],
-                            ['title' => 'Summer Vacation (July 20 - July 23)', 'slug' => 'summer-vacation-july-20-july-23'],
-                        ],
-                        'August' => [
-                            ['title' => 'Full Moon Operation - August', 'slug' => 'full-moon-operation-august'],
-                            ['title' => 'Shadow of the Abyss Story Event (August 14)', 'slug' => 'shadow-of-the-abyss-story-event-august-14'],
-                        ],
-                        'September' => [
-                            ['title' => 'Full Moon Operation - September', 'slug' => 'full-moon-operation-september'],
-                        ],
-                        'October' => [
-                            ['title' => 'Full Moon Operation - October', 'slug' => 'full-moon-operation-october'],
-                        ],
-                        'November' => [
-                            ['title' => 'Full Moon Operation - November', 'slug' => 'full-moon-operation-november'],
-                            ['title' => 'School Trip (November 17 - November 20)', 'slug' => 'school-trip-november-17-november-20'],
-                            ['title' => 'Chidori Battle (November 22)', 'slug' => 'chidori-battle-november-22'],
-                        ],
-                        'December' => [
-                            ['title' => 'Final Mission: The Promised Day (January 31)', 'slug' => 'final-mission-the-promised-day-january-31'],
-                        ],
-                    ];
-                @endphp
-
                 <section class="persona-story-page">
                     <header class="persona-story-header">
                         <h2>Story Mission Walkthroughs</h2>
-                        <p>The story missions below have been separated into the months they take place in.</p>
+                        <p>Pilih misi untuk membuka langkah walkthrough dan gambar yang tersimpan di database.</p>
                     </header>
 
                     <div class="persona-month-list">
-                        @foreach ($storyMissions as $month => $missions)
+                        @forelse ($personaChapters->groupBy('section_title') as $month => $missions)
                             <section class="persona-month-section" id="persona-{{ str($month)->lower() }}">
                                 <h3>{{ $month }}</h3>
                                 <ul>
                                     @foreach ($missions as $mission)
                                         <li>
-                                            <a href="{{ route('persona.story.show', ['mission' => $mission['slug']]) }}">
-                                                {{ $mission['title'] }}
+                                            <a href="{{ route('persona.story.show', ['mission' => $mission->slug]) }}">
+                                                {{ $mission->chapter_title }}
                                             </a>
+                                            <span class="persona-status {{ $mission->steps_count > 0 ? 'ready' : 'planned' }}">
+                                                {{ $mission->steps_count > 0 ? $mission->steps_count.' steps' : 'Planned' }}
+                                            </span>
                                         </li>
                                     @endforeach
                                 </ul>
                             </section>
-                        @endforeach
+                        @empty
+                            <p>Data Persona 3 belum tersedia. Jalankan migration dan GameSeeder.</p>
+                        @endforelse
                     </div>
                 </section>
             @endif

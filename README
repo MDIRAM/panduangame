@@ -1,0 +1,229 @@
+# PanduanGame
+
+PanduanGame adalah aplikasi web berbasis Laravel untuk menampilkan walkthrough game, rute story, strategi boss, dan halaman dashboard pengguna. Proyek ini sudah disiapkan dengan Docker, Nginx HTTPS lokal, MariaDB, Laravel 12, Vite, Tailwind CSS, dan Filament Admin Panel.
+
+## Fitur Utama
+
+- Landing page walkthrough game dengan spotlight guide.
+- Library guide untuk Elden Ring, Dark Souls 2, dan Persona 3.
+- Halaman detail game dan halaman story mission Persona 3.
+- Login, register, dashboard pengguna, dan logout.
+- Admin panel Filament di `/admin`.
+- Manajemen user melalui Filament Resource.
+- Role dan permission menggunakan Filament Shield.
+- Activity logging, theme switcher, profile editor, dan beberapa plugin Filament pendukung.
+- Setup lokal menggunakan Docker Compose dengan PHP-FPM, Nginx, dan MariaDB.
+
+## Teknologi
+
+- PHP 8.3
+- Laravel 12
+- MariaDB 10.11
+- Nginx
+- Docker Compose
+- Filament 3
+- Tailwind CSS
+- Vite
+- Pest/PHPUnit
+
+## Struktur Proyek
+
+```text
+.
+|-- docker-compose.yml
+|-- db/                  # Konfigurasi dan data MariaDB lokal
+|-- nginx/               # Dockerfile, virtual host, dan SSL lokal
+|-- php/                 # Dockerfile PHP-FPM dan konfigurasi PHP
+|-- src/                 # Aplikasi Laravel
+|   |-- app/
+|   |-- database/
+|   |-- public/
+|   |-- resources/
+|   `-- routes/
+`-- README
+```
+
+## Persiapan
+
+Pastikan sudah terpasang:
+
+- Docker
+- Docker Compose
+
+Tambahkan domain lokal ke hosts file:
+
+```text
+127.0.0.1 panduangame.test
+```
+
+Di Linux/macOS biasanya file berada di `/etc/hosts`. Di Windows biasanya berada di `C:\Windows\System32\drivers\etc\hosts`.
+
+## Menjalankan Proyek
+
+Jalankan service Docker dari root proyek:
+
+```bash
+docker compose up -d --build
+```
+
+Masuk ke container PHP:
+
+```bash
+docker compose exec php bash
+```
+
+Install dependency Laravel jika belum ada:
+
+```bash
+composer install
+```
+
+Install dependency frontend jika belum ada:
+
+```bash
+npm install
+```
+
+Generate app key jika `.env` belum punya `APP_KEY`:
+
+```bash
+php artisan key:generate
+```
+
+Jalankan migration dan seeder:
+
+```bash
+php artisan migrate --seed
+```
+
+Build asset frontend:
+
+```bash
+npm run build
+```
+
+Akses aplikasi:
+
+```text
+https://panduangame.test
+```
+
+Browser kemungkinan akan memberi peringatan karena sertifikat SSL lokal berada di `nginx/ssl`.
+
+## Mode Development Frontend
+
+Untuk menjalankan Vite saat development, masuk ke container PHP lalu jalankan:
+
+```bash
+npm run dev
+```
+
+Jika ingin menjalankan server Laravel, queue, log, dan Vite sekaligus tanpa Docker Nginx, package ini juga punya script:
+
+```bash
+composer run dev
+```
+
+Untuk setup Docker proyek ini, akses utama tetap melalui Nginx di `https://panduangame.test`.
+
+## Database
+
+Konfigurasi database Laravel berada di `src/.env`:
+
+```text
+DB_CONNECTION=mariadb
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=panduangame
+DB_USERNAME=root
+DB_PASSWORD=p455w0rd
+```
+
+Port MariaDB diekspos ke host melalui:
+
+```text
+127.0.0.1:13306
+```
+
+## Akun Default
+
+Seeder membuat dua akun:
+
+| Role | Email | Password |
+| --- | --- | --- |
+| Super Admin | `admin@admin.com` | `password` |
+| User | `user@admin.com` | `password` |
+
+Halaman admin dapat dibuka di:
+
+```text
+https://panduangame.test/admin
+```
+
+## Route Penting
+
+| Route | Keterangan |
+| --- | --- |
+| `/` | Landing page PanduanGame |
+| `/videos` | Halaman video |
+| `/games/elden-ring` | Detail guide Elden Ring |
+| `/games/dark-souls-2` | Detail guide Dark Souls 2 |
+| `/games/persona-3` | Detail guide Persona 3 |
+| `/games/persona-3/story/{mission}` | Detail story mission Persona 3 |
+| `/login` | Login user |
+| `/register` | Register user |
+| `/dashboard` | Dashboard user |
+| `/admin` | Filament Admin Panel |
+
+## Data Review Opsional
+
+Proyek memiliki `ReviewSeeder`, tetapi seeder ini belum dipanggil otomatis oleh `DatabaseSeeder`. Jika ingin mengisi contoh data review, jalankan manual:
+
+```bash
+php artisan db:seed --class=ReviewSeeder
+```
+
+## Command Berguna
+
+Jalankan dari dalam container PHP:
+
+```bash
+php artisan migrate
+php artisan migrate:fresh --seed
+php artisan config:clear
+php artisan cache:clear
+npm run build
+npm run dev
+```
+
+Alias yang tersedia di container PHP:
+
+```bash
+art list
+migrate
+fresh
+t
+```
+
+## Testing
+
+Jalankan test Laravel:
+
+```bash
+php artisan test
+```
+
+Atau gunakan alias container:
+
+```bash
+t
+```
+
+## Catatan Development
+
+- Root aplikasi Laravel berada di folder `src`.
+- Asset publik game berada di `src/public/coverimg` dan `src/public/images/games`.
+- Konfigurasi Nginx lokal berada di `nginx/default.conf`.
+- File environment Docker root berada di `.env`.
+- File environment Laravel berada di `src/.env`.
+- Data MariaDB lokal disimpan di `db/data`.

@@ -1,0 +1,123 @@
+[
+  {
+    "order": 1,
+    "title": "School Trip ke Kyoto",
+    "content": "Pada 17 November, murid Gekkoukan High berangkat ke Kyoto untuk school trip selama beberapa hari. Bagian cerita ini lebih santai dan berisi eksplorasi inn, percakapan, serta event bersama teman sekelas.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/47/Persona_3_Reload_20240211212134.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Tiba di Godaigo Inn",
+    "content": "Setelah perjalanan kereta dan cutscene pembuka, rombongan tiba di Godaigo Inn. Ikuti percakapan awal sampai Makoto bebas menjelajahi penginapan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/20/Persona_3_Reload_20240211205707.jpg"
+  },
+  {
+    "order": 3,
+    "title": "Jelajahi Lantai Pertama",
+    "content": "Bicara dengan Kazushi, Kenji, Junpei, dan Ryoji yang berada di lantai pertama. Kamu juga bisa mengunjungi shop untuk membeli consumable atau souvenir yang nantinya dapat diberikan kepada Ken.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/5a/Persona_3_Reload_20240211210102.jpg"
+  },
+  {
+    "order": 4,
+    "title": "Jelajahi Lantai Kedua",
+    "content": "Naiki tangga di sebelah kiri lobby. Di lantai kedua, kamu dapat menemukan Yuko dan Akihiko di hallway, sedangkan Keisuke dan Odagiri berada di kamar pertama sebelah kiri.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/ed/Persona_3_Reload_20240211210504.jpg"
+  },
+  {
+    "order": 5,
+    "title": "Temui Mitsuru di Lantai Tiga",
+    "content": "Naik lagi ke lantai ketiga untuk berbicara dengan Mitsuru. Setelah semua percakapan selesai, kembali ke lantai kedua dan masuk ke kamar laki-laki, yaitu pintu ketiga di sisi kanan hallway.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/44/Persona_3_Reload_20240211210806.jpg"
+  },
+  {
+    "order": 6,
+    "title": "Tidur dan Lanjut ke Hari Kedua",
+    "content": "Pilih untuk tidur di kamar laki-laki. Tidak ada aktivitas penting lain yang terlewat, dan cerita langsung berlanjut ke hari kedua school trip."
+  },
+  {
+    "order": 7,
+    "title": "School Trip Hari Kedua",
+    "content": "Tonton rangkuman kegiatan rombongan di Kyoto, kemudian ikuti percakapan penting antara Mitsuru dan Yukari.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d7/Persona_3_Reload_20240211211319.jpg"
+  },
+  {
+    "order": 8,
+    "title": "Mitsuru Mendapat Artemisia",
+    "content": "Dalam event tersebut, Persona Mitsuru berevolusi menjadi Artemisia. Ia juga membuka Theurgy kedua, Blade of Execution, yang memberikan Almighty damage besar kepada satu target sekaligus menurunkan statistiknya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/5d/Persona_3_Reload_20240211211918.jpg"
+  },
+  {
+    "order": 9,
+    "title": "Keliling Inn pada Hari Kedua",
+    "content": "Saat kembali ke inn dengan yukata, kamu dapat berbicara dengan Kazushi, Kenji, dan Ryoji di lantai pertama; Yuko, Akihiko, Keisuke, dan Odagiri di lantai kedua; serta Aigis dan Fuuka di lantai ketiga."
+  },
+  {
+    "order": 10,
+    "title": "Lanjut ke Hari Ketiga",
+    "content": "Setelah selesai berbicara dengan semua orang, kembali ke kamar di lantai kedua dan pilih tidur untuk melanjutkan ke hari ketiga."
+  },
+  {
+    "order": 11,
+    "title": "Ajakan ke Hot Spring",
+    "content": "Setelah rangkuman kegiatan hari ketiga, Junpei mengirim pesan dan mengajak Makoto pergi ke hot spring. Kamu masih dapat menjelajahi inn sebelum memulai event tersebut.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/41/Persona_3_Reload_20240211212157.jpg"
+  },
+  {
+    "order": 12,
+    "title": "Percakapan Terakhir di Inn",
+    "content": "Kazushi dan Kenji berada di lantai pertama, sementara Aigis berdiri dekat pintu hot spring. Yuko, Akihiko, dan Ryoji berada di lantai kedua bersama kamar Keisuke serta Odagiri.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/cf/Persona_3_Reload_20240211213106.jpg"
+  },
+  {
+    "order": 13,
+    "title": "Kesempatan Terakhir Membeli Souvenir",
+    "content": "Hari ini adalah kesempatan terakhir membeli souvenir untuk Ken dari shop di lantai bawah. Fuuka berada di lantai ketiga, sedangkan Mitsuru dan Yukari berbicara di kamar terakhir pada sisi kanan hallway.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/f/f7/Persona_3_Reload_20240211213145.jpg"
+  },
+  {
+    "order": 14,
+    "title": "Mulai Event Hot Spring",
+    "content": "Bicara dengan Junpei di lobby dan katakan bahwa kamu siap. Setelah ia meminta Makoto bersiap, kembali ke kamar laki-laki di lantai kedua untuk memulai event."
+  },
+  {
+    "order": 15,
+    "title": "Rencana Junpei dan Ryoji",
+    "content": "Saat berendam bersama Junpei, Ryoji, dan Akihiko, terungkap bahwa Junpei serta Ryoji sengaja ingin tetap berada di hot spring ketika jadwal perempuan dimulai.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/69/Persona_3_Reload_20240211214427.jpg"
+  },
+  {
+    "order": 16,
+    "title": "Kabur Tanpa Ketahuan",
+    "content": "Yukari, Mitsuru, Fuuka, dan Aigis masuk sebelum para laki-laki sempat keluar. Event berubah menjadi pilihan stealth berbasis teks. Gagal tidak memengaruhi progres utama, tetapi respons yang tepat membuat mereka lolos tanpa ketahuan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/99/Persona_3_Reload_20240211214459.jpg"
+  },
+  {
+    "order": 17,
+    "title": "Pilihan Pertama: Hide in the Steam",
+    "content": "Ketika para perempuan mulai mendekat, pilih opsi untuk bersembunyi di dalam steam. Jangan memilih rock karena area tersebut akan diperiksa.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c2/Persona_3_Reload_20240211214929.jpg"
+  },
+  {
+    "order": 18,
+    "title": "Pilihan Kedua: Gunakan Rubber Duck",
+    "content": "Pada pilihan berikutnya, jangan langsung berlari ke pintu keluar. Gunakan rubber duck sebagai pengalih perhatian agar jalur menuju entrance menjadi aman.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/58/Persona_3_Reload_20240211215154.jpg"
+  },
+  {
+    "order": 19,
+    "title": "Pilihan Terakhir: Follow My Lead",
+    "content": "Saat Junpei merasa jalurnya terlalu berbahaya, pilih jawaban yang menyuruhnya mengikuti arahan Makoto. Keempatnya akan keluar tanpa diketahui oleh para perempuan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c2/Persona_3_Reload_20240211215531.jpg"
+  },
+  {
+    "order": 20,
+    "title": "Pulang dari Kyoto",
+    "content": "Pada hari berikutnya, rombongan bersiap pulang. Jika stealth gagal, para perempuan akan bersikap dingin; jika berhasil, mereka tidak mengetahui kejadian sebenarnya. Hasil ini tidak mengubah alur utama.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/1/1b/Persona_3_Reload_20240211220124.jpg"
+  },
+  {
+    "order": 21,
+    "title": "Berikan Souvenir kepada Ken",
+    "content": "Cerita kembali ke dorm pada malam 20 November. Jika membeli souvenir di Kyoto, bicara dengan Ken dan pilih item yang ingin diberikan kepadanya."
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "type": "callout",
+    "title": "Screenshot plan",
+    "body": "Untuk misi kayak ini, jangan screenshot setiap dialog. Ambil gambar hanya saat lokasi baru, sistem baru, battle penting, atau hasil akhir. Empat gambar sudah cukup untuk halaman draft ini: dorm briefing, Tartarus entrance, weakness tutorial, dan return point."
+  },
+  {
+    "type": "heading",
+    "body": "Before Entering Tartarus"
+  },
+  {
+    "type": "paragraph",
+    "body": "Bagian ini fokus mengenalkan rutinitas malam, persiapan party, dan cara game membawa pemain ke Tartarus untuk pertama kalinya. Simpan game sebelum mengikuti event malam supaya pembaca tahu ini titik aman untuk kembali kalau ingin cek opsi lain."
+  },
+  {
+    "type": "checklist",
+    "title": "Quick checklist",
+    "items": [
+      "Save di dorm sebelum event malam berlanjut.",
+      "Baca tutorial party dan battle tanpa buru-buru skip.",
+      "Gunakan item healing hanya saat dibutuhkan karena stok awal masih terbatas.",
+      "Catat tutorial weakness, knockdown, dan follow-up karena ini dasar combat Persona 3 Reload."
+    ]
+  },
+  {
+    "type": "heading",
+    "body": "Inside Tartarus"
+  },
+  {
+    "type": "paragraph",
+    "body": "Saat eksplorasi pertama dimulai, ikuti instruksi game dan gunakan encounter awal sebagai latihan. Prioritas utamanya bukan farming, tapi memahami flow battle: cari kelemahan musuh, knockdown target, lalu selesaikan fight sebersih mungkin."
+  },
+  {
+    "type": "table",
+    "title": "What to Track",
+    "headers": ["Bagian", "Yang ditulis di guide", "Butuh screenshot?"],
+    "rows": [
+      ["Dorm briefing", "Tujuan malam dan party yang ikut", "Opsional"],
+      ["Tartarus entrance", "Tampilan lokasi pertama dan objective", "Ya"],
+      ["Battle tutorial", "Weakness, knockdown, dan basic command", "Ya"],
+      ["Return point", "Kapan pemain aman balik dan lanjut hari", "Opsional"]
+    ]
+  },
+  {
+    "type": "callout",
+    "title": "Draft note",
+    "body": "Kalau nanti lu main sambil nulis, cukup tambahin nama enemy, weakness, item penting, dan floor/checkpoint yang bener-bener wajib. Sisanya tetap text summary biar halaman guide nggak berubah jadi album screenshot."
+  }
+]

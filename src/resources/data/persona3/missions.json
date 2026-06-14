@@ -1,0 +1,112 @@
+{
+  "April": [
+    {
+      "title": "Prologue (April 7 - April 18) Walkthrough",
+      "slug": "prologue-april-7-april-18",
+      "status": "ready",
+      "summary": "Opening route, first school days, first battle, and the S.E.E.S. introduction.",
+      "content": "prologue.json"
+    },
+    {
+      "title": "First Visit to Tartarus (April 19 - April 20) Walkthrough",
+      "slug": "first-visit-to-tartarus-april-19-april-20",
+      "status": "draft",
+      "summary": "First Tartarus tutorial route, basic combat priorities, and screenshot plan.",
+      "content": "guides/first-visit-to-tartarus-april-19-april-20.json"
+    }
+  ],
+  "May": [
+    {
+      "title": "Full Moon Operation - May",
+      "slug": "full-moon-operation-may",
+      "status": "planned",
+      "summary": "First major Full Moon operation and early party progression."
+    }
+  ],
+  "June": [
+    {
+      "title": "Full Moon Operation - June",
+      "slug": "full-moon-operation-june",
+      "status": "planned",
+      "summary": "Main June Full Moon route and boss preparation."
+    },
+    {
+      "title": "Theurgy Field Test (June 13)",
+      "slug": "theurgy-field-test-june-13",
+      "status": "planned",
+      "summary": "Theurgy tutorial notes and party setup reminders."
+    }
+  ],
+  "July": [
+    {
+      "title": "Full Moon Operation - July",
+      "slug": "full-moon-operation-july",
+      "status": "planned",
+      "summary": "July operation route, recommended prep, and battle notes."
+    },
+    {
+      "title": "Summer Vacation (July 20 - July 23)",
+      "slug": "summer-vacation-july-20-july-23",
+      "status": "planned",
+      "summary": "Short vacation event guide and choices worth tracking."
+    }
+  ],
+  "August": [
+    {
+      "title": "Full Moon Operation - August",
+      "slug": "full-moon-operation-august",
+      "status": "planned",
+      "summary": "August operation route and boss preparation."
+    },
+    {
+      "title": "Shadow of the Abyss Story Event (August 14)",
+      "slug": "shadow-of-the-abyss-story-event-august-14",
+      "status": "planned",
+      "summary": "Story event notes and key progression reminders."
+    }
+  ],
+  "September": [
+    {
+      "title": "Full Moon Operation - September",
+      "slug": "full-moon-operation-september",
+      "status": "planned",
+      "summary": "September operation route and party notes."
+    }
+  ],
+  "October": [
+    {
+      "title": "Full Moon Operation - October",
+      "slug": "full-moon-operation-october",
+      "status": "planned",
+      "summary": "October operation route, preparation, and boss notes."
+    }
+  ],
+  "November": [
+    {
+      "title": "Full Moon Operation - November",
+      "slug": "full-moon-operation-november",
+      "status": "planned",
+      "summary": "November operation route and late-game checklist."
+    },
+    {
+      "title": "School Trip (November 17 - November 20)",
+      "slug": "school-trip-november-17-november-20",
+      "status": "planned",
+      "summary": "School trip event guide and missable notes."
+    },
+    {
+      "title": "Chidori Battle (November 22)",
+      "slug": "chidori-battle-november-22",
+      "status": "planned",
+      "summary": "Story battle preparation and fight notes."
+    }
+  ],
+  "January": [
+    {
+      "title": "Final Mission: The Promised Day (January 31)",
+      "slug": "final-mission-the-promised-day-january-31",
+      "status": "planned",
+      "summary": "Final route, last preparations, and ending sequence."
+    }
+  ]
+}

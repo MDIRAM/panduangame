@@ -1,0 +1,112 @@
+[
+  {
+    "order": 1,
+    "title": "Operasi Full Moon Bulan September",
+    "content": "Pada 5 September, Makoto langsung kembali ke dorm setelah sekolah untuk memulai Full Moon Operation berikutnya. Target kali ini berada di sekitar Club Escapade dan menggunakan serangan Electric.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d5/Persona_3_Reload_20240131151513.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Kembali ke Dorm",
+    "content": "Hari dimulai seperti biasa di sekolah, lalu cerita otomatis membawa Makoto pulang ke dorm. Ikuti briefing dan percakapan anggota S.E.E.S. sampai tim siap berangkat.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/bc/Persona_3_Reload_20240131150006.jpg"
+  },
+  {
+    "order": 3,
+    "title": "Junpei Diculik",
+    "content": "Setelah cutscene, Junpei diketahui telah diculik dan tidak bisa ikut dalam operasi. S.E.E.S. tetap bergerak menuju Paulownia Mall dan menemukan jaringan kabel listrik di bawah mall telah dikuasai Shadow.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/b5/Persona_3_Reload_20240131150237.jpg"
+  },
+  {
+    "order": 4,
+    "title": "Target Berada di Club Escapade",
+    "content": "Fuuka memastikan Shadow berada di Club Escapade. Sebelum masuk, pilih party yang mampu bertahan dari Shock dan Electric damage karena hampir seluruh serangan boss memakai elemen tersebut.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/0/09/Persona_3_Reload_20240131152248.jpg"
+  },
+  {
+    "order": 5,
+    "title": "Bawa Akihiko dan Ken",
+    "content": "Akihiko wajib dibawa karena tahan terhadap Electric dan memiliki Tarunda. Untuk healer, pilih Ken daripada Yukari karena Yukari lemah terhadap Electric. Ken bisa memulihkan party dengan Mediarama dan menyerang memakai Light magic."
+  },
+  {
+    "order": 6,
+    "title": "Pilih Anggota Party Terakhir",
+    "content": "Untuk slot terakhir, Mitsuru sangat berguna berkat Rakunda dan Ice magic. Shinjiro juga bisa digunakan, tetapi hindari Aigis dan Yukari yang lemah terhadap Electric serta Koromaru karena Hermit meniadakan Dark attack.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d5/Persona_3_Reload_20240131151138.jpg"
+  },
+  {
+    "order": 7,
+    "title": "Siapkan Gear Anti-Electric",
+    "content": "Pasang armor atau accessory dengan Shock resistance atau Electric evasion, seperti Insulated Tights. Untuk Makoto, gunakan Persona yang tahan atau meniadakan Electric, misalnya Yamata-no-Orochi, Setanta, atau Queen Medb."
+  },
+  {
+    "order": 8,
+    "title": "Masuk ke Club Escapade",
+    "content": "Setelah party dan equipment siap, masuk melalui pintu Club Escapade di sisi kiri Paulownia Mall. Pertarungan melawan Hermit akan langsung dimulai."
+  },
+  {
+    "order": 9,
+    "title": "Hermit Boss Fight",
+    "content": "Hermit mengandalkan Electric attack dan akan meningkatkan kekuatannya selama battle. Jaga attack serta defense boss tetap terkena debuff, sambil tingkatkan defense party agar damage yang diterima lebih terkendali.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/8/8d/Persona_3_Reload_20240131151518.jpg"
+  },
+  {
+    "order": 10,
+    "title": "Pertahankan Buff dan Debuff",
+    "content": "Gunakan Tarunda milik Akihiko untuk menurunkan attack Hermit dan Rakunda milik Mitsuru untuk menurunkan defense-nya. Makoto sebaiknya memakai Persona tahan Electric untuk memberikan buff tambahan kepada party.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/8/83/Persona_3_Reload_20240131152135.jpg"
+  },
+  {
+    "order": 11,
+    "title": "Hindari Electric, Wind, dan Dark",
+    "content": "Hermit meniadakan Electric, Wind, dan Dark attack serta tidak memiliki weakness. Gunakan elemen lain atau physical skill untuk memberikan damage secara stabil.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/aa/Persona_3_Reload_20240131151621.jpg"
+  },
+  {
+    "order": 12,
+    "title": "Pembagian Peran Party",
+    "content": "Akihiko menjaga Tarunda, Mitsuru memakai Rakunda, dan Makoto mengatur buff sesuai Persona yang tersedia. Ketika tidak perlu healing, Ken dapat memakai Kougaon untuk memberikan Heavy Light damage.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/f/f6/Persona_3_Reload_20240131152028.jpg"
+  },
+  {
+    "order": 13,
+    "title": "Gunakan Rotasi Empat Turn",
+    "content": "Habiskan satu turn untuk memperbarui buff dan debuff, lalu gunakan tiga turn berikutnya untuk menyerang. Ken memakai Light, Mitsuru memakai Ice, Akihiko memakai physical skill, dan Makoto menyerang dengan elemen selain Electric, Wind, atau Dark.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/63/Persona_3_Reload_20240131153855.jpg"
+  },
+  {
+    "order": 14,
+    "title": "Pulihkan HP dan Shock",
+    "content": "Jika HP party mulai rendah, gunakan Mediarama milik Ken. Segera sembuhkan status Shock menggunakan item agar anggota party tidak kehilangan giliran dan Hermit tidak memperoleh Critical hit dengan mudah.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d2/Persona_3_Reload_20240131154035.jpg"
+  },
+  {
+    "order": 15,
+    "title": "Serang Saat Hermit Mulai Charge",
+    "content": "Ketika Hermit melakukan charge biasa dengan menghimpun listrik, jangan Guard. Serang memakai seluruh damage terbaikmu untuk memutus proses charge sebelum kekuatan Hermit naik selama beberapa turn.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/9b/Persona_3_Reload_20240131155153.jpg"
+  },
+  {
+    "order": 16,
+    "title": "Simpan Theurgy untuk Charge",
+    "content": "Theurgy sangat efektif untuk menghentikan charge Hermit. Simpan Theurgy Gauge sampai animasi charge dimulai, lalu lepaskan serangan tersebut agar boss gagal mencapai power level berikutnya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d7/Persona_3_Reload_20240131155416.jpg"
+  },
+  {
+    "order": 17,
+    "title": "Guard Saat Accelerated Charge",
+    "content": "Saat HP Hermit tersisa sekitar seperempat, ia memakai Accelerated Charge. Berbeda dari charge biasa, kali ini seluruh party harus Guard karena boss akan melepaskan Teraspark pada turn berikutnya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/70/Persona_3_Reload_20240131155506.jpg"
+  },
+  {
+    "order": 18,
+    "title": "Habisi Hermit",
+    "content": "Setelah Teraspark, Hermit bertarung dengan kekuatan maksimal dan memakai Electric serta physical attack yang mengenai seluruh party. Pertahankan rotasi buff, debuff, healing, dan Theurgy untuk menghabisinya secepat mungkin.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/de/Persona_3_Reload_20240131161205.jpg"
+  },
+  {
+    "order": 19,
+    "title": "Junpei dan Chidori",
+    "content": "Setelah Hermit dikalahkan, cerita kembali ke Junpei dan Chidori. Tonton cutscene terakhir mereka untuk menyelesaikan Full Moon Operation bulan September."
+  }
+]

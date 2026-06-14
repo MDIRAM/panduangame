@@ -1,0 +1,120 @@
+[
+  {
+    "order": 1,
+    "title": "Liburan ke Yakushima",
+    "content": "Pada 20 Juli, anggota S.E.E.S. memulai Summer Vacation ke pulau Yakushima. Perjalanan ini membuka informasi baru tentang Dark Hour, masa lalu Mitsuru, dan sebuah weapon pemburu Shadow.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/0/00/Persona_3_Reload_20240129132527.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Alur Summer Vacation",
+    "content": "Bagian ini berjalan selama beberapa hari dan sebagian besar berisi story event, eksplorasi ringan, serta percakapan. Tidak ada boss fight yang perlu disiapkan.",
+    "image_url": null
+  },
+  {
+    "order": 3,
+    "title": "Tiba di Yakushima",
+    "content": "Saat 21 Juli dimulai, Makoto, Yukari, Mitsuru, Fuuka, Akihiko, dan Junpei berangkat ke Yakushima menggunakan kapal. Setelah cutscene, rombongan tiba di mansion milik keluarga Mitsuru.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d6/Persona_3_Reload_20240127160633.jpg"
+  },
+  {
+    "order": 4,
+    "title": "Pergi ke Pantai",
+    "content": "Lanjutkan seluruh percakapan di mansion. Setelah itu tim memutuskan pergi ke pantai. Tonton rangkaian cutscene sampai kamu kembali mendapat kontrol."
+  },
+  {
+    "order": 5,
+    "title": "Bicara dengan Semua Anggota",
+    "content": "Jelajahi area pantai dan bicara dengan Junpei, Fuuka, Mitsuru, Akihiko, serta Yukari. Setelah semua percakapan selesai, cari sebuah log di dekat tempat Junpei, Fuuka, dan Yukari berkumpul.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/94/Persona_3_Reload_20240129124910.jpg"
+  },
+  {
+    "order": 6,
+    "title": "Ambil Yakushima Wood",
+    "content": "Periksa log tersebut untuk mendapatkan Yakushima Wood. Setelah item diambil, cari jalur keluar dari pantai yang berada di belakang Akihiko. Saat Junpei bertanya apakah kamu mau pergi, konfirmasi untuk melanjutkan cerita.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/ed/Persona_3_Reload_20240129125713.jpg"
+  },
+  {
+    "order": 7,
+    "title": "Asal Mula Dark Hour",
+    "content": "Waktu berpindah ke evening. Mitsuru dan ayahnya membahas insiden yang menciptakan Dark Hour. Anggota lain kemudian ikut bergabung dan menerima lebih banyak informasi tentang tujuan S.E.E.S.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/20/Persona_3_Reload_20240129130332.jpg"
+  },
+  {
+    "order": 8,
+    "title": "Temui Yukari",
+    "content": "Menjelang akhir percakapan, Yukari keluar dari ruangan. Pilih untuk mengejarnya lalu bicara dengannya. Tidak ada pilihan yang benar-benar menggagalkan event ini; di akhir percakapan kamu juga boleh memilih apakah ingin memeluk Yukari."
+  },
+  {
+    "order": 9,
+    "title": "Weapon Mekanis Menghilang",
+    "content": "Hari kedua dimulai dengan percakapan Mitsuru, Yukari, dan Fuuka. Ikutsuki menelepon dan memberi tahu bahwa sebuah weapon mekanis pemburu Shadow dari Port Island telah kabur.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c7/Persona_3_Reload_20240129131138.jpg"
+  },
+  {
+    "order": 10,
+    "title": "Operation: Yakushima Beach Fling",
+    "content": "Cerita berpindah ke Akihiko, Makoto, dan Junpei di pantai. Junpei memulai Operation: Yakushima Beach Fling, rencana dadakan untuk berkenalan dengan para gadis di sekitar pantai.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/92/Persona_3_Reload_20240129131331.jpg"
+  },
+  {
+    "order": 11,
+    "title": "Percobaan Pertama Junpei",
+    "content": "Dekati dua gadis yang duduk di sun lounger di depan. Junpei mencoba memberi contoh cara memulai percakapan, tetapi usahanya tetap gagal. Pilihan dialog Makoto tidak memberi perubahan besar, jadi pilih respons yang kamu suka.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/0/05/Persona_3_Reload_20240129131748.jpg"
+  },
+  {
+    "order": 12,
+    "title": "Giliran Akihiko",
+    "content": "Cari kelompok gadis lain di sun lounger sebelah kiri. Akihiko mengambil alih percakapan, sedangkan Makoto sesekali bisa menambahkan respons. Percobaan kedua juga gagal dan pilihan dialog tetap tidak terlalu berpengaruh.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/1/15/Persona_3_Reload_20240129132325.jpg"
+  },
+  {
+    "order": 13,
+    "title": "Giliran Makoto",
+    "content": "Pergi ke sisi berlawanan pantai dan cari seorang gadis di dekat deretan sun lounger terakhir. Dekati dia untuk memulai percakapan. Kamu bebas memilih respons karena hasil event tetap sama.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/72/Persona_3_Reload_20240129132823.jpg"
+  },
+  {
+    "order": 14,
+    "title": "Gadis Misterius",
+    "content": "Saat ketiganya kembali berkumpul, mereka melihat gadis keempat. Junpei dan Akihiko gagal berbicara dengannya, lalu Makoto mendapat giliran. Pilih jawaban apa pun; gadis tersebut akan langsung berlari pergi.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/5e/Persona_3_Reload_20240129133014.jpg"
+  },
+  {
+    "order": 15,
+    "title": "Ikuti ke Dalam Hutan",
+    "content": "Bicara dengan Junpei dan Akihiko, lalu ikuti gadis itu melalui jalur pepohonan di seberang pier. Terus ikuti trail sampai mencapai area Jomon tree.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/50/Persona_3_Reload_20240129133130.jpg"
+  },
+  {
+    "order": 16,
+    "title": "Temukan Gadis di Jomon Tree",
+    "content": "Gadis misterius bersembunyi di balik sebuah sign. Dekati atau tunggu sampai ia keluar sendiri. Percakapan dimulai dan ia langsung memeluk Makoto sampai anggota S.E.E.S. lain tiba.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/dd/Persona_3_Reload_20240129133424.jpg"
+  },
+  {
+    "order": 17,
+    "title": "Aigis Bergabung",
+    "content": "Setelah percakapan selesai, cerita berpindah ke evening di mansion. Ikutsuki memperkenalkan gadis tersebut sebagai Aigis. Ia kemudian resmi menjadi anggota baru S.E.E.S.",
+    "image_url": null
+  },
+  {
+    "order": 18,
+    "title": "Hari Terakhir di Pantai",
+    "content": "Hari ketiga diisi dengan kegiatan santai bersama seluruh tim di pantai. Aigis ikut bergabung dalam aktivitas kelompok untuk pertama kalinya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/3/38/Persona_3_Reload_20240129133740.jpg"
+  },
+  {
+    "order": 19,
+    "title": "S.E.E.S. Social Link Rank 5",
+    "content": "Lanjutkan seluruh percakapan untuk menaikkan S.E.E.S. Social Link ke rank 5. Hari ditutup dengan adegan Shinjiro dan kelompok misterius yang melakukan pembunuhan saat Dark Hour.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/b8/Persona_3_Reload_20240129134201.jpg"
+  },
+  {
+    "order": 20,
+    "title": "Kembali ke Dorm",
+    "content": "Setelah cutscene selesai, cerita langsung berpindah ke dorm pada evening 24 Juli. Mulai titik ini, aktivitas harian kembali berjalan normal.",
+    "image_url": null
+  }
+]
