@@ -15,10 +15,20 @@ class Chapter extends Model
         'game_id',
         'chapter_title',
         'section_title',
+        'overview',
+        'overview_image',
+        'cover_image',
         'slug',
         'source_url',
         'order',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'overview' => 'array',
+        ];
+    }
 
     public function game(): BelongsTo
     {

@@ -27,16 +27,28 @@ class WalkthroughController extends Controller
 
     public function showMission(string $mission): View
     {
-        return $this->chapterView($mission);
+        return $this->chapterView($mission, 'persona-3-reload');
     }
 
-    private function chapterView(string $slug): View
+    public function showGameChapter(string $gameSlug, string $chapterSlug): View
+    {
+        return $this->chapterView($chapterSlug, $gameSlug);
+    }
+
+    private function chapterView(string $slug, ?string $gameSlug = null): View
     {
         $chapter = Chapter::with([
             'game',
             'steps' => fn ($query) => $query->orderBy('order', 'asc'),
         ])
             ->where('slug', $slug)
+            ->when(
+                $gameSlug,
+                fn ($query) => $query->whereHas(
+                    'game',
+                    fn ($gameQuery) => $gameQuery->where('slug', $gameSlug),
+                ),
+            )
             ->firstOrFail();
 
         $previousChapter = Chapter::query()

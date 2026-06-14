@@ -1,0 +1,59 @@
+[
+  {
+    "order": 1,
+    "title": "Chidori Kabur dari Rumah Sakit",
+    "content": "Pada 22 November, Makoto dibangunkan dan diminta segera menuju briefing room S.E.E.S. Di sana, tim mengetahui bahwa Chidori telah kabur dari rumah sakit bersama STREGA dan berniat memancing Junpei ke dalam jebakan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/a3/Persona_3_Reload_20240212005353.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Susul Junpei",
+    "content": "Walaupun menyadari bahwa ini adalah jebakan, S.E.E.S. tetap memutuskan mengejar Junpei. Kamu harus memilih party untuk battle, tetapi Junpei tidak dapat dibawa karena menjadi bagian dari story event.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/99/Persona_3_Reload_20240212005715.jpg"
+  },
+  {
+    "order": 3,
+    "title": "Party yang Direkomendasikan",
+    "content": "Bawa Yukari, Akihiko, dan Aigis. Yukari menangani healing dan support, Akihiko memberikan magic damage, sedangkan Aigis memakai physical attack sekaligus meningkatkan defense party."
+  },
+  {
+    "order": 4,
+    "title": "Konfrontasi di Tartarus",
+    "content": "Setelah party dipilih, cerita berpindah ke entrance Tartarus. Tonton konfrontasi antara Junpei dan Chidori sampai anggota S.E.E.S. tiba di lokasi.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/9e/Persona_3_Reload_20240212005339.jpg"
+  },
+  {
+    "order": 5,
+    "title": "Chidori Battle",
+    "content": "Battle dimulai ketika Chidori kehilangan kendali. Kamu tidak perlu menghabiskan seluruh HP-nya; pertarungan akan berakhir otomatis setelah beberapa turn ketika Chidori mulai sadar kembali.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/f/fd/Persona_3_Reload_20240212005812.jpg"
+  },
+  {
+    "order": 6,
+    "title": "Jangan Gunakan Fire",
+    "content": "Chidori menyerap Fire, jadi hindari seluruh Fire skill. Gunakan magic elemen lain atau physical attack terkuat sambil mempertahankan HP party.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/61/Persona_3_Reload_20240212005421.jpg"
+  },
+  {
+    "order": 7,
+    "title": "Tahan Fire dan Physical Attack",
+    "content": "Serangan Chidori berfokus pada Fire dan heavy physical damage, lalu sesekali ia memulihkan dirinya sendiri. Party rekomendasi tidak lemah terhadap Fire, sehingga damage-nya masih dapat dipulihkan dengan aman."
+  },
+  {
+    "order": 8,
+    "title": "Naikkan Defense dan Gunakan Yukari",
+    "content": "Gunakan buff defense Aigis pada turn pertama, lalu serang seperti biasa. Ketika party menerima damage besar, gunakan giliran Yukari untuk healing agar semua anggota tetap bertahan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/ca/Persona_3_Reload_20240212010704.jpg"
+  },
+  {
+    "order": 9,
+    "title": "Sembuhkan Confuse",
+    "content": "Neuro-Slash milik Chidori dapat menyebabkan Confuse. Segera hilangkan status tersebut memakai skill atau item agar anggota party tidak kehilangan kontrol dan tetap bisa menyerang."
+  },
+  {
+    "order": 10,
+    "title": "Bertahan Sampai Battle Berakhir",
+    "content": "Setelah beberapa turn, Chidori mulai memanggil nama Junpei dan battle selesai otomatis. Tonton cutscene panjang berikutnya; setelah event berakhir, Persona Junpei berevolusi menjadi Trismegistus.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/70/Persona_3_Reload_20240212011806.jpg"
+  }
+]

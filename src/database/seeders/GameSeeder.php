@@ -40,6 +40,8 @@ class GameSeeder extends Seeder
         $this->seedOctoberGuide($chapters['full-moon-operation-october']);
         $this->seedNovemberGuide($chapters['full-moon-operation-november']);
         $this->seedSchoolTrip($chapters['school-trip-november-17-november-20']);
+        $this->seedChidoriBattle($chapters['chidori-battle-november-22']);
+        $this->seedFinalMission($chapters['final-mission-the-promised-day-january-31']);
     }
 
     private function seedChapterNavigation(Game $game): array
@@ -585,6 +587,60 @@ class GameSeeder extends Seeder
 
         $steps = json_decode(
             file_get_contents(resource_path('data/persona3/school-trip-id.json')),
+            true,
+            flags: JSON_THROW_ON_ERROR,
+        );
+
+        foreach ($steps as $step) {
+            Step::create([
+                'chapter_id' => $chapter->id,
+                'step_title' => $step['title'],
+                'content' => $step['content'],
+                'image_url' => $step['image_url'] ?? null,
+                'order' => $step['order'],
+            ]);
+        }
+    }
+
+    private function seedChidoriBattle(Chapter $chapter): void
+    {
+        $chapter->update([
+            'source_url' => 'https://www.ign.com/wikis/persona-3-reload/Chidori_Battle_(November_22)_Walkthrough',
+        ]);
+
+        if ($chapter->steps()->exists()) {
+            return;
+        }
+
+        $steps = json_decode(
+            file_get_contents(resource_path('data/persona3/chidori-battle-id.json')),
+            true,
+            flags: JSON_THROW_ON_ERROR,
+        );
+
+        foreach ($steps as $step) {
+            Step::create([
+                'chapter_id' => $chapter->id,
+                'step_title' => $step['title'],
+                'content' => $step['content'],
+                'image_url' => $step['image_url'] ?? null,
+                'order' => $step['order'],
+            ]);
+        }
+    }
+
+    private function seedFinalMission(Chapter $chapter): void
+    {
+        $chapter->update([
+            'source_url' => 'https://www.ign.com/wikis/persona-3-reload/Final_Mission:_The_Promised_Day_(January_31)',
+        ]);
+
+        if ($chapter->steps()->exists()) {
+            return;
+        }
+
+        $steps = json_decode(
+            file_get_contents(resource_path('data/persona3/final-mission-id.json')),
             true,
             flags: JSON_THROW_ON_ERROR,
         );

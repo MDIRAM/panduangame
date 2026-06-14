@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\WalkthroughController;
 use App\Models\Chapter;
+use App\Models\Game;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,6 +71,9 @@ Route::get('/cover/{slug}', function ($slug) {
 Route::get('/games/persona-3/story/{mission}', [WalkthroughController::class, 'showMission'])
     ->name('persona.story.show');
 
+Route::get('/games/{gameSlug}/walkthrough/{chapterSlug}', [WalkthroughController::class, 'showGameChapter'])
+    ->name('games.walkthrough.show');
+
 Route::get('/games/{slug}', function ($slug) {
     $games = [
         'elden-ring' => [
@@ -106,15 +110,27 @@ Route::get('/games/{slug}', function ($slug) {
 
     abort_if(! array_key_exists($slug, $games), 404);
 
+    $databaseSlug = match ($slug) {
+        'persona-3' => 'persona-3-reload',
+        default => $slug,
+    };
+
+    $databaseGame = Schema::hasTable('games')
+        ? Game::query()
+            ->where('slug', $databaseSlug)
+            ->with([
+                'chapters' => fn ($query) => $query->orderBy('order'),
+                'chapters.steps' => fn ($query) => $query->orderBy('order'),
+            ])
+            ->first()
+        : null;
+
     return view('games.show', [
         'game' => $games[$slug],
         'slug' => $slug,
-        'personaChapters' => $slug === 'persona-3' && Schema::hasTable('chapters')
-            ? Chapter::query()
-                ->whereHas('game', fn ($query) => $query->where('slug', 'persona-3-reload'))
-                ->withCount('steps')
-                ->orderBy('order')
-                ->get()
+        'databaseGame' => $databaseGame,
+        'personaChapters' => $slug === 'persona-3'
+            ? $databaseGame?->chapters ?? collect()
             : collect(),
     ]);
 })->name('games.show');

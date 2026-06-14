@@ -7,6 +7,11 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet">
     <style>
+        :root {
+            --guide-accent: {{ $chapter->game->slug === 'dark-souls-2' ? '#d9b45b' : '#38bdf8' }};
+            --guide-accent-soft: {{ $chapter->game->slug === 'dark-souls-2' ? '#27271f' : '#1c2d46' }};
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -51,8 +56,8 @@
         }
 
         .back-link:hover {
-            border-color: #38bdf8;
-            background: #1c2d46;
+            border-color: var(--guide-accent);
+            background: var(--guide-accent-soft);
         }
 
         .guide-header {
@@ -63,7 +68,7 @@
 
         .game-name {
             margin: 0;
-            color: #38bdf8;
+            color: var(--guide-accent);
             font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
@@ -108,6 +113,89 @@
             border: 1px solid #334155;
             border-radius: 6px;
             background: #111827;
+        }
+
+        body.game-dark-souls-2 .steps {
+            margin-top: 6px;
+        }
+
+        body.game-dark-souls-2 {
+            background:
+                linear-gradient(180deg, rgba(112, 84, 37, 0.14), transparent 420px),
+                #0c0d0d;
+        }
+
+        body.game-dark-souls-2 .guide-header {
+            border-bottom-color: #414039;
+        }
+
+        .chapter-overview {
+            display: grid;
+            grid-template-columns: minmax(220px, 34%) minmax(0, 1fr);
+            gap: 28px;
+            margin-top: 30px;
+            padding: 26px 0 32px;
+            border-bottom: 1px solid #414039;
+        }
+
+        .chapter-overview-media h2 {
+            margin: 0 0 16px;
+            color: var(--guide-accent);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 19px;
+            font-weight: 400;
+        }
+
+        .chapter-overview-media img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 1px solid #4a463a;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+
+        .chapter-overview-copy p {
+            margin: 0 0 13px;
+            color: #d2d0cb;
+            font-size: 16px;
+            line-height: 1.55;
+        }
+
+        .chapter-overview-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        body.game-dark-souls-2 .step {
+            padding: 14px 0;
+            border-bottom: 0;
+        }
+
+        body.game-dark-souls-2 .step.has-title {
+            margin-top: 24px;
+            padding-top: 34px;
+            border-top: 1px solid #394252;
+        }
+
+        body.game-dark-souls-2 .step.has-title:first-child {
+            margin-top: 0;
+            border-top: 0;
+        }
+
+        body.game-dark-souls-2 .step h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+        }
+
+        body.game-dark-souls-2 .step p {
+            color: #d6d9df;
+            line-height: 1.75;
+        }
+
+        body.game-dark-souls-2 .step img {
+            width: min(100%, 620px);
+            margin-right: auto;
+            margin-left: auto;
         }
 
         .empty {
@@ -164,7 +252,7 @@
         }
 
         .navigation-link:hover {
-            border-color: #38bdf8;
+            border-color: var(--guide-accent);
             background: #17243a;
         }
 
@@ -212,19 +300,59 @@
             .navigation-link.next {
                 text-align: left;
             }
+
+            .chapter-overview {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .chapter-overview-media img {
+                width: min(100%, 520px);
+            }
         }
     </style>
 </head>
-<body>
+<body class="game-{{ $chapter->game->slug }}">
+    @php
+        $isPersona = $chapter->game->slug === 'persona-3-reload';
+        $gamePageSlug = $isPersona ? 'persona-3' : $chapter->game->slug;
+        $chapterUrl = static fn ($item) => $isPersona
+            ? route('persona.story.show', ['mission' => $item->slug])
+            : route('games.walkthrough.show', [
+                'gameSlug' => $chapter->game->slug,
+                'chapterSlug' => $item->slug,
+            ]);
+        $overviewImageUrl = $chapter->overview_image && str_starts_with($chapter->overview_image, 'http')
+            ? $chapter->overview_image
+            : ($chapter->overview_image ? asset($chapter->overview_image) : null);
+    @endphp
+
     <main class="guide">
-        <a href="{{ route('games.show', ['slug' => 'persona-3']) }}" class="back-link">
-            Back to Story Mission Walkthroughs
+        <a href="{{ route('games.show', ['slug' => $gamePageSlug]) }}" class="back-link">
+            {{ $isPersona ? 'Back to Story Mission Walkthroughs' : 'Back to Game Progress Route' }}
         </a>
 
         <header class="guide-header">
             <p class="game-name">{{ $chapter->game->title }}</p>
             <h1>{{ $chapter->chapter_title }}</h1>
         </header>
+
+        @if (filled($chapter->overview))
+            <section class="chapter-overview" aria-label="{{ $chapter->chapter_title }} overview">
+                <div class="chapter-overview-media">
+                    <h2>{{ $chapter->chapter_title }}</h2>
+                    @if ($overviewImageUrl)
+                        <img src="{{ $overviewImageUrl }}" alt="{{ $chapter->chapter_title }}" loading="eager">
+                    @endif
+                </div>
+
+                <div class="chapter-overview-copy">
+                    @foreach ($chapter->overview as $paragraph)
+                        <p>{{ $paragraph }}</p>
+                    @endforeach
+                </div>
+            </section>
+        @endif
 
         <section class="steps">
             @forelse ($chapter->steps as $step)
@@ -234,12 +362,14 @@
                         : ($step->image_url ? asset($step->image_url) : null);
                 @endphp
 
-                <article class="step">
-                    <h2>{{ $step->step_title }}</h2>
+                <article class="step {{ filled($step->step_title) ? 'has-title' : 'continuation' }}">
+                    @if (filled($step->step_title))
+                        <h2>{{ $step->step_title }}</h2>
+                    @endif
                     <p>{{ $step->content }}</p>
 
                     @if ($imageUrl)
-                        <img src="{{ $imageUrl }}" alt="{{ $step->step_title }}" loading="lazy">
+                        <img src="{{ $imageUrl }}" alt="{{ $step->step_title ?: $chapter->chapter_title }}" loading="lazy">
                     @endif
                 </article>
             @empty
@@ -259,7 +389,7 @@
 
             <div class="navigation-grid">
                 @if ($previousChapter)
-                    <a href="{{ route('persona.story.show', ['mission' => $previousChapter->slug]) }}" class="navigation-link">
+                    <a href="{{ $chapterUrl($previousChapter) }}" class="navigation-link">
                         <span class="navigation-label">&larr; Previous</span>
                         <span class="navigation-title">{{ $previousChapter->chapter_title }}</span>
                     </a>
@@ -268,7 +398,7 @@
                 @endif
 
                 @if ($nextChapter)
-                    <a href="{{ route('persona.story.show', ['mission' => $nextChapter->slug]) }}" class="navigation-link next">
+                    <a href="{{ $chapterUrl($nextChapter) }}" class="navigation-link next">
                         <span class="navigation-label">Next &rarr;</span>
                         <span class="navigation-title">{{ $nextChapter->chapter_title }}</span>
                     </a>

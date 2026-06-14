@@ -1,0 +1,587 @@
+[
+  {
+    "title": "Things Betwixt",
+    "slug": "things-betwixt",
+    "image": "coverimg/DS2/Things Betwixt.png",
+    "overview_image": "coverimg/DS2/Things Betwixt.png",
+    "overview": [
+      "Setelah opening cinematic selesai, jalan menuju jembatan lalu masuk ke rumah para Fire Keeper. Di sana kamu akan membuat karakter, memilih starting class dan gift, lalu menerima Human Effigy sebelum melanjutkan perjalanan.",
+      "Keluar lewat pintu belakang, nyalakan bonfire, kemudian masuk ke jalur berkabut untuk mempelajari dasar combat. Area tutorial ini mengajarkan lock-on, backstab, Guard Break, serangan melompat, dan penggunaan ranged weapon sambil memberimu beberapa item awal.",
+      "Kamu boleh menjelajahi jalur optional untuk bertukar item dengan Dyna & Tillo, mengambil reward tersembunyi, atau melawan Ogre. Setelah selesai, ikuti jalan utama melewati celah batu untuk keluar dari Things Betwixt dan tiba di Majula."
+    ],
+    "source_url": "https://darksouls2.wiki.fextralife.com/Things+Betwixt",
+    "steps": [
+      {
+        "title": "Self Recollection",
+        "content": "Setelah opening cinematic, tinggalkan altar dan ikuti cahaya di antara pepohonan. Periksa celah kecil di sisi kanan untuk mengambil Rusted Coin, lalu kembali ke jalan utama. Jangan menyerang makhluk kecil yang berkumpul di area ini karena seluruh kelompok akan langsung menjadi agresif."
+      },
+      {
+        "title": "",
+        "content": "Seberangi jembatan dan masuk ke Fire Keepers' Dwelling. Cutscene akan mempertemukanmu dengan para Fire Keeper. Tentukan nama, bentuk karakter, starting class, dan starting gift. Setelah proses character creation selesai, kamu memperoleh Human Effigy.",
+        "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/dark-souls-2/d/d9/Witch-PS3.jpg"
+      },
+      {
+        "title": "",
+        "content": "Sebelum keluar, naik ke lantai atas dan buka chest untuk mengambil Human Effigy kedua. Biarkan para Fire Keeper tetap hidup karena salah satunya dapat menggunakan Soul Vessel untuk melakukan respec. Setelah keluar dari pintu belakang, nyalakan bonfire di sebelah kiri. Hancurkan gerobak di dekat jalur keluar dan ambil Torch dari mayat di belakangnya."
+      },
+      {
+        "title": "Learning the Ropes",
+        "content": "Masuk ke wooded tunnel di depan rumah untuk mencapai jalur tutorial yang berisi beberapa mist gate. Masing-masing cabang mengajarkan mekanik dasar seperti lock-on, Guard Break, backstab, serangan melompat, dan penggunaan ranged weapon.",
+        "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/dark-souls-2/c/ce/468px-Fallencrop.jpg"
+      },
+      {
+        "title": "",
+        "content": "Mist gate pertama di sebelah kiri berisi beberapa Hollow. Lawan satu per satu, ikuti sisi cliff untuk menemukan Dagger, kemudian hindari panah archer dan ambil Lifegem dari mayat di dalam cave."
+      },
+      {
+        "title": "",
+        "content": "Pada cabang berikutnya, buka shortcut ladder lalu turun ke ledge di bawahnya untuk mengambil souls. Masuki mist gate dari bagian bawah, kalahkan penjaga, dan lakukan tutorial jump untuk mencapai Amber Herb. Saat kembali, naik melalui ladder dan loot ruangan di balik pintu."
+      },
+      {
+        "title": "",
+        "content": "Di cave terakhir, jatuhkan tree untuk mencapai archer. Bersihkan musuh di dalam pit, naik melalui ladder, lalu jatuhkan tree lain agar jalur kembali ke area utama terbuka."
+      },
+      {
+        "title": "Dyna & Tillo",
+        "content": "Sarang burung di area tutorial merupakan tempat barter Dyna & Tillo. Tinggalkan Small Smooth & Silky Stone atau Petrified Something di dalam sarang, lalu reload area untuk menerima item acak."
+      },
+      {
+        "title": "Optional Paths and Rewards",
+        "content": "Kembali ke celah tersembunyi sebelum jembatan dan ikuti jejak kaki besar menuju Ogre pertama. Musuh ini sangat kuat untuk karakter baru. Serangan ranged dapat digunakan untuk memancingnya ke pintu sempit yang tidak dapat dilewatinya.",
+        "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/dark-souls-2/4/44/Cyclops.jpg"
+      },
+      {
+        "title": "",
+        "content": "Ogre pertama menjatuhkan Stone Ring. Periksa semak di sekitar area untuk menemukan Gold Pine Resin. Tunnel kecil yang tertutup tanaman dekat rumah dan waterfall mengarah ke Smooth & Silky Stone."
+      },
+      {
+        "title": "",
+        "content": "Dua Ogre lain berada di jalur pantai. Keduanya optional dan sangat berbahaya dalam melee. Coffin di belakang mereka dapat mengubah jenis kelamin karakter saat digunakan."
+      },
+      {
+        "title": "",
+        "content": "Jika ketiga Ogre di Things Betwixt berhasil dikalahkan, kembali ke rumah dan bicara dengan Milibeth untuk memperoleh Handmaid's Ladle. Setelah semua jalur yang diinginkan selesai, kembali ke jalan utama, lewati celah besar pada dinding batu, dan ikuti cahaya menuju Majula."
+      }
+    ]
+  },
+  {
+    "title": "Majula",
+    "slug": "majula",
+    "image": "coverimg/DS2/Majula.png",
+    "overview_image": "coverimg/DS2/majula/area.png",
+    "overview": [
+      "Majula adalah kota pesisir yang menjadi hub utama pemain di Dark Souls 2. Banyak NPC yang ditemui selama perjalanan akan pindah ke sini, sementara jalur di sekeliling settlement menghubungkanmu dengan beberapa wilayah baru di Drangleic.",
+      "Area ini hampir sepenuhnya aman, tetapi tetap ada Enslaved Pig di dekat mansion dan Skeleton di ruang bawah tanah. Lubang besar di tengah Majula nantinya dapat digunakan untuk mencapai Grave of Saints atau The Gutter.",
+      "Rute lengkap di bawah mengikuti urutan eksplorasi Fextralife untuk mendapatkan item, menemui seluruh NPC awal, membuka mansion, dan mengenali pintu masuk menuju Heide's Tower of Flame serta Forest of Fallen Giants."
+    ],
+    "source_url": "https://darksouls2.wiki.fextralife.com/Majula",
+    "steps": [
+      {
+        "title": "Majula Map",
+        "content": "Gunakan peta ini sebagai gambaran awal posisi bonfire, mansion, blacksmith, The Pit, Victor's Stone, serta pintu keluar menuju area lain. Bonfire utama Majula bernama The Far Fire dan area ini tidak memiliki boss.",
+        "image_url": "coverimg/DS2/majula/map.jpg"
+      },
+      {
+        "title": "Cavern Detour",
+        "content": "Dari Things Betwixt, turun melalui jalan sempit. Setelah deretan batu berakhir, belok kiri dan naik ke bukit menuju cave yang berakhir di ruangan penuh archway. Masuki archway terakhir untuk menemukan Benhart of Jugo duduk di dekat pilar. Jalur di depannya belum dapat dibuka, tetapi kamu tetap boleh menghabiskan dialognya."
+      },
+      {
+        "title": "",
+        "content": "Sebelum memasuki bangunan di depan Benhart, periksa sisi kiri tangga untuk menemukan mayat berisi 3 Lifegem dan 3 Homeward Bone. Di dalam bangunan terdapat dua cell dan sebuah lever yang terhalang perempuan membatu. Festering Hollow dari cell kiri akan menerobos keluar; setelah dikalahkan, ambil 3 Lloyd's Talisman dari dalam cell."
+      },
+      {
+        "title": "",
+        "content": "Setelah memperoleh Fragrant Branch of Yore, kembali dan pulihkan Rosabeth of Melfia agar lever dapat digunakan. Berikan setidaknya satu pakaian supaya ia pindah ke Majula; Rosabeth menjual Pyromancy dan dapat memperkuat Pyromancy Flame. Pintu di belakangnya menuju Shaded Woods. Untuk kunjungan pertama, kembali ke pintu cave dan ikuti dinding kiri ke mayat yang membawa Divine Blessing."
+      },
+      {
+        "title": "Scenic Route to the Bonfire",
+        "content": "Kembali ke jalan sempit dari Things Betwixt. Kali ini cari ledge kedua pada cliff sebelah kanan dan turun dengan hati-hati. Jatuh sekali lagi ke platform bawah untuk mengambil Morning Star dan Cleric's Sacred Chime, lalu peluk sisi dinding sampai menemukan Binoculars. Terus ikuti jalur ini hingga tiba di bonfire The Far Fire.",
+        "image_url": "coverimg/DS2/majula/entering.jpg"
+      },
+      {
+        "title": "Meeting the Locals",
+        "content": "Dari bonfire, lanjut ke cliff sebelah kanan untuk menemui Emerald Herald. Habiskan dialognya agar kamu memperoleh Estus Flask dan ia berpindah ke dekat bonfire. Mulai sekarang Emerald Herald digunakan untuk level up dan memperkuat Estus memakai Estus Flask Shard."
+      },
+      {
+        "title": "",
+        "content": "Naiki tangga curam di belakang Emerald Herald untuk menemui Crestfallen Saulden. Ia menawarkan covenant Way of Blue, memberikan Blue Seal Ring saat kamu bergabung, dan mengajarkan gesture Welcome. Terus ajak bicara untuk mendapat petunjuk tentang Forest of Fallen Giants, Heide's Tower of Flame, bonfire, summon sign, dan lubang besar di tengah Majula."
+      },
+      {
+        "title": "",
+        "content": "Turun kembali dan masuk ke kelompok rumah. Blacksmith Lenigrast duduk di depan workshop yang terkunci. Lenigrast's Key dapat dibeli dari Merchant Hag Melentia di Forest of Fallen Giants. Setelah terbuka, ambil Short Bow dari chest di dalam dan gunakan jasa Lenigrast untuk membeli, memperbaiki, serta memperkuat equipment. Di sisi kanan rumahnya terdapat Soul of a Nameless Soldier dan 3 Lifegem."
+      },
+      {
+        "title": "",
+        "content": "Rumah lain ditempati Sweet Shalquoir. Ia menjual item, menjelaskan covenant, dan dapat mengeluarkanmu dari covenant aktif. Ambil Lifegem dari mayat di luar rumahnya, kemudian naik melalui cliff di sebelah kanan. Mayat dekat Victor's Stone membawa 5 Homeward Bone."
+      },
+      {
+        "title": "",
+        "content": "Victor's Stone menawarkan covenant Company of Champions. Pemain baru sebaiknya tidak bergabung karena covenant ini memperkuat semua musuh dan menonaktifkan cooperative play. Di area rumah berikutnya, temui Maughlin the Armourer dan naik ke lantai atas tokonya untuk mengambil Titanite Shard dari chest."
+      },
+      {
+        "title": "",
+        "content": "Banyak NPC akan pindah ke Majula setelah ditemukan, termasuk Melentia dan Licia of Lindeldt. Licia nantinya dapat memutar mekanisme menuju Huntsman's Copse dengan biaya 2.000 souls. Waspadai tiga Undead Devourer kecil di lumpur dekat rumah; ukurannya kecil, tetapi damage dan ketahanannya berbahaya untuk karakter baru.",
+        "image_url": "coverimg/DS2/majula/locals.jpg"
+      },
+      {
+        "title": "The Mansion of Majula",
+        "content": "Di depan mansion yang terkunci terdapat sebuah sumur. Pukul batu yang terikat pada tali untuk mengangkat mayat berisi Estus Flask Shard; ambil shard ini secepat mungkin. Setelah bertemu Cale the Cartographer di Forest of Fallen Giants, habiskan dialognya untuk mendapatkan Mansion Key."
+      },
+      {
+        "title": "",
+        "content": "Setelah mansion terbuka, jalan lurus ke library kecil untuk mengambil Pharros' Lockstone. Jalur kanan bercabang menuju lantai atas dan bagian belakang mansion. Chest di lantai atas berisi 3 Titanite Shard dan 3 Torch."
+      },
+      {
+        "title": "",
+        "content": "Bagian belakang membawa kamu ke ruangan map besar. Turun ke basement dan kalahkan satu Skeleton yang tidak respawn untuk memperoleh Human Effigy. Mayat di depan pintu membawa Estus Flask Shard kedua, sedangkan chest di ruangan kecil menyimpan Soul Vessel."
+      },
+      {
+        "title": "The Pit to the Gutter",
+        "content": "Lubang besar di tengah Majula dapat dituruni menggunakan Silvercat Ring dari Shalquoir, tetapi fall damage tetap sangat besar. Lebih aman kembali setelah menaikkan HP atau meminta Laddersmith Gilligan memasang ladder. Platform pertama berisi Radiant Lifegem, platform kedua Pharros' Lockstone, dan platform ketiga 3 Poison Moss."
+      },
+      {
+        "title": "",
+        "content": "Dari platform berikutnya kamu dapat masuk ke Grave of Saints atau terus turun menuju pintu The Gutter. Sepanjang jalur terdapat Ring of the Evil Eye +1, Crystal Lizard, serta chest berisi Ash Knuckle Ring. Rute ini tidak direkomendasikan sebagai tujuan pertama dari Majula."
+      },
+      {
+        "title": "",
+        "content": "Di bagian paling bawah terdapat Small Mummy yang meledak. Jalur berair mengarah ke Great Heal, sedangkan scaffolding membawa kamu melewati Human Effigy, Radiant Lifegem, dan chest berisi Token of Spite. Setelah ladder terakhir dituruni, kamu tidak dapat kembali ke atas dan tunnel akan berakhir di The Gutter."
+      },
+      {
+        "title": "Entrance to Heide's Tower of Flame",
+        "content": "Di sebelah kiri cliff Victor's Stone terdapat archway besar dan tangga menuju tunnel. Ruangan bundar pertama memiliki mekanisme yang belum bergerak; setelah bertemu Licia di Heide's Tower of Flame, mekanisme ini dapat membuka rute menuju Huntsman's Copse.",
+        "image_url": "coverimg/DS2/majula/to-heide.jpg"
+      },
+      {
+        "title": "",
+        "content": "Ambil jalur kanan menuju spiral staircase dan buka chest di sebelah kiri untuk memperoleh Crimson Parma. Turun, tarik chain untuk membuka pintu besar, lalu lewati waterway. Di jalur berikutnya terdapat Soul of a Lost Undead dan Broken Thief Sword sebelum pintu masuk Heide's Tower of Flame."
+      },
+      {
+        "title": "Entrance to Forest of Fallen Giants",
+        "content": "Dari bonfire, hadap ke laut lalu lihat sisi kanan sepanjang pantai. Sekitar sepuluh langkah dari bonfire terdapat dinding runtuh dengan torch sconce yang menandai jalan turun. Ambil Rusted Coin dari iron chest di sisi kanan, kemudian tarik lever untuk membuka gate.",
+        "image_url": "coverimg/DS2/majula/to-forest.jpg"
+      },
+      {
+        "title": "",
+        "content": "Jalur terbuka ke cave dengan jembatan kayu di atas aliran air. Setelah melewati jembatan, belok kanan untuk menuju Forest of Fallen Giants. Cabang kiri memiliki chest berisi Human Effigy, sedangkan mayat di aliran air membawa Homeward Bone dan Soul of a Lost Undead."
+      }
+    ]
+  },
+  {
+    "title": "Forest of Fallen Giants",
+    "slug": "forest-of-fallen-giants",
+    "image": "coverimg/DS2/Forest of Fallen Giants.png",
+    "overview_image": "coverimg/DS2/forest-of-fallen-giants/intro.jpg",
+    "overview": [
+      "Forest of Fallen Giants adalah benteng tua yang dipenuhi Hollow Infantry, Hollow Royal Soldier, Ironclad Soldier, dan sisa peperangan melawan para Giant. Area ini menjadi rute utama pertama setelah Majula.",
+      "Di sini kamu dapat menemukan Merchant Hag Melentia, Cale the Cartographer, dan Mild-Mannered Pate. Dua boss utamanya adalah The Last Giant dan The Pursuer, sementara empat bonfire tersebar dari pintu masuk sampai area Soldier's Rest.",
+      "Walkthrough berikut mengikuti urutan Fextralife dari akses Majula, Cardinal Tower, rooftop dan shortcut, sampai rute Soldier Key, Pursuer, dan Flame Lizard Pit."
+    ],
+    "source_url": "https://darksouls2.wiki.fextralife.com/Forest+of+Fallen+Giants",
+    "steps": [
+      {
+        "title": "Forest of Fallen Giants Map",
+        "content": "Peta ini menunjukkan jalur dari Majula, The Crestfallen's Retreat, Cardinal Tower, arena The Last Giant, Soldier's Rest, Pursuer, dan Flame Lizard Pit. Area ini memiliki banyak loop dan shortcut, jadi Cardinal Tower akan sering menjadi titik kembali.",
+        "image_url": "coverimg/DS2/forest-of-fallen-giants/map.jpg"
+      },
+      {
+        "title": "Accessing From Majula",
+        "content": "Dari bonfire Majula, hadap ke laut lalu cari dinding runtuh dan pintu besar di sebelah kanan yang ditandai torch sconce. Turuni stone ramp, lakukan U-turn pada belokan kanan pertama, dan buka iron chest berisi Rusted Coin. Di NG+, chest ini berubah menjadi Mimic."
+      },
+      {
+        "title": "",
+        "content": "Kembali ke lorong utama dan tarik lever di samping gate. Setelah melewati jembatan kayu, cabang kiri memiliki chest berisi Human Effigy serta mayat di aliran air dengan Homeward Bone dan Soul of a Lost Undead. Ikuti stream ke kanan untuk memasuki Forest of Fallen Giants."
+      },
+      {
+        "title": "Welcome to the Forest",
+        "content": "Empat Hollow Infantry berada di sepanjang creek, sementara satu Ogre berjalan di dalam air dan baru menyerang saat kamu mendekat. Naik melalui jalur pendek di kanan pohon untuk menyalakan bonfire The Crestfallen's Retreat. Lewati plank bridge, kalahkan archer dan Hollows, lalu naik melalui ladder di ujung jalur.",
+        "image_url": "coverimg/DS2/forest-of-fallen-giants/intro.jpg"
+      },
+      {
+        "title": "Mossy Rotunda",
+        "content": "Di atas ladder terdapat sekitar dua belas Hollow Infantry yang berpura-pura mati, sementara Hollow Royal Soldier melempar Firebomb dari walkway. Bersihkan mereka sedikit demi sedikit dan ambil Human Effigy, Green Blossom, dua Broken Straight Sword, serta Lifegem dari mayat di lantai."
+      },
+      {
+        "title": "",
+        "content": "Naiki tower berlumut di sebelah kiri. Seorang Hollow akan turun melalui ladder, jadi naik sebentar lalu turun lagi untuk memancingnya. Di bagian atas terdapat Soul of a Nameless Soldier, Shortsword, Soul of a Lost Undead, Throwing Knife, dan platform yang harus dicapai dengan lompatan pendek."
+      },
+      {
+        "title": "Hallways to Cardinal Tower Bonfire",
+        "content": "Masuki mist di kiri clearing dan lanjut ke wooded tunnel. Kalahkan ambush di samping broken wall, turun ke ruangan berisi tiga Hollow, lalu hancurkan rak untuk mengambil 20 Wood Bolt. Lorong berikutnya penuh Hollow Royal Soldier, archer, dan pelempar Firebomb; Buckler berada dekat puing di ujung courtyard."
+      },
+      {
+        "title": "",
+        "content": "Naiki ladder di sisi kiri tangga dan ambil 5 Witching Urn. Pintu besar di belakang membuka ruangan bonfire Cardinal Tower. Merchant Hag Melentia duduk di dekatnya; beli Lenigrast's Key dan beberapa Firebomb, lalu habiskan dialog agar ia pindah ke Majula.",
+        "image_url": "coverimg/DS2/forest-of-fallen-giants/cardinal-tower.jpg"
+      },
+      {
+        "title": "",
+        "content": "Pintu di lantai atas dapat dibuka memakai Soldier Key atau dihancurkan. Di dalamnya terdapat Crystal Lizard, Small Leather Shield, Repair Powder, Hand Axe, Radiant Lifegem, Hollow Soldier Helm, dua Radiant Lifegem, dan Small White Sign Soapstone. Dari ujung ruangan kamu juga dapat turun ke branch untuk mengambil Divine Blessing."
+      },
+      {
+        "title": "Scaffolding and Flame Lizard Cave",
+        "content": "Keluar dari bonfire room dan turun melalui scaffolding. Ambil Human Effigy di plank ledge, lalu ikuti tree trunk untuk memperoleh Soul of a Lost Undead dan Torch. Area bawah dijaga beberapa Hollow serta dua Ironclad Soldier.",
+        "image_url": "coverimg/DS2/forest-of-fallen-giants/scaffolding.jpg"
+      },
+      {
+        "title": "",
+        "content": "Tunnel kiri dipenuhi patung membatu dan tembakan Flame Lizard. Ambil Soul of a Proud Knight, lalu lari ke grated door di kiri dan buka chest berisi Fire Longsword. Jangan memaksa melawan Flame Lizard sekarang; damage-nya tinggi dan area harta di belakangnya dapat diakses dengan lebih aman nanti."
+      },
+      {
+        "title": "",
+        "content": "Kembali ke Cardinal Tower dan turun melalui ladder di dalam bonfire room. Kalahkan dua Hollow Royal Soldier, seberangi bridge, lalu masuki archway dengan mist. Pintu kanan menuju Soldier's Rest masih membutuhkan Soldier Key, sedangkan mist di depan membawa kamu ke area rooftop."
+      },
+      {
+        "title": "Rooftops, Cale, and First Shortcut",
+        "content": "Setelah melewati mist, dua Hollow menyerang dari kanan dan seorang archer terus menembak dari kejauhan. Naiki tree root, kalahkan Ironclad Soldier, kemudian bergerak melalui rooftop untuk membungkam para archer. Dari landing dengan ladder, masuk perlahan ke cave di sebelah kiri."
+      },
+      {
+        "title": "",
+        "content": "Cave memiliki boulder trap. Tunggu batu lewat, ambil Human Effigy, lalu naik melalui jalur asal batu tanpa berbelok ke lubang di kanan. Kalahkan archer dan bicara dengan Cale the Cartographer sampai dialognya habis untuk menerima Mansion Key bagi mansion di Majula.",
+        "image_url": "coverimg/DS2/forest-of-fallen-giants/cale.jpg"
+      },
+      {
+        "title": "",
+        "content": "Kembali ke tree root dan naik ke platform rooftop di kanan. Pursuer akan dijatuhkan oleh burung untuk pertemuan awal optional. Kamu boleh kabur dan melawannya nanti. Ambil Human Effigy, Lifegem, Torch, Estus Flask Shard, serta Repair Powder di platform, lalu ledakkan barrel dekat dinding memakai Firebomb untuk membuka shortcut pertama ke Cardinal Tower."
+      },
+      {
+        "title": "Ballista Room, Pharros' Lock, and Pate",
+        "content": "Dari lubang shortcut, turun melalui ladder dan dekati ballista room. Picu ballista lalu mundur agar tembakannya mengenai musuh di dalam. Loot ruangan mencakup Great Soul Arrow, Large Soul of a Lost Undead, dan Blue Wooden Shield. Chest di ruang bawah memiliki trap dan berisi Titanite Shard."
+      },
+      {
+        "title": "",
+        "content": "Masukkan Pharros' Lockstone ke mekanisme, lalu serang dinding bercahaya untuk membuka dua chest berisi Chloranthy Ring dan Titanite Slab. Pukul pintu tertutup agar musuh membukanya dari dalam; chest di sana berisi Life Ring dan Large Titanite Shard."
+      },
+      {
+        "title": "",
+        "content": "Temui Mild-Mannered Pate di luar ballista room. Ia memperingatkan tentang trap di archway. Gate akan menutup setelah kamu masuk dan sekelompok Hollow menyerang. Ikuti lorong sampai tangga untuk keluar dari sisi lain, kemudian kembali kepada Pate untuk menerima White Sign Soapstone.",
+        "image_url": "coverimg/DS2/forest-of-fallen-giants/pate.jpg"
+      },
+      {
+        "title": "Hollow Royal Soldiers and Firebombs",
+        "content": "Courtyard di seberang ballista room penuh explosive barrel dan Hollow pelempar Firebomb. Lewati beberapa courtyard sampai pohon besar, lalu ambil Large Soul of a Lost Undead di belakangnya. Naiki ladder menuju wall untuk mengambil Light Crossbow."
+      },
+      {
+        "title": "",
+        "content": "Masuki fort dan kalahkan tiga Hollow Royal Soldier. Iron chest berisi Mail Breaker dan Infantry Helm. Dari ledge atas, lakukan lompatan ke mayat yang membawa Torch dan Soul of a Nameless Soldier."
+      },
+      {
+        "title": "Seaside Sword Room and Second Shortcut",
+        "content": "Masuki ruangan besar dengan reruntuhan pedang raksasa. Ironclad Soldier menunggu di balik cart. Naiki blade batu untuk mengambil Halberd dan Soul of a Nameless Soldier, tetapi bersiap menghadapi empat Hollow yang jatuh di belakangmu."
+      },
+      {
+        "title": "",
+        "content": "Lewati mist dan buka shortcut kedua menuju ladder Cardinal Tower sebelum turun memakai elevator. Di bawah, lorong kanan menuju arena The Last Giant. Kalahkan boss ini untuk memperoleh Soldier Key, lalu gunakan key tersebut untuk membuka beberapa pintu yang sebelumnya terkunci.",
+        "image_url": "coverimg/DS2/forest-of-fallen-giants/last-giant.jpg"
+      },
+      {
+        "title": "Ironclad Enclave - Soldier's Rest",
+        "content": "Dengan Soldier Key, buka pintu dekat bridge di bawah ladder Cardinal Tower. Turuni ruangan gelap sambil menyalakan sconce dan kalahkan Skeleton. Di area luar, bersihkan Hollow dan Ironclad Soldier, lalu ambil Whip, Cracked Red Eye Orb, Hunter's Set, serta Large Soul of a Proud Knight."
+      },
+      {
+        "title": "",
+        "content": "NPC invader Armorer Dennis akan muncul di area ini. Salah satu bukaan bangunan mengarah ke bonfire Soldier's Rest, sementara ruangan lain berisi Giant Tree yang kadang menghasilkan Seed of a Tree of Giants."
+      },
+      {
+        "title": "To the Pursuer",
+        "content": "Buka pintu kedua di bawah ladder Cardinal Tower untuk memperoleh Ring of Restoration, 3 Torch, Grand Lance, dan Amber Herb. Kembali ke Seaside Sword Room lalu buka pintu di sebelah tangga memakai Soldier Key. Setelah dua Hollow dikalahkan, naiki tangga menuju mist arena Pursuer.",
+        "image_url": "coverimg/DS2/forest-of-fallen-giants/pursuer.jpg"
+      },
+      {
+        "title": "",
+        "content": "Pursuer memiliki serangan charge, combo pedang, dan stab yang dapat memberi curse. Jaga jarak sedang, dodge ke arah sisi shield-nya, lalu serang setelah combo selesai. Ballista di arena dapat memberi damage besar jika kamu berhasil membuat Pursuer berdiri pada jalurnya."
+      },
+      {
+        "title": "",
+        "content": "Setelah menang, periksa lubang di lantai untuk mengambil Drangleic Set, Drangleic Shield, dan Drangleic Sword. Kembali ke ruangan setelah arena dan gunakan sarang burung agar dibawa menuju bonfire The Tower Apart di The Lost Bastille."
+      },
+      {
+        "title": "Flame Lizard Pit",
+        "content": "Area ini jauh lebih berbahaya daripada bagian Forest lainnya dan sebaiknya dikerjakan nanti. Gunakan Silvercat Ring atau pintu dari jalur Iron Key untuk turun dengan aman. Empat Flame Lizard memiliki fire damage tinggi dan lunge yang tidak dapat diblok."
+      },
+      {
+        "title": "",
+        "content": "Gunakan bow untuk mengurangi HP mereka dari tempat aman. Loot utama di pit mencakup Firedrake Stone, Soul of a Proud Knight, Hawk Ring, Flame Quartz Ring +1, Cracked Red Eye Orb, Rebel's Greatshield, dan Heavy Iron Key."
+      }
+    ]
+  },
+  {
+    "title": "Heide's Tower of Flame",
+    "slug": "heides-tower",
+    "image": "coverimg/DS2/heides_tower_of_flame_cathedral_of_blue.png",
+    "overview_image": "coverimg/DS2/heides-tower/intro.jpg",
+    "overview": [
+      "Heide's Tower of Flame adalah kota menara yang tenggelam dan dapat dicapai langsung dari Majula. Rute utamanya dipenuhi Old Knight, sementara Heide Knight akan menjadi agresif setelah Dragonrider dikalahkan pada versi Scholar of the First Sin.",
+      "Area ini bercabang menuju dua boss: Old Dragonslayer di Cathedral of Blue dan Dragonrider pada jalur utama. Bonfire pertama berada dekat pintu masuk, sedangkan bonfire kedua terletak setelah arena Dragonrider.",
+      "Urutan berikut mengikuti walkthrough Fextralife dari akses Majula, pertemuan dengan Old Knight, cabang Dragonslayer dan Dragonrider, sampai jalur turun menuju No-Man's Wharf."
+    ],
+    "source_url": "https://darksouls2.wiki.fextralife.com/Heide's+Tower+of+Flame",
+    "steps": [
+      {
+        "title": "Heide's Tower of Flame Map",
+        "content": "Peta ini memperlihatkan bonfire Heide's Ruin, ruangan tiga Old Knight, cabang menuju Cathedral of Blue, arena Dragonrider, serta jalur bawah menuju No-Man's Wharf.",
+        "image_url": "coverimg/DS2/heides-tower/map.jpg"
+      },
+      {
+        "title": "Accessing from Majula",
+        "content": "Dari Majula, masuk melalui stone archway di kiri cliff Victor's Stone dan turuni tunnel. Mekanisme di ruangan bundar belum dapat digunakan; Licia of Lindeldt nantinya dapat memutarnya untuk membuka Huntsman's Copse."
+      },
+      {
+        "title": "",
+        "content": "Ambil Crimson Parma dari chest di kiri spiral staircase. Turun dan tarik chain untuk membuka pintu besar, lalu lewati waterway. Mayat di lorong berikutnya membawa Soul of a Lost Undead dan Broken Thief Sword sebelum pintu masuk Heide's Tower of Flame."
+      },
+      {
+        "title": "Abundance of Old Knights",
+        "content": "Begitu keluar dari waterway, nikmati vista menara yang tenggelam lalu nyalakan bonfire Heide's Ruin melalui tangga kanan sebelum melawan Old Knight pertama. Pancing Old Knight satu per satu karena serangan mereka lambat tetapi damage-nya besar.",
+        "image_url": "coverimg/DS2/heides-tower/intro.jpg"
+      },
+      {
+        "title": "",
+        "content": "Naiki tangga dan ambil Soul of a Nameless Soldier serta Human Effigy dari mayat di railing. Setelah Old Knight berpedang dan shield dikalahkan, tarik lever yang muncul untuk menaikkan cincin luar arena Dragonrider sehingga risiko jatuh saat boss fight berkurang."
+      },
+      {
+        "title": "",
+        "content": "Di tower berikutnya ada tiga Old Knight. Pancing knight tengah yang memakai greatsword ke walkway terlebih dahulu. Setelah ia mati, dua knight lain akan menyerang bersamaan; provoke combo mereka lalu dodge mengitari keduanya agar mendapat ruang untuk counterattack.",
+        "image_url": "coverimg/DS2/heides-tower/split.jpg"
+      },
+      {
+        "title": "To the Dragonslayer",
+        "content": "Ambil cabang kiri dari tower tiga knight. Kalahkan Old Knight dan Heide Knight, lalu turun melalui broken staircase untuk mengambil Divine Blessing. Jalur naik berikutnya mengarah ke platform yang dijaga Guardian Dragon pada versi Scholar."
+      },
+      {
+        "title": "",
+        "content": "Guardian Dragon dapat dipancing agar mendarat lalu diserang pada kaki, atau ditembak dari area bawah dengan bow. Setelah kalah, ambil Petrified Dragon Bone dan Watchdragon Parma. Tarik lever di platform untuk menurunkan bridge menuju Cathedral of Blue dan boss Old Dragonslayer.",
+        "image_url": "coverimg/DS2/heides-tower/dragon.jpg"
+      },
+      {
+        "title": "To the Dragonrider",
+        "content": "Dari tower tiga knight, pilih walkway kanan. Turuni tangga melewati Heide Knight dan Old Knight sampai menemukan chest berisi Ring of Binding. Mist di depan mengarah ke Dragonrider; summon sign Masterless Glencour tersedia di kanan mist ketika kamu berada dalam human form."
+      },
+      {
+        "title": "",
+        "content": "Dragonrider memakai halberd dan greatshield, tetapi gerakannya cukup lambat. Bergerak mengitari sisi belakangnya, dodge sweep attack, lalu balas satu atau dua pukulan. Lever yang diaktifkan sebelumnya memperlebar arena dan membuat pertarungan jauh lebih aman.",
+        "image_url": "coverimg/DS2/heides-tower/dragonrider.jpg"
+      },
+      {
+        "title": "To No Man's Wharf",
+        "content": "Setelah Dragonrider kalah, lanjut ke atas tower untuk menyalakan bonfire dan bicara dengan Licia of Lindeldt. Habiskan dialognya agar ia pindah ke Majula. Licia menjual Miracle dan nantinya membuka jalur Huntsman's Copse dengan biaya 2.000 souls.",
+        "image_url": "coverimg/DS2/heides-tower/licia.jpg"
+      },
+      {
+        "title": "",
+        "content": "Keluar menuju tower berikutnya dan turuni spiral staircase. Ambil Monastery Charm di belakang tangga. Kalahkan Old Knight di lorong, lalu loot Human Effigy, Dark Troche, Soul of a Proud Knight, dan Old Knight Halberd."
+      },
+      {
+        "title": "",
+        "content": "Di bagian bawah, cabang kiri dijaga Syan Soldier dan memiliki metal chest berisi Sublime Bone Dust. Cabang kanan menuju pressure plate elevator. Turun dan lewati flooded corridor yang berisi Basilisk serta Hollow Infantry."
+      },
+      {
+        "title": "",
+        "content": "Musuh membatu menutup salah satu pintu optional; setelah dipulihkan, jalurnya memiliki Estus Flask Shard dan Knight Set. Untuk progres utama, lanjut melalui lubang di ujung hallway, nyalakan bonfire, lalu teruskan perjalanan menuju No-Man's Wharf.",
+        "image_url": "coverimg/DS2/heides-tower/no-mans-wharf.jpg"
+      }
+    ]
+  },
+  {
+    "title": "Cathedral of Blue",
+    "slug": "cathedral-of-blue",
+    "image": "coverimg/DS2/Cathedral_Of_Blue.png",
+    "overview_image": "coverimg/DS2/cathedral-of-blue/area.png",
+    "overview": [
+      "Cathedral of Blue adalah area kecil di ujung cabang kiri Heide's Tower of Flame. Untuk mencapainya pada Scholar of the First Sin, kalahkan Guardian Dragon, tarik lever, lalu seberangi drawbridge menuju cathedral.",
+      "Area ini langsung dimulai dengan boss fight melawan Old Dragonslayer. Tidak ada musuh biasa di dalam cathedral dan hanya terdapat satu bonfire yang tersembunyi setelah arena boss.",
+      "Setelah pertarungan, kamu dapat menemui Blue Sentinel Targray, mengambil beberapa reward, dan bergabung dengan covenant Blue Sentinels jika sudah memiliki Token of Fidelity."
+    ],
+    "source_url": "https://darksouls2.wiki.fextralife.com/Cathedral+of+Blue",
+    "steps": [
+      {
+        "title": "Cathedral of Blue Walkthrough",
+        "content": "Setelah menyeberangi drawbridge dari Heide's Tower of Flame, masuk ke cathedral dan periksa area sebelum mist. Mayat di dekat pintu membawa Old Radiant Lifegem, sementara iron chest di sampingnya berisi Ring of Binding dan 5 Human Effigy."
+      },
+      {
+        "title": "Old Dragonslayer Boss Fight",
+        "content": "Masuki mist untuk menghadapi Old Dragonslayer. Penampilan, spear, dan sebagian moveset-nya mirip Ornstein dari Dark Souls pertama, tetapi boss ini memakai dark damage, bukan lightning. Ia agresif dan sering menutup jarak dengan Leaping Stab atau Leaping Smash.",
+        "image_url": "coverimg/DS2/cathedral-of-blue/old-dragonslayer.jpg"
+      },
+      {
+        "title": "Strategy",
+        "content": "Untuk melee build, bergerak mengitari punggung Old Dragonslayer dan balas serangan setelah combo spear selesai. Jangan berdiri terlalu lama di depan shield. Saat dark energy mulai berkumpul di sekeliling tubuhnya, segera menjauh karena Dark Crash menghasilkan AOE yang sangat kuat."
+      },
+      {
+        "title": "",
+        "content": "Untuk ranged build, terus lakukan strafe dan dodge ke depan melewati Leaping Stab atau Smash. Pilar di arena dapat menahan Dark Shot. Saat ia menembakkan tiga dark orb dalam pola menyebar, roll ke depan di bawah proyektil atau berlindung sepenuhnya di balik pilar."
+      },
+      {
+        "title": "Attacks and Openings",
+        "content": "Spear Swing dan Quick Swipe relatif mudah dihindari dengan bergerak ke belakangnya. Jangan mencoba menahan Leaping Smash karena stamina yang hilang cukup besar. Pada combo Two-Handed Spear Thrust, block atau hindari serangan pertama lalu roll ke depan pada thrust kedua untuk mendapat kesempatan menyerang."
+      },
+      {
+        "title": "",
+        "content": "Saat HP rendah, Old Dragonslayer dapat memakai Impale yang tidak bisa diblok. Tanda serangannya adalah spear diangkat lalu diarahkan lurus ke depan. Dark Shot dapat dihindari dengan roll ke samping, sedangkan Dark Crash mengharuskanmu membuat jarak secepat mungkin."
+      },
+      {
+        "title": "Boss Rewards",
+        "content": "Mengalahkan Old Dragonslayer memberikan 20.000 souls, Old Dragonslayer Soul, dan Old Leo Ring. Old Leo Ring memperkuat thrust counter damage dan cocok untuk build yang memakai spear atau thrusting sword."
+      },
+      {
+        "title": "Blue Sentinel Targray",
+        "content": "Setelah boss kalah, lanjut ke balcony. Sebelum balcony terdapat tangga turun menuju bonfire Cathedral of Blue. Kembali ke atas dan buka wooden chest untuk mengambil 3 Cracked Blue Eye Orb. Iron chest di sisi lain berisi Heide Knight Iron Mask dan Tower Shield.",
+        "image_url": "coverimg/DS2/cathedral-of-blue/targray.jpg"
+      },
+      {
+        "title": "",
+        "content": "Blue Sentinel Targray berdiri menghadap balcony. Ia akan menawarkan covenant Blue Sentinels jika kamu memiliki Token of Fidelity, yang dapat diperoleh setelah membantu pemain lain mengalahkan boss sebagai phantom. Shade summon tidak dihitung untuk syarat ini."
+      },
+      {
+        "title": "Next Move",
+        "content": "Cathedral of Blue merupakan jalan buntu setelah Targray dan bonfire. Kembali ke Heide's Tower of Flame, ambil cabang menuju Dragonrider jika belum selesai, lalu lanjutkan perjalanan turun menuju No-Man's Wharf."
+      }
+    ]
+  },
+  {
+    "title": "No-Man's Wharf",
+    "slug": "no-mans-wharf",
+    "image": "coverimg/DS2/no_mans_wharf.png",
+    "steps": [
+      "Setelah Heide's Tower, lanjut ke wharf dan nyalakan bonfire di dekat pintu masuk.",
+      "Gunakan torch untuk menerangi area dan masuki bangunan secara perlahan karena banyak ambush di jalur ini.",
+      "Naik melalui area dock, bunyikan bell untuk memanggil kapal, lalu naik ke kapal untuk melawan Flexile Sentry.",
+      "Setelah boss selesai, gunakan kapal untuk melanjutkan perjalanan menuju The Lost Bastille."
+    ]
+  },
+  {
+    "title": "The Lost Bastille",
+    "slug": "lost-bastille",
+    "image": "coverimg/DS2/Lost_Bastille.png",
+    "steps": [
+      "The Lost Bastille dapat dicapai dari No-Man's Wharf atau setelah mengalahkan The Pursuer dan memakai rute burung.",
+      "Jelajahi cell, rooftop, dan hidden door sambil membuka shortcut kembali ke bonfire.",
+      "Bersiap menghadapi banyak musuh sebelum melawan Ruin Sentinels. Bertarung dengan sabar dan jangan biarkan ketiganya menguasai arena.",
+      "Setelah rute Bastille selesai, lanjut menuju Sinners' Rise."
+    ]
+  },
+  {
+    "title": "Belfry Luna",
+    "slug": "belfry-luna",
+    "image": "coverimg/DS2/iron_keep_belfry_sol.png",
+    "steps": [
+      "Gunakan Pharros' Lockstone di The Lost Bastille untuk membuka jalur menuju Belfry Luna.",
+      "Tower optional ini kecil, tetapi berbahaya karena ruang sempit dan musuh yang agresif.",
+      "Bersihkan rute Bell Keeper untuk loot tambahan, lalu kembali ke jalur utama Bastille setelah selesai."
+    ]
+  },
+  {
+    "title": "Sinners' Rise",
+    "slug": "sinners-rise",
+    "image": "coverimg/DS2/sinners_rise.png",
+    "steps": [
+      "Dari The Lost Bastille, masuk ke Sinners' Rise dan gunakan bonfire dekat pintu masuk sebagai titik persiapan.",
+      "Lewati area air dan prison dengan hati-hati. Perhatikan serangan jarak jauh dan ambush musuh.",
+      "Jika memiliki Bastille Key, nyalakan ruangan samping dekat arena agar pertarungan Lost Sinner menjadi lebih mudah.",
+      "Kalahkan Lost Sinner untuk mendapatkan salah satu Great Soul yang dibutuhkan dalam progres utama."
+    ]
+  },
+  {
+    "title": "Huntsman's Copse",
+    "slug": "huntsmans-copse",
+    "image": "coverimg/DS2/huntsmans_copse.png",
+    "steps": [
+      "Setelah Licia pindah ke Majula, bayar dia untuk memutar jalur dan membuka akses menuju Huntsman's Copse.",
+      "Ikuti jalur hutan, nyalakan bonfire, dan bersiap menghadapi musuh melee cepat serta tekanan serangan jarak jauh.",
+      "Cari key untuk membuka bonfire di hut terkunci, lalu lanjut ke jalur waterfall dan cave.",
+      "Lewati area skeleton dan bersiap menghadapi Skeleton Lords."
+    ]
+  },
+  {
+    "title": "Undead Purgatory",
+    "slug": "undead-purgatory",
+    "image": "coverimg/DS2/Undead_Purgatory.png",
+    "steps": [
+      "Undead Purgatory adalah cabang optional dari Huntsman's Copse.",
+      "Seberangi jembatan dengan hati-hati, lalu masuk ke arena jika sudah siap menghadapi Executioner's Chariot.",
+      "Selesaikan area ini untuk membuka covenant dan reward tambahan, kemudian kembali ke jalur utama menuju Harvest Valley."
+    ]
+  },
+  {
+    "title": "Harvest Valley",
+    "slug": "harvest-valley",
+    "image": "coverimg/DS2/Harvest_Valley.png",
+    "steps": [
+      "Bergerak dari Huntsman's Copse menuju Harvest Valley dan berhati-hatilah dengan poison pool.",
+      "Gunakan Lifegem, Poison Moss, dan rute aman untuk mengambil loot penting tanpa terlalu lama berada di dalam racun.",
+      "Lanjut melewati jalur windmill dan bergerak menuju Earthen Peak."
+    ]
+  },
+  {
+    "title": "Earthen Peak",
+    "slug": "earthen-peak",
+    "image": "coverimg/DS2/Earthen_Peak.png",
+    "steps": [
+      "Earthen Peak dipenuhi poison, walkway sempit, dan titik ambush.",
+      "Cari interaksi windmill sebelum memasuki boss utama karena tindakan ini membuat pertarungan Mytha jauh lebih mudah.",
+      "Bersihkan jalur atas, kalahkan Mytha, lalu lanjut menuju Iron Keep."
+    ]
+  },
+  {
+    "title": "The Grave of Saints",
+    "slug": "grave-of-saints",
+    "image": "coverimg/DS2/The_Grave_of_Saints.png",
+    "steps": [
+      "Kembali ke Majula dan turun ke pit setelah HP cukup tinggi, memakai Silvercat Ring, atau sudah memiliki akses ladder.",
+      "The Grave of Saints adalah rute optional Rat King Covenant dengan mekanik Pharros dan encounter di ruang sempit.",
+      "Bersihkan area ini jika menginginkan reward tambahan, lalu lanjut lebih dalam menuju The Gutter."
+    ]
+  },
+  {
+    "title": "The Pit",
+    "slug": "the-pit",
+    "image": "coverimg/DS2/ThePit.png",
+    "steps": [
+      "Pit di Majula merupakan pintu masuk menuju rute bawah game.",
+      "Turun secara bertahap, pastikan HP cukup, dan siapkan healing item agar tidak mati karena fall damage.",
+      "Jalur ini menghubungkan Grave of Saints, The Gutter, dan akhirnya Black Gulch."
+    ]
+  },
+  {
+    "title": "The Gutter",
+    "slug": "the-gutter",
+    "image": "coverimg/DS2/TheGutter.png",
+    "steps": [
+      "The Gutter gelap, vertikal, dan mudah membuat pemain tersesat. Bawa torch dan bergerak dari satu platform ke platform berikutnya.",
+      "Nyalakan sconce sebagai penanda, waspadai poison statue, dan jangan terburu-buru melewati struktur kayu rapuh.",
+      "Terus turun sampai rute menuju Black Gulch terbuka."
+    ]
+  },
+  {
+    "title": "Black Gulch",
+    "slug": "black-gulch",
+    "image": "coverimg/DS2/Black_Gulch.png",
+    "steps": [
+      "Black Gulch pendek, tetapi berbahaya karena poison statue memenuhi sebagian besar jalur.",
+      "Hancurkan statue sambil maju, gunakan bonfire sebagai titik reset, dan periksa drop tersembunyi serta side path.",
+      "Kalahkan The Rotten di akhir rute untuk mendapatkan Great Soul berikutnya."
+    ]
+  },
+  {
+    "title": "Shaded Woods",
+    "slug": "shaded-woods",
+    "image": "coverimg/DS2/Shaded_Woods.png",
+    "steps": [
+      "Dari Majula, bebaskan Rosabeth dari petrify untuk membuka jalur menuju Shaded Woods.",
+      "Capai bonfire Ruined Fork Road lalu pilih cabang rute dengan hati-hati. Area fog membuat posisi musuh sulit dibaca.",
+      "Lanjut melewati Shaded Ruins dan bersiap menghadapi Scorpioness Najka pada bagian akhir area.",
+      "Setelah Najka dikalahkan, perjalanan berlanjut menuju Doors of Pharros."
+    ]
+  },
+  {
+    "title": "Doors of Pharros",
+    "slug": "doors-of-pharros",
+    "image": "coverimg/DS2/Doors of Pharros.png",
+    "steps": [
+      "Doors of Pharros adalah area banjir setelah Shaded Woods, dengan gerakan yang melambat dan beberapa musuh besar.",
+      "Jangan menggunakan semua Pharros' Lockstone sembarangan karena beberapa contraption hanya jebakan atau tidak memberikan reward penting.",
+      "Putari bagian atas ruang utama untuk menemukan bonfire dan jalur menuju Royal Rat Authority.",
+      "Setelah selesai, lanjutkan perjalanan menuju Brightstone Cove Tseldora."
+    ]
+  }
+]

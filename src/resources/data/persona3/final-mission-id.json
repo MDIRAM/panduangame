@@ -1,0 +1,326 @@
+[
+  {
+    "order": 1,
+    "title": "The Promised Day",
+    "content": "Pada 31 Januari, S.E.E.S. menjalankan misi terakhir: mendaki Tartarus, menghentikan STREGA, dan mengalahkan Nyx. Misi ini hanya tersedia jika kamu menolak membunuh Ryoji pada akhir Desember.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/57/Persona_3_Reload_20240216152829.jpg"
+  },
+  {
+    "order": 2,
+    "title": "Persiapan Terakhir di Port Island",
+    "content": "Gunakan siang hari untuk membeli gear dan item, menemui teman, serta melakukan fusion terakhir di Velvet Room. Persona level tinggi seperti Messiah, Satan, Lucifer, Chi You, Beelzebub, Alice, Asura, dan Helel sangat membantu.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/4a/Persona_3_Reload_20240216040337.jpg"
+  },
+  {
+    "order": 3,
+    "title": "Briefing Terakhir S.E.E.S.",
+    "content": "Saat malam tiba, ikuti percakapan seluruh anggota S.E.E.S. di dorm. Setelah pidato singkat, tim berkumpul di meeting room sebelum berangkat.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/69/Persona_3_Reload_20240216040852.jpg"
+  },
+  {
+    "order": 4,
+    "title": "Point of No Return",
+    "content": "Bicara dengan semua anggota dan lakukan belanja terakhir jika masih diperlukan. Saat siap, bicara dengan Mitsuru. Setelah berangkat, kamu tidak dapat kembali menjelajahi Port Island.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/70/Persona_3_Reload_20240216042518.jpg"
+  },
+  {
+    "order": 5,
+    "title": "Masuk ke Tartarus",
+    "content": "Pilih party awal, tetapi jangan terlalu khawatir karena susunannya masih dapat diubah sebelum boss utama. Bicara dengan Elizabeth karena ia dapat memulihkan HP dan SP.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/a6/Persona_3_Reload_20240216044007.jpg"
+  },
+  {
+    "order": 6,
+    "title": "Naik ke Floor 255",
+    "content": "Gunakan teleporter menuju floor 255, lalu terus naik sampai floor 257. Fuuka akan memperingatkan bahwa anggota STREGA berada di lantai atas.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/0/0e/Persona_3_Reload_20240216043255.jpg"
+  },
+  {
+    "order": 7,
+    "title": "Lewati Floor Tartarus",
+    "content": "Jelajahi floor seperti biasa. Wicked Turret lemah terhadap Electric, sedangkan Grand Magus dapat dijatuhkan dengan Fire. Gunakan All-Out Attack untuk mempercepat perjalanan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/a3/Persona_3_Reload_20240216043501.jpg"
+  },
+  {
+    "order": 8,
+    "title": "Persiapan Melawan Jin",
+    "content": "Di floor 258, kembali ke entrance melalui teleporter dan minta Elizabeth melakukan healing. Kembali ke atas, simpan game, lalu siapkan party untuk rematch pertama.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/e5/Persona_3_Reload_20240216050344.jpg"
+  },
+  {
+    "order": 9,
+    "title": "Party untuk Jin",
+    "content": "Bawa Yukari sebagai healer, Mitsuru untuk Ice dan Freeze, serta Junpei untuk heavy physical dan Critical hit.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/5e/Persona_3_Reload_20240216050204.jpg"
+  },
+  {
+    "order": 10,
+    "title": "Lindungi Weakness Party",
+    "content": "Gunakan gear anti-weakness: Mitsuru lemah terhadap Fire, Junpei terhadap Wind, dan Yukari terhadap Electric. Aktifkan Sylphid Aura sebelum memasuki arena.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/8/85/Persona_3_Reload_20240216051805.jpg"
+  },
+  {
+    "order": 11,
+    "title": "Jin Rematch: Pasang Debuff",
+    "content": "Mulai battle dengan Debilitate milik Makoto. Jika tidak tersedia, turunkan evasion Jin dengan Yukari, defense dengan Mitsuru, dan attack dengan Makoto.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d6/Persona_3_Reload_20240216051654.jpg"
+  },
+  {
+    "order": 12,
+    "title": "Hindari Fire dan Dark",
+    "content": "Jin memantulkan Fire dan Dark. Yukari memakai Wind, Mitsuru memakai Ice, dan Junpei fokus pada physical skill. Jin akan menganalisis lalu menyerang weakness party.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/3/32/Persona_3_Reload_20240216051750.jpg"
+  },
+  {
+    "order": 13,
+    "title": "Perbarui Debuff Jin",
+    "content": "Siapkan Yukari untuk healing ketika weakness party terkena. Jin terkadang memakai giliran tambahan untuk menghapus debuff dirinya, jadi pasang kembali Debilitate saat diperlukan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/a3/Persona_3_Reload_20240216051645.jpg"
+  },
+  {
+    "order": 14,
+    "title": "Sembuhkan Confuse",
+    "content": "Di pertengahan battle, flash bang Jin dapat memberikan Confuse. Hilangkan status tersebut dengan skill Yukari atau item, lalu lanjutkan mencari Critical dan All-Out Attack.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/eb/Persona_3_Reload_20240216053314.jpg"
+  },
+  {
+    "order": 15,
+    "title": "Jin Memperkuat Persona",
+    "content": "Saat HP rendah, Jin menyuntikkan obat dan memulihkan seluruh HP. Ia mendapat Almighty attack, tetapi HP-nya akan berkurang setiap turn. Gunakan Theurgy dan terus menyerang sampai ia kalah.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/a4/Persona_3_Reload_20240216052357.jpg"
+  },
+  {
+    "order": 16,
+    "title": "Menuju Floor 263",
+    "content": "Setelah cutscene Jin, naik melewati dua floor acak sampai floor 263. Simpan game, gunakan teleporter untuk healing melalui Elizabeth, lalu kembali ke arena berikutnya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/cd/Persona_3_Reload_20240216140827.jpg"
+  },
+  {
+    "order": 17,
+    "title": "Party untuk Takaya",
+    "content": "Bawa Aigis, Yukari, dan Koromaru. Hindari Ken karena Takaya banyak memakai Dark. Pastikan Makoto juga menggunakan Persona yang meniadakan Dark.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c0/Persona_3_Reload_20240216143434.jpg"
+  },
+  {
+    "order": 18,
+    "title": "Takaya Rematch: Mulai dengan Debilitate",
+    "content": "Aktifkan Sylphid Aura, lalu gunakan Debilitate melalui Koromaru atau Makoto. Yukari memakai Wind, Koromaru memakai Fire atau Slash, dan Aigis fokus pada physical serta Critical hit.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/ad/Persona_3_Reload_20240216145417.jpg"
+  },
+  {
+    "order": 19,
+    "title": "Waspadai Dark Instant Kill",
+    "content": "Takaya sering memakai instant-kill Dark. Pertahankan Persona anti-Dark pada Makoto dan hidupkan anggota yang tumbang menggunakan Samarecarm atau Balm of Life.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/5a/Persona_3_Reload_20240216143915.jpg"
+  },
+  {
+    "order": 20,
+    "title": "Pulihkan SP dari Soul Drain",
+    "content": "Soul Drain menghabiskan SP satu anggota dan memindahkannya ke Takaya. Gunakan item pemulih SP tanpa ragu. Jika buff party dihapus, pasang kembali attack dan defense melalui Aigis.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/6d/Persona_3_Reload_20240216144848.jpg"
+  },
+  {
+    "order": 21,
+    "title": "Hadapi Almighty Attack",
+    "content": "Saat HP Takaya menurun, ia mulai memakai Almighty. Jaga HP party dengan Yukari dan teruskan serangan sampai ia menyiapkan kemampuan terakhirnya.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/1/1d/Persona_3_Reload_20240216150408.jpg"
+  },
+  {
+    "order": 22,
+    "title": "Serangan Terakhir Takaya",
+    "content": "Serangan pamungkas Takaya menurunkan SP seluruh party menjadi 1, memberikan damage besar, dan menyebabkan Fear. Gunakan Oracle Theurgy atau item SP, sembuhkan Fear, lalu pulihkan HP.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/8/8a/Persona_3_Reload_20240216145809.jpg"
+  },
+  {
+    "order": 23,
+    "title": "Kalahkan Takaya",
+    "content": "Gunakan Theurgy yang tersimpan atau lanjutkan pola Debilitate, buff, healing, dan serangan. Kalahkan Takaya untuk mengakhiri ancaman STREGA.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/b5/Persona_3_Reload_20240216145151.jpg"
+  },
+  {
+    "order": 24,
+    "title": "Kembali untuk Healing Terakhir",
+    "content": "Gunakan teleporter floor 263 untuk kembali ke entrance. Minta Elizabeth memulihkan party, lalu kembali dan simpan game sebelum pertarungan final.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/3/3c/Persona_3_Reload_20240216152631.jpg"
+  },
+  {
+    "order": 25,
+    "title": "Susun Party untuk Nyx",
+    "content": "Gunakan anggota yang paling nyaman: satu healer, satu magic user, dan satu physical tank. Yukari, Koromaru, dan Aigis menjadi susunan seimbang untuk panduan ini.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/97/Persona_3_Reload_20240216152736.jpg"
+  },
+  {
+    "order": 26,
+    "title": "Equipment dan Persona Final",
+    "content": "Pindahkan gear terbaik ke party aktif. Gunakan Persona dengan banyak resistance seperti Messiah, Lucifer, Asura, Chi You, Helel, atau Satan. Aktifkan Sylphid Aura lalu naik ke floor 264.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/3/35/Persona_3_Reload_20240216152926.jpg"
+  },
+  {
+    "order": 27,
+    "title": "Nyx Avatar Boss Fight",
+    "content": "Setelah percakapan di puncak Tartarus, battle dimulai. Naikkan attack melalui Aigis dan serang memakai kemampuan terkuat sampai health bar pertama habis.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/b3/Persona_3_Reload_20240216153039.jpg"
+  },
+  {
+    "order": 28,
+    "title": "Empat Belas Health Bar",
+    "content": "Nyx berganti Arcana setiap health bar habis. Resistance dan move set ikut berubah, sehingga elemen serangan harus selalu disesuaikan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/c0/Persona_3_Reload_20240216153409.jpg"
+  },
+  {
+    "order": 29,
+    "title": "Magician Arcana",
+    "content": "Magician memakai dan menahan Fire. Gunakan Wind, Dark, Slash, atau physical attack. Pulihkan party jika Fire magic memberikan damage besar.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/e5/Persona_3_Reload_20240216153849.jpg"
+  },
+  {
+    "order": 30,
+    "title": "Priestess Arcana",
+    "content": "Priestess menahan Ice dan dapat memakai Ice Storm ke seluruh party. Serang memakai physical, Dark, Fire, Slash, atau Wind lalu segera healing setelah Ice Storm.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/ef/Persona_3_Reload_20240216154517.jpg"
+  },
+  {
+    "order": 31,
+    "title": "Empress Arcana",
+    "content": "Empress tahan terhadap seluruh magic, jadi gunakan physical attack. Yukari hanya dapat memakai melee. Hilangkan Distress dari Eerie Sound memakai support Yukari.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/9e/Persona_3_Reload_20240216155542.jpg"
+  },
+  {
+    "order": 32,
+    "title": "Emperor Arcana",
+    "content": "Emperor tahan terhadap seluruh physical attack. Makoto, Yukari, dan Koromaru fokus pada magic, sedangkan Aigis memperbarui buff attack dan defense.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/ba/Persona_3_Reload_20240216155818.jpg"
+  },
+  {
+    "order": 33,
+    "title": "Hierophant Arcana",
+    "content": "Hierophant memantulkan Light dan meniadakan Dark. Doomsday Doctrine memberikan Fear, jadi sembuhkan status tersebut sebelum kembali menyerang memakai Wind, Fire, Slash, dan physical.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/6e/Persona_3_Reload_20240216160310.jpg"
+  },
+  {
+    "order": 34,
+    "title": "Lindungi Makoto dari Dark",
+    "content": "Phase Hierophant juga memakai physical besar dan Dark instant kill. Pastikan Persona Makoto meniadakan Dark dan hidupkan anggota yang tumbang melalui Yukari.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/4b/Persona_3_Reload_20240216161140.jpg"
+  },
+  {
+    "order": 35,
+    "title": "Lovers Arcana",
+    "content": "Lovers meniadakan Fire serta tahan terhadap Electric dan Pierce. Hindari Fire Koromaru dan Pierce Aigis. Sembuhkan Charm dari Sexy Dance memakai item atau Me Patra.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/b/bb/Persona_3_Reload_20240216161424.jpg"
+  },
+  {
+    "order": 36,
+    "title": "Chariot Arcana",
+    "content": "Chariot meniadakan seluruh physical attack. Makoto, Yukari, dan Koromaru memakai magic, sedangkan Aigis memperbarui buff. Healing setelah Deathbound mengenai party.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/1/1f/Persona_3_Reload_20240216161832.jpg"
+  },
+  {
+    "order": 37,
+    "title": "Justice Arcana",
+    "content": "Justice memakai Light dan instant-kill Light. Serang dengan physical untuk melewati phase ini secepatnya, terutama karena Koromaru lemah terhadap Light.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d6/Persona_3_Reload_20240216162030.jpg"
+  },
+  {
+    "order": 38,
+    "title": "Lewati Justice dengan Theurgy",
+    "content": "Jaga HP Koromaru dan hidupkan kembali jika tumbang. Gunakan Theurgy bila tersedia agar party tidak terlalu lama menghadapi Light instant kill.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/2/2f/Persona_3_Reload_20240216162334.jpg"
+  },
+  {
+    "order": 39,
+    "title": "Hermit Arcana",
+    "content": "Hermit meniadakan Wind, Electric, dan Dark serta tahan terhadap Pierce. Yukari sebaiknya Guard atau healing, sementara Makoto, Aigis, dan Koromaru memakai serangan yang aman.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d4/Persona_3_Reload_20240216162951.jpg"
+  },
+  {
+    "order": 40,
+    "title": "Fortune Arcana",
+    "content": "Fortune menyerap Fire, Ice, Wind, dan Light. Yukari memakai melee, Koromaru memakai Dark atau Strike, dan Aigis fokus pada physical damage.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/54/Persona_3_Reload_20240216163443.jpg"
+  },
+  {
+    "order": 41,
+    "title": "Strength Arcana",
+    "content": "Strength memantulkan Strike serta tahan terhadap Slash dan Pierce. Gunakan magic terkuat, sementara Aigis memakai turn untuk memperbarui buff.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/a/ad/Persona_3_Reload_20240216163955.jpg"
+  },
+  {
+    "order": 42,
+    "title": "Hanged Man Arcana",
+    "content": "Hanged Man tahan terhadap Strike serta meniadakan Light, Fire, dan Dark. Gunakan Pierce Aigis, Wind Yukari, dan Slash Koromaru. Waspadai Grim Transcendence.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/68/Persona_3_Reload_20240216165129.jpg"
+  },
+  {
+    "order": 43,
+    "title": "Bertahan dari Multi-turn Attack",
+    "content": "Grim Transcendence memberi Nyx beberapa aksi dan dapat menghasilkan physical serta Almighty damage besar. Heal terus dan gunakan Theurgy untuk segera keluar dari phase ini.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/9/9a/Persona_3_Reload_20240216165136.jpg"
+  },
+  {
+    "order": 44,
+    "title": "Death Arcana: Final Phase",
+    "content": "Pada phase terakhir, Nyx tidak memiliki resistance spesifik tetapi menerima damage lebih kecil dari serangan selain Almighty dan Theurgy. Mulai dengan Debilitate lalu lepaskan Theurgy yang tersimpan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/e8/Persona_3_Reload_20240216170521.jpg"
+  },
+  {
+    "order": 45,
+    "title": "Hadapi Armageddon",
+    "content": "Armageddon menurunkan HP seluruh party hingga hampir habis. Pada giliran Yukari, gunakan Mediarama atau healing terbaik untuk memulihkan tim sebelum melanjutkan serangan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/d/d9/Persona_3_Reload_20240216170310.jpg"
+  },
+  {
+    "order": 46,
+    "title": "Sembuhkan Status dari Night Queen",
+    "content": "Night Queen dapat memberikan berbagai status ailment kepada seluruh party. Gunakan item pemulih kelompok atau support skill sebelum kembali menyerang.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/ed/Persona_3_Reload_20240216170553.jpg"
+  },
+  {
+    "order": 47,
+    "title": "Adaptasi terhadap Seluruh Arcana",
+    "content": "Nyx kini dapat memakai serangan dari seluruh phase sebelumnya dan membidik weakness party. Sembuhkan damage besar dan hilangkan status ailment secepat mungkin.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/7/75/Persona_3_Reload_20240216171101.jpg"
+  },
+  {
+    "order": 48,
+    "title": "Grim Transcendence Terakhir",
+    "content": "Saat Grim Transcendence aktif, Nyx memakai rangkaian serangan Hanged Man. Pastikan HP penuh setelah rangkaian tersebut berakhir.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/c/cf/Persona_3_Reload_20240216170302.jpg"
+  },
+  {
+    "order": 49,
+    "title": "Kalahkan Nyx Avatar",
+    "content": "Pertahankan Debilitate, buff, healing, dan Theurgy setiap kali gauge terisi. Terus menyerang sampai health bar terakhir Nyx Avatar habis.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/6b/Persona_3_Reload_20240216171312.jpg"
+  },
+  {
+    "order": 50,
+    "title": "Nyx Core",
+    "content": "Setelah cutscene, Makoto menghadapi Nyx Core seorang diri. Ini merupakan story battle dan Makoto tidak dapat benar-benar kalah.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/e/e5/Persona_3_Reload_20240216172755.jpg"
+  },
+  {
+    "order": 51,
+    "title": "Bertahan dari Death",
+    "content": "Death memberikan scripted damage hingga Makoto hampir tumbang, tetapi dukungan teman-temannya memulihkan sedikit HP. Ikuti battle sesuai instruksi.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/6/67/Persona_3_Reload_20240216172801.jpg"
+  },
+  {
+    "order": 52,
+    "title": "Gunakan Great Seal",
+    "content": "Serang Nyx Core dengan melee setiap kali mendapat kontrol. Setelah kemampuan baru muncul, gunakan Great Seal untuk menyegel Nyx dan mengakhiri pertarungan.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/f/f2/Persona_3_Reload_20240216173418.jpg"
+  },
+  {
+    "order": 53,
+    "title": "Dua Bulan Kemudian",
+    "content": "Cerita berlanjut dua bulan kemudian. Selesaikan hari sekolah, lalu kunjungi Social Link di sekolah dan Port Island untuk mengucapkan perpisahan. Aktivitas ini tidak menghabiskan waktu.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/5/5c/Persona_3_Reload_20240216174436.jpg"
+  },
+  {
+    "order": 54,
+    "title": "Graduation Day dan Ending",
+    "content": "Saat siap, kembali ke dorm dan tidur di kamar. Keesokan harinya, pergi bersama Aigis menuju perayaan Graduation Day dan tonton rangkaian cutscene terakhir untuk menamatkan Persona 3 Reload.",
+    "image_url": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/persona-3-reload/4/46/Persona_3_Reload_20240216185942.jpg"
+  }
+]

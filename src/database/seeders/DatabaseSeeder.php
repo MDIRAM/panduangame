@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ReviewSeeder::class,
             GameSeeder::class,
+            DarkSouls2Seeder::class,
         ]);
     }
 }
