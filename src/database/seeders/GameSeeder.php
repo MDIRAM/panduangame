@@ -29,6 +29,20 @@ class GameSeeder extends Seeder
             ],
         );
 
+        Game::updateOrCreate(
+            ['slug' => 'gta-vice-city'],
+            [
+                'route_slug' => 'gta-vice-city',
+                'title' => 'GTA Vice City',
+                'subtitle' => 'Walkthrough Vice City sedang disiapkan.',
+                'description' => 'Panduan story mission GTA Vice City akan segera tersedia.',
+                'highlights' => [],
+                'cover_image' => 'coverimg/GTA_Vice_City.png',
+                'is_featured' => false,
+                'is_published' => true,
+            ],
+        );
+
         $game = Game::updateOrCreate(
             ['slug' => 'persona-3-reload'],
             [

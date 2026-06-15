@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#070b15">
     <title>{{ $game->title }} | Walkthrough Game Hub</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}?v={{ filemtime(public_path('css/welcome.css')) }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="welcome-page" style="background: radial-gradient(circle at top left, #0a1222 0%, #101a36 35%, #070b15 100%); background-color: #070b15;">
@@ -84,7 +85,7 @@
                                         @endforeach
                                     @else
                                         @foreach ($chapter->steps->take(2) as $step)
-                                            <p>{{ $step->content }}</p>
+                                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($step->content), 160) }}</p>
                                         @endforeach
                                     @endif
 
@@ -176,6 +177,8 @@
                     </div>
                 </section>
             @endif
+
+            @include('partials.site-footer')
         </main>
     </div>
 </body>

@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#050812">
     <title>Register | Walkthrough Game Hub</title>
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/auth.css') }}?v={{ filemtime(public_path('css/auth.css')) }}">
 </head>
 <body class="auth-page">
     <div class="auth-shell">
@@ -54,6 +55,10 @@
                 Sudah punya akun? <a href="/login">Masuk di sini</a>
             </div>
         </aside>
+    </div>
+
+    <div class="account-shell">
+        @include('partials.site-footer')
     </div>
 </body>
 </html>

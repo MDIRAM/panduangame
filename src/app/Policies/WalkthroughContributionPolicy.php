@@ -19,7 +19,8 @@ class WalkthroughContributionPolicy
 
     public function view(User $user, WalkthroughContribution $contribution): bool
     {
-        return $contribution->user_id === $user->id;
+        return $user->hasRole('contributor')
+            && $contribution->user_id === $user->id;
     }
 
     public function create(User $user): bool
@@ -29,14 +30,14 @@ class WalkthroughContributionPolicy
 
     public function update(User $user, WalkthroughContribution $contribution): bool
     {
-        return $contribution->user_id === $user->id
+        return $user->hasRole('contributor')
+            && $contribution->user_id === $user->id
             && $contribution->isEditableByAuthor();
     }
 
     public function delete(User $user, WalkthroughContribution $contribution): bool
     {
-        return $contribution->user_id === $user->id
-            && $contribution->isEditableByAuthor();
+        return $this->update($user, $contribution);
     }
 
     public function submit(User $user, WalkthroughContribution $contribution): bool

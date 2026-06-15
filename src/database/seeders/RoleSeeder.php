@@ -24,7 +24,6 @@ class RoleSeeder extends Seeder
             'step',
             'contribution',
             'contribution_step',
-            'review',
             'user',
             'role',
             'activity',
@@ -52,5 +51,15 @@ class RoleSeeder extends Seeder
             'name' => 'contributor',
             'guard_name' => 'web',
         ]);
+
+        Role::firstOrCreate([
+            'name' => 'member',
+            'guard_name' => 'web',
+        ]);
+
+        Permission::query()
+            ->where('guard_name', 'web')
+            ->where('name', 'like', '%_review')
+            ->delete();
     }
 }

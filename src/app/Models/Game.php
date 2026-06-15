@@ -37,11 +37,6 @@ class Game extends Model
         return $this->hasMany(Chapter::class)->orderBy('order');
     }
 
-    public function reviews(): HasMany
-    {
-        return $this->hasMany(Review::class);
-    }
-
     public function walkthroughContributions(): HasMany
     {
         return $this->hasMany(WalkthroughContribution::class);

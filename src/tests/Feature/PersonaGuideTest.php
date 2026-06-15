@@ -10,12 +10,14 @@ beforeEach(function () {
     $this->seed(GameSeeder::class);
 });
 
-test('persona story index renders chapter navigation from database', function () {
-    $response = $this->get('/games/persona-3');
+test('persona cover opens the first sidebar chapter', function () {
+    $this->get('/games/persona-3')
+        ->assertRedirect('/games/persona-3/story/prologue-april-7-april-18');
 
-    $response
-        ->assertStatus(200)
-        ->assertSee('Story Mission Walkthroughs')
+    $this->followingRedirects()
+        ->get('/games/persona-3')
+        ->assertOk()
+        ->assertSee('Walkthrough Chapters')
         ->assertSee('Prologue (April 7 - April 18) Walkthrough')
         ->assertSee('First Visit to Tartarus (April 19 - April 20) Walkthrough')
         ->assertSee('Final Mission: The Promised Day (January 31)');
@@ -26,7 +28,11 @@ test('prologue detail renders database steps sidebar and local images', function
 
     $response
         ->assertStatus(200)
-        ->assertSee('Story Mission Walkthroughs')
+        ->assertSee('Back to Game Library')
+        ->assertSee('By Walkthrough Game Hub')
+        ->assertSee('Walkthrough Chapters')
+        ->assertSee('aria-current="page"', false)
+        ->assertSee('First Visit to Tartarus (April 19 - April 20) Walkthrough')
         ->assertSee('Iwatodai Station')
         ->assertSee('coverimg/Persona3/1.png', false);
 });

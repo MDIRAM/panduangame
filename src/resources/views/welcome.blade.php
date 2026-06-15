@@ -3,21 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#070b15">
     <title>Walkthrough Game Hub | Sistem Panduan</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}?v={{ filemtime(public_path('css/welcome.css')) }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="welcome-page" style="background: radial-gradient(circle at top left, #0a1222 0%, #101a36 35%, #070b15 100%); background-color: #070b15;">
     @php
-        $spotlightSlides = $games->map(fn ($game) => [
-            'label' => $game->is_featured ? 'Featured Route' : 'Walkthrough Route',
-            'title' => $game->title,
-            'copy' => $game->subtitle ?: $game->description,
-            'href' => route('games.show', ['slug' => $game->route_slug]),
-            'image' => $game->cover_url,
-        ])->values();
+        $spotlightSlides = $games
+            ->map(fn ($game) => [
+                'label' => $game->chapters_count === 0
+                    ? 'Upcoming'
+                    : ($game->is_featured ? 'Featured Route' : 'Walkthrough Route'),
+                'title' => $game->title,
+                'copy' => $game->subtitle ?: $game->description,
+                'href' => route('games.show', ['slug' => $game->route_slug]),
+                'image' => $game->cover_url,
+            ])
+            ->values();
     @endphp
     <div class="welcome-shell">
         <div class="guide-layout">
@@ -34,8 +39,10 @@
                         @if (auth()->user()->hasRole('super_admin'))
                             <a href="/admin">Admin Panel</a>
                         @else
-                            <a href="{{ route('contributions.index') }}">My Guides</a>
-                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                            @if (auth()->user()->hasRole('contributor'))
+                                <a href="{{ route('contributions.index') }}">Contributor Dashboard</a>
+                            @endif
+                            <a href="{{ route('dashboard') }}">My Account</a>
                         @endif
                         <form action="{{ route('logout') }}" method="POST" class="guide-nav-logout">
                             @csrf
@@ -59,8 +66,10 @@
                         @auth
                             @if (auth()->user()->hasRole('super_admin'))
                                 <a href="/admin" class="button secondary">Admin Panel</a>
-                            @else
+                            @elseif (auth()->user()->hasRole('contributor'))
                                 <a href="{{ route('contributions.create') }}" class="button secondary">Write a guide</a>
+                            @else
+                                <a href="{{ route('dashboard') }}" class="button secondary">My account</a>
                             @endif
                         @else
                             <a href="{{ route('login') }}" class="button secondary">Log in</a>
@@ -95,11 +104,23 @@
                         @forelse ($games as $game)
                             @php
                                 $gameCover = $game->cover_url;
+                                $isUpcoming = $game->chapters_count === 0;
                             @endphp
-                            <a href="{{ route('games.show', ['slug' => $game->route_slug]) }}" class="guide-game-card">
-                                <img src="{{ $gameCover }}" alt="{{ $game->title }} guide cover">
-                                <strong>{{ $game->title }} Guide</strong>
-                                <span>{{ $game->chapters_count }} walkthrough chapters</span>
+                            <a
+                                href="{{ route('games.show', ['slug' => $game->route_slug]) }}"
+                                class="guide-game-card {{ $isUpcoming ? 'is-upcoming' : '' }}"
+                            >
+                                <div class="guide-game-media">
+                                    <img src="{{ $gameCover }}" alt="{{ $game->title }} guide cover">
+                                </div>
+                                <div class="guide-game-copy">
+                                    <strong>{{ $game->title }} Guide</strong>
+                                    @if ($isUpcoming)
+                                        <span class="guide-status upcoming">Upcoming</span>
+                                    @else
+                                        <span>{{ $game->chapters_count }} walkthrough chapters</span>
+                                    @endif
+                                </div>
                             </a>
                         @empty
                             <p>Belum ada game yang dipublikasikan.</p>
@@ -107,6 +128,7 @@
                     </div>
                 </section>
 
+                @include('partials.site-footer')
             </main>
         </div>
     </div>

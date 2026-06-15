@@ -50,7 +50,7 @@ test('guest can only read published community walkthroughs', function () {
     $this->get(route('contributions.show', $contribution))
         ->assertOk()
         ->assertSee('First Public Step')
-        ->assertSee($this->user->name);
+        ->assertSee('By '.$this->user->name);
 
     $this->getJson('/api/v1/community-guides/'.$contribution->slug)
         ->assertOk()

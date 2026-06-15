@@ -10,29 +10,27 @@ beforeEach(function () {
     $this->seed(DarkSouls2Seeder::class);
 });
 
-test('dark souls 2 progress route is rendered from database', function () {
+test('dark souls 2 cover opens the first sidebar chapter', function () {
     $game = Game::where('slug', 'dark-souls-2')->with('chapters.steps')->firstOrFail();
 
     expect($game->chapters)->toHaveCount(19);
 
     $this->get('/games/dark-souls-2')
+        ->assertRedirect('/games/dark-souls-2/walkthrough/things-betwixt');
+
+    $this->followingRedirects()
+        ->get('/games/dark-souls-2')
         ->assertOk()
-        ->assertSee('Game Progress Route')
+        ->assertSee('Walkthrough Chapters')
         ->assertSee('Things Betwixt')
-        ->assertSee('Doors of Pharros')
-        ->assertSee('coverimg/DS2/Majula.png', false)
-        ->assertSee('coverimg/DS2/Forest of Fallen Giants.png', false)
-        ->assertSee('coverimg/DS2/heides_tower_of_flame_cathedral_of_blue.png', false)
-        ->assertDontSee('coverimg/DS2/majula/map.jpg', false)
-        ->assertDontSee('coverimg/DS2/forest-of-fallen-giants/map.jpg', false)
-        ->assertDontSee('coverimg/DS2/heides-tower/map.jpg', false)
-        ->assertSee('Seluruh data berasal dari database');
+        ->assertSee('Self Recollection')
+        ->assertSee('aria-current="page"', false);
 });
 
 test('dark souls 2 area detail renders steps image and navigation', function () {
     $this->get('/games/dark-souls-2/walkthrough/forest-of-fallen-giants')
         ->assertOk()
-        ->assertSee('Back to Game Progress Route')
+        ->assertSee('Back to Game Library')
         ->assertSee('Rooftops, Cale, and First Shortcut')
         ->assertSee("Ballista Room, Pharros' Lock, and Pate")
         ->assertSee('Seaside Sword Room and Second Shortcut')
@@ -74,6 +72,9 @@ test('cathedral of blue renders old dragonslayer and targray route', function ()
 test('things betwixt includes detailed route items and optional encounters', function () {
     $this->get('/games/dark-souls-2/walkthrough/things-betwixt')
         ->assertOk()
+        ->assertSee('Walkthrough Chapters')
+        ->assertSee('chapter-sidebar', false)
+        ->assertSee('aria-current="page"', false)
         ->assertSee('Self Recollection')
         ->assertSee('Learning the Ropes')
         ->assertSee('Optional Paths and Rewards')

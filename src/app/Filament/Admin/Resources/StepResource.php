@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\StepResource\Pages;
 use App\Models\Step;
 use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -46,9 +47,8 @@ class StepResource extends Resource
                     Forms\Components\TextInput::make('step_title')
                         ->maxLength(255)
                         ->columnSpanFull(),
-                    Forms\Components\Textarea::make('content')
+                    RichEditor::make('content')
                         ->required()
-                        ->rows(8)
                         ->columnSpanFull(),
                     Forms\Components\TextInput::make('image_url')
                         ->label('Image path or URL')
@@ -77,6 +77,7 @@ class StepResource extends Resource
                     ->searchable()
                     ->wrap(),
                 Tables\Columns\TextColumn::make('content')
+                    ->formatStateUsing(fn (?string $state): string => strip_tags($state ?? ''))
                     ->limit(80)
                     ->wrap(),
                 Tables\Columns\IconColumn::make('image_url')

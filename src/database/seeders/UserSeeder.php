@@ -43,6 +43,16 @@ class UserSeeder extends Seeder
             ])->save();
 
             $user->syncRoles(['contributor']);
+
+            $member = User::updateOrCreate(
+                ['email' => 'member@admin.com'],
+                [
+                    'name' => 'Member User',
+                    'password' => Hash::make('password'),
+                ],
+            );
+
+            $member->syncRoles(['member']);
         }
     }
 }

@@ -10,14 +10,19 @@ beforeEach(function () {
     $this->seed(EldenRingSeeder::class);
 });
 
-test('elden ring game page displays the seeded progress route', function () {
+test('elden ring cover opens the first sidebar chapter', function () {
     $this->get('/games/elden-ring')
+        ->assertRedirect('/games/elden-ring/walkthrough/west-limgrave');
+
+    $this->followingRedirects()
+        ->get('/games/elden-ring')
         ->assertOk()
-        ->assertSee('The Lands Between Walkthrough')
+        ->assertSee('Walkthrough Chapters')
         ->assertSee('Limgrave Barat: Awal Perjalanan')
         ->assertSee('Limgrave Timur: Mistwood dan Fort Haight')
         ->assertSee('Stormveil Castle: Margit dan Godrick')
-        ->assertSee('coverimg/EldenRing/west-limgrave/renna.jpg');
+        ->assertSee('Selesaikan Cave of Knowledge')
+        ->assertSee('aria-current="page"', false);
 });
 
 test('elden ring chapters contain ordered steps and navigation', function () {

@@ -85,7 +85,7 @@ Route::middleware('guest')->group(function () {
 
         $user = User::create($validated);
         $user->assignRole(Role::firstOrCreate([
-            'name' => 'contributor',
+            'name' => 'member',
             'guard_name' => 'web',
         ]));
 
@@ -93,7 +93,7 @@ Route::middleware('guest')->group(function () {
 
         $request->session()->regenerate();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
     })->middleware('throttle:6,1')->name('register.store');
 
     Route::post('/login', function (Request $request) {
@@ -114,7 +114,7 @@ Route::middleware('guest')->group(function () {
             return redirect('/admin');
         }
 
-        return redirect()->intended(route('dashboard'));
+        return redirect()->intended(route('home'));
     })->middleware('throttle:6,1')->name('login.store');
 });
 

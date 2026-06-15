@@ -67,8 +67,21 @@ class WalkthroughController extends Controller
             ->orderBy('order')
             ->first();
 
+        $gameChapters = Chapter::query()
+            ->where('game_id', $chapter->game_id)
+            ->orderBy('order')
+            ->get([
+                'id',
+                'game_id',
+                'chapter_title',
+                'section_title',
+                'slug',
+                'order',
+            ]);
+
         return view('walkthrough.chapter_show', compact(
             'chapter',
+            'gameChapters',
             'previousChapter',
             'nextChapter',
         ));

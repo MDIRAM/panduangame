@@ -3,8 +3,59 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101318">
     <title>{{ $game->title }} | Game Walkthrough</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        html {
+            min-height: 100%;
+            background-color: #101318;
+            color-scheme: dark;
+        }
+
+        .site-footer {
+            display: flex;
+            grid-column: 1 / -1;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            padding: 1.4rem 0 0.2rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.24);
+            color: rgb(148 163 184);
+        }
+
+        .site-footer div {
+            display: grid;
+            gap: 0.25rem;
+        }
+
+        .site-footer strong {
+            color: #ffffff;
+        }
+
+        .site-footer nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .site-footer a {
+            color: rgb(203 213 225);
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 640px) {
+            .site-footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-[#101318] text-slate-100">
     <main class="mx-auto grid min-h-screen w-full max-w-6xl gap-8 px-5 py-8 lg:grid-cols-[320px_1fr] lg:px-8">
@@ -64,6 +115,8 @@
                 @endforelse
             </div>
         </section>
+
+        @include('partials.site-footer')
     </main>
 </body>
 </html>

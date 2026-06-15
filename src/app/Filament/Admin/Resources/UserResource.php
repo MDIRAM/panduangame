@@ -88,8 +88,12 @@ class UserResource extends Resource
                         Forms\Components\Select::make('roles')
                             ->required()
                             ->multiple()
+                            ->maxItems(1)
                             ->relationship('roles', 'name')
-                            ->label('Roles'),
+                            ->preload()
+                            ->searchable()
+                            ->label('Access role')
+                            ->helperText('Member hanya dapat melihat. Contributor dapat menulis walkthrough. Super admin mengelola seluruh website.'),
                     ])
                     ->columns(1),
 

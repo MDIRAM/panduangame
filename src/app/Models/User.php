@@ -68,11 +68,6 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         return $this->hasRole('super_admin');
     }
 
-    public function reviews(): HasMany
-    {
-        return $this->hasMany(Review::class);
-    }
-
     public function walkthroughContributions(): HasMany
     {
         return $this->hasMany(WalkthroughContribution::class);

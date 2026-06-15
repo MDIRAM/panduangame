@@ -3,11 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#020617">
     <title>{{ $missionTitle }} | Persona 3 Guide</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}?v={{ filemtime(public_path('css/welcome.css')) }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        html {
+            min-height: 100%;
+            background-color: #020617;
+            color-scheme: dark;
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-slate-950 text-slate-100">
     <div class="min-h-screen bg-[radial-gradient(circle_at_top_left,#172554_0%,#020617_42%,#020617_100%)]">
@@ -69,6 +77,8 @@
                     <p class="mt-3 text-lg leading-8 text-slate-200">Halaman ini sudah disiapkan untuk detail walkthrough misi. Nanti bagian ini bisa diisi step cerita, pilihan penting, boss, Tartarus floor, dan item yang wajib diambil.</p>
                 </section>
             @endif
+
+            @include('partials.site-footer')
         </main>
     </div>
 </body>

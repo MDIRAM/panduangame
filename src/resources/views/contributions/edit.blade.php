@@ -3,16 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $contribution->title }} | Walkthrough Saya</title>
+    <meta name="theme-color" content="#080d18">
+    <title>{{ $contribution->title }} | Contributor Dashboard</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/contributions.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/contributions.css') }}?v={{ filemtime(public_path('css/contributions.css')) }}">
 </head>
 <body class="contribution-page">
     @php($editable = $contribution->isEditableByAuthor())
     <main class="contribution-shell">
         <nav class="contribution-topbar">
-            <a href="{{ route('contributions.index') }}" class="button">Walkthrough Saya</a>
+            <a href="{{ route('contributions.index') }}" class="button">Contributor Dashboard</a>
             <span class="status {{ $contribution->status }}">
                 {{ \App\Models\WalkthroughContribution::statuses()[$contribution->status] }}
             </span>
@@ -171,6 +172,8 @@
                 </form>
             </section>
         @endif
+
+        @include('partials.site-footer')
     </main>
 </body>
 </html>

@@ -37,39 +37,10 @@ return new class extends Migration
             $table->index(['chapter_id', 'order']);
         });
 
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->foreignId('game_id')
-                ->nullable()
-                ->after('id')
-                ->constrained()
-                ->nullOnDelete();
-            $table->foreignId('user_id')
-                ->nullable()
-                ->after('game_id')
-                ->constrained()
-                ->nullOnDelete();
-        });
-
-        DB::table('reviews')->orderBy('id')->get()->each(function (object $review): void {
-            $gameId = DB::table('games')
-                ->where('title', $review->game_title)
-                ->value('id');
-
-            if ($gameId) {
-                DB::table('reviews')
-                    ->where('id', $review->id)
-                    ->update(['game_id' => $gameId]);
-            }
-        });
     }
 
     public function down(): void
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->dropConstrainedForeignId('user_id');
-            $table->dropConstrainedForeignId('game_id');
-        });
-
         Schema::table('steps', function (Blueprint $table) {
             $table->dropIndex(['chapter_id', 'order']);
         });
