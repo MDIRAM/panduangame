@@ -14,9 +14,18 @@ class DarkSouls2Seeder extends Seeder
         $game = Game::updateOrCreate(
             ['slug' => 'dark-souls-2'],
             [
+                'route_slug' => 'dark-souls-2',
                 'title' => 'Dark Souls 2',
+                'subtitle' => 'Panduan story hingga akhir Drangleic.',
                 'description' => 'Game progress route menuju empat Great Souls dan akhir perjalanan di Drangleic.',
+                'highlights' => [
+                    'Urutan area menuju empat Great Souls',
+                    'Lokasi bonfire, shortcut, NPC, dan item penting',
+                    'Strategi rute boss utama sampai Throne of Want',
+                ],
                 'cover_image' => 'coverimg/Dark_Souls_2.jpg',
+                'is_featured' => false,
+                'is_published' => true,
             ],
         );
 

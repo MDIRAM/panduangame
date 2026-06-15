@@ -1,14 +1,19 @@
 <?php
 
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\ContributionController;
+use App\Http\Controllers\ContributionStepController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PublicContributionController;
 use App\Http\Controllers\WalkthroughController;
-use App\Models\Chapter;
 use App\Models\Game;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
+use Spatie\Permission\Models\Role;
 
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain
@@ -24,9 +29,7 @@ Livewire::setScriptRoute(function ($handle) {
 /*
 / END
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CatalogController::class, 'index'])->name('home');
 
 Route::get('/videos', function () {
     return view('videos');
@@ -36,36 +39,26 @@ Route::get('/walkthrough', [WalkthroughController::class, 'showGame'])->name('wa
 Route::get('/walkthrough/{slug}', [WalkthroughController::class, 'showChapter'])->name('walkthrough.chapter');
 
 Route::get('/cover/{slug}', function ($slug) {
-    $coverMap = [
-        'elden-ring' => 'EldenRing.png',
-        'dark-souls-2' => 'Dark_Souls_2.jpg',
-        'persona-3' => 'Persona_3.webp',
-    ];
+    $game = Game::where('route_slug', $slug)
+        ->where('is_published', true)
+        ->firstOrFail();
 
-    $candidateDirs = [
-        public_path('coverimg/'),
-        public_path('images/games/'),
-    ];
-
-    $candidates = [];
-
-    if (array_key_exists($slug, $coverMap)) {
-        foreach ($candidateDirs as $dir) {
-            $candidates[] = $dir.$coverMap[$slug];
-        }
+    if (str_starts_with($game->cover_image ?? '', 'http')) {
+        return redirect()->away($game->cover_image);
     }
 
-    $candidates[] = public_path('images/games/').$slug.'.jpg';
-    $candidates[] = public_path('images/games/').$slug.'.png';
-    $candidates[] = public_path('images/games/').$slug.'.svg';
+    $file = public_path($game->cover_image ?? '');
 
-    foreach ($candidates as $file) {
-        if (file_exists($file)) {
-            return response()->file($file);
-        }
+    if ($game->cover_image && is_file($file)) {
+        return response()->file($file);
     }
 
-    abort(404);
+    abort_unless(
+        $game->cover_image && Storage::disk('public')->exists($game->cover_image),
+        404,
+    );
+
+    return Storage::disk('public')->response($game->cover_image);
 })->name('cover');
 
 Route::get('/games/persona-3/story/{mission}', [WalkthroughController::class, 'showMission'])
@@ -74,66 +67,10 @@ Route::get('/games/persona-3/story/{mission}', [WalkthroughController::class, 's
 Route::get('/games/{gameSlug}/walkthrough/{chapterSlug}', [WalkthroughController::class, 'showGameChapter'])
     ->name('games.walkthrough.show');
 
-Route::get('/games/{slug}', function ($slug) {
-    $games = [
-        'elden-ring' => [
-            'title' => 'Elden Ring',
-            'subtitle' => 'Panduan story dan boss di The Lands Between.',
-            'description' => 'Rute lengkap untuk mencapai ending utama, termasuk strategi boss dan quest inti.',
-            'highlights' => [
-                'Jalan cerita utama hingga Queen Marika',
-                'Strategi boss utama dan equipment terbaik',
-                'Rute optional untuk menemukan ending tersembunyi',
-            ],
-        ],
-        'dark-souls-2' => [
-            'title' => 'Dark Souls 2',
-            'subtitle' => 'Panduan story hingga akhir Drangleic.',
-            'description' => 'Langkah demi langkah untuk menyelesaikan game dengan fokus pada inti cerita.',
-            'highlights' => [
-                'Rute menuju Majula dan Throne of Want',
-                'Siapkan build yang efisien untuk boss utama',
-                'Panduan lokasi item penting dan shortcut',
-            ],
-        ],
-        'persona-3' => [
-            'title' => 'Persona 3',
-            'subtitle' => 'Walkthrough cerita utama dan Social Link yang penting.',
-            'description' => 'Panduan untuk menyelesaikan story hingga True Ending dengan Social Link terpilih.',
-            'highlights' => [
-                'Panduan Social Link dan jadwal harian',
-                'Strategi battle untuk Tartarus',
-                'Urutan event penting hingga akhir cerita',
-            ],
-        ],
-    ];
+Route::get('/community-guides/{contribution}', [PublicContributionController::class, 'show'])
+    ->name('contributions.show');
 
-    abort_if(! array_key_exists($slug, $games), 404);
-
-    $databaseSlug = match ($slug) {
-        'persona-3' => 'persona-3-reload',
-        default => $slug,
-    };
-
-    $databaseGame = Schema::hasTable('games')
-        ? Game::query()
-            ->where('slug', $databaseSlug)
-            ->with([
-                'chapters' => fn ($query) => $query->orderBy('order'),
-                'chapters.steps' => fn ($query) => $query->orderBy('order'),
-            ])
-            ->first()
-        : null;
-
-    return view('games.show', [
-        'game' => $games[$slug],
-        'slug' => $slug,
-        'databaseGame' => $databaseGame,
-        'personaChapters' => $slug === 'persona-3'
-            ? $databaseGame?->chapters ?? collect()
-            : collect(),
-    ]);
-})->name('games.show');
+Route::get('/games/{slug}', [CatalogController::class, 'show'])->name('games.show');
 
 Route::middleware('guest')->group(function () {
     Route::view('/login', 'auth.login')->name('login');
@@ -147,13 +84,17 @@ Route::middleware('guest')->group(function () {
         ]);
 
         $user = User::create($validated);
+        $user->assignRole(Role::firstOrCreate([
+            'name' => 'contributor',
+            'guard_name' => 'web',
+        ]));
 
         Auth::login($user);
 
         $request->session()->regenerate();
 
         return redirect()->route('dashboard');
-    })->name('register.store');
+    })->middleware('throttle:6,1')->name('register.store');
 
     Route::post('/login', function (Request $request) {
         $credentials = $request->validate([
@@ -169,12 +110,39 @@ Route::middleware('guest')->group(function () {
 
         $request->session()->regenerate();
 
+        if (Auth::user()->hasRole('super_admin')) {
+            return redirect('/admin');
+        }
+
         return redirect()->intended(route('dashboard'));
-    })->name('login.store');
+    })->middleware('throttle:6,1')->name('login.store');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::view('/dashboard', 'dashboard')->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/dashboard/walkthroughs', [ContributionController::class, 'index'])
+        ->name('contributions.index');
+    Route::get('/dashboard/walkthroughs/create', [ContributionController::class, 'create'])
+        ->name('contributions.create');
+    Route::post('/dashboard/walkthroughs', [ContributionController::class, 'store'])
+        ->name('contributions.store');
+    Route::get('/dashboard/walkthroughs/{contribution}/edit', [ContributionController::class, 'edit'])
+        ->name('contributions.edit');
+    Route::put('/dashboard/walkthroughs/{contribution}', [ContributionController::class, 'update'])
+        ->name('contributions.update');
+    Route::delete('/dashboard/walkthroughs/{contribution}', [ContributionController::class, 'destroy'])
+        ->name('contributions.destroy');
+    Route::post('/dashboard/walkthroughs/{contribution}/submit', [ContributionController::class, 'submit'])
+        ->name('contributions.submit');
+
+    Route::post('/dashboard/walkthroughs/{contribution}/steps', [ContributionStepController::class, 'store'])
+        ->name('contribution-steps.store');
+    Route::get('/dashboard/walkthrough-steps/{step}/edit', [ContributionStepController::class, 'edit'])
+        ->name('contribution-steps.edit');
+    Route::put('/dashboard/walkthrough-steps/{step}', [ContributionStepController::class, 'update'])
+        ->name('contribution-steps.update');
+    Route::delete('/dashboard/walkthrough-steps/{step}', [ContributionStepController::class, 'destroy'])
+        ->name('contribution-steps.destroy');
 
     Route::post('/logout', function (Request $request) {
         Auth::logout();

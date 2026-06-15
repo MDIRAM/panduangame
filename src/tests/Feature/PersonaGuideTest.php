@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Chapter;
-use App\Services\PersonaCsvImporter;
 use Database\Seeders\GameSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -32,24 +31,25 @@ test('prologue detail renders database steps sidebar and local images', function
         ->assertSee('coverimg/Persona3/1.png', false);
 });
 
-test('csv importer maps walkthrough content and image url into tartarus steps', function () {
-    $chapter = Chapter::where('slug', 'first-visit-to-tartarus-april-19-april-20')->firstOrFail();
-    $csvPath = tempnam(sys_get_temp_dir(), 'persona-guide-');
+test('tartarus guide is seeded from deployable local json content', function () {
+    $chapter = Chapter::where('slug', 'first-visit-to-tartarus-april-19-april-20')
+        ->with('steps')
+        ->firstOrFail();
 
-    file_put_contents(
-        $csvPath,
-        "content,image_url\n"
-        ."Enter Tartarus and meet the team,https://assets-prd.ignimgs.com/tartarus-entry.jpg\n",
-    );
+    expect($chapter->steps)
+        ->toHaveCount(29)
+        ->and($chapter->source_url)
+        ->toBe('https://www.ign.com/wikis/persona-3-reload/First_Visit_to_Tartarus_(April_19_-_April_20)_Walkthrough')
+        ->and($chapter->steps->first()->step_title)
+        ->toBe('Menuju Tartarus')
+        ->and($chapter->steps->firstWhere('order', 22)?->step_title)
+        ->toBe('All-Out Attack Pertama')
+        ->and($chapter->steps->firstWhere('order', 1)?->image_url)
+        ->toContain('oyster.ignimgs.com');
 
-    app(PersonaCsvImporter::class)->import($chapter, $csvPath);
-
-    unlink($csvPath);
-
-    $response = $this->get('/games/persona-3/story/first-visit-to-tartarus-april-19-april-20');
-
-    $response
-        ->assertStatus(200)
-        ->assertSee('Enter Tartarus and meet the team')
-        ->assertSee('https://assets-prd.ignimgs.com/tartarus-entry.jpg', false);
+    $this->get('/games/persona-3/story/first-visit-to-tartarus-april-19-april-20')
+        ->assertOk()
+        ->assertSee('Briefing dari Akihiko')
+        ->assertSee('All-Out Attack Pertama')
+        ->assertSee('Persona_3_Reload_20240119000900.jpg', false);
 });

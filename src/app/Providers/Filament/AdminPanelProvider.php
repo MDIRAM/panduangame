@@ -9,6 +9,7 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\MenuItem;
 use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -54,6 +55,12 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups([
                 NavigationGroup::make()
                     ->label('Administration'),
+            ])
+            ->navigationItems([
+                NavigationItem::make('Lihat Website')
+                    ->url(fn (): string => route('home'))
+                    ->icon('heroicon-o-arrow-top-right-on-square')
+                    ->sort(-100),
             ])
             ->userMenuItems([
                 'profile' => MenuItem::make()

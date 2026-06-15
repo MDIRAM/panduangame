@@ -38,9 +38,15 @@ class ReviewResource extends Resource
                 Forms\Components\Section::make('Guide Content')
                     ->columns(2)
                     ->schema([
-                        Forms\Components\TextInput::make('game_title')
-                            ->required()
-                            ->maxLength(255),
+                        Forms\Components\Select::make('game_id')
+                            ->relationship('game', 'title')
+                            ->searchable()
+                            ->preload()
+                            ->required(),
+                        Forms\Components\Select::make('user_id')
+                            ->relationship('user', 'name')
+                            ->searchable()
+                            ->preload(),
                         Forms\Components\TextInput::make('guide_type')
                             ->maxLength(255),
                         Forms\Components\TextInput::make('title')
@@ -73,6 +79,10 @@ class ReviewResource extends Resource
                 Tables\Columns\TextColumn::make('game_title')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Author')
+                    ->placeholder('System')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('guide_type')
                     ->badge()
                     ->searchable()

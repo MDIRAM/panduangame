@@ -65,6 +65,7 @@ class UserResource extends Resource
                             ->columnSpan('full'),
                         Forms\Components\TextInput::make('email')
                             ->required()
+                            ->unique(ignoreRecord: true)
                             ->prefixIcon('heroicon-m-envelope')
                             ->columnSpan('full')
                             ->email(),

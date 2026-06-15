@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use RuntimeException;
 
 class UserSeeder extends Seeder
 {
@@ -14,16 +14,35 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::firstOrCreate(
-            ['email' => 'admin@admin.com'],
-            ['name' => 'Super Admin', 'password' => Hash::make('password')]
-        );
-        $user->assignRole('super_admin');
+        $adminPassword = config('app.admin_password');
 
-        $user = User::firstOrCreate(
-            ['email' => 'user@admin.com'],
-            ['name' => 'User Account', 'password' => Hash::make('password')]
+        if (app()->environment('production') && blank($adminPassword)) {
+            throw new RuntimeException(
+                'ADMIN_PASSWORD wajib diisi sebelum menjalankan seeder di production.',
+            );
+        }
+
+        $user = User::updateOrCreate(
+            ['email' => config('app.admin_email')],
+            [
+                'name' => 'Super Admin',
+                'password' => Hash::make($adminPassword ?: 'password'),
+            ],
         );
-        $user->assignRole('user');
+        $user->syncRoles(['super_admin']);
+
+        if (! app()->environment('production')) {
+            $user = User::query()
+                ->whereIn('email', ['contributor@admin.com', 'user@admin.com'])
+                ->first() ?? new User();
+
+            $user->fill([
+                'name' => 'Contributor User',
+                'email' => 'contributor@admin.com',
+                'password' => Hash::make('password'),
+            ])->save();
+
+            $user->syncRoles(['contributor']);
+        }
     }
 }

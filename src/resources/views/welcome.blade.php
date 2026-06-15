@@ -10,6 +10,15 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="welcome-page" style="background: radial-gradient(circle at top left, #0a1222 0%, #101a36 35%, #070b15 100%); background-color: #070b15;">
+    @php
+        $spotlightSlides = $games->map(fn ($game) => [
+            'label' => $game->is_featured ? 'Featured Route' : 'Walkthrough Route',
+            'title' => $game->title,
+            'copy' => $game->subtitle ?: $game->description,
+            'href' => route('games.show', ['slug' => $game->route_slug]),
+            'image' => $game->cover_url,
+        ])->values();
+    @endphp
     <div class="welcome-shell">
         <div class="guide-layout">
                 <aside class="guide-sidebar">
@@ -21,8 +30,20 @@
                     <a href="/" class="active">Home</a>
                     <a href="#guides">Guides</a>
                     <a href="{{ route('videos.index') }}">Videos</a>
-                    <a href="/login">Login</a>
-                    <a href="/dashboard">Dashboard</a>
+                    @auth
+                        @if (auth()->user()->hasRole('super_admin'))
+                            <a href="/admin">Admin Panel</a>
+                        @else
+                            <a href="{{ route('contributions.index') }}">My Guides</a>
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                        @endif
+                        <form action="{{ route('logout') }}" method="POST" class="guide-nav-logout">
+                            @csrf
+                            <button type="submit">Log out</button>
+                        </form>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+                    @endauth
                 </nav>
             </aside>
 
@@ -35,18 +56,31 @@
                     </div>
                     <div class="welcome-actions">
                         <a href="#guides" class="button primary">Browse guides</a>
-                        <a href="/login" class="button secondary">Log in</a>
+                        @auth
+                            @if (auth()->user()->hasRole('super_admin'))
+                                <a href="/admin" class="button secondary">Admin Panel</a>
+                            @else
+                                <a href="{{ route('contributions.create') }}" class="button secondary">Write a guide</a>
+                            @endif
+                        @else
+                            <a href="{{ route('login') }}" class="button secondary">Log in</a>
+                        @endauth
                     </div>
                 </header>
 
-                <section class="spotlight-strip" aria-label="Featured guide" data-spotlight style="--spotlight-image: url('{{ asset('coverimg/EldenRing.png') }}');">
-                    <div>
-                        <span class="hero-tag" data-spotlight-label>Featured Route</span>
-                        <h2 data-spotlight-title>Elden Ring: Road to Endgame</h2>
-                        <p data-spotlight-copy>Rute utama menuju final boss, item penting, dan checkpoint yang wajib kamu ambil dulu.</p>
-                    </div>
-                    <a href="{{ route('games.show', ['slug' => 'elden-ring']) }}" data-spotlight-link>Open guide</a>
-                </section>
+                @if ($featuredGame)
+                    @php
+                        $featuredCover = $featuredGame->cover_url;
+                    @endphp
+                    <section class="spotlight-strip" aria-label="Featured guide" data-spotlight style="--spotlight-image: url('{{ $featuredCover }}');">
+                        <div>
+                            <span class="hero-tag" data-spotlight-label>Featured Route</span>
+                            <h2 data-spotlight-title>{{ $featuredGame->title }}</h2>
+                            <p data-spotlight-copy>{{ $featuredGame->subtitle ?: $featuredGame->description }}</p>
+                        </div>
+                        <a href="{{ route('games.show', ['slug' => $featuredGame->route_slug]) }}" data-spotlight-link>Open guide</a>
+                    </section>
+                @endif
 
                 <section class="guide-section" id="guides">
                     <div class="section-heading">
@@ -54,25 +88,22 @@
                             <p class="section-label">Guides library</p>
                             <h2>Popular game walkthroughs</h2>
                         </div>
-                        <span>3 available titles</span>
+                        <span>{{ $games->count() }} available titles</span>
                     </div>
 
                     <div class="game-guide-grid">
-                        <a href="{{ route('games.show', ['slug' => 'elden-ring']) }}" class="guide-game-card">
-                            <img src="{{ asset('coverimg/EldenRing.png') }}" alt="Elden Ring guide cover">
-                            <strong>Elden Ring Guide</strong>
-                            <span>Main Quest Walkthrough</span>
-                        </a>
-                        <a href="{{ route('games.show', ['slug' => 'dark-souls-2']) }}" class="guide-game-card">
-                            <img src="{{ asset('coverimg/Dark_Souls_2.jpg') }}" alt="Dark Souls 2 guide cover">
-                            <strong>Dark Souls 2 Guide</strong>
-                            <span>Drangleic Story Route</span>
-                        </a>
-                        <a href="{{ route('games.show', ['slug' => 'persona-3']) }}" class="guide-game-card">
-                            <img src="{{ route('cover', ['slug' => 'persona-3']) }}" alt="Persona 3 guide cover">
-                            <strong>Persona 3 Guide</strong>
-                            <span>Social Link Schedule</span>
-                        </a>
+                        @forelse ($games as $game)
+                            @php
+                                $gameCover = $game->cover_url;
+                            @endphp
+                            <a href="{{ route('games.show', ['slug' => $game->route_slug]) }}" class="guide-game-card">
+                                <img src="{{ $gameCover }}" alt="{{ $game->title }} guide cover">
+                                <strong>{{ $game->title }} Guide</strong>
+                                <span>{{ $game->chapters_count }} walkthrough chapters</span>
+                            </a>
+                        @empty
+                            <p>Belum ada game yang dipublikasikan.</p>
+                        @endforelse
                     </div>
                 </section>
 
@@ -87,32 +118,11 @@
             const copy = spotlight.querySelector('[data-spotlight-copy]');
             const link = spotlight.querySelector('[data-spotlight-link]');
             const label = spotlight.querySelector('[data-spotlight-label]');
-            const slides = [
-                {
-                    label: 'Featured Route',
-                    title: 'Elden Ring: Road to Endgame',
-                    copy: 'Rute utama menuju final boss, item penting, dan checkpoint yang wajib kamu ambil dulu.',
-                    href: "{{ route('games.show', ['slug' => 'elden-ring']) }}",
-                    image: "{{ asset('coverimg/EldenRing.png') }}",
-                },
-                {
-                    label: 'Social Link Route',
-                    title: 'Persona 3: Tartarus & Social Link',
-                    copy: 'Atur jadwal harian, prioritas Social Link, dan progres Tartarus supaya playthrough lebih rapi.',
-                    href: "{{ route('games.show', ['slug' => 'persona-3']) }}",
-                    image: "{{ asset('coverimg/Persona_3.webp') }}",
-                },
-                {
-                    label: 'Drangleic Route',
-                    title: 'Dark Souls 2: Story Progress',
-                    copy: 'Ikuti urutan area, boss utama, dan shortcut penting untuk menembus Drangleic sampai endgame.',
-                    href: "{{ route('games.show', ['slug' => 'dark-souls-2']) }}",
-                    image: "{{ asset('coverimg/Dark_Souls_2.jpg') }}",
-                },
-            ];
+            const slides = @json($spotlightSlides);
             let activeSlide = 0;
 
-            window.setInterval(() => {
+            if (slides.length > 1) {
+                window.setInterval(() => {
                 activeSlide = (activeSlide + 1) % slides.length;
                 const slide = slides[activeSlide];
 
@@ -126,7 +136,8 @@
                     spotlight.style.setProperty('--spotlight-image', `url('${slide.image}')`);
                     spotlight.classList.remove('is-changing');
                 }, 420);
-            }, 4200);
+                }, 4200);
+            }
         }
     </script>
 </body>

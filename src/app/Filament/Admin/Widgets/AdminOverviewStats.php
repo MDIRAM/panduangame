@@ -2,11 +2,12 @@
 
 namespace App\Filament\Admin\Widgets;
 
-use App\Models\Review;
+use App\Models\Chapter;
+use App\Models\Game;
+use App\Models\Step;
 use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
-use Spatie\Permission\Models\Role;
 
 class AdminOverviewStats extends BaseWidget
 {
@@ -18,12 +19,15 @@ class AdminOverviewStats extends BaseWidget
             Stat::make('Users', User::count())
                 ->description('Registered accounts')
                 ->icon('heroicon-o-users'),
-            Stat::make('Guides', Review::count())
-                ->description('Walkthrough records')
+            Stat::make('Games', Game::count())
+                ->description('Published catalog')
+                ->icon('heroicon-o-puzzle-piece'),
+            Stat::make('Chapters', Chapter::count())
+                ->description('Walkthrough sections')
                 ->icon('heroicon-o-book-open'),
-            Stat::make('Roles', Role::count())
-                ->description('Access levels')
-                ->icon('heroicon-o-shield-check'),
+            Stat::make('Steps', Step::count())
+                ->description('Guide instructions')
+                ->icon('heroicon-o-list-bullet'),
         ];
     }
 }

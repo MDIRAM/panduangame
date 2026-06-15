@@ -22,7 +22,7 @@ class WalkthroughController extends Controller
 
     public function showChapter(string $slug): View
     {
-        return $this->chapterView($slug);
+        return $this->chapterView($slug, 'persona-3-reload');
     }
 
     public function showMission(string $mission): View
@@ -32,7 +32,11 @@ class WalkthroughController extends Controller
 
     public function showGameChapter(string $gameSlug, string $chapterSlug): View
     {
-        return $this->chapterView($chapterSlug, $gameSlug);
+        $game = Game::where('route_slug', $gameSlug)
+            ->where('is_published', true)
+            ->firstOrFail();
+
+        return $this->chapterView($chapterSlug, $game->slug);
     }
 
     private function chapterView(string $slug, ?string $gameSlug = null): View

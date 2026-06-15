@@ -5,19 +5,45 @@ namespace Database\Seeders;
 use App\Models\Chapter;
 use App\Models\Game;
 use App\Models\Step;
-use App\Services\PersonaCsvImporter;
 use Illuminate\Database\Seeder;
 
 class GameSeeder extends Seeder
 {
     public function run(): void
     {
+        Game::updateOrCreate(
+            ['slug' => 'elden-ring'],
+            [
+                'route_slug' => 'elden-ring',
+                'title' => 'Elden Ring',
+                'subtitle' => 'Panduan story dan boss di The Lands Between.',
+                'description' => 'Rute lengkap untuk mencapai ending utama, termasuk strategi boss dan quest inti.',
+                'highlights' => [
+                    'Jalan cerita utama hingga Queen Marika',
+                    'Strategi boss utama dan equipment terbaik',
+                    'Rute optional untuk menemukan ending tersembunyi',
+                ],
+                'cover_image' => 'coverimg/EldenRing.png',
+                'is_featured' => true,
+                'is_published' => true,
+            ],
+        );
+
         $game = Game::updateOrCreate(
             ['slug' => 'persona-3-reload'],
             [
+                'route_slug' => 'persona-3',
                 'title' => 'Persona 3 Reload',
+                'subtitle' => 'Walkthrough cerita utama dan progres Tartarus.',
                 'description' => 'Story mission walkthrough, battle guide, dan jadwal progres Persona 3 Reload.',
+                'highlights' => [
+                    'Urutan story mission dari April sampai Januari',
+                    'Tutorial battle, Tartarus, dan Full Moon Operation',
+                    'Navigasi previous dan next antar-misi',
+                ],
                 'cover_image' => 'coverimg/Persona_3.webp',
+                'is_featured' => false,
+                'is_published' => true,
             ],
         );
 
@@ -26,7 +52,7 @@ class GameSeeder extends Seeder
         $this->removeEmptyLegacyChapters($game);
         $this->seedPrologue($chapters['prologue-april-7-april-18']);
         $this->localizePrologue($chapters['prologue-april-7-april-18']);
-        $this->importAvailableCsvFiles($chapters);
+        $this->seedTartarusGuide($chapters['first-visit-to-tartarus-april-19-april-20']);
         $this->seedTartarusImages($chapters['first-visit-to-tartarus-april-19-april-20']);
         $this->localizeTartarus($chapters['first-visit-to-tartarus-april-19-april-20']);
         $this->seedMayGuide($chapters['full-moon-operation-may']);
@@ -149,28 +175,30 @@ class GameSeeder extends Seeder
         }
     }
 
-    private function importAvailableCsvFiles(array $chapters): void
+    private function seedTartarusGuide(Chapter $chapter): void
     {
-        $importer = app(PersonaCsvImporter::class);
+        $chapter->update([
+            'source_url' => 'https://www.ign.com/wikis/persona-3-reload/First_Visit_to_Tartarus_(April_19_-_April_20)_Walkthrough',
+        ]);
 
-        foreach ($chapters as $slug => $chapter) {
-            $paths = [
-                base_path('database/seeders/persona3/'.$slug.'.csv'),
-            ];
+        if ($chapter->steps()->exists()) {
+            return;
+        }
 
-            if ($slug === 'first-visit-to-tartarus-april-19-april-20') {
-                $paths[] = base_path('database/seeders/tartarus.csv');
-            }
+        $steps = json_decode(
+            file_get_contents(resource_path('data/persona3/tartarus-id.json')),
+            true,
+            flags: JSON_THROW_ON_ERROR,
+        );
 
-            foreach ($paths as $path) {
-                if (! is_file($path)) {
-                    continue;
-                }
-
-                $importer->import($chapter, $path);
-
-                break;
-            }
+        foreach ($steps as $step) {
+            Step::create([
+                'chapter_id' => $chapter->id,
+                'step_title' => $step['title'],
+                'content' => $step['content'],
+                'image_url' => null,
+                'order' => $step['order'],
+            ]);
         }
     }
 

@@ -1,0 +1,136 @@
+[
+    {
+        "title": "Limgrave Barat: Awal Perjalanan",
+        "slug": "west-limgrave",
+        "image": "coverimg/EldenRing/west-limgrave/renna.jpg",
+        "overview_image": "coverimg/EldenRing/west-limgrave/church-of-elleh.jpg",
+        "source_url": "https://eldenring.wiki.fextralife.com/Walkthrough",
+        "overview": [
+            "Mulai dari tutorial di Stranded Graveyard, lalu bangun fondasi karakter di Limgrave Barat. Fokus utama bagian ini adalah membuka Torrent, fitur level up, Spirit Calling Bell, map fragment, dan perlengkapan awal.",
+            "Jangan merasa harus langsung mengalahkan semua musuh yang terlihat. Tree Sentinel dan beberapa dungeon bisa ditandai di map lalu didatangi kembali setelah senjata dan level karakter lebih siap."
+        ],
+        "steps": [
+            {
+                "title": "Selesaikan Cave of Knowledge",
+                "content": "Turun ke area tutorial di Stranded Graveyard untuk mempelajari guard, dodge, backstab, stance break, dan penggunaan Site of Grace. Kalahkan Soldier of Godrick, ambil item yang tersedia, lalu gunakan lift menuju Limgrave.",
+                "image_url": "coverimg/EldenRing/west-limgrave/tutorial.jpg"
+            },
+            {
+                "title": "Kunjungi Church of Elleh",
+                "content": "Dari The First Step, bicara dengan White Mask Varre lalu bergerak ke Church of Elleh. Hindari Tree Sentinel bila equipment masih lemah. Temui Merchant Kale, beli Crafting Kit dan Torch, aktifkan Site of Grace, lalu ambil Smithing Stone di meja pandai besi.",
+                "image_url": "coverimg/EldenRing/west-limgrave/church-of-elleh.jpg"
+            },
+            {
+                "title": "Temui Melina dan Dapatkan Torrent",
+                "content": "Ikuti cahaya Grace menuju Gatefront Ruins dan istirahat di Site of Grace dekat gerbang. Melina akan membuka fitur level up dan memberikan Spectral Steed Whistle untuk memanggil Torrent. Mulai titik ini eksplorasi open world menjadi jauh lebih cepat.",
+                "image_url": null
+            },
+            {
+                "title": "Kembali ke Renna Saat Malam",
+                "content": "Fast travel ke Church of Elleh pada malam hari. Bicara dengan Renna dan jawab bahwa kamu dapat memanggil spectral steed. Ia akan memberikan Spirit Calling Bell dan Lone Wolf Ashes yang sangat membantu untuk mengalihkan perhatian musuh maupun boss.",
+                "image_url": "coverimg/EldenRing/west-limgrave/renna.jpg"
+            },
+            {
+                "title": "Bersihkan Gatefront Ruins",
+                "content": "Masuk dengan stealth dan habisi prajurit satu per satu sebelum alarm dibunyikan. Ambil Map: Limgrave, West pada pilar di tengah camp serta Whetstone Knife dan Ash of War: Storm Stomp dari ruang bawah tanah. Dua kereta di area ini juga menyimpan Flail dan Lordsworn's Greatsword.",
+                "image_url": "coverimg/EldenRing/west-limgrave/gatefront-ruins.jpg"
+            },
+            {
+                "title": "Perkuat Senjata Sebelum ke Stormhill",
+                "content": "Kumpulkan Smithing Stone dari Limgrave Tunnels atau lokasi kecil di sekitar Limgrave. Naikkan senjata utama setidaknya beberapa level, tambah Vigor bila HP masih tipis, dan tandai dungeon optional yang belum sanggup diselesaikan. Setelah siap, lanjut menembus Stormgate dengan Torrent.",
+                "image_url": null
+            }
+        ]
+    },
+    {
+        "title": "Limgrave Timur: Mistwood dan Fort Haight",
+        "slug": "east-limgrave",
+        "image": "coverimg/EldenRing/east-limgrave/mistwood-entrance.jpg",
+        "overview_image": "coverimg/EldenRing/east-limgrave/third-church.jpg",
+        "source_url": "https://eldenring.wiki.fextralife.com/Walkthrough",
+        "overview": [
+            "Limgrave Timur berisi beberapa upgrade penting yang sebaiknya diambil sebelum menyerbu Stormveil Castle. Rute ini membawa pemain ke Third Church of Marika, Mistwood Ruins, dan Fort Haight.",
+            "Rune Bear di Mistwood sangat kuat untuk karakter awal. Gunakan Torrent, bergerak lewat jalan utama, dan tidak perlu memaksakan pertarungan yang tidak memberi progres penting."
+        ],
+        "steps": [
+            {
+                "title": "Ambil Flask of Wondrous Physick",
+                "content": "Pergi ke Third Church of Marika di sisi timur Limgrave. Aktifkan Site of Grace lalu ambil Flask of Wondrous Physick dan Crimson Crystal Tear. Flask khusus ini dapat diracik di Site of Grace untuk memberi efek buff atau pemulihan tambahan.",
+                "image_url": "coverimg/EldenRing/east-limgrave/third-church.jpg"
+            },
+            {
+                "title": "Buka Map Limgrave Timur",
+                "content": "Ikuti jalan menuju Minor Erdtree di Mistwood dan ambil Map: Limgrave, East dari pilar map. Hindari Rune Bear bila belum siap. Di sekitar Minor Erdtree tersedia Crystal Tear tambahan untuk memperluas pilihan campuran Wondrous Physick.",
+                "image_url": null
+            },
+            {
+                "title": "Temukan Blaidd di Mistwood Ruins",
+                "content": "Masuk ke Mistwood Ruins dan dengarkan suara lolongan dari atas bangunan. Kembali ke Merchant Kale di Church of Elleh untuk mendapatkan gesture Finger Snap, lalu gunakan gesture tersebut di bawah posisi Blaidd. Bicara dengannya untuk memulai jalur quest Darriwil.",
+                "image_url": "coverimg/EldenRing/east-limgrave/mistwood-ruins.jpg"
+            },
+            {
+                "title": "Bantu Kenneth Haight",
+                "content": "Temui Kenneth Haight di reruntuhan sebelah utara Mistwood dan setujui permintaannya. Tujuan berikutnya adalah membebaskan Fort Haight di ujung tenggara Limgrave dari pasukan Godrick.",
+                "image_url": null
+            },
+            {
+                "title": "Bebaskan Fort Haight",
+                "content": "Ambil Golden Seed di depan benteng, lalu bersihkan halaman dan tangga secara perlahan. Kalahkan Godrick Knight di bagian atas untuk memperoleh Ash of War: Bloody Slash. Jangan lupa mengambil Dectus Medallion (Left) dari peti di menara sebelum kembali menemui Kenneth.",
+                "image_url": "coverimg/EldenRing/east-limgrave/fort-haight.jpg"
+            },
+            {
+                "title": "Siapkan Build untuk Stormveil",
+                "content": "Gunakan rune hasil eksplorasi untuk menaikkan Vigor dan atribut utama build. Upgrade flask memakai Golden Seed, pasang Ash of War yang cocok, dan siapkan Spirit Ash. Bila damage terhadap musuh biasa sudah konsisten, kembali ke Stormhill untuk menghadapi Margit.",
+                "image_url": null
+            }
+        ]
+    },
+    {
+        "title": "Stormveil Castle: Margit dan Godrick",
+        "slug": "stormveil-castle",
+        "image": "coverimg/EldenRing/stormveil-castle/gostoc.jpg",
+        "overview_image": "coverimg/EldenRing/stormveil-castle/stormhill-shack.jpg",
+        "source_url": "https://eldenring.wiki.fextralife.com/Stormveil+Castle",
+        "overview": [
+            "Stormveil adalah Legacy Dungeon pertama dan ujian besar untuk build awal. Sebelum masuk, tingkatkan flask serta senjata, lalu temui Roderika di Stormhill Shack untuk memperoleh Spirit Jellyfish Ashes.",
+            "Rute samping yang disarankan Gostoc lebih aman daripada gerbang utama. Di dalam kastel, buka Site of Grace dan shortcut secara bertahap agar kematian tidak membuat perjalanan terlalu panjang."
+        ],
+        "steps": [
+            {
+                "title": "Persiapan di Stormhill Shack",
+                "content": "Lewati Stormgate dengan Torrent dan ambil Golden Seed di dekat pohon emas. Aktifkan Stormhill Shack Site of Grace, lalu bicara dengan Roderika sampai dialognya habis untuk memperoleh Spirit Jellyfish Ashes. Summon ini cukup tahan lama untuk membantu saat boss.",
+                "image_url": "coverimg/EldenRing/stormveil-castle/stormhill-shack.jpg"
+            },
+            {
+                "title": "Kalahkan Margit, the Fell Omen",
+                "content": "Gunakan Spirit Ash atau summon Sorcerer Rogier untuk membagi aggro. Jangan menyerang setelah setiap dodge; tunggu Margit menyelesaikan combo dan balas satu atau dua pukulan. Margit's Shackle dari Patches dapat menahannya dua kali selama fase pertama bila pertarungan masih terasa berat.",
+                "image_url": null
+            },
+            {
+                "title": "Pilih Jalur Samping dari Gostoc",
+                "content": "Setelah Margit kalah, aktifkan Stormveil Main Gate Site of Grace dan bicara dengan Gatekeeper Gostoc. Terima sarannya untuk memakai lubang di sisi kiri. Jalur tebing ini menghindari rentetan ballista di gerbang utama dan membawa kamu ke Stormveil Cliffside.",
+                "image_url": "coverimg/EldenRing/stormveil-castle/gostoc.jpg"
+            },
+            {
+                "title": "Naik Lewat Rampart Tower",
+                "content": "Habisi Exile Soldier dan Warhawk satu per satu, lalu gunakan Site of Grace sebagai checkpoint. Di ruangan gelap, kalahkan Banished Knight untuk mengambil Rusty Key dan Curved Sword Talisman. Buka pintu terkunci dan terus naik menuju Rampart Tower serta rooftop.",
+                "image_url": null
+            },
+            {
+                "title": "Temui Rogier dan Nepheli",
+                "content": "Cari Sorcerer Rogier di chapel dan habiskan dialognya. Menjelang arena Godrick, temui Nepheli Loux di ruangan samping dekat Secluded Cell. Bicara sampai selesai agar summon sign Nepheli muncul di depan fog gate boss.",
+                "image_url": null
+            },
+            {
+                "title": "Kalahkan Godrick the Grafted",
+                "content": "Masuk bersama Nepheli atau Spirit Ash agar perhatian Godrick terbagi. Pada fase pertama, jaga jarak dari combo kapak dan serang setelah lompatan besarnya. Saat fase kedua dimulai, bergerak ke belakang lengan naga ketika ia menyapu api. Bermain sabar dan manfaatkan arena untuk memutus garis serang.",
+                "image_url": "coverimg/EldenRing/stormveil-castle/godrick.jpg"
+            },
+            {
+                "title": "Aktifkan Godrick's Great Rune",
+                "content": "Setelah menang, aktifkan Site of Grace dan lanjut ke throne room untuk membuka jalan menuju Liurnia. Godrick's Great Rune belum aktif sampai dipulihkan di Divine Tower of Limgrave. Setelah dipulihkan, gunakan Rune Arc untuk mendapatkan peningkatan seluruh atribut selama karakter masih hidup.",
+                "image_url": null
+            }
+        ]
+    }
+]

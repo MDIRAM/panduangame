@@ -8,8 +8,8 @@
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet">
     <style>
         :root {
-            --guide-accent: {{ $chapter->game->slug === 'dark-souls-2' ? '#d9b45b' : '#38bdf8' }};
-            --guide-accent-soft: {{ $chapter->game->slug === 'dark-souls-2' ? '#27271f' : '#1c2d46' }};
+            --guide-accent: {{ in_array($chapter->game->slug, ['dark-souls-2', 'elden-ring'], true) ? '#d9b45b' : '#38bdf8' }};
+            --guide-accent-soft: {{ in_array($chapter->game->slug, ['dark-souls-2', 'elden-ring'], true) ? '#27271f' : '#1c2d46' }};
         }
 
         * {
@@ -123,6 +123,35 @@
             background:
                 linear-gradient(180deg, rgba(112, 84, 37, 0.14), transparent 420px),
                 #0c0d0d;
+        }
+
+        body.game-elden-ring {
+            background:
+                linear-gradient(180deg, rgba(127, 104, 49, 0.2), transparent 460px),
+                #090b0b;
+        }
+
+        body.game-elden-ring .guide-header,
+        body.game-elden-ring .chapter-overview,
+        body.game-elden-ring .step {
+            border-color: #403d32;
+        }
+
+        body.game-elden-ring .chapter-overview-media h2 {
+            color: var(--guide-accent);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        body.game-elden-ring .step h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 24px;
+        }
+
+        body.game-elden-ring .step img {
+            width: min(100%, 700px);
+            margin-right: auto;
+            margin-left: auto;
+            border-color: #514b3b;
         }
 
         body.game-dark-souls-2 .guide-header {
@@ -315,11 +344,11 @@
 <body class="game-{{ $chapter->game->slug }}">
     @php
         $isPersona = $chapter->game->slug === 'persona-3-reload';
-        $gamePageSlug = $isPersona ? 'persona-3' : $chapter->game->slug;
+        $gamePageSlug = $chapter->game->route_slug;
         $chapterUrl = static fn ($item) => $isPersona
             ? route('persona.story.show', ['mission' => $item->slug])
             : route('games.walkthrough.show', [
-                'gameSlug' => $chapter->game->slug,
+                'gameSlug' => $chapter->game->route_slug,
                 'chapterSlug' => $item->slug,
             ]);
         $overviewImageUrl = $chapter->overview_image && str_starts_with($chapter->overview_image, 'http')
@@ -329,7 +358,13 @@
 
     <main class="guide">
         <a href="{{ route('games.show', ['slug' => $gamePageSlug]) }}" class="back-link">
-            {{ $isPersona ? 'Back to Story Mission Walkthroughs' : 'Back to Game Progress Route' }}
+            @if ($isPersona)
+                Back to Story Mission Walkthroughs
+            @elseif ($chapter->game->slug === 'dark-souls-2')
+                Back to Game Progress Route
+            @else
+                Back to {{ $chapter->game->title }} Walkthrough
+            @endif
         </a>
 
         <header class="guide-header">
