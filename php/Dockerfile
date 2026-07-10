@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libmcrypt-dev libreadline-dev libgmp-dev libzip-dev \
     libpq-dev libjpeg-dev libpng-dev libfreetype6-dev \
     libssl-dev openssh-server libmagickwand-dev git cron \
-    nano libxml2-dev nodejs npm && \
+    nano libxml2-dev nodejs npm acl && \
     rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions

@@ -26,7 +26,7 @@ class ContributionStepRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:150'],
-            'content' => ['required', 'string', 'min:20', 'max:5000'],
+            'content' => ['required', 'string', 'min:20', 'max:20000'],
             'order' => ['required', 'integer', 'min:1', 'max:999'],
             'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
         ];

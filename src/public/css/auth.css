@@ -449,6 +449,118 @@ body.auth-page {
   color: #98a5c0;
 }
 
+.account-game-list {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.account-game-item {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) auto;
+  min-height: 112px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(15, 24, 46, 0.76);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.account-game-item:hover {
+  border-color: rgba(99, 170, 255, 0.72);
+  background: rgba(20, 32, 60, 0.92);
+}
+
+.account-game-item > img {
+  width: 150px;
+  height: 100%;
+  min-height: 112px;
+  object-fit: cover;
+}
+
+.account-game-copy {
+  display: grid;
+  align-content: center;
+  gap: 0.55rem;
+  min-width: 0;
+  padding: 1rem 1.15rem;
+}
+
+.account-game-copy > strong {
+  overflow-wrap: anywhere;
+  color: #ffffff;
+  font-size: 1.12rem;
+}
+
+.rating-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: fit-content;
+}
+
+.rating-stars {
+  position: relative;
+  display: inline-block;
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.rating-stars-track,
+.rating-stars-fill {
+  display: block;
+  white-space: nowrap;
+}
+
+.rating-stars-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: hidden;
+  color: #facc15;
+}
+
+.rating-value {
+  color: #aab7cf;
+  font-size: 0.88rem;
+}
+
+.account-game-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.library-badge {
+  width: fit-content;
+  padding: 0.28rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.library-badge.favorite {
+  background: rgba(56, 189, 248, 0.13);
+  color: #7dd3fc;
+}
+
+.library-badge.personal {
+  background: rgba(250, 204, 21, 0.12);
+  color: #fde047;
+}
+
+.account-open-guide {
+  align-self: center;
+  margin-right: 1.25rem;
+  color: #7dd3fc;
+  font-size: 0.88rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 .site-footer {
   display: flex;
   align-items: center;
@@ -523,6 +635,18 @@ body.auth-page {
 
   .contribution-metrics div:nth-child(-n + 2) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .account-game-item {
+    grid-template-columns: 108px minmax(0, 1fr);
+  }
+
+  .account-game-item > img {
+    width: 108px;
+  }
+
+  .account-open-guide {
+    display: none;
   }
 }
 

@@ -12,16 +12,32 @@
 <body class="contribution-page">
     <main class="contribution-shell">
         <nav class="contribution-topbar">
-            <a href="{{ route('games.show', $contribution->game->route_slug) }}" class="button">
-                Kembali ke {{ $contribution->game->title }}
-            </a>
+            @if ($contribution->chapter)
+                <a
+                    href="{{ route('games.walkthrough.show', [
+                        'gameSlug' => $contribution->game->route_slug,
+                        'chapterSlug' => $contribution->chapter->slug,
+                    ]) }}"
+                    class="button"
+                >
+                    Kembali ke {{ $contribution->chapter->chapter_title }}
+                </a>
+            @else
+                <a href="{{ route('games.show', $contribution->game->route_slug) }}" class="button">
+                    Kembali ke {{ $contribution->game->title }}
+                </a>
+            @endif
         </nav>
 
         <header class="public-guide-header">
             <p class="eyebrow">Community walkthrough</p>
             <h1>{{ $contribution->title }}</h1>
             <p class="contribution-meta">
-                {{ $contribution->game->title }} · By {{ $contribution->author->name }}
+                {{ $contribution->game->title }}
+                @if ($contribution->chapter)
+                    · {{ $contribution->chapter->chapter_title }}
+                @endif
+                · By {{ $contribution->author->name }}
             </p>
             <p class="public-guide-summary">{{ $contribution->summary }}</p>
         </header>
@@ -31,7 +47,7 @@
                 <article class="public-step">
                     <span class="step-number">{{ $step->order }}</span>
                     <h2>{{ $step->title }}</h2>
-                    <p>{{ $step->content }}</p>
+                    <div class="rich-content">{!! $step->content !!}</div>
                     @if ($step->image_url)
                         <img src="{{ $step->image_url }}" alt="{{ $step->title }}" loading="lazy">
                     @endif

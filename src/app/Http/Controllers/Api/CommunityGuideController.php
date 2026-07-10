@@ -16,7 +16,7 @@ class CommunityGuideController extends Controller
 
         $guides = $game->walkthroughContributions()
             ->published()
-            ->with('author')
+            ->with(['author', 'chapter'])
             ->withCount('steps')
             ->latest('published_at')
             ->get();
@@ -32,7 +32,7 @@ class CommunityGuideController extends Controller
         );
 
         return new CommunityGuideResource(
-            $contribution->load(['author', 'game', 'steps'])->loadCount('steps'),
+            $contribution->load(['author', 'chapter', 'game', 'steps'])->loadCount('steps'),
         );
     }
 }

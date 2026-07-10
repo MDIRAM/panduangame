@@ -7,10 +7,16 @@
     <title>{{ $chapter->chapter_title }} | {{ $chapter->game->title }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet">
+    @php
+        $theme = $chapter->game->theme;
+    @endphp
     <style>
         :root {
-            --guide-accent: {{ in_array($chapter->game->slug, ['dark-souls-2', 'elden-ring'], true) ? '#d9b45b' : '#38bdf8' }};
-            --guide-accent-soft: {{ in_array($chapter->game->slug, ['dark-souls-2', 'elden-ring'], true) ? '#27271f' : '#1c2d46' }};
+            --guide-accent: {{ $theme['accent'] }};
+            --guide-accent-soft: {{ $theme['accent_soft'] }};
+            --guide-bg: {{ $theme['background'] }};
+            --guide-glow: {{ $theme['background_glow'] }};
+            --guide-border: {{ $theme['border'] }};
         }
 
         * {
@@ -19,7 +25,7 @@
 
         html {
             height: 100%;
-            background: #080d18;
+            background: var(--guide-bg);
             color-scheme: dark;
         }
 
@@ -28,8 +34,8 @@
             margin: 0;
             overflow: hidden;
             background:
-                linear-gradient(180deg, rgba(24, 55, 91, 0.28), transparent 360px),
-                #080d18;
+                linear-gradient(180deg, var(--guide-glow), transparent 380px),
+                var(--guide-bg);
             color: #e8edf5;
             font-family: "Instrument Sans", Arial, sans-serif;
         }
@@ -51,13 +57,13 @@
             min-width: 0;
             height: 100dvh;
             overflow: hidden;
-            border-right: 1px solid #27364b;
+            border-right: 1px solid var(--guide-border);
             background: rgba(10, 17, 31, 0.96);
         }
 
         .sidebar-header {
             padding: 22px 20px 18px;
-            border-bottom: 1px solid #27364b;
+            border-bottom: 1px solid var(--guide-border);
         }
 
         .sidebar-back {
@@ -138,6 +144,28 @@
             color: #ffffff;
         }
 
+        .chapter-link.has-active-child {
+            color: #ffffff;
+        }
+
+        .chapter-child-list {
+            margin: 0 0 8px 10px;
+            padding-left: 8px;
+            border-left: 1px solid #2b3a50;
+        }
+
+        .chapter-link.child {
+            padding: 8px 10px;
+            color: #c8d2df;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .chapter-link.child::before {
+            content: "— ";
+            color: #6f7f96;
+        }
+
         .guide-scroll {
             min-width: 0;
             height: 100dvh;
@@ -157,7 +185,7 @@
             align-items: center;
             min-height: 40px;
             padding: 0 15px;
-            border: 1px solid #31425c;
+            border: 1px solid color-mix(in srgb, var(--guide-border) 80%, #64748b);
             border-radius: 6px;
             background: #172235;
             color: #dbeafe;
@@ -175,7 +203,7 @@
         .guide-header {
             margin-top: 30px;
             padding-bottom: 24px;
-            border-bottom: 1px solid #27364b;
+            border-bottom: 1px solid var(--guide-border);
         }
 
         .game-name {
@@ -207,13 +235,181 @@
             font-weight: 500;
         }
 
+        .guide-source {
+            display: inline-flex;
+            margin-left: 8px;
+            color: var(--guide-accent);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .guide-source:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .engagement-status {
+            margin: 20px 0 0;
+            padding: 11px 14px;
+            border: 1px solid #256d4b;
+            border-radius: 6px;
+            background: #10271f;
+            color: #b7f7d4;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .game-engagement {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 18px;
+            margin-top: 20px;
+            padding: 18px;
+            border: 1px solid color-mix(in srgb, var(--guide-border) 80%, #64748b);
+            border-radius: 8px;
+            background: #111a2a;
+        }
+
+        .rating-display {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .rating-stars {
+            position: relative;
+            display: inline-block;
+            color: #475569;
+            font-size: 21px;
+            line-height: 1;
+        }
+
+        .rating-stars-track,
+        .rating-stars-fill {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .rating-stars-fill {
+            position: absolute;
+            inset: 0 auto 0 0;
+            overflow: hidden;
+            color: #facc15;
+        }
+
+        .rating-value {
+            color: #9fb0c8;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .engagement-actions,
+        .rating-form {
+            display: flex;
+            align-items: end;
+            gap: 9px;
+        }
+
+        .rating-input {
+            display: grid;
+            gap: 4px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .rating-input legend {
+            padding: 0;
+            color: #9fb0c8;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .engagement-button,
+        .engagement-login {
+            min-height: 40px;
+            border: 1px solid #526078;
+            border-radius: 6px;
+            background: #172235;
+            color: #ffffff;
+            font: inherit;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .rating-options {
+            display: inline-flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            min-height: 40px;
+            align-items: center;
+        }
+
+        .rating-options input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        .rating-options label {
+            color: #526078;
+            cursor: pointer;
+            font-size: 28px;
+            line-height: 1;
+            transition: color 120ms ease, transform 120ms ease;
+        }
+
+        .rating-options label:hover,
+        .rating-options label:hover ~ label,
+        .rating-options input:checked ~ label {
+            color: #facc15;
+        }
+
+        .rating-options label:hover {
+            transform: translateY(-1px);
+        }
+
+        .rating-options input:focus-visible + label {
+            outline: 2px solid var(--guide-accent);
+            outline-offset: 3px;
+        }
+
+        .engagement-button,
+        .engagement-login {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .engagement-button.primary {
+            border-color: var(--guide-accent);
+            background: var(--guide-accent);
+            color: #07111f;
+        }
+
+        .engagement-button.danger {
+            border-color: #713c49;
+            color: #fda4af;
+        }
+
+        .field-error {
+            margin: 8px 0 0;
+            color: #fda4af;
+            font-size: 13px;
+        }
+
         .steps {
             margin-top: 12px;
         }
 
         .step {
             padding: 30px 0 34px;
-            border-bottom: 1px solid #27364b;
+            border-bottom: 1px solid var(--guide-border);
         }
 
         .step h2 {
@@ -225,12 +421,20 @@
 
         .step-content {
             color: #cbd5e1;
-            font-size: 17px;
-            line-height: 1.8;
+            font-size: 16px;
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-wrap: anywhere;
+        }
+
+        .step-content :where(p, li, blockquote, strong, em, mark, a, span) {
+            font-size: 16px;
+            line-height: 1.7;
         }
 
         .step-content p {
             margin: 0 0 16px;
+            font-weight: 400;
         }
 
         .step-content p:last-child {
@@ -262,68 +466,158 @@
             text-underline-offset: 3px;
         }
 
+        .step-content mark {
+            padding: 0;
+            background: transparent;
+            color: var(--guide-accent);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .step-content figure {
+            margin: 24px 0;
+        }
+
+        .step-content figcaption {
+            display: none;
+        }
+
+        .step-content h2,
+        .step-content h3 {
+            margin: 34px 0 12px;
+            padding-top: 26px;
+            border-top: 1px solid var(--guide-border);
+            color: #f8fafc;
+            line-height: 1.35;
+        }
+
+        .step-content h2:first-child,
+        .step-content h3:first-child {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: 0;
+        }
+
+        .step-content h2 {
+            font-size: 21px;
+        }
+
+        .step-content h3 {
+            font-size: 18px;
+        }
+
+        .step-content blockquote {
+            margin: 20px 0;
+            padding: 12px 16px;
+            border-left: 3px solid var(--guide-accent);
+            background: #111a2a;
+            color: #dbeafe;
+        }
+
+        .step-content img {
+            margin: 22px auto;
+        }
+
         .step img {
             display: block;
             width: min(100%, 780px);
+            min-height: 220px;
+            aspect-ratio: 16 / 9;
             height: auto;
             margin-top: 22px;
             border: 1px solid #334155;
             border-radius: 6px;
             background: #111827;
+            object-fit: contain;
         }
 
-        body.game-dark-souls-2 .steps {
+        .step-content figure.is-broken,
+        .step-content img.is-broken,
+        .step > img.is-broken,
+        .chapter-overview-media img.is-broken {
+            display: none;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 50;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border: 1px solid color-mix(in srgb, var(--guide-accent) 70%, #ffffff);
+            border-radius: 999px;
+            background: color-mix(in srgb, var(--guide-accent) 88%, #ffffff);
+            color: #07111f;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 900;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: opacity 160ms ease, transform 160ms ease, background 160ms ease;
+        }
+
+        .back-to-top.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: #ffffff;
+        }
+
+        body.theme-gold .steps {
             margin-top: 6px;
         }
 
-        body.game-dark-souls-2 {
-            background:
-                linear-gradient(180deg, rgba(112, 84, 37, 0.14), transparent 420px),
-                #0c0d0d;
-        }
-
-        body.game-dark-souls-2 .chapter-sidebar,
-        body.game-elden-ring .chapter-sidebar {
-            border-color: #403d32;
+        body.theme-gold .chapter-sidebar {
+            border-color: var(--guide-border);
             background: rgba(13, 14, 14, 0.97);
         }
 
-        body.game-dark-souls-2 .sidebar-header,
-        body.game-elden-ring .sidebar-header {
-            border-color: #403d32;
+        body.theme-gold .sidebar-header {
+            border-color: var(--guide-border);
         }
 
-        body.game-elden-ring {
-            background:
-                linear-gradient(180deg, rgba(127, 104, 49, 0.2), transparent 460px),
-                #090b0b;
+        body.theme-gold .guide-header,
+        body.theme-gold .chapter-overview,
+        body.theme-gold .step {
+            border-color: var(--guide-border);
         }
 
-        body.game-elden-ring .guide-header,
-        body.game-elden-ring .chapter-overview,
-        body.game-elden-ring .step {
-            border-color: #403d32;
-        }
-
-        body.game-elden-ring .chapter-overview-media h2 {
+        body.theme-gold .chapter-overview-media h2 {
             color: var(--guide-accent);
             font-family: Georgia, "Times New Roman", serif;
         }
 
-        body.game-elden-ring .step h2 {
+        body.theme-gold .step h2 {
             font-family: Georgia, "Times New Roman", serif;
             font-size: 24px;
         }
 
-        body.game-elden-ring .step img {
+        body.theme-gold .step .step-content h2 {
+            font-size: 21px;
+        }
+
+        body.theme-gold .step .step-content h3 {
+            font-family: "Instrument Sans", Arial, sans-serif;
+            font-size: 18px;
+        }
+
+        body.theme-gold .step img {
             width: min(100%, 700px);
             margin-right: auto;
             margin-left: auto;
             border-color: #514b3b;
         }
 
-        body.game-dark-souls-2 .guide-header {
-            border-bottom-color: #414039;
+        body.theme-gold .guide-header {
+            border-bottom-color: var(--guide-border);
         }
 
         .chapter-overview {
@@ -332,7 +626,7 @@
             gap: 28px;
             margin-top: 30px;
             padding: 26px 0 32px;
-            border-bottom: 1px solid #414039;
+            border-bottom: 1px solid var(--guide-border);
         }
 
         .chapter-overview-media h2 {
@@ -363,33 +657,33 @@
             margin-bottom: 0;
         }
 
-        body.game-dark-souls-2 .step {
+        body.theme-gold .step {
             padding: 14px 0;
             border-bottom: 0;
         }
 
-        body.game-dark-souls-2 .step.has-title {
+        body.theme-gold .step.has-title {
             margin-top: 24px;
             padding-top: 34px;
             border-top: 1px solid #394252;
         }
 
-        body.game-dark-souls-2 .step.has-title:first-child {
+        body.theme-gold .step.has-title:first-child {
             margin-top: 0;
             border-top: 0;
         }
 
-        body.game-dark-souls-2 .step h2 {
+        body.theme-gold .step h2 {
             font-family: Georgia, "Times New Roman", serif;
             font-size: 25px;
         }
 
-        body.game-dark-souls-2 .step-content {
+        body.theme-gold .step-content {
             color: #d6d9df;
             line-height: 1.75;
         }
 
-        body.game-dark-souls-2 .step img {
+        body.theme-gold .step img {
             width: min(100%, 620px);
             margin-right: auto;
             margin-left: auto;
@@ -398,7 +692,7 @@
         .empty {
             margin-top: 30px;
             padding: 24px;
-            border: 1px solid #31425c;
+            border: 1px solid color-mix(in srgb, var(--guide-border) 80%, #64748b);
             border-radius: 6px;
             background: #111a2a;
         }
@@ -415,10 +709,107 @@
             line-height: 1.7;
         }
 
+        .contribution-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin: 30px 0 0;
+            padding: 18px 20px;
+            border: 1px solid color-mix(in srgb, var(--guide-border) 80%, #64748b);
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(17, 26, 42, 0.98), rgba(10, 18, 32, 0.98));
+        }
+
+        .contribution-cta strong {
+            display: block;
+            color: #ffffff;
+            font-size: 17px;
+        }
+
+        .contribution-cta p {
+            margin: 5px 0 0;
+            color: #aebbd0;
+            line-height: 1.6;
+        }
+
+        .contribution-cta a {
+            display: inline-flex;
+            min-height: 44px;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            padding: 0 18px;
+            border-radius: 6px;
+            background: var(--guide-accent);
+            color: #04101d;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .community-guides {
+            margin-top: 34px;
+            padding-top: 26px;
+            border-top: 1px solid color-mix(in srgb, var(--guide-border) 80%, #64748b);
+        }
+
+        .community-guides h2 {
+            margin: 8px 0 0;
+            color: #f8fafc;
+            font-size: 24px;
+            line-height: 1.25;
+        }
+
+        .community-guide-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .community-guide-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 18px 20px;
+            border: 1px solid #526078;
+            border-radius: 8px;
+            background: #111a2a;
+            color: inherit;
+            text-decoration: none;
+            transition: border-color 160ms ease, background 160ms ease;
+        }
+
+        .community-guide-card:hover {
+            border-color: var(--guide-accent);
+            background: #17243a;
+        }
+
+        .community-guide-card div {
+            display: grid;
+            gap: 5px;
+        }
+
+        .community-guide-card strong {
+            color: #ffffff;
+            font-size: 17px;
+        }
+
+        .community-guide-card span {
+            color: #9fb0c8;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .community-guide-arrow {
+            flex: 0 0 auto;
+            color: var(--guide-accent) !important;
+        }
+
         .chapter-navigation {
             margin-top: 38px;
             padding-top: 26px;
-            border-top: 1px solid #31425c;
+            border-top: 1px solid color-mix(in srgb, var(--guide-border) 80%, #64748b);
         }
 
         .chapter-navigation h2 {
@@ -502,7 +893,7 @@
                 height: auto;
                 overflow: visible;
                 border-right: 0;
-                border-bottom: 1px solid #27364b;
+                border-bottom: 1px solid var(--guide-border);
             }
 
             .sidebar-header {
@@ -530,6 +921,13 @@
                 display: contents;
             }
 
+            .chapter-child-list {
+                display: contents;
+                margin: 0;
+                padding-left: 0;
+                border-left: 0;
+            }
+
             .chapter-group + .chapter-group {
                 margin-top: 0;
             }
@@ -543,6 +941,10 @@
                 margin: 0;
                 border-left: 0;
                 border-bottom: 3px solid transparent;
+            }
+
+            .chapter-link.child {
+                flex-basis: min(230px, 74vw);
             }
 
             .chapter-link.active {
@@ -586,6 +988,16 @@
                 grid-template-columns: 1fr;
             }
 
+            .contribution-cta {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .community-guide-card {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
             .navigation-link.next {
                 text-align: left;
             }
@@ -598,10 +1010,23 @@
             .chapter-overview-media img {
                 width: min(100%, 520px);
             }
+
+            .game-engagement,
+            .engagement-actions,
+            .rating-form {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .engagement-actions form,
+            .engagement-button,
+            .engagement-login {
+                width: 100%;
+            }
         }
     </style>
 </head>
-<body class="game-{{ $chapter->game->slug }}">
+<body class="{{ $theme['class'] }} game-{{ $chapter->game->slug }}">
     @php
         $isPersona = $chapter->game->slug === 'persona-3-reload';
         $gamePageSlug = $chapter->game->route_slug;
@@ -611,9 +1036,7 @@
                 'gameSlug' => $chapter->game->route_slug,
                 'chapterSlug' => $item->slug,
             ]);
-        $overviewImageUrl = $chapter->overview_image && str_starts_with($chapter->overview_image, 'http')
-            ? $chapter->overview_image
-            : ($chapter->overview_image ? asset($chapter->overview_image) : null);
+        $overviewImageUrl = $chapter->overview_image_url;
     @endphp
 
     <div class="walkthrough-shell">
@@ -628,17 +1051,35 @@
             </header>
 
             <nav class="chapter-list" aria-label="{{ $chapter->game->title }} chapters" tabindex="0">
-                @foreach ($gameChapters->groupBy(fn ($item) => $item->section_title ?: 'Progress Route') as $section => $chapters)
+                @foreach ($gameChapters->whereNull('parent_id')->groupBy(fn ($item) => $item->section_title ?: 'Progress Route') as $section => $chapters)
                     <section class="chapter-group">
                         <h3 class="chapter-group-title">{{ $section }}</h3>
                         @foreach ($chapters as $sidebarChapter)
+                            @php
+                                $childChapters = $gameChapters->where('parent_id', $sidebarChapter->id);
+                                $hasActiveChild = $childChapters->contains('id', $chapter->id);
+                            @endphp
                             <a
                                 href="{{ $chapterUrl($sidebarChapter) }}"
-                                class="chapter-link {{ $sidebarChapter->is($chapter) ? 'active' : '' }}"
+                                class="chapter-link {{ $sidebarChapter->is($chapter) ? 'active' : '' }} {{ $hasActiveChild ? 'has-active-child' : '' }}"
                                 @if ($sidebarChapter->is($chapter)) aria-current="page" @endif
                             >
                                 {{ $sidebarChapter->chapter_title }}
                             </a>
+
+                            @if ($childChapters->isNotEmpty())
+                                <div class="chapter-child-list" aria-label="{{ $sidebarChapter->chapter_title }} missions">
+                                    @foreach ($childChapters as $childChapter)
+                                        <a
+                                            href="{{ $chapterUrl($childChapter) }}"
+                                            class="chapter-link child {{ $childChapter->is($chapter) ? 'active' : '' }}"
+                                            @if ($childChapter->is($chapter)) aria-current="page" @endif
+                                        >
+                                            {{ $childChapter->chapter_title }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @endif
                         @endforeach
                     </section>
                 @endforeach
@@ -657,15 +1098,90 @@
                     <p class="guide-byline">
                         By Walkthrough Game Hub
                         <span class="guide-updated">Updated {{ $chapter->updated_at->format('M j, Y') }}</span>
+                        @if ($chapter->source_url)
+                            <a href="{{ $chapter->source_url }}" class="guide-source" target="_blank" rel="noopener noreferrer">
+                                Reference source &nearr;
+                            </a>
+                        @endif
                     </p>
                 </header>
+
+                @if (session('status'))
+                    <p class="engagement-status" role="status">{{ session('status') }}</p>
+                @endif
+
+                <section class="game-engagement" aria-label="Favorite and rating for {{ $chapter->game->title }}">
+                    <div class="rating-summary">
+                        @include('partials.rating-stars', [
+                            'average' => $chapter->game->ratings_avg_rating,
+                            'count' => $chapter->game->ratings_count,
+                        ])
+                    </div>
+
+                    @auth
+                        <div class="engagement-actions">
+                            <form
+                                action="{{ $isFavorited
+                                    ? route('games.favorite.destroy', $chapter->game)
+                                    : route('games.favorite.store', $chapter->game) }}"
+                                method="POST"
+                            >
+                                @csrf
+                                @if ($isFavorited)
+                                    @method('DELETE')
+                                @endif
+                                <button type="submit" class="engagement-button {{ $isFavorited ? 'danger' : '' }}">
+                                    {{ $isFavorited ? 'Remove favorite' : 'Add to favorite' }}
+                                </button>
+                            </form>
+
+                            <form action="{{ route('games.rating.update', $chapter->game) }}" method="POST" class="rating-form">
+                                @csrf
+                                @method('PUT')
+                                <fieldset class="rating-input">
+                                    <legend>Your rating</legend>
+                                    <div class="rating-options">
+                                        @foreach (range(5, 1) as $ratingValue)
+                                            <input
+                                                id="game-rating-{{ $ratingValue }}"
+                                                type="radio"
+                                                name="rating"
+                                                value="{{ $ratingValue }}"
+                                                @checked((int) old('rating', $userRating) === $ratingValue)
+                                                required
+                                            >
+                                            <label for="game-rating-{{ $ratingValue }}" title="{{ $ratingValue }} dari 5">
+                                                ★
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                </fieldset>
+                                <button type="submit" class="engagement-button primary">Save rating</button>
+                            </form>
+
+                            @if ($userRating)
+                                <form action="{{ route('games.rating.destroy', $chapter->game) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="engagement-button danger">Remove rating</button>
+                                </form>
+                            @endif
+                        </div>
+                    @else
+                        <a href="{{ route('login') }}" class="engagement-login">Login to favorite and rate</a>
+                    @endauth
+                </section>
+
+                @error('rating')
+                    <p class="field-error">{{ $message }}</p>
+                @enderror
 
                 @if (filled($chapter->overview))
                     <section class="chapter-overview" aria-label="{{ $chapter->chapter_title }} overview">
                         <div class="chapter-overview-media">
                             <h2>{{ $chapter->chapter_title }}</h2>
                             @if ($overviewImageUrl)
-                                <img src="{{ $overviewImageUrl }}" alt="{{ $chapter->chapter_title }}" loading="eager">
+                                <img src="{{ $overviewImageUrl }}" alt="{{ $chapter->chapter_title }}" loading="eager" decoding="async">
                             @endif
                         </div>
 
@@ -680,22 +1196,25 @@
                 <section class="steps">
                     @forelse ($chapter->steps as $step)
                         @php
-                            $imageUrl = $step->image_url && str_starts_with($step->image_url, 'http')
-                                ? $step->image_url
-                                : ($step->image_url ? asset($step->image_url) : null);
+                            $imageUrl = $step->resolved_image_url;
                             $renderedContent = strip_tags($step->content) === $step->content
                                 ? nl2br(e($step->content))
-                                : $step->content;
+                                : \App\Support\RichText::sanitizeWalkthrough($step->content);
                         @endphp
 
-                        <article class="step {{ filled($step->step_title) ? 'has-title' : 'continuation' }}">
-                            @if (filled($step->step_title))
+                        @php
+                            $showStepTitle = filled($step->step_title)
+                                && ! ($chapter->steps->count() === 1 && $step->step_title === $chapter->chapter_title);
+                        @endphp
+
+                        <article class="step {{ $showStepTitle ? 'has-title' : 'continuation' }}">
+                            @if ($showStepTitle)
                                 <h2>{{ $step->step_title }}</h2>
                             @endif
                             <div class="step-content">{!! $renderedContent !!}</div>
 
                             @if ($imageUrl)
-                                <img src="{{ $imageUrl }}" alt="{{ $step->step_title ?: $chapter->chapter_title }}" loading="lazy">
+                                <img src="{{ $imageUrl }}" alt="{{ $step->step_title ?: $chapter->chapter_title }}" loading="lazy" decoding="async">
                             @endif
                         </article>
                     @empty
@@ -734,9 +1253,14 @@
             </div>
         </main>
     </div>
+
+    <button type="button" class="back-to-top" aria-label="Back to top">↑</button>
+
     <script>
+        const guideScroll = document.querySelector('.guide-scroll');
         const chapterList = document.querySelector('.chapter-list');
         const activeChapter = chapterList?.querySelector('.chapter-link.active');
+        const backToTopButton = document.querySelector('.back-to-top');
 
         if (chapterList && activeChapter) {
             window.requestAnimationFrame(() => {
@@ -749,6 +1273,49 @@
                 }
             });
         }
+
+        document.querySelectorAll('.guide-scroll img').forEach((image) => {
+            if (!image.hasAttribute('loading')) {
+                image.setAttribute('loading', 'lazy');
+            }
+
+            image.setAttribute('decoding', 'async');
+
+            const hideBrokenImage = () => {
+                image.classList.add('is-broken');
+                image.closest('.step-content figure')?.classList.add('is-broken');
+            };
+
+            image.addEventListener('error', hideBrokenImage, { once: true });
+
+            if (image.complete && image.naturalWidth === 0) {
+                hideBrokenImage();
+            }
+        });
+
+        const isMobileLayout = () => window.matchMedia('(max-width: 860px)').matches;
+        const currentScrollTop = () => isMobileLayout()
+            ? window.scrollY
+            : (guideScroll?.scrollTop ?? 0);
+        const updateBackToTop = () => {
+            backToTopButton?.classList.toggle('is-visible', currentScrollTop() > 520);
+        };
+
+        guideScroll?.addEventListener('scroll', updateBackToTop, { passive: true });
+        window.addEventListener('scroll', updateBackToTop, { passive: true });
+        window.addEventListener('resize', updateBackToTop, { passive: true });
+
+        backToTopButton?.addEventListener('click', () => {
+            if (isMobileLayout()) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                return;
+            }
+
+            guideScroll?.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        updateBackToTop();
 
         chapterList?.addEventListener('wheel', (event) => {
             if (window.matchMedia('(max-width: 860px)').matches) {

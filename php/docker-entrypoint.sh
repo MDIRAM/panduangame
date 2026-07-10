@@ -208,6 +208,11 @@ mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache
 chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Keep Laravel runtime paths writable by PHP-FPM even when Artisan commands
+# are executed as root through `docker compose exec`.
+setfacl -R -m u:www-data:rwx /var/www/html/storage /var/www/html/bootstrap/cache
+setfacl -R -d -m u:www-data:rwx /var/www/html/storage /var/www/html/bootstrap/cache
+
 # Step 7: Run database migrations
 echo "🗃️ Running migrations..."
 php artisan migrate --force

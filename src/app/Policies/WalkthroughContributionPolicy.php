@@ -4,44 +4,105 @@ namespace App\Policies;
 
 use App\Models\User;
 use App\Models\WalkthroughContribution;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
 class WalkthroughContributionPolicy
 {
-    public function before(User $user): ?bool
-    {
-        return $user->hasRole('super_admin') ? true : null;
-    }
+    use HandlesAuthorization;
 
+    /**
+     * Determine whether the user can view any models.
+     */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('contributor');
+        return $user->can('view_any_walkthrough::contribution');
     }
 
-    public function view(User $user, WalkthroughContribution $contribution): bool
+    /**
+     * Determine whether the user can view the model.
+     */
+    public function view(User $user, WalkthroughContribution $walkthroughContribution): bool
     {
-        return $user->hasRole('contributor')
-            && $contribution->user_id === $user->id;
+        return $user->can('view_walkthrough::contribution');
     }
 
+    /**
+     * Determine whether the user can create models.
+     */
     public function create(User $user): bool
     {
-        return $user->hasRole('contributor');
+        return $user->can('create_walkthrough::contribution');
     }
 
-    public function update(User $user, WalkthroughContribution $contribution): bool
+    /**
+     * Determine whether the user can update the model.
+     */
+    public function update(User $user, WalkthroughContribution $walkthroughContribution): bool
     {
-        return $user->hasRole('contributor')
-            && $contribution->user_id === $user->id
-            && $contribution->isEditableByAuthor();
+        return $user->can('update_walkthrough::contribution');
     }
 
-    public function delete(User $user, WalkthroughContribution $contribution): bool
+    /**
+     * Determine whether the user can delete the model.
+     */
+    public function delete(User $user, WalkthroughContribution $walkthroughContribution): bool
     {
-        return $this->update($user, $contribution);
+        return $user->can('delete_walkthrough::contribution');
     }
 
-    public function submit(User $user, WalkthroughContribution $contribution): bool
+    /**
+     * Determine whether the user can bulk delete.
+     */
+    public function deleteAny(User $user): bool
     {
-        return $this->update($user, $contribution);
+        return $user->can('delete_any_walkthrough::contribution');
+    }
+
+    /**
+     * Determine whether the user can permanently delete.
+     */
+    public function forceDelete(User $user, WalkthroughContribution $walkthroughContribution): bool
+    {
+        return $user->can('{{ ForceDelete }}');
+    }
+
+    /**
+     * Determine whether the user can permanently bulk delete.
+     */
+    public function forceDeleteAny(User $user): bool
+    {
+        return $user->can('{{ ForceDeleteAny }}');
+    }
+
+    /**
+     * Determine whether the user can restore.
+     */
+    public function restore(User $user, WalkthroughContribution $walkthroughContribution): bool
+    {
+        return $user->can('{{ Restore }}');
+    }
+
+    /**
+     * Determine whether the user can bulk restore.
+     */
+    public function restoreAny(User $user): bool
+    {
+        return $user->can('{{ RestoreAny }}');
+    }
+
+    /**
+     * Determine whether the user can replicate.
+     */
+    public function replicate(User $user, WalkthroughContribution $walkthroughContribution): bool
+    {
+        return $user->can('{{ Replicate }}');
+    }
+
+    /**
+     * Determine whether the user can reorder.
+     */
+    public function reorder(User $user): bool
+    {
+        return $user->can('{{ Reorder }}');
     }
 }

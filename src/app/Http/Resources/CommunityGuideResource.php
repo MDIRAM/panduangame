@@ -22,6 +22,10 @@ class CommunityGuideResource extends JsonResource
                 'title' => $this->game->title,
                 'slug' => $this->game->route_slug,
             ]),
+            'chapter' => $this->whenLoaded('chapter', fn () => [
+                'title' => $this->chapter->chapter_title,
+                'slug' => $this->chapter->slug,
+            ]),
             'steps_count' => $this->whenCounted('steps'),
             'steps' => ContributionStepResource::collection($this->whenLoaded('steps')),
             'published_at' => $this->published_at?->toISOString(),

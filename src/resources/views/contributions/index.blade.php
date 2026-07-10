@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#080d18">
-    <title>Contributor Dashboard | Walkthrough Game Hub</title>
+    <title>My Walkthroughs | Walkthrough Game Hub</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/contributions.css') }}?v={{ filemtime(public_path('css/contributions.css')) }}">
@@ -18,8 +18,8 @@
 
         <header class="contribution-heading">
             <div>
-                <p class="eyebrow">Community contributor</p>
-                <h1>Contributor Dashboard</h1>
+                <p class="eyebrow">Community walkthroughs</p>
+                <h1>My Walkthroughs</h1>
             </div>
             <p class="muted">{{ $contributions->count() }} kontribusi</p>
         </header>
@@ -39,6 +39,9 @@
                     </div>
                     <h2>{{ $contribution->title }}</h2>
                     <p class="contribution-meta">{{ $contribution->game->title }}</p>
+                    @if ($contribution->chapter)
+                        <p class="contribution-meta">{{ $contribution->chapter->chapter_title }}</p>
+                    @endif
                     <p>{{ Str::limit($contribution->summary, 150) }}</p>
                     <div class="contribution-actions">
                         <a href="{{ route('contributions.edit', $contribution) }}" class="button">

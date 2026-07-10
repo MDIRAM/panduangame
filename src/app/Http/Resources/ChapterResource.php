@@ -11,6 +11,7 @@ class ChapterResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'parent_id' => $this->parent_id,
             'game' => new GameResource($this->whenLoaded('game')),
             'title' => $this->chapter_title,
             'slug' => $this->slug,

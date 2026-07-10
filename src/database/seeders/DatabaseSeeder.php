@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             GameSeeder::class,
             EldenRingSeeder::class,
             DarkSouls2Seeder::class,
-            GtaViceCitySeeder::class,
         ]);
     }
 }

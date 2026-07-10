@@ -2,14 +2,10 @@
 
 use App\Models\Chapter;
 use App\Models\Game;
-use App\Models\Step;
 use App\Models\User;
-use App\Models\WalkthroughContribution;
-use App\Filament\Admin\Resources\UserResource\Pages\EditUser;
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Livewire\Livewire;
-use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Route;
 
 uses(RefreshDatabase::class);
 
@@ -30,7 +26,7 @@ test('catalog and game pages are driven by published database records', function
     $this->get('/')
         ->assertOk()
         ->assertSee('Database Only Game')
-        ->assertSee('GTA Vice City')
+        ->assertDontSee('GTA Vice City')
         ->assertSee('Upcoming');
 
     $this->get('/games/database-only')
@@ -123,7 +119,7 @@ test('official rich text renders as html on the sidebar walkthrough', function (
         ->assertSee('<strong>Site of Grace</strong>', false);
 });
 
-test('registration stores a member user without contributor or admin access', function () {
+test('registration stores a member user without admin or contribution access', function () {
     $this->post('/register', [
         'name' => 'Regular Player',
         'email' => 'player@example.com',
@@ -141,9 +137,7 @@ test('registration stores a member user without contributor or admin access', fu
         ->get('/admin')
         ->assertForbidden();
 
-    $this->actingAs($user)
-        ->get(route('contributions.create'))
-        ->assertForbidden();
+    expect(Route::has('contributions.create'))->toBeFalse();
 });
 
 test('super admin can open walkthrough crud pages', function () {
@@ -154,11 +148,23 @@ test('super admin can open walkthrough crud pages', function () {
         ->assertOk();
 
     $this->actingAs($admin)
+        ->get('/admin/games/create')
+        ->assertOk();
+
+    $this->actingAs($admin)
         ->get('/admin/chapters')
         ->assertOk();
 
     $this->actingAs($admin)
+        ->get('/admin/chapters/create')
+        ->assertOk();
+
+    $this->actingAs($admin)
         ->get('/admin/steps')
+        ->assertOk();
+
+    $this->actingAs($admin)
+        ->get('/admin/steps/create')
         ->assertOk();
 
     $this->actingAs($admin)
@@ -170,7 +176,7 @@ test('super admin can open walkthrough crud pages', function () {
     $member = User::where('email', 'member@admin.com')->firstOrFail();
 
     $this->actingAs($admin)
-        ->get('/admin/users/'.$member->id.'/edit')
+        ->get('/admin/users/' . $member->id . '/edit')
         ->assertOk()
         ->assertSee('Access role');
 
@@ -197,7 +203,7 @@ test('shared login redirects admin to panel and keeps website navigation availab
 
     $this->get('/')
         ->assertOk()
-        ->assertSee('Admin Panel')
+        ->assertDontSee('Admin Panel')
         ->assertSee('Log out')
         ->assertDontSee('>Login<', false);
 
@@ -214,110 +220,52 @@ test('shared login returns non admin users to the public homepage', function () 
 
     $this->get('/')
         ->assertOk()
-        ->assertSee('Contributor Dashboard')
-        ->assertDontSee('My Contributions')
-        ->assertDontSee('Add Walkthrough')
+        ->assertSee('My Account')
+        ->assertDontSee('Write a guide')
+        ->assertDontSee('My Walkthroughs')
         ->assertDontSee('Admin Panel');
 });
 
-test('contributor uses frontend contribution tools without admin panel access', function () {
+test('legacy contributor account behaves as a regular user without contribution tools', function () {
     $contributor = User::where('email', 'contributor@admin.com')->firstOrFail();
 
     $this->actingAs($contributor)
         ->get('/')
         ->assertOk()
-        ->assertSee('Contributor Dashboard')
         ->assertSee('My Account')
-        ->assertSee('Write a guide')
-        ->assertDontSee('My Contributions')
-        ->assertDontSee('Add Walkthrough')
+        ->assertDontSee('Write a guide')
+        ->assertDontSee('My Walkthroughs')
         ->assertDontSee('Admin Panel');
-
-    $this->actingAs($contributor)
-        ->get(route('contributions.index'))
-        ->assertOk()
-        ->assertSee('Contributor Dashboard')
-        ->assertSee('Write a guide');
-
-    $this->actingAs($contributor)
-        ->get(route('contributions.create'))
-        ->assertOk();
 
     $this->actingAs($contributor)
         ->get('/admin')
         ->assertForbidden();
 });
 
-test('super admin can promote a member to contributor from the user resource', function () {
-    $admin = User::where('email', 'admin@admin.com')->firstOrFail();
-    $member = User::where('email', 'member@admin.com')->firstOrFail();
-    $contributorRole = Role::where('name', 'contributor')->firstOrFail();
-
-    Livewire::actingAs($admin)
-        ->test(EditUser::class, ['record' => $member->getRouteKey()])
-        ->fillForm([
-            'roles' => [$contributorRole->id],
-        ])
-        ->call('save')
-        ->assertHasNoFormErrors();
-
-    expect($member->fresh()->hasRole('contributor'))->toBeTrue()
-        ->and($member->fresh()->hasRole('member'))->toBeFalse();
-});
-
-test('member dashboard explains account access without admin statistics', function () {
+test('member dashboard shows favorites and ratings instead of contribution tools', function () {
     $member = User::where('email', 'member@admin.com')->firstOrFail();
 
     $this->actingAs($member)
         ->get('/dashboard')
         ->assertOk()
         ->assertSee('My Account')
-        ->assertSee('Akun Member')
+        ->assertSee('Library kamu')
+        ->assertSee('Explore Other Games')
         ->assertSee($member->email)
-        ->assertSee('Browse Guides')
-        ->assertDontSee('Contribution status')
-        ->assertDontSee('Published games')
-        ->assertDontSee('Guide steps');
+        ->assertDontSee('My Walkthroughs')
+        ->assertDontSee('Contribution status');
 });
 
-test('contributor account page shows profile access without contribution list', function () {
+test('legacy contributor account page uses the same user library', function () {
     $contributor = User::where('email', 'contributor@admin.com')->firstOrFail();
 
     $this->actingAs($contributor)
         ->get('/dashboard')
         ->assertOk()
         ->assertSee('My Account')
-        ->assertSee('Akun Contributor')
+        ->assertSee('Library kamu')
         ->assertSee($contributor->email)
-        ->assertSee('Contributor Dashboard')
+        ->assertDontSee('My Walkthroughs')
         ->assertDontSee('Contribution status')
-        ->assertDontSee('Kontribusi terbaru')
-        ->assertDontSee('Published games')
-        ->assertDontSee('Guide steps');
-});
-
-test('contributor dashboard lists their contribution workflow', function () {
-    $contributor = User::where('email', 'contributor@admin.com')->firstOrFail();
-    $game = Game::where('is_published', true)->firstOrFail();
-
-    foreach (WalkthroughContribution::statuses() as $status => $label) {
-        $contributor->walkthroughContributions()->create([
-            'game_id' => $game->id,
-            'title' => "Contributor {$label}",
-            'slug' => "contributor-{$status}",
-            'summary' => "Walkthrough berstatus {$label}.",
-            'status' => $status,
-        ]);
-    }
-
-    $this->actingAs($contributor)
-        ->get(route('contributions.index'))
-        ->assertOk()
-        ->assertSee('Contributor Dashboard')
-        ->assertSee('Write a guide')
-        ->assertSee('Contributor Draft')
-        ->assertSee('Contributor Pending review')
-        ->assertSee('Contributor Published')
-        ->assertSee('Contributor Rejected')
-        ->assertDontSee('Published games');
+        ->assertDontSee('Kontribusi terbaru');
 });

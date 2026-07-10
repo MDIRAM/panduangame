@@ -37,6 +37,7 @@ class AdminPanelProvider extends PanelProvider
             ->profile(\App\Filament\Pages\Auth\EditProfile::class, isSimple: false)
             ->defaultThemeMode(ThemeMode::Light)
             ->font('Montserrat')
+            ->globalSearch(false)
             ->colors([
                 'primary' => Color::Blue,
             ])
@@ -49,9 +50,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverClusters(in: app_path('Filament/Admin/Clusters'), for: 'App\\Filament\\Admin\\Clusters')
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
-            ->widgets([
-                \Awcodes\Overlook\Widgets\OverlookWidget::class,
-            ])
+            ->widgets([])
             ->navigationGroups([
                 NavigationGroup::make()
                     ->label('Administration'),
@@ -99,10 +98,6 @@ class AdminPanelProvider extends PanelProvider
                     ->enabledOn([
                         'auth.login',
                         'auth.password',
-                    ]),
-                \Awcodes\Overlook\OverlookPlugin::make()
-                    ->includes([
-                        \App\Filament\Admin\Resources\UserResource::class,
                     ]),
                 \Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin::make()
                     ->slug('my-profile')

@@ -26,6 +26,7 @@ class DarkSouls2Seeder extends Seeder
                 'cover_image' => 'coverimg/Dark_Souls_2.jpg',
                 'is_featured' => false,
                 'is_published' => true,
+                'theme_preset' => 'gold',
             ],
         );
 

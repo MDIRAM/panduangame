@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContributionRequest;
 use App\Http\Requests\UpdateContributionRequest;
+use App\Models\Chapter;
 use App\Models\Game;
 use App\Models\WalkthroughContribution;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -19,19 +21,22 @@ class ContributionController extends Controller
         return view('contributions.index', [
             'contributions' => auth()->user()
                 ->walkthroughContributions()
-                ->with('game')
+                ->with(['chapter', 'game'])
                 ->withCount('steps')
                 ->latest()
                 ->get(),
         ]);
     }
 
-    public function create(): View
+    public function create(Request $request): View
     {
         $this->authorize('create', WalkthroughContribution::class);
 
         return view('contributions.create', [
+            'chapters' => $this->publishedGameChapters(),
             'games' => $this->publishedGames(),
+            'selectedChapterId' => $request->integer('chapter_id') ?: null,
+            'selectedGameId' => $request->integer('game_id') ?: null,
         ]);
     }
 
@@ -53,7 +58,8 @@ class ContributionController extends Controller
         $this->authorize('view', $contribution);
 
         return view('contributions.edit', [
-            'contribution' => $contribution->load(['game', 'steps']),
+            'contribution' => $contribution->load(['chapter', 'game', 'steps']),
+            'chapters' => $this->publishedGameChapters(),
             'games' => $this->publishedGames(),
         ]);
     }
@@ -112,10 +118,20 @@ class ContributionController extends Controller
             ->get(['id', 'title']);
     }
 
+    private function publishedGameChapters()
+    {
+        return Chapter::query()
+            ->whereHas('game', fn ($query) => $query->where('is_published', true))
+            ->with('game:id,title')
+            ->orderBy('game_id')
+            ->orderBy('order')
+            ->get(['id', 'game_id', 'parent_id', 'chapter_title', 'order']);
+    }
+
     private function uniqueSlug(string $title): string
     {
         do {
-            $slug = Str::slug($title).'-'.Str::lower(Str::random(6));
+            $slug = Str::slug($title) . '-' . Str::lower(Str::random(6));
         } while (WalkthroughContribution::where('slug', $slug)->exists());
 
         return $slug;

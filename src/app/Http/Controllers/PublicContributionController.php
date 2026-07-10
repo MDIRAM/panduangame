@@ -15,7 +15,7 @@ class PublicContributionController extends Controller
         );
 
         return view('contributions.show', [
-            'contribution' => $contribution->load(['author', 'game', 'steps']),
+            'contribution' => $contribution->load(['author', 'chapter', 'game', 'steps']),
         ]);
     }
 }

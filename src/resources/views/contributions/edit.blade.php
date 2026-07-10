@@ -13,7 +13,7 @@
     @php($editable = $contribution->isEditableByAuthor())
     <main class="contribution-shell">
         <nav class="contribution-topbar">
-            <a href="{{ route('contributions.index') }}" class="button">Contributor Dashboard</a>
+            <a href="{{ route('contributions.index') }}" class="button">My Walkthroughs</a>
             <span class="status {{ $contribution->status }}">
                 {{ \App\Models\WalkthroughContribution::statuses()[$contribution->status] }}
             </span>
@@ -56,6 +56,25 @@
                                 <option value="{{ $game->id }}" @selected(old('game_id', $contribution->game_id) == $game->id)>
                                     {{ $game->title }}
                                 </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="chapter_id">Chapter / misi</label>
+                        <select id="chapter_id" name="chapter_id" required @disabled(! $editable)>
+                            @foreach ($chapters->groupBy(fn ($chapter) => $chapter->game->title) as $gameTitle => $gameChapters)
+                                <optgroup label="{{ $gameTitle }}">
+                                    @foreach ($gameChapters as $chapter)
+                                        <option
+                                            value="{{ $chapter->id }}"
+                                            data-game-id="{{ $chapter->game_id }}"
+                                            @selected(old('chapter_id', $contribution->chapter_id) == $chapter->id)
+                                        >
+                                            {{ $chapter->parent_id ? '— ' : '' }}{{ $chapter->chapter_title }}
+                                        </option>
+                                    @endforeach
+                                </optgroup>
                             @endforeach
                         </select>
                     </div>
@@ -119,7 +138,7 @@
                     <span class="step-number">{{ $step->order }}</span>
                     <div>
                         <h2>{{ $step->title }}</h2>
-                        <p>{{ $step->content }}</p>
+                        <div class="rich-content">{!! $step->content !!}</div>
                         @if ($step->image_url)
                             <img src="{{ $step->image_url }}" alt="{{ $step->title }}" loading="lazy">
                         @endif
@@ -160,7 +179,11 @@
                     </div>
                     <div class="field full">
                         <label for="content">Isi panduan</label>
-                        <textarea id="content" name="content" maxlength="5000" required>{{ old('content') }}</textarea>
+                        @include('contributions.partials.rich-editor', [
+                            'id' => 'content',
+                            'name' => 'content',
+                            'value' => old('content'),
+                        ])
                     </div>
                     <div class="field full">
                         <label for="image">Gambar pendukung</label>
@@ -175,5 +198,28 @@
 
         @include('partials.site-footer')
     </main>
+    <script>
+        const gameSelect = document.querySelector('#game_id');
+        const chapterSelect = document.querySelector('#chapter_id');
+
+        function syncChapterOptions() {
+            const gameId = gameSelect.value;
+            const selectedOption = chapterSelect.selectedOptions[0];
+
+            chapterSelect.querySelectorAll('option[data-game-id]').forEach((option) => {
+                const matchesGame = !gameId || option.dataset.gameId === gameId;
+                option.disabled = !matchesGame;
+                option.hidden = !matchesGame;
+            });
+
+            if (selectedOption && selectedOption.disabled) {
+                chapterSelect.value = '';
+            }
+        }
+
+        gameSelect?.addEventListener('change', syncChapterOptions);
+        syncChapterOptions();
+    </script>
+    @include('contributions.partials.rich-editor-script')
 </body>
 </html>

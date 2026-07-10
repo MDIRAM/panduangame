@@ -26,20 +26,7 @@ class GameSeeder extends Seeder
                 'cover_image' => 'coverimg/EldenRing.png',
                 'is_featured' => true,
                 'is_published' => true,
-            ],
-        );
-
-        Game::updateOrCreate(
-            ['slug' => 'gta-vice-city'],
-            [
-                'route_slug' => 'gta-vice-city',
-                'title' => 'GTA Vice City',
-                'subtitle' => 'Walkthrough Vice City sedang disiapkan.',
-                'description' => 'Panduan story mission GTA Vice City akan segera tersedia.',
-                'highlights' => [],
-                'cover_image' => 'coverimg/GTA_Vice_City.png',
-                'is_featured' => false,
-                'is_published' => true,
+                'theme_preset' => 'gold',
             ],
         );
 
@@ -58,6 +45,7 @@ class GameSeeder extends Seeder
                 'cover_image' => 'coverimg/Persona_3.webp',
                 'is_featured' => false,
                 'is_published' => true,
+                'theme_preset' => 'blue',
             ],
         );
 

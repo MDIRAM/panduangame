@@ -7,6 +7,7 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -71,5 +72,25 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     public function walkthroughContributions(): HasMany
     {
         return $this->hasMany(WalkthroughContribution::class);
+    }
+
+    public function apiTokens(): HasMany
+    {
+        return $this->hasMany(ApiToken::class);
+    }
+
+    public function gameFavorites(): HasMany
+    {
+        return $this->hasMany(GameFavorite::class);
+    }
+
+    public function favoriteGames(): BelongsToMany
+    {
+        return $this->belongsToMany(Game::class, 'game_favorites')->withTimestamps();
+    }
+
+    public function gameRatings(): HasMany
+    {
+        return $this->hasMany(GameRating::class);
     }
 }

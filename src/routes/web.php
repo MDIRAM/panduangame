@@ -1,10 +1,9 @@
 <?php
 
 use App\Http\Controllers\CatalogController;
-use App\Http\Controllers\ContributionController;
-use App\Http\Controllers\ContributionStepController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PublicContributionController;
+use App\Http\Controllers\GameFavoriteController;
+use App\Http\Controllers\GameRatingController;
 use App\Http\Controllers\WalkthroughController;
 use App\Models\Game;
 use App\Models\User;
@@ -30,10 +29,6 @@ Livewire::setScriptRoute(function ($handle) {
 / END
 */
 Route::get('/', [CatalogController::class, 'index'])->name('home');
-
-Route::get('/videos', function () {
-    return view('videos');
-})->name('videos.index');
 
 Route::get('/walkthrough', [WalkthroughController::class, 'showGame'])->name('walkthrough.game');
 Route::get('/walkthrough/{slug}', [WalkthroughController::class, 'showChapter'])->name('walkthrough.chapter');
@@ -66,9 +61,6 @@ Route::get('/games/persona-3/story/{mission}', [WalkthroughController::class, 's
 
 Route::get('/games/{gameSlug}/walkthrough/{chapterSlug}', [WalkthroughController::class, 'showGameChapter'])
     ->name('games.walkthrough.show');
-
-Route::get('/community-guides/{contribution}', [PublicContributionController::class, 'show'])
-    ->name('contributions.show');
 
 Route::get('/games/{slug}', [CatalogController::class, 'show'])->name('games.show');
 
@@ -120,29 +112,14 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-    Route::get('/dashboard/walkthroughs', [ContributionController::class, 'index'])
-        ->name('contributions.index');
-    Route::get('/dashboard/walkthroughs/create', [ContributionController::class, 'create'])
-        ->name('contributions.create');
-    Route::post('/dashboard/walkthroughs', [ContributionController::class, 'store'])
-        ->name('contributions.store');
-    Route::get('/dashboard/walkthroughs/{contribution}/edit', [ContributionController::class, 'edit'])
-        ->name('contributions.edit');
-    Route::put('/dashboard/walkthroughs/{contribution}', [ContributionController::class, 'update'])
-        ->name('contributions.update');
-    Route::delete('/dashboard/walkthroughs/{contribution}', [ContributionController::class, 'destroy'])
-        ->name('contributions.destroy');
-    Route::post('/dashboard/walkthroughs/{contribution}/submit', [ContributionController::class, 'submit'])
-        ->name('contributions.submit');
-
-    Route::post('/dashboard/walkthroughs/{contribution}/steps', [ContributionStepController::class, 'store'])
-        ->name('contribution-steps.store');
-    Route::get('/dashboard/walkthrough-steps/{step}/edit', [ContributionStepController::class, 'edit'])
-        ->name('contribution-steps.edit');
-    Route::put('/dashboard/walkthrough-steps/{step}', [ContributionStepController::class, 'update'])
-        ->name('contribution-steps.update');
-    Route::delete('/dashboard/walkthrough-steps/{step}', [ContributionStepController::class, 'destroy'])
-        ->name('contribution-steps.destroy');
+    Route::post('/games/{game}/favorite', [GameFavoriteController::class, 'store'])
+        ->name('games.favorite.store');
+    Route::delete('/games/{game}/favorite', [GameFavoriteController::class, 'destroy'])
+        ->name('games.favorite.destroy');
+    Route::put('/games/{game}/rating', [GameRatingController::class, 'update'])
+        ->name('games.rating.update');
+    Route::delete('/games/{game}/rating', [GameRatingController::class, 'destroy'])
+        ->name('games.rating.destroy');
 
     Route::post('/logout', function (Request $request) {
         Auth::logout();

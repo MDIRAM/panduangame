@@ -230,7 +230,8 @@ button.button {
 
 .field input,
 .field select,
-.field textarea {
+.field textarea,
+.rich-editor-surface {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -243,6 +244,86 @@ button.button {
 .field textarea {
   min-height: 130px;
   resize: vertical;
+}
+
+.rich-editor {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #0c1422;
+}
+
+.rich-editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(24, 34, 53, 0.82);
+}
+
+.rich-editor-toolbar button {
+  min-height: 34px;
+  border: 1px solid #42526b;
+  border-radius: 5px;
+  background: #172033;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.rich-editor-surface {
+  min-height: 190px;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  overflow-y: auto;
+}
+
+.rich-editor textarea {
+  display: none;
+}
+
+.rich-content {
+  color: #cbd5e1;
+  line-height: 1.75;
+}
+
+.rich-content p,
+.rich-content ul,
+.rich-content ol,
+.rich-content blockquote,
+.rich-content h2,
+.rich-content h3,
+.rich-content h4 {
+  margin: 0 0 14px;
+}
+
+.rich-content ul,
+.rich-content ol {
+  padding-left: 24px;
+}
+
+.rich-content li + li {
+  margin-top: 6px;
+}
+
+.rich-content strong,
+.rich-content b {
+  color: #f8fafc;
+}
+
+.rich-content a {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.rich-content blockquote {
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent);
+  background: rgba(244, 184, 96, 0.08);
 }
 
 .field-error {

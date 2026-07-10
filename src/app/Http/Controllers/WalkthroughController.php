@@ -43,6 +43,7 @@ class WalkthroughController extends Controller
     {
         $chapter = Chapter::with([
             'game',
+            'parent',
             'steps' => fn ($query) => $query->orderBy('order', 'asc'),
         ])
             ->where('slug', $slug)
@@ -73,17 +74,28 @@ class WalkthroughController extends Controller
             ->get([
                 'id',
                 'game_id',
+                'parent_id',
                 'chapter_title',
                 'section_title',
                 'slug',
                 'order',
             ]);
 
+        $chapter->game->loadCount('ratings')->loadAvg('ratings', 'rating');
+
+        $isFavorited = auth()->check()
+            && auth()->user()->gameFavorites()->where('game_id', $chapter->game_id)->exists();
+        $userRating = auth()->check()
+            ? auth()->user()->gameRatings()->where('game_id', $chapter->game_id)->value('rating')
+            : null;
+
         return view('walkthrough.chapter_show', compact(
             'chapter',
             'gameChapters',
+            'isFavorited',
             'previousChapter',
             'nextChapter',
+            'userRating',
         ));
     }
 }

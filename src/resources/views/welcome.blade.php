@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#070b15">
     <title>Walkthrough Game Hub | Sistem Panduan</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
+    <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}?v={{ filemtime(public_path('css/welcome.css')) }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -27,21 +27,21 @@
     <div class="welcome-shell">
         <div class="guide-layout">
                 <aside class="guide-sidebar">
-                <a href="/" class="guide-logo" aria-label="PanduanGame home">
-                    <img src="{{ asset('coverimg/logogamepanduan.png') }}" alt="PanduanGame logo">
+                <a href="/" class="guide-logo" aria-label="Walkthrough Game Hub home">
+                    <span class="guide-logo-mark">
+                        <img src="{{ asset('coverimg/logogamepanduan.png') }}" alt="">
+                    </span>
+                    <span class="guide-logo-text">
+                        <strong>Walkthrough</strong>
+                        <small>Game Hub</small>
+                    </span>
                 </a>
 
                 <nav class="guide-nav" aria-label="Main navigation">
                     <a href="/" class="active">Home</a>
-                    <a href="#guides">Guides</a>
-                    <a href="{{ route('videos.index') }}">Videos</a>
+                    <a href="#guides">Walkthroughs</a>
                     @auth
-                        @if (auth()->user()->hasRole('super_admin'))
-                            <a href="/admin">Admin Panel</a>
-                        @else
-                            @if (auth()->user()->hasRole('contributor'))
-                                <a href="{{ route('contributions.index') }}">Contributor Dashboard</a>
-                            @endif
+                        @if (! auth()->user()->hasRole('super_admin'))
                             <a href="{{ route('dashboard') }}">My Account</a>
                         @endif
                         <form action="{{ route('logout') }}" method="POST" class="guide-nav-logout">
@@ -58,18 +58,14 @@
                 <header class="guide-hero">
                     <div>
                         <p class="brand-label">Walkthrough Game Hub</p>
-                        <h1>Find the fastest route through your next game.</h1>
-                        <p class="welcome-intro">Cari rute story, strategi boss, dan panduan tamat untuk game favoritmu tanpa harus buka banyak tab.</p>
+                        <h1>Full story walkthroughs, all in one place.</h1>
+                        <p class="welcome-intro">Pilih game, buka chapter, lalu lanjutkan story route sampai tamat.</p>
                     </div>
                     <div class="welcome-actions">
-                        <a href="#guides" class="button primary">Browse guides</a>
+                        <a href="#guides" class="button primary">Browse walkthroughs</a>
                         @auth
-                            @if (auth()->user()->hasRole('super_admin'))
-                                <a href="/admin" class="button secondary">Admin Panel</a>
-                            @elseif (auth()->user()->hasRole('contributor'))
-                                <a href="{{ route('contributions.create') }}" class="button secondary">Write a guide</a>
-                            @else
-                                <a href="{{ route('dashboard') }}" class="button secondary">My account</a>
+                            @if (! auth()->user()->hasRole('super_admin'))
+                                <a href="{{ route('dashboard') }}" class="button secondary">My Account</a>
                             @endif
                         @else
                             <a href="{{ route('login') }}" class="button secondary">Log in</a>
@@ -81,20 +77,20 @@
                     @php
                         $featuredCover = $featuredGame->cover_url;
                     @endphp
-                    <section class="spotlight-strip" aria-label="Featured guide" data-spotlight style="--spotlight-image: url('{{ $featuredCover }}');">
+                    <section class="spotlight-strip" aria-label="Featured walkthrough" data-spotlight style="--spotlight-image: url('{{ $featuredCover }}');">
                         <div>
                             <span class="hero-tag" data-spotlight-label>Featured Route</span>
                             <h2 data-spotlight-title>{{ $featuredGame->title }}</h2>
                             <p data-spotlight-copy>{{ $featuredGame->subtitle ?: $featuredGame->description }}</p>
                         </div>
-                        <a href="{{ route('games.show', ['slug' => $featuredGame->route_slug]) }}" data-spotlight-link>Open guide</a>
+                        <a href="{{ route('games.show', ['slug' => $featuredGame->route_slug]) }}" data-spotlight-link>Open walkthrough</a>
                     </section>
                 @endif
 
                 <section class="guide-section" id="guides">
                     <div class="section-heading">
                         <div>
-                            <p class="section-label">Guides library</p>
+                            <p class="section-label">Walkthrough library</p>
                             <h2>Popular game walkthroughs</h2>
                         </div>
                         <span>{{ $games->count() }} available titles</span>
@@ -104,21 +100,31 @@
                         @forelse ($games as $game)
                             @php
                                 $gameCover = $game->cover_url;
-                                $isUpcoming = $game->chapters_count === 0;
+                                $status = $game->chapters_count === 0 ? 'upcoming' : ($game->content_status ?: 'ongoing');
+                                $statusLabel = \App\Models\Game::contentStatuses()[$status] ?? 'Ongoing';
+                                $isUpcoming = $status === 'upcoming';
                             @endphp
                             <a
                                 href="{{ route('games.show', ['slug' => $game->route_slug]) }}"
                                 class="guide-game-card {{ $isUpcoming ? 'is-upcoming' : '' }}"
                             >
                                 <div class="guide-game-media">
-                                    <img src="{{ $gameCover }}" alt="{{ $game->title }} guide cover">
+                                    <img src="{{ $gameCover }}" alt="{{ $game->title }} walkthrough cover">
                                 </div>
                                 <div class="guide-game-copy">
-                                    <strong>{{ $game->title }} Guide</strong>
+                                    <strong>{{ $game->title }} Walkthrough</strong>
+                                    <span class="guide-status {{ $status }}">{{ $statusLabel }}</span>
                                     @if ($isUpcoming)
-                                        <span class="guide-status upcoming">Upcoming</span>
+                                        <span>Walkthrough belum tersedia.</span>
                                     @else
                                         <span>{{ $game->chapters_count }} walkthrough chapters</span>
+                                        @include('partials.rating-stars', [
+                                            'average' => $game->ratings_avg_rating,
+                                            'count' => $game->ratings_count,
+                                        ])
+                                        @if ($favoriteGameIds->contains($game->id))
+                                            <span class="guide-status favorite">Favorited</span>
+                                        @endif
                                     @endif
                                 </div>
                             </a>

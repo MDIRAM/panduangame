@@ -15,6 +15,8 @@
         $slug = $game->route_slug;
         $coverUrl = $game->cover_url;
         $coverPosition = $game->slug === 'dark-souls-2' ? 'center bottom' : 'center';
+        $status = $game->chapters->isEmpty() ? 'upcoming' : ($game->content_status ?: 'ongoing');
+        $statusLabel = \App\Models\Game::contentStatuses()[$status] ?? 'Ongoing';
     @endphp
 
     <div class="welcome-shell">
@@ -23,6 +25,7 @@
                 <div class="game-hero-top">
                     <p class="brand-label">Walkthrough Game Hub</p>
                     <h1>{{ $game->title }}</h1>
+                    <span class="game-status-badge {{ $status }}">{{ $statusLabel }}</span>
                     <p class="welcome-intro">{{ $game->subtitle }}</p>
                 </div>
 
@@ -41,7 +44,7 @@
                 @endphp
                 <section class="wiki-route-page">
                     <header class="wiki-route-header">
-                        <p>{{ $isEldenRing ? 'Elden Ring Guide' : 'Dark Souls 2 Wiki Guide' }}</p>
+                        <p>{{ $isEldenRing ? 'Elden Ring Walkthrough' : 'Dark Souls 2 Walkthrough' }}</p>
                         <h2>{{ $isEldenRing ? 'The Lands Between Walkthrough' : 'Game Progress Route' }}</h2>
                         <span>
                             {{ $isEldenRing
@@ -59,12 +62,9 @@
 
                         @foreach ($game->chapters as $chapter)
                             @php
-                                $previewImage = $chapter->cover_image
-                                    ?? $chapter->overview_image
-                                    ?? $chapter->steps->firstWhere('image_url')?->image_url;
-                                $previewImageUrl = $previewImage && str_starts_with($previewImage, 'http')
-                                    ? $previewImage
-                                    : ($previewImage ? asset($previewImage) : null);
+                                $previewImageUrl = $chapter->cover_url
+                                    ?? $chapter->overview_image_url
+                                    ?? $chapter->steps->firstWhere('image_url')?->resolved_image_url;
                             @endphp
 
                             <article class="wiki-route-entry" id="{{ $chapter->slug }}">
@@ -149,32 +149,6 @@
                         <h2>Walkthrough Dalam Persiapan</h2>
                         <p>{{ $game->description }}</p>
                     </header>
-                </section>
-            @endif
-
-            @if ($game->walkthroughContributions->isNotEmpty())
-                <section class="persona-story-page">
-                    <header class="persona-story-header">
-                        <h2>Community Walkthroughs</h2>
-                        <p>Panduan buatan pemain yang sudah direview dan dipublikasikan.</p>
-                    </header>
-
-                    <div class="persona-month-list">
-                        <section class="persona-month-section">
-                            <ul>
-                                @foreach ($game->walkthroughContributions as $contribution)
-                                    <li>
-                                        <a href="{{ route('contributions.show', $contribution) }}">
-                                            {{ $contribution->title }}
-                                        </a>
-                                        <span class="persona-status ready">
-                                            {{ $contribution->steps_count }} steps · {{ $contribution->author->name }}
-                                        </span>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </section>
-                    </div>
                 </section>
             @endif
 

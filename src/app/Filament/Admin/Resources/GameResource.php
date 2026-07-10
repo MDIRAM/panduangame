@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\GameResource\Pages;
+use App\Filament\Admin\Resources\GameResource\RelationManagers\ChaptersRelationManager;
 use App\Models\Game;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -45,6 +46,25 @@ class GameResource extends Resource
                     Forms\Components\Textarea::make('description')
                         ->rows(4)
                         ->columnSpanFull(),
+                    Forms\Components\Select::make('theme_preset')
+                        ->label('Walkthrough color theme')
+                        ->options([
+                            'blue' => 'Blue / modern',
+                            'gold' => 'Gold / soulslike',
+                            'red' => 'Red',
+                            'green' => 'Green',
+                            'neutral' => 'Neutral',
+                        ])
+                        ->default('blue')
+                        ->required()
+                        ->native(false),
+                    Forms\Components\Select::make('content_status')
+                        ->label('Walkthrough status')
+                        ->helperText('Complete = sudah selesai, Ongoing = masih dikerjakan, Upcoming = belum diisi.')
+                        ->options(Game::contentStatuses())
+                        ->default('ongoing')
+                        ->required()
+                        ->native(false),
                     Forms\Components\TagsInput::make('highlights')
                         ->placeholder('Tambahkan highlight')
                         ->columnSpanFull(),
@@ -76,6 +96,19 @@ class GameResource extends Resource
                 Tables\Columns\TextColumn::make('route_slug')
                     ->label('Public slug')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('theme_preset')
+                    ->label('Theme')
+                    ->badge()
+                    ->formatStateUsing(fn (?string $state): string => ucfirst($state ?: 'blue')),
+                Tables\Columns\TextColumn::make('content_status')
+                    ->label('Status')
+                    ->badge()
+                    ->formatStateUsing(fn (?string $state): string => Game::contentStatuses()[$state] ?? 'Ongoing')
+                    ->color(fn (?string $state): string => match ($state) {
+                        'complete' => 'success',
+                        'upcoming' => 'warning',
+                        default => 'info',
+                    }),
                 Tables\Columns\TextColumn::make('chapters_count')
                     ->counts('chapters')
                     ->label('Chapters')
@@ -93,9 +126,25 @@ class GameResource extends Resource
                     ->label('Published'),
                 Tables\Filters\TernaryFilter::make('is_featured')
                     ->label('Featured'),
+                Tables\Filters\SelectFilter::make('content_status')
+                    ->label('Walkthrough status')
+                    ->options(Game::contentStatuses()),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('manageWalkthrough')
+                    ->label('Manage Walkthrough')
+                    ->icon('heroicon-o-book-open')
+                    ->url(function (Game $record): string {
+                        $firstChapter = $record->chapters()->first();
+
+                        if ($firstChapter) {
+                            return ChapterResource::getUrl('edit', ['record' => $firstChapter]);
+                        }
+
+                        return static::getUrl('edit', ['record' => $record]);
+                    }),
+                Tables\Actions\EditAction::make()
+                    ->label('Game Settings'),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
@@ -103,6 +152,13 @@ class GameResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            ChaptersRelationManager::class,
+        ];
     }
 
     public static function getPages(): array

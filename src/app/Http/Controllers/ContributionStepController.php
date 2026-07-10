@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContributionStepRequest;
 use App\Models\ContributionStep;
 use App\Models\WalkthroughContribution;
+use App\Support\RichText;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
@@ -18,10 +19,11 @@ class ContributionStepController extends Controller
         $this->authorize('update', $contribution);
 
         $data = $request->safe()->except('image');
+        $data['content'] = RichText::sanitize($data['content']);
 
         if ($request->hasFile('image')) {
             $data['image_path'] = $request->file('image')->store(
-                'contributions/'.$request->user()->id,
+                'contributions/' . $request->user()->id,
                 'public',
             );
         }
@@ -47,11 +49,12 @@ class ContributionStepController extends Controller
         $this->authorize('update', $step);
 
         $data = $request->safe()->except('image');
+        $data['content'] = RichText::sanitize($data['content']);
 
         if ($request->hasFile('image')) {
             $this->deleteImage($step);
             $data['image_path'] = $request->file('image')->store(
-                'contributions/'.$request->user()->id,
+                'contributions/' . $request->user()->id,
                 'public',
             );
         }

@@ -41,7 +41,11 @@
                 </div>
                 <div class="field full">
                     <label for="content">Isi panduan</label>
-                    <textarea id="content" name="content" maxlength="5000" required>{{ old('content', $step->content) }}</textarea>
+                    @include('contributions.partials.rich-editor', [
+                        'id' => 'content',
+                        'name' => 'content',
+                        'value' => old('content', $step->content),
+                    ])
                 </div>
                 <div class="field full">
                     <label for="image">Ganti gambar</label>
@@ -55,5 +59,6 @@
 
         @include('partials.site-footer')
     </main>
+    @include('contributions.partials.rich-editor-script')
 </body>
 </html>

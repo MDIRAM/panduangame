@@ -23,6 +23,11 @@
         </header>
 
         <section class="form-panel">
+            @php
+                $selectedGame = old('game_id', $selectedGameId);
+                $selectedChapter = old('chapter_id', $selectedChapterId);
+            @endphp
+
             <form method="POST" action="{{ route('contributions.store') }}" class="form-grid two-columns">
                 @csrf
                 <div class="field">
@@ -30,12 +35,33 @@
                     <select id="game_id" name="game_id" required>
                         <option value="">Pilih game</option>
                         @foreach ($games as $game)
-                            <option value="{{ $game->id }}" @selected(old('game_id') == $game->id)>
+                            <option value="{{ $game->id }}" @selected($selectedGame == $game->id)>
                                 {{ $game->title }}
                             </option>
                         @endforeach
                     </select>
                     @error('game_id') <span class="field-error">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="field">
+                    <label for="chapter_id">Chapter / misi</label>
+                    <select id="chapter_id" name="chapter_id" required>
+                        <option value="">Pilih chapter dari template</option>
+                        @foreach ($chapters->groupBy(fn ($chapter) => $chapter->game->title) as $gameTitle => $gameChapters)
+                            <optgroup label="{{ $gameTitle }}">
+                                @foreach ($gameChapters as $chapter)
+                                    <option
+                                        value="{{ $chapter->id }}"
+                                        data-game-id="{{ $chapter->game_id }}"
+                                        @selected($selectedChapter == $chapter->id)
+                                    >
+                                        {{ $chapter->parent_id ? '— ' : '' }}{{ $chapter->chapter_title }}
+                                    </option>
+                                @endforeach
+                            </optgroup>
+                        @endforeach
+                    </select>
+                    @error('chapter_id') <span class="field-error">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="field">
@@ -58,5 +84,27 @@
 
         @include('partials.site-footer')
     </main>
+    <script>
+        const gameSelect = document.querySelector('#game_id');
+        const chapterSelect = document.querySelector('#chapter_id');
+
+        function syncChapterOptions() {
+            const gameId = gameSelect.value;
+            const selectedOption = chapterSelect.selectedOptions[0];
+
+            chapterSelect.querySelectorAll('option[data-game-id]').forEach((option) => {
+                const matchesGame = !gameId || option.dataset.gameId === gameId;
+                option.disabled = !matchesGame;
+                option.hidden = !matchesGame;
+            });
+
+            if (selectedOption && selectedOption.disabled) {
+                chapterSelect.value = '';
+            }
+        }
+
+        gameSelect.addEventListener('change', syncChapterOptions);
+        syncChapterOptions();
+    </script>
 </body>
 </html>

@@ -15,19 +15,31 @@ class AdminOverviewStats extends BaseWidget
 
     protected function getStats(): array
     {
+        $publishedGames = Game::where('is_published', true)->count();
+        $completeGames = Game::where('content_status', 'complete')->count();
+        $ongoingGames = Game::where('content_status', 'ongoing')->count();
+
         return [
+            Stat::make('Published Games', $publishedGames)
+                ->description($completeGames . ' complete, ' . $ongoingGames . ' ongoing')
+                ->descriptionIcon('heroicon-m-check-circle')
+                ->icon('heroicon-o-puzzle-piece')
+                ->color('success'),
+            Stat::make('Walkthrough Chapters', Chapter::count())
+                ->description('Sidebar pages across all games')
+                ->descriptionIcon('heroicon-m-book-open')
+                ->icon('heroicon-o-book-open')
+                ->color('info'),
+            Stat::make('Guide Steps', Step::count())
+                ->description('Saved walkthrough content blocks')
+                ->descriptionIcon('heroicon-m-document-text')
+                ->icon('heroicon-o-list-bullet')
+                ->color('warning'),
             Stat::make('Users', User::count())
-                ->description('Registered accounts')
-                ->icon('heroicon-o-users'),
-            Stat::make('Games', Game::count())
-                ->description('Published catalog')
-                ->icon('heroicon-o-puzzle-piece'),
-            Stat::make('Chapters', Chapter::count())
-                ->description('Walkthrough sections')
-                ->icon('heroicon-o-book-open'),
-            Stat::make('Steps', Step::count())
-                ->description('Guide instructions')
-                ->icon('heroicon-o-list-bullet'),
+                ->description('Registered reader accounts')
+                ->descriptionIcon('heroicon-m-users')
+                ->icon('heroicon-o-users')
+                ->color('gray'),
         ];
     }
 }

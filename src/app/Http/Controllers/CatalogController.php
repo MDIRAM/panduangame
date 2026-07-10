@@ -13,13 +13,20 @@ class CatalogController extends Controller
         $games = Game::query()
             ->where('is_published', true)
             ->withCount('chapters')
+            ->withCount('ratings')
+            ->withAvg('ratings', 'rating')
             ->orderByDesc('is_featured')
             ->orderBy('title')
             ->get();
 
+        $favoriteGameIds = auth()->check()
+            ? auth()->user()->gameFavorites()->pluck('game_id')
+            : collect();
+
         return view('welcome', [
             'games' => $games,
             'featuredGame' => $games->firstWhere('is_featured', true) ?? $games->first(),
+            'favoriteGameIds' => $favoriteGameIds,
         ]);
     }
 
@@ -41,13 +48,7 @@ class CatalogController extends Controller
             return redirect()->to($route);
         }
 
-        $game->load([
-            'walkthroughContributions' => fn ($query) => $query
-                ->published()
-                ->with('author')
-                ->withCount('steps')
-                ->latest('published_at'),
-        ]);
+        $game->loadCount('ratings')->loadAvg('ratings', 'rating');
 
         return view('games.show', compact('game'));
     }

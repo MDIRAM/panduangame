@@ -26,6 +26,7 @@ class EldenRingSeeder extends Seeder
                 'cover_image' => 'coverimg/EldenRing.png',
                 'is_featured' => true,
                 'is_published' => true,
+                'theme_preset' => 'gold',
             ],
         );
 

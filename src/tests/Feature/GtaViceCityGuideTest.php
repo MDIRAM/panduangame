@@ -1,38 +1,77 @@
 <?php
 
 use App\Models\Game;
-use Database\Seeders\GtaViceCitySeeder;
+use Database\Seeders\RoleSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    $this->seed(GtaViceCitySeeder::class);
+    $this->seed(RoleSeeder::class);
 });
 
-test('gta vice city cover opens the first sidebar chapter', function () {
-    $game = Game::where('slug', 'gta-vice-city')->with('chapters.steps')->firstOrFail();
+test('gta vice city is not created automatically', function () {
+    expect(Game::where('slug', 'gta-vice-city')->exists())->toBeFalse();
 
-    expect($game->chapters)->toHaveCount(7);
-
-    $this->get('/games/gta-vice-city')
-        ->assertRedirect('/games/gta-vice-city/walkthrough/in-the-beginning-and-an-old-friend');
-
-    $this->followingRedirects()
-        ->get('/games/gta-vice-city')
+    $this->get('/')
         ->assertOk()
-        ->assertSee('Walkthrough Chapters')
-        ->assertSee('In the Beginning... &amp; An Old Friend', false)
-        ->assertSee('Ken Rosenberg Missions')
-        ->assertSee('Tiba di Vice City')
-        ->assertSee('An Old Friend')
-        ->assertSee('aria-current="page"', false);
+        ->assertDontSee('GTA Vice City');
 });
 
-test('gta vice city template chapters can exist before walkthrough content is filled', function () {
-    $this->get('/games/gta-vice-city/walkthrough/ken-rosenberg-missions')
+test('admin managed gta game appears dynamically without hardcoded walkthrough', function () {
+    $game = Game::create([
+        'title' => 'GTA Vice City',
+        'slug' => 'gta-vice-city',
+        'route_slug' => 'gta-vice-city',
+        'description' => 'Walkthrough GTA Vice City yang dikelola melalui database.',
+        'cover_image' => 'coverimg/GTA_Vice_City.png',
+        'is_published' => true,
+    ]);
+
+    $this->get('/')
+        ->assertOk()
+        ->assertSee('GTA Vice City Walkthrough')
+        ->assertSee('Upcoming');
+
+    $this->get(route('games.show', ['slug' => $game->route_slug]))
+        ->assertOk()
+        ->assertSee('Walkthrough Dalam Persiapan');
+});
+
+test('admin managed gta chapters and steps render in the walkthrough layout', function () {
+    $game = Game::create([
+        'title' => 'GTA Vice City',
+        'slug' => 'gta-vice-city',
+        'route_slug' => 'gta-vice-city',
+        'cover_image' => 'coverimg/GTA_Vice_City.png',
+        'is_published' => true,
+    ]);
+
+    $chapter = $game->chapters()->create([
+        'chapter_title' => 'Ken Rosenberg Missions',
+        'slug' => 'ken-rosenberg-missions',
+        'section_title' => 'Walkthrough',
+        'order' => 1,
+    ]);
+
+    $chapter->steps()->create([
+        'step_title' => 'The Party',
+        'content' => '<p>Datangi kantor Ken untuk memulai misi.</p>',
+        'order' => 1,
+    ]);
+
+    $this->get(route('games.show', ['slug' => $game->route_slug]))
+        ->assertRedirect(route('games.walkthrough.show', [
+            'gameSlug' => $game->route_slug,
+            'chapterSlug' => $chapter->slug,
+        ]));
+
+    $this->get(route('games.walkthrough.show', [
+        'gameSlug' => $game->route_slug,
+        'chapterSlug' => $chapter->slug,
+    ]))
         ->assertOk()
         ->assertSee('Ken Rosenberg Missions')
-        ->assertSee('Konten belum tersedia')
-        ->assertSee('In the Beginning... &amp; An Old Friend', false);
+        ->assertSee('The Party')
+        ->assertSee('Datangi kantor Ken untuk memulai misi.');
 });

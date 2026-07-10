@@ -15,7 +15,9 @@ class LatestAccessLogs extends BaseWidget
     use HasWidgetShield;
     protected static ?int $sort = 100;
 
-    protected int|string|array $columnSpan = 2;
+    protected static ?string $heading = 'Recent Admin Activity';
+
+    protected int|string|array $columnSpan = 'full';
 
     protected static function getLogNameColors(): array
     {
@@ -48,25 +50,25 @@ class LatestAccessLogs extends BaseWidget
     {
         return $table
             ->query(
-                Activity::query()->latest()->take(5)
+                Activity::query()->latest()->take(6)
             )
             ->columns([
                 Tables\Columns\TextColumn::make('log_name')
                     ->badge()
                     ->colors(static::getLogNameColors())
-                    ->label(__('filament-logger::filament-logger.resource.label.type'))
+                    ->label('Type')
                     ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('event')
-                    ->label(__('filament-logger::filament-logger.resource.label.event'))
+                    ->label('Event')
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('description')
-                    ->label(__('filament-logger::filament-logger.resource.label.description'))
+                    ->label('Activity')
                     ->wrap(),
 
                 Tables\Columns\TextColumn::make('subject_type')
-                    ->label(__('filament-logger::filament-logger.resource.label.subject'))
+                    ->label('Target')
                     ->formatStateUsing(function ($state, Model $record) {
                         /** @var Activity $record */
                         if (! $state) {
@@ -77,10 +79,10 @@ class LatestAccessLogs extends BaseWidget
                     }),
 
                 Tables\Columns\TextColumn::make('causer.name')
-                    ->label(__('filament-logger::filament-logger.resource.label.user')),
+                    ->label('Admin'),
 
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
+                    ->label('Time')
                     ->dateTime(config('d/m/Y H:i A'))
                     ->sortable(),
             ])

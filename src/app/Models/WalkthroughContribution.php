@@ -24,6 +24,7 @@ class WalkthroughContribution extends Model
     protected $fillable = [
         'user_id',
         'game_id',
+        'chapter_id',
         'title',
         'slug',
         'summary',
@@ -72,6 +73,11 @@ class WalkthroughContribution extends Model
     public function game(): BelongsTo
     {
         return $this->belongsTo(Game::class);
+    }
+
+    public function chapter(): BelongsTo
+    {
+        return $this->belongsTo(Chapter::class);
     }
 
     public function steps(): HasMany

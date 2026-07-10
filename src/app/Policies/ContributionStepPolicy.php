@@ -24,7 +24,7 @@ class ContributionStepPolicy
 
     public function create(User $user): bool
     {
-        return $user->hasRole('contributor');
+        return true;
     }
 
     public function update(User $user, ContributionStep $step): bool

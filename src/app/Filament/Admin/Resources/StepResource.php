@@ -15,6 +15,8 @@ class StepResource extends Resource
 {
     protected static ?string $model = Step::class;
 
+    protected static bool $shouldRegisterNavigation = false;
+
     protected static ?string $navigationIcon = 'heroicon-o-list-bullet';
 
     protected static ?string $navigationGroup = 'Walkthrough Content';
@@ -50,9 +52,16 @@ class StepResource extends Resource
                     RichEditor::make('content')
                         ->required()
                         ->columnSpanFull(),
-                    Forms\Components\TextInput::make('image_url')
-                        ->label('Image path or URL')
-                        ->maxLength(255)
+                    Forms\Components\FileUpload::make('image_url')
+                        ->label('Supporting image')
+                        ->image()
+                        ->imageEditor()
+                        ->disk('public')
+                        ->directory('walkthrough/steps')
+                        ->visibility('public')
+                        ->maxSize(5120)
+                        ->openable()
+                        ->downloadable()
                         ->columnSpanFull(),
                 ]),
         ]);
@@ -80,10 +89,10 @@ class StepResource extends Resource
                     ->formatStateUsing(fn (?string $state): string => strip_tags($state ?? ''))
                     ->limit(80)
                     ->wrap(),
-                Tables\Columns\IconColumn::make('image_url')
+                Tables\Columns\ImageColumn::make('image_url')
                     ->label('Image')
-                    ->getStateUsing(fn (Step $record): bool => filled($record->image_url))
-                    ->boolean(),
+                    ->getStateUsing(fn (Step $record) => $record->resolved_image_url)
+                    ->square(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('chapter_id')

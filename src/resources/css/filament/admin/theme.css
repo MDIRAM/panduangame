@@ -5,6 +5,322 @@
 [x-cloak] {
     display: none !important;
 }
+
+.fi-body {
+    background:
+        radial-gradient(circle at top left, rgb(219 234 254 / 0.65), transparent 28rem),
+        linear-gradient(180deg, rgb(248 250 252), rgb(241 245 249));
+}
+
+.dark .fi-body {
+    background:
+        radial-gradient(circle at top left, rgb(30 64 175 / 0.18), transparent 30rem),
+        linear-gradient(180deg, rgb(2 6 23), rgb(15 23 42));
+}
+
+.fi-main {
+    max-width: 110rem;
+}
+
+.fi-wi-stats-overview-stat,
+.fi-section,
+.fi-ta-ctn {
+    border-radius: 1rem !important;
+    border-color: rgb(226 232 240) !important;
+    box-shadow: 0 16px 40px rgb(15 23 42 / 0.06) !important;
+}
+
+.dark .fi-wi-stats-overview-stat,
+.dark .fi-section,
+.dark .fi-ta-ctn {
+    border-color: rgb(51 65 85) !important;
+    box-shadow: 0 18px 50px rgb(0 0 0 / 0.24) !important;
+}
+
+.fi-wi-stats-overview-stat {
+    overflow: hidden;
+}
+
+.fi-wi-stats-overview-stat::before {
+    content: '';
+    display: block;
+    height: 0.25rem;
+    background: linear-gradient(90deg, rgb(37 99 235), rgb(14 165 233), rgb(34 197 94));
+}
+
+.fi-ta-header-heading {
+    font-weight: 800;
+}
+
+.fi-ta-row:hover {
+    background: rgb(248 250 252);
+}
+
+.dark .fi-ta-row:hover {
+    background: rgb(30 41 59 / 0.55);
+}
+
 .grid-image .filepond--item {
     width: calc(33.3% - 0.5em);
+}
+
+.walkthrough-editor-layout {
+    display: grid;
+    grid-template-columns: minmax(250px, 310px) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.walkthrough-editor-sidebar {
+    position: sticky;
+    top: 1.5rem;
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;
+    border: 1px solid rgb(229 231 235);
+    border-radius: 0.75rem;
+    background: rgb(255 255 255);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+}
+
+.dark .walkthrough-editor-sidebar {
+    border-color: rgb(55 65 81);
+    background: rgb(17 24 39);
+}
+
+.walkthrough-editor-sidebar-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 1rem;
+    border-bottom: 1px solid rgb(229 231 235);
+    background: inherit;
+}
+
+.dark .walkthrough-editor-sidebar-header {
+    border-color: rgb(55 65 81);
+}
+
+.walkthrough-editor-sidebar-title {
+    margin: 0;
+    color: rgb(17 24 39);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.dark .walkthrough-editor-sidebar-title {
+    color: rgb(249 250 251);
+}
+
+.walkthrough-editor-sidebar-copy {
+    margin: 0.25rem 0 0;
+    color: rgb(107 114 128);
+    font-size: 0.75rem;
+}
+
+.walkthrough-editor-tree {
+    padding: 0.75rem;
+}
+
+.walkthrough-editor-group + .walkthrough-editor-group {
+    margin-top: 0.35rem;
+}
+
+.walkthrough-editor-group summary {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    list-style: none;
+    cursor: pointer;
+}
+
+.walkthrough-editor-group summary::-webkit-details-marker {
+    display: none;
+}
+
+.walkthrough-editor-chevron {
+    width: 0.9rem;
+    flex: 0 0 0.9rem;
+    color: rgb(107 114 128);
+    transition: transform 150ms ease;
+}
+
+.walkthrough-editor-group[open] .walkthrough-editor-chevron {
+    transform: rotate(90deg);
+}
+
+.walkthrough-editor-link {
+    display: block;
+    flex: 1;
+    padding: 0.65rem 0.75rem;
+    border-left: 3px solid transparent;
+    border-radius: 0.45rem;
+    color: rgb(55 65 81);
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.dark .walkthrough-editor-link {
+    color: rgb(209 213 219);
+}
+
+.walkthrough-editor-link:hover {
+    background: rgb(243 244 246);
+}
+
+.dark .walkthrough-editor-link:hover {
+    background: rgb(31 41 55);
+}
+
+.walkthrough-editor-link.is-active {
+    border-left-color: rgb(37 99 235);
+    background: rgb(239 246 255);
+    color: rgb(29 78 216);
+}
+
+.dark .walkthrough-editor-link.is-active {
+    background: rgb(30 58 138 / 0.35);
+    color: rgb(147 197 253);
+}
+
+.walkthrough-editor-children {
+    margin: 0.25rem 0 0.5rem 1.35rem;
+    padding-left: 0.6rem;
+    border-left: 1px solid rgb(209 213 219);
+}
+
+.dark .walkthrough-editor-children {
+    border-color: rgb(75 85 99);
+}
+
+.walkthrough-editor-children .walkthrough-editor-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.walkthrough-editor-content {
+    min-width: 0;
+}
+
+.walkthrough-editor-content > * + * {
+    margin-top: 1.5rem;
+}
+
+.walkthrough-document-editor:is(trix-editor, .trix-content, [contenteditable="true"]),
+.walkthrough-document-editor :is(trix-editor, .trix-content, [contenteditable="true"]),
+.fi-fo-rich-editor:has(.walkthrough-document-editor) trix-editor {
+    min-height: 34rem;
+    padding: 1.25rem;
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+}
+
+.walkthrough-document-editor:is(trix-editor, .trix-content, [contenteditable="true"]) :where(p, li, blockquote, strong, em, mark, a, span),
+.walkthrough-document-editor :is(trix-editor, .trix-content, [contenteditable="true"]) :where(p, li, blockquote, strong, em, mark, a, span),
+.fi-fo-rich-editor:has(.walkthrough-document-editor) trix-editor :where(p, li, blockquote, strong, em, mark, a, span) {
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+}
+
+.walkthrough-document-editor:is(trix-editor, .trix-content, [contenteditable="true"]) p,
+.walkthrough-document-editor :is(trix-editor, .trix-content, [contenteditable="true"]) p,
+.fi-fo-rich-editor:has(.walkthrough-document-editor) trix-editor p {
+    margin-block: 0 1rem;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.75 !important;
+}
+
+.walkthrough-document-editor:is(trix-editor, .trix-content, [contenteditable="true"]) p > :is(strong, b):only-child,
+.walkthrough-document-editor :is(trix-editor, .trix-content, [contenteditable="true"]) p > :is(strong, b):only-child,
+.fi-fo-rich-editor:has(.walkthrough-document-editor) trix-editor p > :is(strong, b):only-child {
+    font-weight: 400 !important;
+}
+
+.walkthrough-document-editor:is(trix-editor, .trix-content, [contenteditable="true"]) :is(h1, h2, h3, h4, h5, h6),
+.walkthrough-document-editor :is(trix-editor, .trix-content, [contenteditable="true"]) :is(h1, h2, h3, h4, h5, h6),
+.fi-fo-rich-editor:has(.walkthrough-document-editor) trix-editor :is(h1, h2, h3, h4, h5, h6) {
+    margin-block: 1.75rem 0.75rem;
+    font-size: 1.35rem !important;
+    line-height: 1.35 !important;
+}
+
+.walkthrough-document-editor:is(trix-editor, .trix-content, [contenteditable="true"]) mark,
+.walkthrough-document-editor :is(trix-editor, .trix-content, [contenteditable="true"]) mark,
+.fi-fo-rich-editor:has(.walkthrough-document-editor) trix-editor mark {
+    background: transparent;
+    color: rgb(180 128 42);
+    font-weight: 700;
+}
+
+.walkthrough-document-editor:is(trix-editor, .trix-content, [contenteditable="true"]) img,
+.walkthrough-document-editor :is(trix-editor, .trix-content, [contenteditable="true"]) img,
+.fi-fo-rich-editor:has(.walkthrough-document-editor) trix-editor img {
+    display: block;
+    width: min(100%, 900px);
+    max-width: 100%;
+    min-height: 220px;
+    max-height: 560px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    margin: 1rem auto;
+    border-radius: 0.35rem;
+    background: rgb(241 245 249);
+    object-fit: contain;
+}
+
+.dark .walkthrough-document-editor:is(trix-editor, .trix-content, [contenteditable="true"]) img,
+.dark .walkthrough-document-editor :is(trix-editor, .trix-content, [contenteditable="true"]) img,
+.dark .fi-fo-rich-editor:has(.walkthrough-document-editor) trix-editor img {
+    background: rgb(15 23 42);
+}
+
+.walkthrough-document-editor:is(trix-editor, .trix-content, [contenteditable="true"]) img[src=""],
+.walkthrough-document-editor:is(trix-editor, .trix-content, [contenteditable="true"]) img:not([src]),
+.walkthrough-document-editor :is(trix-editor, .trix-content, [contenteditable="true"]) img[src=""],
+.walkthrough-document-editor :is(trix-editor, .trix-content, [contenteditable="true"]) img:not([src]),
+.fi-fo-rich-editor:has(.walkthrough-document-editor) trix-editor img[src=""],
+.fi-fo-rich-editor:has(.walkthrough-document-editor) trix-editor img:not([src]) {
+    display: none !important;
+}
+
+.walkthrough-document-editor figcaption,
+.walkthrough-document-editor figcaption textarea {
+    display: none !important;
+}
+
+.walkthrough-clean-paste-button {
+    align-self: center;
+    margin-inline-start: auto;
+    border-radius: 0.5rem;
+    background: rgb(37 99 235);
+    padding: 0.35rem 0.75rem;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1rem;
+}
+
+.walkthrough-clean-paste-button:hover {
+    background: rgb(29 78 216);
+}
+
+.dark .walkthrough-clean-paste-button {
+    background: rgb(59 130 246);
+    color: rgb(15 23 42);
+}
+
+.dark .walkthrough-clean-paste-button:hover {
+    background: rgb(147 197 253);
+}
+
+@media (max-width: 1023px) {
+    .walkthrough-editor-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .walkthrough-editor-sidebar {
+        position: static;
+        max-height: 22rem;
+    }
 }
