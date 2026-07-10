@@ -1,66 +1,121 @@
-# PanduanGame
+# Walkthrough Game Hub
 
-PanduanGame adalah aplikasi web berbasis Laravel untuk menampilkan walkthrough game, rute story, strategi boss, dan halaman dashboard pengguna. Proyek ini sudah disiapkan dengan Docker, Nginx HTTPS lokal, MariaDB, Laravel 12, Vite, Tailwind CSS, dan Filament Admin Panel.
+**Walkthrough Game Hub** adalah website panduan game berbasis Laravel yang dibuat untuk menyimpan dan menampilkan walkthrough secara dinamis dari database.
+
+Project ini fokus pada alur cerita game, daftar chapter, langkah walkthrough, gambar pendukung, favorite game, dan rating dari user. Semua konten utama dikelola lewat admin panel, jadi isi walkthrough tidak perlu lagi ditulis manual di file Blade.
+
+## Tujuan Project
+
+Project ini dibuat supaya halaman walkthrough game lebih rapi, mudah dikelola, dan tidak bergantung pada HTML hardcoded.
+
+Admin dapat menambah game, chapter, dan isi walkthrough langsung dari panel admin. Pengunjung cukup membuka website, memilih game, lalu membaca walkthrough berdasarkan chapter yang tersedia.
 
 ## Fitur Utama
 
-- Landing page walkthrough game dengan spotlight guide.
-- Library guide untuk Elden Ring, Dark Souls 2, dan Persona 3.
-- Halaman detail game dan halaman story mission Persona 3.
-- Login, register, dashboard pengguna, dan logout.
-- Admin panel Filament di `/admin`.
-- Manajemen user melalui Filament Resource.
-- Role dan permission menggunakan Filament Shield.
-- Activity logging, theme switcher, profile editor, dan beberapa plugin Filament pendukung.
-- Setup lokal menggunakan Docker Compose dengan PHP-FPM, Nginx, dan MariaDB.
+- 🎮 Katalog game walkthrough berbasis database.
+- 📖 Halaman detail game dan walkthrough dengan sidebar chapter.
+- 🧩 Struktur data utama: `Game -> Chapter -> Step`.
+- ✍️ Rich Editor di admin panel untuk menulis isi walkthrough seperti di Word.
+- 🖼️ Upload gambar pendukung untuk konten walkthrough.
+- ⭐ User login dapat menyimpan game favorit.
+- 🟡 User login dapat memberi rating game.
+- 🏷️ Admin dapat memberi status game: `Complete`, `Ongoing`, atau `Upcoming`.
+- ✅ Admin dapat menentukan game yang tampil publik dan game yang menjadi featured.
+- 🔐 Role akses: guest, member, dan super admin.
+- 🛠️ Filament Admin Panel untuk mengelola seluruh konten.
+- 📡 API read-only untuk mengambil data game dan walkthrough.
+
+## Role Pengguna
+
+| Role | Akses |
+| --- | --- |
+| Guest | Melihat katalog game dan membaca walkthrough |
+| Member | Login, favorite game, dan memberi rating |
+| Super Admin | Mengelola game, chapter, step, user, dan isi walkthrough |
+
+## Game yang Ada
+
+- **Persona 3 Reload**
+- **Dark Souls 2**
+- **Elden Ring**
+
+Game lain dapat ditambahkan langsung dari admin panel tanpa mengubah kode.
 
 ## Teknologi
 
 - PHP 8.3
 - Laravel 12
-- MariaDB 10.11
-- Nginx
-- Docker Compose
-- Filament 3
+- MariaDB
+- Filament Admin Panel
+- Livewire
+- Spatie Laravel Permission
+- Blade
 - Tailwind CSS
 - Vite
-- Pest/PHPUnit
-
-## Struktur Proyek
-
-```text
-.
-|-- docker-compose.yml
-|-- db/                  # Konfigurasi dan data MariaDB lokal
-|-- nginx/               # Dockerfile, virtual host, dan SSL lokal
-|-- php/                 # Dockerfile PHP-FPM dan konfigurasi PHP
-|-- src/                 # Aplikasi Laravel
-|   |-- app/
-|   |-- database/
-|   |-- public/
-|   |-- resources/
-|   `-- routes/
-`-- README
-```
-
-## Persiapan
-
-Pastikan sudah terpasang:
-
-- Docker
 - Docker Compose
+- Nginx
+- Pest / PHPUnit
 
-Tambahkan domain lokal ke hosts file:
+## Struktur Utama
 
 ```text
-127.0.0.1 panduangame.test
+Game
+└── Chapter
+    └── Step
 ```
 
-Di Linux/macOS biasanya file berada di `/etc/hosts`. Di Windows biasanya berada di `C:\Windows\System32\drivers\etc\hosts`.
+Penjelasan singkat:
 
-## Menjalankan Proyek
+- **Game** menyimpan data game, cover, status publish, status walkthrough, dan tema warna.
+- **Chapter** menjadi daftar halaman di sidebar walkthrough.
+- **Step** menyimpan isi panduan, teks, HTML dari rich editor, dan gambar.
 
-Jalankan service Docker dari root proyek:
+## Alur Website
+
+1. Pengunjung membuka homepage.
+2. Pengunjung memilih salah satu game.
+3. Website membuka halaman walkthrough game.
+4. Pengunjung memilih chapter dari sidebar.
+5. Isi walkthrough tampil dari database.
+
+Jika user login, user juga dapat memberi rating dan menyimpan game sebagai favorit.
+
+## Admin Panel
+
+Admin panel dapat dibuka melalui:
+
+```text
+https://panduangame.test/admin
+```
+
+Workflow utama admin:
+
+```text
+Games -> Manage Walkthrough
+```
+
+Dari sana admin bisa:
+
+- membuat game baru
+- mengatur cover game
+- mengatur status `Published`, `Featured`, dan `Walkthrough Status`
+- membuat chapter/sidebar page
+- menulis isi walkthrough menggunakan Rich Editor
+- upload gambar walkthrough
+- mengelola user
+
+## Akun Default
+
+Seeder menyediakan akun awal:
+
+| Role | Email | Password |
+| --- | --- | --- |
+| Super Admin | `admin@admin.com` | `password` |
+| Member | `user@admin.com` | `password` |
+
+## Menjalankan Project Lokal
+
+Jalankan dari root project:
 
 ```bash
 docker compose up -d --build
@@ -72,22 +127,11 @@ Masuk ke container PHP:
 docker compose exec php bash
 ```
 
-Install dependency Laravel jika belum ada:
+Install dependency:
 
 ```bash
 composer install
-```
-
-Install dependency frontend jika belum ada:
-
-```bash
 npm install
-```
-
-Generate app key jika `.env` belum punya `APP_KEY`:
-
-```bash
-php artisan key:generate
 ```
 
 Jalankan migration dan seeder:
@@ -96,134 +140,46 @@ Jalankan migration dan seeder:
 php artisan migrate --seed
 ```
 
-Build asset frontend:
+Build asset:
 
 ```bash
 npm run build
 ```
 
-Akses aplikasi:
+Buka website:
 
 ```text
 https://panduangame.test
 ```
 
-Browser kemungkinan akan memberi peringatan karena sertifikat SSL lokal berada di `nginx/ssl`.
-
-## Mode Development Frontend
-
-Untuk menjalankan Vite saat development, masuk ke container PHP lalu jalankan:
-
-```bash
-npm run dev
-```
-
-Jika ingin menjalankan server Laravel, queue, log, dan Vite sekaligus tanpa Docker Nginx, package ini juga punya script:
-
-```bash
-composer run dev
-```
-
-Untuk setup Docker proyek ini, akses utama tetap melalui Nginx di `https://panduangame.test`.
-
-## Database
-
-Konfigurasi database Laravel berada di `src/.env`:
+Jika domain lokal belum aktif, tambahkan ini ke hosts file:
 
 ```text
-DB_CONNECTION=mariadb
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=panduangame
-DB_USERNAME=root
-DB_PASSWORD=p455w0rd
-```
-
-Port MariaDB diekspos ke host melalui:
-
-```text
-127.0.0.1:13306
-```
-
-## Akun Default
-
-Seeder membuat dua akun:
-
-| Role | Email | Password |
-| --- | --- | --- |
-| Super Admin | `admin@admin.com` | `password` |
-| User | `user@admin.com` | `password` |
-
-Halaman admin dapat dibuka di:
-
-```text
-https://panduangame.test/admin
-```
-
-## Route Penting
-
-| Route | Keterangan |
-| --- | --- |
-| `/` | Landing page PanduanGame |
-| `/videos` | Halaman video |
-| `/games/elden-ring` | Detail guide Elden Ring |
-| `/games/dark-souls-2` | Detail guide Dark Souls 2 |
-| `/games/persona-3` | Detail guide Persona 3 |
-| `/games/persona-3/story/{mission}` | Detail story mission Persona 3 |
-| `/login` | Login user |
-| `/register` | Register user |
-| `/dashboard` | Dashboard user |
-| `/admin` | Filament Admin Panel |
-
-## Data Review Opsional
-
-Proyek memiliki `ReviewSeeder`, tetapi seeder ini belum dipanggil otomatis oleh `DatabaseSeeder`. Jika ingin mengisi contoh data review, jalankan manual:
-
-```bash
-php artisan db:seed --class=ReviewSeeder
-```
-
-## Command Berguna
-
-Jalankan dari dalam container PHP:
-
-```bash
-php artisan migrate
-php artisan migrate:fresh --seed
-php artisan config:clear
-php artisan cache:clear
-npm run build
-npm run dev
-```
-
-Alias yang tersedia di container PHP:
-
-```bash
-art list
-migrate
-fresh
-t
+127.0.0.1 panduangame.test
 ```
 
 ## Testing
 
-Jalankan test Laravel:
+Jalankan test:
 
 ```bash
 php artisan test
 ```
 
-Atau gunakan alias container:
+Status terakhir project:
 
-```bash
-t
+```text
+44 tests passed
 ```
 
-## Catatan Development
+## Catatan Penting
 
-- Root aplikasi Laravel berada di folder `src`.
-- Asset publik game berada di `src/public/coverimg` dan `src/public/images/games`.
-- Konfigurasi Nginx lokal berada di `nginx/default.conf`.
-- File environment Docker root berada di `.env`.
-- File environment Laravel berada di `src/.env`.
-- Data MariaDB lokal disimpan di `db/data`.
+- Isi walkthrough official dikelola oleh admin, bukan user biasa.
+- Fitur kontribusi publik sudah tidak menjadi flow utama.
+- Video belum menjadi fitur aktif.
+- Konten Elden Ring dan Dark Souls 2 masih bisa dilanjutkan dari admin panel.
+- Jangan menjalankan `migrate:fresh --seed` di database penting tanpa backup.
+
+## Ringkasnya
+
+Walkthrough Game Hub adalah website walkthrough game yang dibuat supaya konten panduan bisa dikelola lewat database dan admin panel. Tujuannya sederhana: pengunjung bisa membaca walkthrough dengan nyaman, sementara admin bisa mengatur isi website tanpa perlu mengubah kode.
