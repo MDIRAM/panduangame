@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  php:
+    restart: unless-stopped
+
+  nginx:
+    restart: unless-stopped
+    volumes:
+      # Use production Nginx config instead of local
+      - ./nginx/default.prod.conf:/etc/nginx/conf.d/default.conf
+      # Mount Let's Encrypt certificates folder
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+
+  db:
+    restart: unless-stopped
+
+  certbot:
+    image: certbot/certbot
+    container_name: ${COMPOSE_PROJECT_NAME}_certbot
+    volumes:
+      # Share the SSL directory where Let's Encrypt stores the certificates
+      - ./nginx/ssl:/etc/letsencrypt
+      # Share the webroot directory for validation
+      - ./src:/var/www/html
