@@ -5,7 +5,10 @@ body.welcome-page {
   min-height: 100vh;
   margin: 0;
   background-color: #070b15;
-  background: radial-gradient(circle at top left, #0a1222 0%, #101a36 35%, #070b15 100%);
+  background:
+    radial-gradient(circle at 18% 10%, rgba(56, 189, 248, 0.13), transparent 26%),
+    radial-gradient(circle at 80% 4%, rgba(255, 135, 77, 0.10), transparent 20%),
+    linear-gradient(135deg, #081126 0%, #101a36 42%, #070b15 100%);
   background-attachment: fixed;
   color: #f4f7ff;
   color-scheme: dark;
@@ -94,6 +97,7 @@ body.welcome-page {
 .button.primary {
   background: linear-gradient(135deg, #ff5f44 0%, #ffb04f 100%);
   color: #08101d;
+  box-shadow: 0 16px 40px rgba(255, 115, 64, 0.18);
 }
 
 .button.secondary {
@@ -544,8 +548,8 @@ body.welcome-page {
   top: 2rem;
   min-height: calc(100vh - 6rem);
   border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(17, 27, 51, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: linear-gradient(180deg, rgba(19, 31, 58, 0.98), rgba(12, 20, 39, 0.96));
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
   padding: 1.6rem;
 }
@@ -557,8 +561,8 @@ body.welcome-page {
   width: 100%;
   min-height: 4.8rem;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.045));
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(56, 189, 248, 0.045));
   text-decoration: none;
   padding: 0.75rem;
   margin-bottom: 0.95rem;
@@ -567,11 +571,11 @@ body.welcome-page {
 .guide-logo-mark {
   display: grid;
   place-items: center;
-  width: 3.4rem;
-  height: 3.4rem;
+  width: 3.65rem;
+  height: 3.65rem;
   flex: 0 0 auto;
-  border-radius: 13px;
-  background: #ffffff;
+  border-radius: 999px;
+  background: transparent;
   overflow: hidden;
 }
 
@@ -580,7 +584,7 @@ body.welcome-page {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 0.28rem;
+  padding: 0;
 }
 
 .guide-logo-text {
@@ -612,15 +616,32 @@ body.welcome-page {
   min-height: 2.9rem;
   padding: 0 1rem;
   border-radius: 10px;
-  color: rgba(244, 247, 255, 0.82);
+  color: rgba(229, 237, 255, 0.78);
   text-decoration: none;
   font-weight: 700;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
 .guide-nav a:hover,
 .guide-nav a.active {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
+}
+
+.guide-nav a:hover {
+  transform: translateX(2px);
+}
+
+.guide-nav a.nav-register {
+  margin-top: 0.35rem;
+  border: 1px solid rgba(140, 167, 255, 0.28);
+  background: rgba(140, 167, 255, 0.07);
+  color: #ffffff;
+}
+
+.guide-nav a.nav-register:hover {
+  border-color: rgba(140, 167, 255, 0.52);
+  background: rgba(140, 167, 255, 0.14);
 }
 
 .guide-main {
@@ -641,7 +662,8 @@ body.welcome-page {
   color: #ffffff;
   font-size: 4.65rem;
   line-height: 1.03;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.035em;
 }
 
 .spotlight-strip {
@@ -652,13 +674,14 @@ body.welcome-page {
   margin-bottom: 2rem;
   padding: 2rem;
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.16);
   overflow: hidden;
   position: relative;
   background:
     linear-gradient(90deg, rgba(10, 16, 32, 0.88) 0%, rgba(10, 16, 32, 0.64) 46%, rgba(10, 16, 32, 0.18) 100%),
     var(--spotlight-image) right center / auto 125% no-repeat,
     #121b34;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 22px 80px rgba(0, 0, 0, 0.24);
   transition: background-image 0.35s ease;
 }
 
@@ -740,18 +763,65 @@ body.welcome-page {
   align-items: end;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.35rem;
 }
 
 .section-heading h2 {
   margin: 0;
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-size: clamp(2rem, 3vw, 2.9rem);
   color: #ffffff;
+  letter-spacing: -0.025em;
 }
 
 .section-heading span {
   color: rgba(244, 247, 255, 0.68);
   font-weight: 700;
+}
+
+.library-tools {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.9rem;
+}
+
+.library-search {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 240px;
+}
+
+.library-search span {
+  color: #8ca7ff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.library-search input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 999px;
+  background: rgba(8, 13, 26, 0.72);
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.92rem;
+  outline: none;
+  padding: 0 1rem;
+  transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.library-search input::placeholder {
+  color: rgba(203, 213, 225, 0.58);
+}
+
+.library-search input:focus {
+  border-color: rgba(56, 189, 248, 0.72);
+  background: rgba(12, 20, 39, 0.95);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.10);
 }
 
 .game-guide-grid {
@@ -765,18 +835,27 @@ body.welcome-page {
   grid-template-rows: auto 1fr;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  background: rgba(10, 17, 34, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 14px;
+  background: rgba(9, 15, 30, 0.78);
   color: inherit;
   text-decoration: none;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.guide-game-card:hover {
+  border-color: rgba(56, 189, 248, 0.42);
+  background: rgba(13, 22, 42, 0.94);
+  box-shadow: 0 28px 75px rgba(0, 0, 0, 0.28);
+  transform: translateY(-3px);
 }
 
 .guide-game-media {
   position: relative;
   width: 100%;
-  height: 250px;
-  min-height: 250px;
+  height: 240px;
+  min-height: 240px;
   overflow: hidden;
   background: #080d19;
 }
@@ -805,7 +884,7 @@ body.welcome-page {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.55rem;
-  padding: 0.9rem 1rem 1rem;
+  padding: 1.05rem 1.15rem 1.15rem;
 }
 
 .guide-game-card strong {
@@ -813,7 +892,7 @@ body.welcome-page {
   max-width: 100%;
   overflow-wrap: anywhere;
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   line-height: 1.25;
 }
 
@@ -829,6 +908,15 @@ body.welcome-page {
   font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.guide-search-empty {
+  margin: 1.2rem 0 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 12px;
+  background: rgba(9, 15, 30, 0.78);
+  color: rgba(244, 247, 255, 0.72);
 }
 
 .guide-game-card .guide-status.upcoming,
@@ -1682,6 +1770,16 @@ body.welcome-page {
   .guide-game-media {
     height: 280px;
     min-height: 280px;
+  }
+
+  .library-tools {
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .library-search {
+    width: 100%;
   }
 
   .site-footer {

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#070b15">
     <title>Walkthrough Game Hub | Sistem Panduan</title>
+    @include('partials.favicon')
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}?v={{ filemtime(public_path('css/welcome.css')) }}">
@@ -29,7 +30,7 @@
                 <aside class="guide-sidebar">
                 <a href="/" class="guide-logo" aria-label="Walkthrough Game Hub home">
                     <span class="guide-logo-mark">
-                        <img src="{{ asset('coverimg/logogamepanduan.png') }}" alt="">
+                        <img src="{{ asset('coverimg/wgh-logo.svg') }}" alt="">
                     </span>
                     <span class="guide-logo-text">
                         <strong>Walkthrough</strong>
@@ -38,8 +39,8 @@
                 </a>
 
                 <nav class="guide-nav" aria-label="Main navigation">
-                    <a href="/" class="active">Home</a>
-                    <a href="#guides">Walkthroughs</a>
+                    <a href="/" class="active" data-nav-home>Home</a>
+                    <a href="#guides" data-nav-guides>Walkthroughs</a>
                     @auth
                         @if (! auth()->user()->hasRole('super_admin'))
                             <a href="{{ route('dashboard') }}">My Account</a>
@@ -50,6 +51,7 @@
                         </form>
                     @else
                         <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('register') }}" class="nav-register">Create account</a>
                     @endauth
                 </nav>
             </aside>
@@ -62,14 +64,13 @@
                         <p class="welcome-intro">Pilih game, buka chapter, lalu lanjutkan story route sampai tamat.</p>
                     </div>
                     <div class="welcome-actions">
-                        <a href="#guides" class="button primary">Browse walkthroughs</a>
-                        @auth
-                            @if (! auth()->user()->hasRole('super_admin'))
-                                <a href="{{ route('dashboard') }}" class="button secondary">My Account</a>
-                            @endif
+                        @if ($featuredGame)
+                            <a href="{{ route('games.show', ['slug' => $featuredGame->route_slug]) }}" class="button primary">
+                                Open featured walkthrough
+                            </a>
                         @else
-                            <a href="{{ route('login') }}" class="button secondary">Log in</a>
-                        @endauth
+                            <a href="#guides" class="button primary">View walkthroughs</a>
+                        @endif
                     </div>
                 </header>
 
@@ -91,9 +92,15 @@
                     <div class="section-heading">
                         <div>
                             <p class="section-label">Walkthrough library</p>
-                            <h2>Popular game walkthroughs</h2>
+                            <h2>Game walkthroughs</h2>
                         </div>
-                        <span>{{ $games->count() }} available titles</span>
+                        <div class="library-tools">
+                            <label class="library-search" for="walkthrough-search">
+                                <span>Search</span>
+                                <input id="walkthrough-search" type="search" placeholder="Search game..." autocomplete="off" data-guide-search>
+                            </label>
+                            <span>{{ $games->count() }} available titles</span>
+                        </div>
                     </div>
 
                     <div class="game-guide-grid">
@@ -107,6 +114,8 @@
                             <a
                                 href="{{ route('games.show', ['slug' => $game->route_slug]) }}"
                                 class="guide-game-card {{ $isUpcoming ? 'is-upcoming' : '' }}"
+                                data-guide-card
+                                data-guide-title="{{ strtolower($game->title) }}"
                             >
                                 <div class="guide-game-media">
                                     <img src="{{ $gameCover }}" alt="{{ $game->title }} walkthrough cover">
@@ -132,6 +141,7 @@
                             <p>Belum ada game yang dipublikasikan.</p>
                         @endforelse
                     </div>
+                    <p class="guide-search-empty" data-guide-search-empty hidden>Game walkthrough tidak ditemukan.</p>
                 </section>
 
                 @include('partials.site-footer')
@@ -140,6 +150,12 @@
     </div>
     <script>
         const spotlight = document.querySelector('[data-spotlight]');
+        const searchInput = document.querySelector('[data-guide-search]');
+        const guideCards = Array.from(document.querySelectorAll('[data-guide-card]'));
+        const searchEmpty = document.querySelector('[data-guide-search-empty]');
+        const homeNav = document.querySelector('[data-nav-home]');
+        const guidesNav = document.querySelector('[data-nav-guides]');
+        const guideSection = document.querySelector('#guides');
 
         if (spotlight) {
             const title = spotlight.querySelector('[data-spotlight-title]');
@@ -166,6 +182,31 @@
                 }, 420);
                 }, 4200);
             }
+        }
+
+        searchInput?.addEventListener('input', () => {
+            const query = searchInput.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            guideCards.forEach((card) => {
+                const isVisible = card.dataset.guideTitle.includes(query);
+                card.hidden = !isVisible;
+                visibleCount += isVisible ? 1 : 0;
+            });
+
+            if (searchEmpty) {
+                searchEmpty.hidden = visibleCount > 0;
+            }
+        });
+
+        if (guideSection && homeNav && guidesNav) {
+            const observer = new IntersectionObserver((entries) => {
+                const isGuideVisible = entries.some((entry) => entry.isIntersecting);
+                homeNav.classList.toggle('active', !isGuideVisible);
+                guidesNav.classList.toggle('active', isGuideVisible);
+            }, { threshold: 0.24 });
+
+            observer.observe(guideSection);
         }
     </script>
 </body>

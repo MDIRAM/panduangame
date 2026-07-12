@@ -1,7 +1,7 @@
 <footer class="site-footer">
     <div>
         <strong>Walkthrough Game Hub</strong>
-        <span>Database-driven game walkthroughs for fast route planning.</span>
+        <span>&copy; 2026 Walkthrough Game Hub (WGH). Built for story walkthrough reference.</span>
     </div>
 
     <nav aria-label="Footer navigation">

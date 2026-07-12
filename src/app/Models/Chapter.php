@@ -52,6 +52,11 @@ class Chapter extends Model
         return $this->hasMany(Step::class)->orderBy('order');
     }
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany(ChapterComment::class)->latest();
+    }
+
     public function walkthroughContributions(): HasMany
     {
         return $this->hasMany(WalkthroughContribution::class);

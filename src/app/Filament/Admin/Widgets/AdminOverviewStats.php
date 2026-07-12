@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Widgets;
 
 use App\Models\Chapter;
+use App\Models\ChapterComment;
 use App\Models\Game;
 use App\Models\Step;
 use App\Models\User;
@@ -40,6 +41,11 @@ class AdminOverviewStats extends BaseWidget
                 ->descriptionIcon('heroicon-m-users')
                 ->icon('heroicon-o-users')
                 ->color('gray'),
+            Stat::make('Comments', ChapterComment::count())
+                ->description('Reader discussions on walkthrough pages')
+                ->descriptionIcon('heroicon-m-chat-bubble-left-right')
+                ->icon('heroicon-o-chat-bubble-left-right')
+                ->color('info'),
         ];
     }
 }

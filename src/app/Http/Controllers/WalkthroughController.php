@@ -43,6 +43,10 @@ class WalkthroughController extends Controller
     {
         $chapter = Chapter::with([
             'game',
+            'comments' => fn ($query) => $query
+                ->where('is_approved', true)
+                ->with('user')
+                ->latest(),
             'parent',
             'steps' => fn ($query) => $query->orderBy('order', 'asc'),
         ])

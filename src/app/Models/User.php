@@ -93,4 +93,9 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         return $this->hasMany(GameRating::class);
     }
+
+    public function chapterComments(): HasMany
+    {
+        return $this->hasMany(ChapterComment::class);
+    }
 }

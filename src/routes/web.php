@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\ChapterCommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GameFavoriteController;
 use App\Http\Controllers\GameRatingController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WalkthroughController;
 use App\Models\Game;
 use App\Models\User;
@@ -120,6 +122,14 @@ Route::middleware('auth')->group(function () {
         ->name('games.rating.update');
     Route::delete('/games/{game}/rating', [GameRatingController::class, 'destroy'])
         ->name('games.rating.destroy');
+    Route::post('/chapters/{chapter}/comments', [ChapterCommentController::class, 'store'])
+        ->name('chapters.comments.store');
+    Route::delete('/comments/{comment}', [ChapterCommentController::class, 'destroy'])
+        ->name('comments.destroy');
+    Route::put('/profile', [ProfileController::class, 'update'])
+        ->name('profile.update');
+    Route::put('/profile/password', [ProfileController::class, 'updatePassword'])
+        ->name('profile.password.update');
 
     Route::post('/logout', function (Request $request) {
         Auth::logout();

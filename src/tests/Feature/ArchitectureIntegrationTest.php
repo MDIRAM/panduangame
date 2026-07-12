@@ -1,11 +1,15 @@
 <?php
 
 use App\Models\Chapter;
+use App\Models\ChapterComment;
 use App\Models\Game;
 use App\Models\User;
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 uses(RefreshDatabase::class);
 
@@ -117,6 +121,89 @@ test('official rich text renders as html on the sidebar walkthrough', function (
     ]))
         ->assertOk()
         ->assertSee('<strong>Site of Grace</strong>', false);
+});
+
+test('chapter comments belong to walkthrough pages and require login to post', function () {
+    $chapter = Chapter::whereHas('game', fn ($query) => $query->where('slug', 'persona-3-reload'))
+        ->firstOrFail();
+    $member = User::where('email', 'member@admin.com')->firstOrFail();
+
+    ChapterComment::create([
+        'chapter_id' => $chapter->id,
+        'user_id' => $member->id,
+        'body' => 'Bagian ini membantu banget buat route awal.',
+        'is_approved' => true,
+    ]);
+
+    $this->get(route('persona.story.show', ['mission' => $chapter->slug]))
+        ->assertOk()
+        ->assertSee('Comments')
+        ->assertSee('Bagian ini membantu banget buat route awal.')
+        ->assertSee('Login to join the discussion');
+
+    $this->post(route('chapters.comments.store', $chapter), [
+        'body' => 'Guest comment',
+    ])->assertRedirect(route('login'));
+
+    $this->actingAs($member)
+        ->post(route('chapters.comments.store', $chapter), [
+            'body' => 'Komentar dari user login.',
+        ])
+        ->assertRedirect(route('persona.story.show', ['mission' => $chapter->slug]) . '#comments')
+        ->assertSessionHas('comment_status');
+
+    $this->assertDatabaseHas('chapter_comments', [
+        'chapter_id' => $chapter->id,
+        'user_id' => $member->id,
+        'body' => 'Komentar dari user login.',
+    ]);
+
+    $comment = ChapterComment::where('body', 'Komentar dari user login.')->firstOrFail();
+
+    $this->actingAs($member)
+        ->delete(route('comments.destroy', $comment))
+        ->assertRedirect(route('persona.story.show', ['mission' => $chapter->slug]) . '#comments');
+
+    $this->assertDatabaseMissing('chapter_comments', [
+        'id' => $comment->id,
+    ]);
+});
+
+test('game comment toggle hides comments across all chapters and blocks posting', function () {
+    $game = Game::where('slug', 'elden-ring')->firstOrFail();
+    $chapter = $game->chapters()->firstOrFail();
+    $member = User::where('email', 'member@admin.com')->firstOrFail();
+
+    ChapterComment::create([
+        'chapter_id' => $chapter->id,
+        'user_id' => $member->id,
+        'body' => 'Komentar lama untuk Elden Ring.',
+        'is_approved' => true,
+    ]);
+
+    $game->update(['comments_enabled' => false]);
+
+    $this->get(route('games.walkthrough.show', [
+        'gameSlug' => $game->route_slug,
+        'chapterSlug' => $chapter->slug,
+    ]))
+        ->assertOk()
+        ->assertDontSee('Comments')
+        ->assertDontSee('Komentar lama untuk Elden Ring.');
+
+    $this->actingAs($member)
+        ->post(route('chapters.comments.store', $chapter), [
+            'body' => 'Komentar ketika fitur mati.',
+        ])
+        ->assertForbidden();
+});
+
+test('super admin can manage chapter comments in filament', function () {
+    $admin = User::where('email', 'admin@admin.com')->firstOrFail();
+
+    $this->actingAs($admin)
+        ->get('/admin/chapter-comments')
+        ->assertOk();
 });
 
 test('registration stores a member user without admin or contribution access', function () {
@@ -254,6 +341,42 @@ test('member dashboard shows favorites and ratings instead of contribution tools
         ->assertSee($member->email)
         ->assertDontSee('My Walkthroughs')
         ->assertDontSee('Contribution status');
+});
+
+test('member can update profile name and avatar from my account', function () {
+    Storage::fake('public');
+
+    $member = User::where('email', 'member@admin.com')->firstOrFail();
+
+    $this->actingAs($member)
+        ->put(route('profile.update'), [
+            'name' => 'Updated Member',
+            'avatar' => UploadedFile::fake()->image('avatar.jpg', 300, 300),
+        ])
+        ->assertRedirect(route('dashboard'))
+        ->assertSessionHas('profile_status');
+
+    $member->refresh();
+
+    expect($member->name)->toBe('Updated Member')
+        ->and($member->avatar_url)->not->toBeNull();
+
+    Storage::disk('public')->assertExists($member->avatar_url);
+});
+
+test('member can securely change password from my account', function () {
+    $member = User::where('email', 'member@admin.com')->firstOrFail();
+
+    $this->actingAs($member)
+        ->put(route('profile.password.update'), [
+            'current_password' => 'password',
+            'password' => 'updated-password',
+            'password_confirmation' => 'updated-password',
+        ])
+        ->assertRedirect(route('dashboard'))
+        ->assertSessionHas('password_status');
+
+    expect(Hash::check('updated-password', $member->fresh()->password))->toBeTrue();
 });
 
 test('legacy contributor account page uses the same user library', function () {

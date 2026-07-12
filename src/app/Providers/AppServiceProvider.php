@@ -21,6 +21,8 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\VerticalAlignment;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\ValidationException;
@@ -60,5 +62,33 @@ class AppServiceProvider extends ServiceProvider
         MountableAction::configureUsing(function (MountableAction $action) {
             $action->modalFooterActionsAlignment(Alignment::Right);
         });
+
+        $this->registerAdminActivityLogs();
+    }
+
+    private function registerAdminActivityLogs(): void
+    {
+        $models = [
+            Game::class,
+            Chapter::class,
+            Step::class,
+            User::class,
+        ];
+
+        foreach ($models as $modelClass) {
+            foreach (['created', 'updated', 'deleted'] as $event) {
+                $modelClass::{$event}(function (Model $model) use ($event): void {
+                    if (! Auth::check()) {
+                        return;
+                    }
+
+                    activity('Resource')
+                        ->event(ucfirst($event))
+                        ->causedBy(Auth::user())
+                        ->performedOn($model)
+                        ->log(class_basename($model) . ' ' . ucfirst($event) . ' by ' . Auth::user()->name);
+                });
+            }
+        }
     }
 }

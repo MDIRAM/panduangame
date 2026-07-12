@@ -30,6 +30,7 @@ class DashboardController extends Controller
             ->get();
 
         return view('dashboard', [
+            'avatarUrl' => $user->getFilamentAvatarUrl(),
             'favoriteCount' => $user->gameFavorites()->count(),
             'libraryGames' => $libraryGames,
             'ratingCount' => $user->gameRatings()->count(),

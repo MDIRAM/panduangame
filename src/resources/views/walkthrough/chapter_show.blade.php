@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#080d18">
     <title>{{ $chapter->chapter_title }} | {{ $chapter->game->title }}</title>
+    @include('partials.favicon')
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet">
     @php
@@ -521,14 +522,15 @@
         .step img {
             display: block;
             width: min(100%, 780px);
-            min-height: 220px;
-            aspect-ratio: 16 / 9;
+            min-height: auto;
+            max-height: 600px;
             height: auto;
             margin-top: 22px;
             border: 1px solid #334155;
             border-radius: 6px;
             background: #111827;
             object-fit: contain;
+            cursor: zoom-in;
         }
 
         .step-content figure.is-broken,
@@ -538,11 +540,17 @@
             display: none;
         }
 
-        .back-to-top {
+        .scroll-actions {
             position: fixed;
             right: 24px;
             bottom: 24px;
             z-index: 50;
+            display: grid;
+            gap: 10px;
+        }
+
+        .back-to-top,
+        .scroll-to-bottom {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -561,14 +569,66 @@
             transition: opacity 160ms ease, transform 160ms ease, background 160ms ease;
         }
 
-        .back-to-top.is-visible {
+        .back-to-top.is-visible,
+        .scroll-to-bottom.is-visible {
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0);
         }
 
-        .back-to-top:hover {
+        .back-to-top:hover,
+        .scroll-to-bottom:hover {
             background: #ffffff;
+        }
+
+        .image-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(2, 6, 23, 0.92);
+            backdrop-filter: blur(10px);
+        }
+
+        .image-lightbox.is-open {
+            display: flex;
+        }
+
+        .image-lightbox img {
+            display: block;
+            width: auto;
+            max-width: min(96vw, 1320px);
+            max-height: 90vh;
+            border: 1px solid color-mix(in srgb, var(--guide-accent) 55%, #ffffff);
+            border-radius: 8px;
+            background: #020617;
+            object-fit: contain;
+            box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55);
+        }
+
+        .image-lightbox-close {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.78);
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .image-lightbox-close:hover {
+            background: rgba(30, 41, 59, 0.95);
         }
 
         body.theme-gold .steps {
@@ -867,6 +927,263 @@
             min-height: 1px;
         }
 
+        .comments-section {
+            margin-top: 38px;
+            padding: 24px;
+            border: 1px solid color-mix(in srgb, var(--guide-border) 76%, rgba(255, 255, 255, 0.26));
+            border-radius: 10px;
+            background:
+                radial-gradient(circle at top right, color-mix(in srgb, var(--guide-accent) 16%, transparent), transparent 34%),
+                linear-gradient(135deg, rgba(14, 22, 35, 0.62), rgba(6, 10, 17, 0.52));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+        }
+
+        .comments-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .comments-kicker {
+            margin: 0 0 7px;
+            color: var(--guide-accent);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .comments-header h2 {
+            margin: 0;
+            color: #f8fafc;
+            font-size: 24px;
+            line-height: 1.25;
+        }
+
+        .comments-header span {
+            color: #9fb0c8;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .comment-status {
+            margin: 18px 0 0;
+            padding: 11px 14px;
+            border: 1px solid #256d4b;
+            border-radius: 6px;
+            background: #10271f;
+            color: #b7f7d4;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .comment-form,
+        .comment-login-card,
+        .comments-empty {
+            margin-top: 18px;
+            padding: 18px;
+            border: 1px solid color-mix(in srgb, var(--guide-border) 78%, rgba(255, 255, 255, 0.24));
+            border-radius: 10px;
+            background: rgba(9, 15, 26, 0.58);
+        }
+
+        .comment-form {
+            display: grid;
+            gap: 10px;
+        }
+
+        .comment-form label {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            min-height: 118px;
+            resize: vertical;
+            border: 1px solid color-mix(in srgb, var(--guide-border) 72%, rgba(255, 255, 255, 0.28));
+            border-radius: 7px;
+            background: rgba(4, 10, 18, 0.58);
+            color: #e5edf8;
+            font: inherit;
+            line-height: 1.6;
+            padding: 12px 14px;
+        }
+
+        .comment-form textarea:focus {
+            border-color: var(--guide-accent);
+            outline: 2px solid color-mix(in srgb, var(--guide-accent) 35%, transparent);
+            outline-offset: 2px;
+        }
+
+        .comment-form button,
+        .comment-login-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            min-height: 42px;
+            padding: 0 16px;
+            border: 1px solid var(--guide-accent);
+            border-radius: 6px;
+            background: var(--guide-accent);
+            color: #07111f;
+            cursor: pointer;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .comment-form button {
+            justify-self: end;
+            padding: 0 18px;
+        }
+
+        .comment-login-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .comment-login-card h3,
+        .comments-empty h3 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .comment-login-card p,
+        .comments-empty p {
+            margin: 7px 0 0;
+            color: #9fb0c8;
+            line-height: 1.6;
+        }
+
+        .comment-login-actions {
+            display: flex;
+            flex: 0 0 auto;
+            gap: 10px;
+        }
+
+        .comment-login-actions a + a {
+            border-color: #526078;
+            background: #172235;
+            color: #ffffff;
+        }
+
+        .comment-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .comment-card {
+            display: grid;
+            grid-template-columns: 48px minmax(0, 1fr);
+            gap: 15px;
+            padding: 16px;
+            border: 1px solid color-mix(in srgb, var(--guide-border) 70%, rgba(255, 255, 255, 0.2));
+            border-radius: 10px;
+            background: rgba(4, 9, 15, 0.52);
+        }
+
+        .comment-avatar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border: 1px solid color-mix(in srgb, var(--guide-accent) 45%, #64748b);
+            border-radius: 999px;
+            background: color-mix(in srgb, var(--guide-accent) 18%, #111827);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 900;
+            overflow: hidden;
+        }
+
+        .comment-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .comment-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .comment-meta > div {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .comment-meta strong {
+            color: #ffffff;
+            font-size: 15px;
+        }
+
+        .comment-meta time {
+            color: #73849d;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .comment-body p {
+            margin: 8px 0 0;
+            color: #cbd5e1;
+            line-height: 1.65;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+        }
+
+        .comment-delete-form {
+            margin: 0;
+        }
+
+        .comment-delete-form button {
+            border: 1px solid rgba(248, 113, 113, 0.32);
+            border-radius: 999px;
+            background: rgba(127, 29, 29, 0.12);
+            color: #fca5a5;
+            cursor: pointer;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 6px 10px;
+        }
+
+        .comment-delete-form button:hover {
+            border-color: rgba(248, 113, 113, 0.72);
+            background: rgba(127, 29, 29, 0.28);
+        }
+
+        body.theme-gold .comments-section {
+            background:
+                radial-gradient(circle at top right, color-mix(in srgb, var(--guide-accent) 14%, transparent), transparent 34%),
+                linear-gradient(135deg, rgba(29, 27, 18, 0.64), rgba(7, 9, 8, 0.58));
+        }
+
+        body.theme-gold .comment-form,
+        body.theme-gold .comment-login-card,
+        body.theme-gold .comments-empty,
+        body.theme-gold .comment-card {
+            background: rgba(7, 9, 8, 0.52);
+        }
+
+        body.theme-gold .comment-form textarea {
+            background: rgba(3, 5, 5, 0.58);
+        }
+
         @media (max-width: 860px) {
             html {
                 height: auto;
@@ -1022,6 +1339,26 @@
             .engagement-button,
             .engagement-login {
                 width: 100%;
+            }
+
+            .comments-header,
+            .comment-login-card,
+            .comment-login-actions {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .comment-form button {
+                justify-self: stretch;
+            }
+
+            .comment-card {
+                grid-template-columns: 38px minmax(0, 1fr);
+            }
+
+            .comment-avatar {
+                width: 38px;
+                height: 38px;
             }
         }
     </style>
@@ -1250,17 +1587,114 @@
                         @endif
                     </div>
                 </nav>
+
+                @if ($chapter->game->comments_enabled)
+                    <section class="comments-section" id="comments" aria-label="Comments for {{ $chapter->chapter_title }}">
+                        <div class="comments-header">
+                            <div>
+                                <p class="comments-kicker">Discussion</p>
+                                <h2>Comments</h2>
+                            </div>
+                            <span>{{ $chapter->comments->count() }} comment{{ $chapter->comments->count() === 1 ? '' : 's' }}</span>
+                        </div>
+
+                        @if (session('comment_status'))
+                            <p class="comment-status" role="status">{{ session('comment_status') }}</p>
+                        @endif
+
+                        @auth
+                            <form action="{{ route('chapters.comments.store', $chapter) }}" method="POST" class="comment-form">
+                                @csrf
+                                <label for="comment-body">Join the discussion</label>
+                                <textarea
+                                    id="comment-body"
+                                    name="body"
+                                    rows="4"
+                                    maxlength="2000"
+                                    placeholder="Tulis komentar atau catatan tentang halaman walkthrough ini..."
+                                    required
+                                >{{ old('body') }}</textarea>
+                                @error('body')
+                                    <p class="field-error">{{ $message }}</p>
+                                @enderror
+                                <button type="submit">Submit comment</button>
+                            </form>
+                        @else
+                            <div class="comment-login-card">
+                                <div>
+                                    <h3>Login to join the discussion</h3>
+                                    <p>Guest bisa membaca komentar. Login dulu kalau mau ikut menulis komentar di halaman ini.</p>
+                                </div>
+                                <div class="comment-login-actions">
+                                    <a href="{{ route('login') }}">Login to comment</a>
+                                    <a href="{{ route('register') }}">Create account</a>
+                                </div>
+                            </div>
+                        @endauth
+
+                        <div class="comment-list">
+                            @forelse ($chapter->comments as $comment)
+                                <article class="comment-card">
+                                    <div class="comment-avatar" aria-hidden="true">
+                                        @if ($comment->user->avatar_url)
+                                            <img src="{{ asset('storage/' . $comment->user->avatar_url) }}" alt="">
+                                        @else
+                                            {{ strtoupper(mb_substr($comment->user->name, 0, 1)) }}
+                                        @endif
+                                    </div>
+                                    <div class="comment-body">
+                                        <div class="comment-meta">
+                                            <div>
+                                                <strong>{{ $comment->user->name }}</strong>
+                                                <time datetime="{{ $comment->created_at->toIso8601String() }}">
+                                                    {{ $comment->created_at->diffForHumans() }}
+                                                </time>
+                                            </div>
+                                            @auth
+                                                @if (auth()->id() === $comment->user_id || auth()->user()->hasRole('super_admin'))
+                                                    <form action="{{ route('comments.destroy', $comment) }}" method="POST" class="comment-delete-form">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" aria-label="Delete comment">Delete</button>
+                                                    </form>
+                                                @endif
+                                            @endauth
+                                        </div>
+                                        <p>{{ $comment->body }}</p>
+                                    </div>
+                                </article>
+                            @empty
+                                <div class="comments-empty">
+                                    <h3>Belum ada komentar</h3>
+                                    <p>Jadilah yang pertama membahas halaman walkthrough ini.</p>
+                                </div>
+                            @endforelse
+                        </div>
+                    </section>
+                @endif
             </div>
         </main>
     </div>
 
-    <button type="button" class="back-to-top" aria-label="Back to top">↑</button>
+    <div class="scroll-actions" aria-label="Page scroll shortcuts">
+        <button type="button" class="scroll-to-bottom" aria-label="Scroll to comments and bottom">↓</button>
+        <button type="button" class="back-to-top" aria-label="Back to top">↑</button>
+    </div>
+
+    <div class="image-lightbox" data-image-lightbox aria-hidden="true">
+        <button type="button" class="image-lightbox-close" data-image-lightbox-close aria-label="Close image preview">&times;</button>
+        <img src="" alt="" data-image-lightbox-image>
+    </div>
 
     <script>
         const guideScroll = document.querySelector('.guide-scroll');
         const chapterList = document.querySelector('.chapter-list');
         const activeChapter = chapterList?.querySelector('.chapter-link.active');
         const backToTopButton = document.querySelector('.back-to-top');
+        const scrollToBottomButton = document.querySelector('.scroll-to-bottom');
+        const imageLightbox = document.querySelector('[data-image-lightbox]');
+        const imageLightboxImage = document.querySelector('[data-image-lightbox-image]');
+        const imageLightboxClose = document.querySelector('[data-image-lightbox-close]');
 
         if (chapterList && activeChapter) {
             window.requestAnimationFrame(() => {
@@ -1291,19 +1725,66 @@
             if (image.complete && image.naturalWidth === 0) {
                 hideBrokenImage();
             }
+
+            image.addEventListener('click', () => {
+                if (image.classList.contains('is-broken') || !imageLightbox || !imageLightboxImage) {
+                    return;
+                }
+
+                imageLightboxImage.src = image.currentSrc || image.src;
+                imageLightboxImage.alt = image.alt || 'Walkthrough image preview';
+                imageLightbox.classList.add('is-open');
+                imageLightbox.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        const closeImageLightbox = () => {
+            if (!imageLightbox || !imageLightboxImage) {
+                return;
+            }
+
+            imageLightbox.classList.remove('is-open');
+            imageLightbox.setAttribute('aria-hidden', 'true');
+            imageLightboxImage.src = '';
+            imageLightboxImage.alt = '';
+        };
+
+        imageLightboxClose?.addEventListener('click', closeImageLightbox);
+
+        imageLightbox?.addEventListener('click', (event) => {
+            if (event.target === imageLightbox) {
+                closeImageLightbox();
+            }
+        });
+
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && imageLightbox?.classList.contains('is-open')) {
+                closeImageLightbox();
+            }
         });
 
         const isMobileLayout = () => window.matchMedia('(max-width: 860px)').matches;
         const currentScrollTop = () => isMobileLayout()
             ? window.scrollY
             : (guideScroll?.scrollTop ?? 0);
-        const updateBackToTop = () => {
-            backToTopButton?.classList.toggle('is-visible', currentScrollTop() > 520);
+        const maxScrollTop = () => {
+            if (isMobileLayout()) {
+                return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+            }
+
+            return Math.max(0, (guideScroll?.scrollHeight ?? 0) - (guideScroll?.clientHeight ?? 0));
+        };
+        const updateScrollActions = () => {
+            const top = currentScrollTop();
+            const maxTop = maxScrollTop();
+
+            backToTopButton?.classList.toggle('is-visible', top > 520);
+            scrollToBottomButton?.classList.toggle('is-visible', maxTop - top > 520);
         };
 
-        guideScroll?.addEventListener('scroll', updateBackToTop, { passive: true });
-        window.addEventListener('scroll', updateBackToTop, { passive: true });
-        window.addEventListener('resize', updateBackToTop, { passive: true });
+        guideScroll?.addEventListener('scroll', updateScrollActions, { passive: true });
+        window.addEventListener('scroll', updateScrollActions, { passive: true });
+        window.addEventListener('resize', updateScrollActions, { passive: true });
 
         backToTopButton?.addEventListener('click', () => {
             if (isMobileLayout()) {
@@ -1315,7 +1796,25 @@
             guideScroll?.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        updateBackToTop();
+        scrollToBottomButton?.addEventListener('click', () => {
+            const commentsSection = document.getElementById('comments');
+
+            if (commentsSection) {
+                commentsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                return;
+            }
+
+            if (isMobileLayout()) {
+                window.scrollTo({ top: maxScrollTop(), behavior: 'smooth' });
+
+                return;
+            }
+
+            guideScroll?.scrollTo({ top: maxScrollTop(), behavior: 'smooth' });
+        });
+
+        updateScrollActions();
 
         chapterList?.addEventListener('wheel', (event) => {
             if (window.matchMedia('(max-width: 860px)').matches) {

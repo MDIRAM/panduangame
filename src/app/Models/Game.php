@@ -23,6 +23,7 @@ class Game extends Model
         'is_published',
         'theme_preset',
         'content_status',
+        'comments_enabled',
     ];
 
     protected function casts(): array
@@ -31,6 +32,7 @@ class Game extends Model
             'highlights' => 'array',
             'is_featured' => 'boolean',
             'is_published' => 'boolean',
+            'comments_enabled' => 'boolean',
         ];
     }
 

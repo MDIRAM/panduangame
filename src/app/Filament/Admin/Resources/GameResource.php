@@ -65,6 +65,10 @@ class GameResource extends Resource
                         ->default('ongoing')
                         ->required()
                         ->native(false),
+                    Forms\Components\Toggle::make('comments_enabled')
+                        ->label('Enable comments')
+                        ->helperText('Kalau mati, komentar di semua chapter game ini disembunyikan dan user tidak bisa submit.')
+                        ->default(true),
                     Forms\Components\TagsInput::make('highlights')
                         ->placeholder('Tambahkan highlight')
                         ->columnSpanFull(),
@@ -117,6 +121,9 @@ class GameResource extends Resource
                     ->boolean(),
                 Tables\Columns\IconColumn::make('is_published')
                     ->boolean(),
+                Tables\Columns\IconColumn::make('comments_enabled')
+                    ->label('Comments')
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable(),
@@ -129,6 +136,8 @@ class GameResource extends Resource
                 Tables\Filters\SelectFilter::make('content_status')
                     ->label('Walkthrough status')
                     ->options(Game::contentStatuses()),
+                Tables\Filters\TernaryFilter::make('comments_enabled')
+                    ->label('Comments enabled'),
             ])
             ->actions([
                 Tables\Actions\Action::make('manageWalkthrough')
