@@ -155,7 +155,6 @@ https://panduangame.test
 Jika domain lokal belum aktif, tambahkan ini ke hosts file:
 
 ```text
-127.0.0.1 panduangame.test
 ```
 
 ## Testing

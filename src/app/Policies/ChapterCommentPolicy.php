@@ -10,11 +10,6 @@ class ChapterCommentPolicy
 {
     use HandlesAuthorization;
 
-    public function before(User $user): ?bool
-    {
-        return $user->hasRole('super_admin') ? true : null;
-    }
-
     /**
      * Determine whether the user can view any models.
      */

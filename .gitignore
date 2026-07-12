@@ -10,3 +10,6 @@ src/node_modules/
 # Environment files
 .env
 src/.env
+
+# SSL certificates
+nginx/ssl/

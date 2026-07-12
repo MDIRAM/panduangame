@@ -22,6 +22,7 @@ class RoleSeeder extends Seeder
             'game',
             'chapter',
             'step',
+            'chapter::comment',
             'contribution',
             'contribution_step',
             'user',

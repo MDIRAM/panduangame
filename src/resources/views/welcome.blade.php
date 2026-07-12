@@ -27,7 +27,7 @@
     @endphp
     <div class="welcome-shell">
         <div class="guide-layout">
-                <aside class="guide-sidebar">
+            <aside class="guide-sidebar">
                 <a href="/" class="guide-logo" aria-label="Walkthrough Game Hub home">
                     <span class="guide-logo-mark">
                         <img src="{{ asset('coverimg/wgh-logo.svg') }}" alt="">
@@ -43,17 +43,17 @@
                     <a href="#guides" data-nav-guides>Walkthroughs</a>
                     @auth
                         @if (! auth()->user()->hasRole('super_admin'))
-                            <a href="{{ route('dashboard') }}">My Account</a>
+                            <a href="{{ route('dashboard') }}">My Library</a>
                         @endif
                         <form action="{{ route('logout') }}" method="POST" class="guide-nav-logout">
                             @csrf
                             <button type="submit">Log out</button>
                         </form>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}" class="nav-register">Create account</a>
+                        <a href="{{ route('login') }}" class="nav-login">Login</a>
                     @endauth
                 </nav>
+
             </aside>
 
             <main class="guide-main">
@@ -63,15 +63,13 @@
                         <h1>Full story walkthroughs, all in one place.</h1>
                         <p class="welcome-intro">Pilih game, buka chapter, lalu lanjutkan story route sampai tamat.</p>
                     </div>
-                    <div class="welcome-actions">
-                        @if ($featuredGame)
-                            <a href="{{ route('games.show', ['slug' => $featuredGame->route_slug]) }}" class="button primary">
-                                Open featured walkthrough
+                    @auth
+                        <div class="welcome-actions">
+                            <a href="{{ route('dashboard') }}" class="button primary">
+                                My Library
                             </a>
-                        @else
-                            <a href="#guides" class="button primary">View walkthroughs</a>
-                        @endif
-                    </div>
+                        </div>
+                    @endauth
                 </header>
 
                 @if ($featuredGame)
@@ -80,11 +78,11 @@
                     @endphp
                     <section class="spotlight-strip" aria-label="Featured walkthrough" data-spotlight style="--spotlight-image: url('{{ $featuredCover }}');">
                         <div>
-                            <span class="hero-tag" data-spotlight-label>Featured Route</span>
+                            <span class="hero-tag" data-spotlight-label>Recommended Route</span>
                             <h2 data-spotlight-title>{{ $featuredGame->title }}</h2>
                             <p data-spotlight-copy>{{ $featuredGame->subtitle ?: $featuredGame->description }}</p>
+                            <a href="{{ route('games.show', ['slug' => $featuredGame->route_slug]) }}" data-spotlight-link>Open walkthrough</a>
                         </div>
-                        <a href="{{ route('games.show', ['slug' => $featuredGame->route_slug]) }}" data-spotlight-link>Open walkthrough</a>
                     </section>
                 @endif
 
@@ -200,13 +198,24 @@
         });
 
         if (guideSection && homeNav && guidesNav) {
+            const setActiveNav = (isGuideActive) => {
+                homeNav.classList.toggle('active', !isGuideActive);
+                guidesNav.classList.toggle('active', isGuideActive);
+            };
+
             const observer = new IntersectionObserver((entries) => {
                 const isGuideVisible = entries.some((entry) => entry.isIntersecting);
-                homeNav.classList.toggle('active', !isGuideVisible);
-                guidesNav.classList.toggle('active', isGuideVisible);
+                setActiveNav(isGuideVisible || window.location.hash === '#guides');
             }, { threshold: 0.24 });
 
             observer.observe(guideSection);
+
+            guidesNav.addEventListener('click', () => setActiveNav(true));
+            homeNav.addEventListener('click', () => setActiveNav(false));
+
+            if (window.location.hash === '#guides') {
+                setActiveNav(true);
+            }
         }
     </script>
 </body>

@@ -1147,10 +1147,6 @@
         }
 
         .comment-delete-form {
-            margin: 0;
-        }
-
-        .comment-delete-form button {
             border: 1px solid rgba(248, 113, 113, 0.32);
             border-radius: 999px;
             background: rgba(127, 29, 29, 0.12);
@@ -1159,10 +1155,11 @@
             font: inherit;
             font-size: 12px;
             font-weight: 800;
+            margin: 0;
             padding: 6px 10px;
         }
 
-        .comment-delete-form button:hover {
+        .comment-delete-form:hover {
             border-color: rgba(248, 113, 113, 0.72);
             background: rgba(127, 29, 29, 0.28);
         }
@@ -1588,90 +1585,7 @@
                     </div>
                 </nav>
 
-                @if ($chapter->game->comments_enabled)
-                    <section class="comments-section" id="comments" aria-label="Comments for {{ $chapter->chapter_title }}">
-                        <div class="comments-header">
-                            <div>
-                                <p class="comments-kicker">Discussion</p>
-                                <h2>Comments</h2>
-                            </div>
-                            <span>{{ $chapter->comments->count() }} comment{{ $chapter->comments->count() === 1 ? '' : 's' }}</span>
-                        </div>
-
-                        @if (session('comment_status'))
-                            <p class="comment-status" role="status">{{ session('comment_status') }}</p>
-                        @endif
-
-                        @auth
-                            <form action="{{ route('chapters.comments.store', $chapter) }}" method="POST" class="comment-form">
-                                @csrf
-                                <label for="comment-body">Join the discussion</label>
-                                <textarea
-                                    id="comment-body"
-                                    name="body"
-                                    rows="4"
-                                    maxlength="2000"
-                                    placeholder="Tulis komentar atau catatan tentang halaman walkthrough ini..."
-                                    required
-                                >{{ old('body') }}</textarea>
-                                @error('body')
-                                    <p class="field-error">{{ $message }}</p>
-                                @enderror
-                                <button type="submit">Submit comment</button>
-                            </form>
-                        @else
-                            <div class="comment-login-card">
-                                <div>
-                                    <h3>Login to join the discussion</h3>
-                                    <p>Guest bisa membaca komentar. Login dulu kalau mau ikut menulis komentar di halaman ini.</p>
-                                </div>
-                                <div class="comment-login-actions">
-                                    <a href="{{ route('login') }}">Login to comment</a>
-                                    <a href="{{ route('register') }}">Create account</a>
-                                </div>
-                            </div>
-                        @endauth
-
-                        <div class="comment-list">
-                            @forelse ($chapter->comments as $comment)
-                                <article class="comment-card">
-                                    <div class="comment-avatar" aria-hidden="true">
-                                        @if ($comment->user->avatar_url)
-                                            <img src="{{ asset('storage/' . $comment->user->avatar_url) }}" alt="">
-                                        @else
-                                            {{ strtoupper(mb_substr($comment->user->name, 0, 1)) }}
-                                        @endif
-                                    </div>
-                                    <div class="comment-body">
-                                        <div class="comment-meta">
-                                            <div>
-                                                <strong>{{ $comment->user->name }}</strong>
-                                                <time datetime="{{ $comment->created_at->toIso8601String() }}">
-                                                    {{ $comment->created_at->diffForHumans() }}
-                                                </time>
-                                            </div>
-                                            @auth
-                                                @if (auth()->id() === $comment->user_id || auth()->user()->hasRole('super_admin'))
-                                                    <form action="{{ route('comments.destroy', $comment) }}" method="POST" class="comment-delete-form">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" aria-label="Delete comment">Delete</button>
-                                                    </form>
-                                                @endif
-                                            @endauth
-                                        </div>
-                                        <p>{{ $comment->body }}</p>
-                                    </div>
-                                </article>
-                            @empty
-                                <div class="comments-empty">
-                                    <h3>Belum ada komentar</h3>
-                                    <p>Jadilah yang pertama membahas halaman walkthrough ini.</p>
-                                </div>
-                            @endforelse
-                        </div>
-                    </section>
-                @endif
+                <livewire:chapter-comments :chapter="$chapter" />
             </div>
         </main>
     </div>
