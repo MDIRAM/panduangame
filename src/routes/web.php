@@ -75,31 +75,6 @@ Route::middleware('guest')->group(function () {
     Route::view('/login', 'auth.login')->name('login');
     Route::view('/register', 'auth.register')->name('register');
 
-    Route::post('/register', function (Request $request) {
-        $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-
-        $user = User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-        ]);
-
-        $memberRole = Role::firstOrCreate([
-            'name' => 'member',
-            'guard_name' => 'web',
-        ]);
-        $user->assignRole($memberRole);
-
-        Auth::login($user);
-        $request->session()->regenerate();
-
-        return redirect()->route('home');
-    })->name('register.store');
-
     // Forgot/Reset Password Routes
     Route::get('/forgot-password', function () {
         return view('auth.forgot-password');
